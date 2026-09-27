@@ -1,0 +1,135 @@
+{
+  "political_framing": {
+    "input_text": "The rise in homegrown terrorism has become a major concern. Critics say this is part of a radical left agenda.",
+    "flags": [
+      {
+        "sentence": "The rise in homegrown terrorism has become a major concern.",
+        "matched_value": "homegrown terrorism",
+        "start_index": 12,
+        "end_index": 31,
+        "type": "bias_framing",
+        "category": "loaded_political_terms"
+      },
+      {
+        "sentence": "Critics say this is part of a radical left agenda.",
+        "matched_value": "radical left",
+        "start_index": 90,
+        "end_index": 102,
+        "type": "bias_framing",
+        "category": "loaded_political_terms"
+      }
+    ]
+  },
+  "emotionally_charged": {
+    "input_text": "Analysts describe this as a crisis requiring urgent action. The report calls the situation unprecedented and alarming.",
+    "flags": [
+      {
+        "sentence": "Analysts describe this as a crisis requiring urgent action.",
+        "matched_value": "crisis",
+        "start_index": 28,
+        "end_index": 34,
+        "type": "bias_framing",
+        "category": "emotionally_charged_terms"
+      },
+      {
+        "sentence": "The report calls the situation unprecedented and alarming.",
+        "matched_value": "unprecedented",
+        "start_index": 91,
+        "end_index": 104,
+        "type": "bias_framing",
+        "category": "emotionally_charged_terms"
+      },
+      {
+        "sentence": "The report calls the situation unprecedented and alarming.",
+        "matched_value": "alarming",
+        "start_index": 109,
+        "end_index": 117,
+        "type": "bias_framing",
+        "category": "emotionally_charged_terms"
+      }
+    ]
+  },
+  "event_framing": {
+    "input_text": "Police described the gathering as a riot, while organizers called the same people freedom fighters resisting an unjust system.",
+    "flags": [
+      {
+        "sentence": "Police described the gathering as a riot, while organizers called the same people freedom fighters resisting an unjust system.",
+        "matched_value": "riot",
+        "start_index": 36,
+        "end_index": 40,
+        "type": "bias_framing",
+        "category": "loaded_framing_of_events"
+      },
+      {
+        "sentence": "Police described the gathering as a riot, while organizers called the same people freedom fighters resisting an unjust system.",
+        "matched_value": "freedom fighters",
+        "start_index": 82,
+        "end_index": 98,
+        "type": "bias_framing",
+        "category": "loaded_framing_of_events"
+      }
+    ]
+  },
+  "absolutist_claims": {
+    "input_text": "Everyone knows that this policy always fails. It is a fact that no one disputes this conclusion.",
+    "flags": [
+      {
+        "sentence": "Everyone knows that this policy always fails.",
+        "matched_value": "Everyone knows",
+        "start_index": 0,
+        "end_index": 14,
+        "type": "bias_framing",
+        "category": "absolutist_or_overgeneralizing_terms"
+      },
+      {
+        "sentence": "Everyone knows that this policy always fails.",
+        "matched_value": "always",
+        "start_index": 32,
+        "end_index": 38,
+        "type": "bias_framing",
+        "category": "absolutist_or_overgeneralizing_terms"
+      },
+      {
+        "sentence": "It is a fact that no one disputes this conclusion.",
+        "matched_value": "It is a fact that",
+        "start_index": 46,
+        "end_index": 63,
+        "type": "bias_framing",
+        "category": "absolutist_or_overgeneralizing_terms"
+      },
+      {
+        "sentence": "It is a fact that no one disputes this conclusion.",
+        "matched_value": "no one disputes",
+        "start_index": 64,
+        "end_index": 79,
+        "type": "bias_framing",
+        "category": "absolutist_or_overgeneralizing_terms"
+      }
+    ]
+  },
+  "no_bias": {
+    "input_text": "Photosynthesis is the process by which plants convert sunlight into energy.",
+    "flags": []
+  },
+  "case_insensitivity_check": {
+    "input_text": "This was described as a CRISIS, and some called it a Riot.",
+    "flags": [
+      {
+        "sentence": "This was described as a CRISIS, and some called it a Riot.",
+        "matched_value": "CRISIS",
+        "start_index": 24,
+        "end_index": 30,
+        "type": "bias_framing",
+        "category": "emotionally_charged_terms"
+      },
+      {
+        "sentence": "This was described as a CRISIS, and some called it a Riot.",
+        "matched_value": "Riot",
+        "start_index": 53,
+        "end_index": 57,
+        "type": "bias_framing",
+        "category": "loaded_framing_of_events"
+      }
+    ]
+  }
+}

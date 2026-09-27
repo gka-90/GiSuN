@@ -1,0 +1,124 @@
+{
+  "basic": {
+    "input_text": "Unemployment reportedly hit 8.5% in 2020, according to several reports. The company raised $2.3M in its first funding round back in 1999. By 2024, the market had grown to over $1B in total value.",
+    "flags": [
+      {
+        "sentence": "Unemployment reportedly hit 8.5% in 2020, according to several reports.",
+        "matched_value": "8.5%",
+        "start_index": 28,
+        "end_index": 32,
+        "type": "percentage"
+      },
+      {
+        "sentence": "Unemployment reportedly hit 8.5% in 2020, according to several reports.",
+        "matched_value": "2020",
+        "start_index": 36,
+        "end_index": 40,
+        "type": "year"
+      },
+      {
+        "sentence": "The company raised $2.3M in its first funding round back in 1999.",
+        "matched_value": "$2.3M",
+        "start_index": 91,
+        "end_index": 96,
+        "type": "dollar_amount"
+      },
+      {
+        "sentence": "The company raised $2.3M in its first funding round back in 1999.",
+        "matched_value": "1999",
+        "start_index": 132,
+        "end_index": 136,
+        "type": "year"
+      },
+      {
+        "sentence": "By 2024, the market had grown to over $1B in total value.",
+        "matched_value": "2024",
+        "start_index": 141,
+        "end_index": 145,
+        "type": "year"
+      },
+      {
+        "sentence": "By 2024, the market had grown to over $1B in total value.",
+        "matched_value": "$1B",
+        "start_index": 176,
+        "end_index": 179,
+        "type": "dollar_amount"
+      }
+    ]
+  },
+  "no_numbers": {
+    "input_text": "Photosynthesis is the process by which plants make food.",
+    "flags": []
+  },
+  "tricky_false_positives": {
+    "input_text": "See page 2020 of the report for details. Version 8.5 was released recently.",
+    "flags": [
+      {
+        "sentence": "See page 2020 of the report for details.",
+        "matched_value": "2020",
+        "start_index": 9,
+        "end_index": 13,
+        "type": "year"
+      }
+    ]
+  },
+  "multiple_numbers_one_sentence": {
+    "input_text": "Between 2019 and 2023, revenue grew from $10M to $50M, a 400% increase.",
+    "flags": [
+      {
+        "sentence": "Between 2019 and 2023, revenue grew from $10M to $50M, a 400% increase.",
+        "matched_value": "2019",
+        "start_index": 8,
+        "end_index": 12,
+        "type": "year"
+      },
+      {
+        "sentence": "Between 2019 and 2023, revenue grew from $10M to $50M, a 400% increase.",
+        "matched_value": "2023",
+        "start_index": 17,
+        "end_index": 21,
+        "type": "year"
+      },
+      {
+        "sentence": "Between 2019 and 2023, revenue grew from $10M to $50M, a 400% increase.",
+        "matched_value": "$10M",
+        "start_index": 41,
+        "end_index": 45,
+        "type": "dollar_amount"
+      },
+      {
+        "sentence": "Between 2019 and 2023, revenue grew from $10M to $50M, a 400% increase.",
+        "matched_value": "$50M",
+        "start_index": 49,
+        "end_index": 53,
+        "type": "dollar_amount"
+      },
+      {
+        "sentence": "Between 2019 and 2023, revenue grew from $10M to $50M, a 400% increase.",
+        "matched_value": "400%",
+        "start_index": 57,
+        "end_index": 61,
+        "type": "percentage"
+      }
+    ]
+  },
+  "number_at_edges": {
+    "input_text": "2024 was a record year. Growth reached 12%.",
+    "flags": [
+      {
+        "sentence": "2024 was a record year.",
+        "matched_value": "2024",
+        "start_index": 0,
+        "end_index": 4,
+        "type": "year"
+      },
+      {
+        "sentence": "Growth reached 12%.",
+        "matched_value": "12%",
+        "start_index": 39,
+        "end_index": 42,
+        "type": "percentage"
+      }
+    ]
+  }
+}
