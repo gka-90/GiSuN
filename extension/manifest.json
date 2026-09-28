@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "GiSuN",
+  "version": "0.1.0",
+  "description": "Highlights unverified statistics and loaded phrasing in chatbot responses.",
+  "permissions": ["storage"],
+  "host_permissions": ["http://localhost:8000/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://chatgpt.com/*", "https://chat.openai.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
