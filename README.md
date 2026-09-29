@@ -89,8 +89,9 @@ Every detector returns flags in the same shape, and `/verify` returns them sorte
 conda create -n ai-guardrail python=3.11
 conda activate ai-guardrail
 conda install pip
-pip install ollama fastapi uvicorn
+pip install -r requirements.txt
 ```
+Already have the environment? Just run `conda activate ai-guardrail && pip install -r requirements.txt` (re-run it after pulling if `requirements.txt` changed).
 
 ### 2. Backend
 Run from the project root and **keep this terminal open** while using the extension:
@@ -139,6 +140,7 @@ After editing anything in `extension/`, click the ↻ reload button on the GiSuN
 │   ├── background.js            # Relays text to /verify; fallback detectors if backend is down
 │   └── styles.css               # Highlight, tooltip, modal styles
 ├── server.py                    # FastAPI backend: POST /verify
+├── requirements.txt             # Python dependencies
 ├── detect_numeric_claims.py     # Regex-based numeric/stat detection
 ├── detect_bias_framing.py       # Word-list based bias detection
 ├── bias_wordlist.json           # Curated word list (81 terms, 5 categories)

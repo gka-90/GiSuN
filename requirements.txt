@@ -1,0 +1,6 @@
+# Backend (server.py)
+fastapi>=0.141,<1
+uvicorn>=0.54,<1
+
+# Two Truths and a Lie quiz (two_truths_one_lie/quiz_generator.py)
+ollama>=0.6,<1
