@@ -1,7 +1,9 @@
 // Flow: observe_dom_for_new_response() -> background.js (POST /verify)
 //       -> render_highlights() -> handle_interaction_mode()
 
-const RESPONSE_SELECTOR = '[data-message-author-role="assistant"]';
+// Old ChatGPT layout used data-message-author-role; the 2026 layout (chatgpt.com/uc/...) uses data-message-role
+const RESPONSE_SELECTOR = '[data-message-author-role="assistant"], [data-message-role="assistant"]';
+const MARKDOWN_SELECTOR = ".markdown, [data-assistant-markdown]";
 const STREAM_DONE_MS = 1500; // no changes for this long = response finished streaming
 const BLOCK_TAGS = new Set([
   "P", "LI", "H1", "H2", "H3", "H4", "H5", "H6", "PRE", "BLOCKQUOTE", "TR", "TD", "TH", "DIV",
@@ -28,6 +30,8 @@ function observe_dom_for_new_response() {
     }
   });
   observer.observe(document.body, { childList: true, subtree: true, characterData: true });
+  // Responses already on the page when the script loads never trigger a mutation
+  document.querySelectorAll(RESPONSE_SELECTOR).forEach(scheduleCheck);
 }
 
 // ChatGPT streams text in piece by piece, so wait until a response stops changing
@@ -40,7 +44,7 @@ function scheduleCheck(response) {
 }
 
 async function processResponse(response) {
-  const container = response.querySelector(".markdown") ?? response;
+  const container = response.querySelector(MARKDOWN_SELECTOR) ?? response;
   const { text } = buildTextMap(container);
   // Our own highlighting also triggers the observer; the text is unchanged, so skip it
   if (!text.trim() || processedText.get(response) === text) return;
