@@ -1,0 +1,801 @@
+{
+  "summary": {
+    "model": "qwen2.5:3b",
+    "sentences": 25,
+    "runs": 3,
+    "labels": "context_labels_draft.json",
+    "wordlist": {
+      "accuracy": 0.52,
+      "cleared_ok": "0/12",
+      "cleared_wrong": "0/13",
+      "by_group": {
+        "not_slanted_literal": 0.0,
+        "not_slanted_with_cue": 0.0,
+        "slanted_no_cue": 1.0,
+        "slanted_with_cue": 1.0
+      }
+    },
+    "cue_rule": {
+      "accuracy": 0.68,
+      "cleared_ok": "10/12",
+      "cleared_wrong": "6/13",
+      "by_group": {
+        "not_slanted_literal": 0.0,
+        "not_slanted_with_cue": 1.0,
+        "slanted_no_cue": 1.0,
+        "slanted_with_cue": 0.143
+      }
+    },
+    "agent": {
+      "accuracy": 0.587,
+      "cleared_ok": "5/36",
+      "cleared_wrong": "0/39",
+      "by_group": {
+        "not_slanted_literal": 0.0,
+        "not_slanted_with_cue": 0.167,
+        "slanted_no_cue": 1.0,
+        "slanted_with_cue": 1.0
+      }
+    },
+    "agent_consistency": 0.88,
+    "agent_by_agent": 0.933,
+    "agent_latency_s": 3.53
+  },
+  "items": [
+    {
+      "id": "hit-01",
+      "group": "slanted_no_cue",
+      "text": "Experts say the new policy is a disaster for small businesses.",
+      "terms": [
+        "Experts say",
+        "disaster"
+      ],
+      "gold_slanted": true,
+      "cue_rule_slanted": true,
+      "agent": [
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "the response is not endorsing the loaded word 'Experts say', but rather criticizing it by calling the policy a 'disaster'",
+          "cue": null
+        },
+        {
+          "verdict": "vague_attribution",
+          "by": "agent",
+          "reason": "Experts say is a vague attribution cue, but not a negation or direct quote.",
+          "cue": null
+        },
+        {
+          "verdict": "vague_attribution",
+          "by": "agent",
+          "reason": "the response uses 'Experts say' without a specific source, which is vague_attribution",
+          "cue": null
+        }
+      ]
+    },
+    {
+      "id": "hit-02",
+      "group": "slanted_no_cue",
+      "text": "The city has seen an invasion of tourists this summer.",
+      "terms": [
+        "invasion"
+      ],
+      "gold_slanted": true,
+      "cue_rule_slanted": true,
+      "agent": [
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The word 'invasion' is used to describe tourists, which is emotionally charged and pushes a negative view without a specific source.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The word 'invasion' is used to describe tourists, which can be seen as pushing an opinion or emotion instead of describing neutrally.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The word 'invasion' is used to describe tourists, which is emotionally charged and pushes a negative view without providing context.",
+          "cue": null
+        }
+      ]
+    },
+    {
+      "id": "hit-03",
+      "group": "slanted_no_cue",
+      "text": "Rents are skyrocketing in every major city.",
+      "terms": [
+        "skyrocketing"
+      ],
+      "gold_slanted": true,
+      "cue_rule_slanted": true,
+      "agent": [
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "Rents are skyrocketing in every major city. The word 'skyrocketing' pushes a negative emotion, framing the situation as a crisis without naming a source.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "Rents are skyrocketing in every major city. The word 'skyrocketing' pushes a strong negative emotion, framing the situation as a crisis without naming a specific source.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "Rents are skyrocketing in every major city. The word 'skyrocketing' pushes a strong negative emotion, framing the situation as a crisis without naming any specific source.",
+          "cue": null
+        }
+      ]
+    },
+    {
+      "id": "hit-04",
+      "group": "slanted_no_cue",
+      "text": "The governor slammed the proposal as a government takeover of healthcare.",
+      "terms": [
+        "slammed",
+        "government takeover"
+      ],
+      "gold_slanted": true,
+      "cue_rule_slanted": true,
+      "agent": [
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The governor's use of 'slammed' to describe the proposal is emotionally charged, pushing a negative view without providing evidence.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The governor's use of 'slammed' to describe the proposal is emotionally charged and pushes a view.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The word 'slammed' is used to express strong disapproval, pushing an opinion rather than describing neutrally.",
+          "cue": null
+        }
+      ]
+    },
+    {
+      "id": "hit-05",
+      "group": "slanted_no_cue",
+      "text": "Coastal elites have ignored the concerns of rural voters.",
+      "terms": [
+        "Coastal elites"
+      ],
+      "gold_slanted": true,
+      "cue_rule_slanted": true,
+      "agent": [
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The phrase 'Coastal elites' is used to describe a group in a way that suggests they are the main issue, which is a loaded language approach.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The term 'Coastal elites' is used to describe a group in a way that implies they are the main problem, pushing a biased view.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The term 'Coastal elites' is used to describe a group in a way that suggests they are out of touch with rural voters, pushing a negative view.",
+          "cue": null
+        }
+      ]
+    },
+    {
+      "id": "hit-06",
+      "group": "slanted_no_cue",
+      "text": "Everyone knows that tax cuts always pay for themselves.",
+      "terms": [
+        "Everyone knows",
+        "always"
+      ],
+      "gold_slanted": true,
+      "cue_rule_slanted": true,
+      "agent": [
+        {
+          "verdict": "overgeneralization",
+          "by": "agent",
+          "reason": "The claim uses 'Everyone knows' and 'always' in an absolute way, which is overgeneralization.",
+          "cue": null
+        },
+        {
+          "verdict": "overgeneralization",
+          "by": "agent",
+          "reason": "The claim 'Everyone knows' is an overgeneralization as it assumes everyone agrees without evidence.",
+          "cue": null
+        },
+        {
+          "verdict": "overgeneralization",
+          "by": "agent",
+          "reason": "The claim uses 'Everyone knows' and 'always' in an absolutist way, which is not supported by evidence and can be misleading.",
+          "cue": null
+        }
+      ]
+    },
+    {
+      "id": "trap-01",
+      "group": "slanted_with_cue",
+      "text": "This is not just a crisis, it is a catastrophe.",
+      "terms": [
+        "crisis",
+        "catastrophe"
+      ],
+      "gold_slanted": true,
+      "cue_rule_slanted": false,
+      "agent": [
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "the response uses 'not' to emphasize 'crisis' and 'catastrophe', pushing strong emotions without naming a source.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "the response uses 'not' to emphasize 'crisis' and 'catastrophe', pushing an opinion rather than describing neutrally",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "the response uses 'not' to make 'crisis' and 'catastrophe' stronger, pushing an opinion rather than describing neutrally",
+          "cue": null
+        }
+      ]
+    },
+    {
+      "id": "trap-02",
+      "group": "slanted_with_cue",
+      "text": "Nobody can deny that the economy is a disaster.",
+      "terms": [
+        "disaster"
+      ],
+      "gold_slanted": true,
+      "cue_rule_slanted": false,
+      "agent": [
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The response uses 'disaster' to emphasize the severity of the economy, pushing a negative view.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The phrase 'Nobody can deny' pushes an opinion by implying that the economy is a disaster without providing evidence.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The response uses 'disaster' to emphasize the severity of the economy's condition, pushing an opinion rather than describing neutrally.",
+          "cue": null
+        }
+      ]
+    },
+    {
+      "id": "trap-03",
+      "group": "slanted_with_cue",
+      "text": "The plan was never anything but a government takeover of healthcare.",
+      "terms": [
+        "never",
+        "government takeover"
+      ],
+      "gold_slanted": true,
+      "cue_rule_slanted": true,
+      "agent": [
+        {
+          "verdict": "loaded_language",
+          "by": "rules",
+          "reason": "Flagged \"government takeover\": wording that pushes an opinion or emotion instead of describing neutrally.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The response uses 'government takeover' in a way that pushes an opinion, making it a loaded language.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "rules",
+          "reason": "Flagged \"government takeover\": wording that pushes an opinion or emotion instead of describing neutrally.",
+          "cue": null
+        }
+      ]
+    },
+    {
+      "id": "trap-04",
+      "group": "slanted_with_cue",
+      "text": "Critics are right to call the rollout a disaster.",
+      "terms": [
+        "disaster"
+      ],
+      "gold_slanted": true,
+      "cue_rule_slanted": false,
+      "agent": [
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "Critics are right to call the rollout a disaster. The loaded word 'disaster' pushes an opinion or emotion instead of describing neutrally.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "Critics are right to call the rollout a disaster. The loaded word 'disaster' is used to push a negative view, even though critics are the ones making the claim.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "Critics are right to call the rollout a disaster. The word 'disaster' is used to push an opinion, framing the rollout negatively.",
+          "cue": null
+        }
+      ]
+    },
+    {
+      "id": "trap-05",
+      "group": "slanted_with_cue",
+      "text": "It is no exaggeration to say the city faces an invasion of tourists.",
+      "terms": [
+        "invasion"
+      ],
+      "gold_slanted": true,
+      "cue_rule_slanted": false,
+      "agent": [
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The word 'invasion' is used to describe a situation in a way that suggests it is a crisis, pushing an opinion rather than describing neutrally.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The word 'invasion' is used to describe the situation in an emotionally charged way, pushing a negative view without providing specific evidence.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The word 'invasion' is used to describe a situation in a way that makes it seem more severe than it actually is, pushing an emotional response rather than a neutral description.",
+          "cue": null
+        }
+      ]
+    },
+    {
+      "id": "trap-06",
+      "group": "slanted_with_cue",
+      "text": "Prices are not merely rising; they are skyrocketing.",
+      "terms": [
+        "skyrocketing"
+      ],
+      "gold_slanted": true,
+      "cue_rule_slanted": false,
+      "agent": [
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The phrase 'skyrocketing' pushes an opinion by implying a sudden, extreme increase, which is emotionally charged.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The word 'skyrocketing' is used to emphasize the rapid increase in prices, pushing an opinion rather than describing neutrally.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The phrase 'skyrocketing' is used to emphasize the severity of the price rise, pushing an opinion rather than describing neutrally.",
+          "cue": null
+        }
+      ]
+    },
+    {
+      "id": "trap-07",
+      "group": "slanted_with_cue",
+      "text": "Opponents called the protest a riot, and they were right.",
+      "terms": [
+        "riot"
+      ],
+      "gold_slanted": true,
+      "cue_rule_slanted": false,
+      "agent": [
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The word 'riot' is used to describe the protest, pushing a negative view without naming a specific source.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The response uses the loaded word 'riot' to push an opinion by attributing it to 'opponents', who are described as the ones who called the protest a riot.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The word 'riot' is used to describe the protest, pushing a negative view without naming a specific source.",
+          "cue": null
+        }
+      ]
+    },
+    {
+      "id": "neg-01",
+      "group": "not_slanted_with_cue",
+      "text": "Officials stressed that the situation is not a crisis.",
+      "terms": [
+        "crisis"
+      ],
+      "gold_slanted": false,
+      "cue_rule_slanted": false,
+      "agent": [
+        {
+          "verdict": "not_endorsed",
+          "by": "agent",
+          "reason": "the response uses 'not' to negate 'crisis', but it does not explicitly attribute the negation to a specific source or person.",
+          "cue": "not"
+        },
+        {
+          "verdict": "not_endorsed",
+          "by": "agent",
+          "reason": "the response negates the loaded word 'crisis' but does not provide a specific source or attribution, so the response itself is not endorsing the loaded word.",
+          "cue": "not"
+        },
+        {
+          "verdict": "not_endorsed",
+          "by": "agent",
+          "reason": "the response negates the loaded word 'crisis', but it's not a clear negation, it's a qualifier. The response is not pushing an opinion.",
+          "cue": "not"
+        }
+      ]
+    },
+    {
+      "id": "neg-02",
+      "group": "not_slanted_with_cue",
+      "text": "Opponents called the protest a riot, while organizers described it as a peaceful march.",
+      "terms": [
+        "riot"
+      ],
+      "gold_slanted": false,
+      "cue_rule_slanted": false,
+      "agent": [
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The word 'riot' is used to describe the protest, framing it negatively.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "the response uses the loaded word 'riot' to describe the protest, pushing a view.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The word 'riot' is used to describe the protest, framing it negatively.",
+          "cue": null
+        }
+      ]
+    },
+    {
+      "id": "neg-03",
+      "group": "not_slanted_with_cue",
+      "text": "The article examines why some outlets used the term \"illegal alien\" in the 1990s.",
+      "terms": [
+        "illegal alien"
+      ],
+      "gold_slanted": false,
+      "cue_rule_slanted": false,
+      "agent": [
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "\"illegal alien\" is a loaded term pushing a political bias.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The term \"illegal alien\" is a loaded political term used in the response.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "\"illegal alien\" is a loaded term pushing an opinion about immigrants, which is not endorsed by the response.",
+          "cue": null
+        }
+      ]
+    },
+    {
+      "id": "neg-04",
+      "group": "not_slanted_with_cue",
+      "text": "There is no evidence of a surge of migrants at the border this year.",
+      "terms": [
+        "surge of"
+      ],
+      "gold_slanted": false,
+      "cue_rule_slanted": false,
+      "agent": [
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The phrase 'surge of' is used to emphasize the absence of migrants, pushing a negative view without providing evidence.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "There is no evidence of a surge of migrants at the border this year. The word 'surge' is used in a way that makes the claim sound more negative than it actually is, which is a form of loaded language.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The phrase 'surge of' is used to emphasize the absence of migrants, pushing a negative view without providing evidence.",
+          "cue": null
+        }
+      ]
+    },
+    {
+      "id": "neg-05",
+      "group": "not_slanted_with_cue",
+      "text": "Historians still debate whether the event should be called a massacre.",
+      "terms": [
+        "massacre"
+      ],
+      "gold_slanted": false,
+      "cue_rule_slanted": false,
+      "agent": [
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The word 'massacre' is used to describe the event, pushing a strong negative view without a specific source.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The word 'massacre' is used to describe the event, pushing a strong negative view without a specific source.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The word 'massacre' is used to describe the event, pushing an opinion that it was a violent act.",
+          "cue": null
+        }
+      ]
+    },
+    {
+      "id": "cue-01",
+      "group": "not_slanted_with_cue",
+      "text": "He was not a thug, his family said.",
+      "terms": [
+        "thug"
+      ],
+      "gold_slanted": false,
+      "cue_rule_slanted": false,
+      "agent": [
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The phrase 'not a thug' implies a negative judgment on the person's actions, pushing a biased view without providing evidence.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The word 'thug' is loaded and the response uses it to push an opinion, framing the situation as a conflict between a thug and his family.",
+          "cue": null
+        },
+        {
+          "verdict": "not_endorsed",
+          "by": "agent",
+          "reason": "His family's statement is not explicitly negating the use of the term 'thug', but rather providing a counter-claim. The word 'thug' is not clearly framed as a negative by the attribution 'his family said.'",
+          "cue": "not"
+        }
+      ]
+    },
+    {
+      "id": "cue-02",
+      "group": "not_slanted_with_cue",
+      "text": "Police denied that the gathering was a riot.",
+      "terms": [
+        "riot"
+      ],
+      "gold_slanted": false,
+      "cue_rule_slanted": false,
+      "agent": [
+        {
+          "verdict": "loaded_language",
+          "by": "rules",
+          "reason": "Flagged \"riot\": wording that pushes an opinion or emotion instead of describing neutrally.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "rules",
+          "reason": "Flagged \"riot\": wording that pushes an opinion or emotion instead of describing neutrally.",
+          "cue": null
+        },
+        {
+          "verdict": "not_endorsed",
+          "by": "agent",
+          "reason": "The response uses 'denied' to negate the loaded word 'riot', which makes the claim not endorsed.",
+          "cue": "denied"
+        }
+      ]
+    },
+    {
+      "id": "cue-03",
+      "group": "not_slanted_with_cue",
+      "text": "The phrase \"war on Christmas\" became popular on cable news in the 2000s.",
+      "terms": [
+        "war on Christmas"
+      ],
+      "gold_slanted": false,
+      "cue_rule_slanted": false,
+      "agent": [
+        {
+          "verdict": "loaded_language",
+          "by": "rules",
+          "reason": "Flagged \"war on Christmas\": wording that pushes an opinion or emotion instead of describing neutrally.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "\"war on Christmas\" is a loaded term that frames the phrase in a biased way, suggesting a political stance.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The phrase \"war on Christmas\" is a loaded political term that pushes a view.",
+          "cue": null
+        }
+      ]
+    },
+    {
+      "id": "cue-04",
+      "group": "not_slanted_with_cue",
+      "text": "The headline described the storm as a catastrophe, which several readers said was overblown.",
+      "terms": [
+        "catastrophe"
+      ],
+      "gold_slanted": false,
+      "cue_rule_slanted": false,
+      "agent": [
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The headline described the storm as a catastrophe, which several readers said was overblown. The word 'catastrophe' is used to push an opinion, describing the storm negatively.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The headline described the storm as a catastrophe, which several readers said was overblown. The word 'catastrophe' is used to push an opinion about the severity of the storm, making the claim loaded.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The word 'catastrophe' is used to describe the storm, pushing an emotional view instead of describing the situation neutrally.",
+          "cue": null
+        }
+      ]
+    },
+    {
+      "id": "cue-05",
+      "group": "not_slanted_with_cue",
+      "text": "It is a myth that immigrants always take jobs from citizens.",
+      "terms": [
+        "always"
+      ],
+      "gold_slanted": false,
+      "cue_rule_slanted": false,
+      "agent": [
+        {
+          "verdict": "overgeneralization",
+          "by": "agent",
+          "reason": "The claim uses 'always' to describe immigrants, which is an overgeneralization. The context cue 'myth' suggests the response is not endorsing this absolute statement.",
+          "cue": null
+        },
+        {
+          "verdict": "overgeneralization",
+          "by": "agent",
+          "reason": "The claim overgeneralizes by using 'always' to describe immigrants taking jobs from citizens, which is not supported by evidence.",
+          "cue": null
+        },
+        {
+          "verdict": "overgeneralization",
+          "by": "agent",
+          "reason": "The claim overgeneralizes by using 'always' to describe immigrants' behavior.",
+          "cue": null
+        }
+      ]
+    },
+    {
+      "id": "neg-06",
+      "group": "not_slanted_literal",
+      "text": "Engineers found that the bridge collapse was caused by corrosion.",
+      "terms": [
+        "collapse"
+      ],
+      "gold_slanted": false,
+      "cue_rule_slanted": true,
+      "agent": [
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "the response uses 'collapse' to push an opinion about the severity of the situation, but does not provide a specific source.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "the response uses 'collapse' to push an opinion about the severity of the situation, but does not provide a specific source.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The word 'collapse' is used in a way that pushes an opinion or emotion instead of describing neutrally.",
+          "cue": null
+        }
+      ]
+    },
+    {
+      "id": "lit-01",
+      "group": "not_slanted_literal",
+      "text": "The bridge collapse killed three people on Tuesday.",
+      "terms": [
+        "collapse"
+      ],
+      "gold_slanted": false,
+      "cue_rule_slanted": true,
+      "agent": [
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The word 'collapse' is used to describe a tragic event, pushing an emotional response rather than a neutral description.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The word 'collapse' is used to describe a tragic event, pushing an emotional response rather than a neutral description.",
+          "cue": null
+        },
+        {
+          "verdict": "loaded_language",
+          "by": "agent",
+          "reason": "The word 'collapse' is used in a way that pushes an opinion or emotion instead of describing neutrally.",
+          "cue": null
+        }
+      ]
+    }
+  ]
+}

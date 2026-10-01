@@ -36,8 +36,6 @@ CUES = {
         r"more than|less than|fewer than)\b", re.IGNORECASE),
     "causal": re.compile(
         r"\b(causes?|caused|leads? to|led to|results? in|because|due to)\b", re.IGNORECASE),
-    "factual_verb": re.compile(
-        r"\b(is|are|was|were|has|have|had|contains?|became|remains)\b", re.IGNORECASE),
     "named_entity": re.compile(r"(?<=\s)[A-Z][a-zA-Z]+"),
 }
 HEDGE = re.compile(

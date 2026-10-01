@@ -4,6 +4,9 @@
 // Old ChatGPT layout used data-message-author-role; the 2026 layout (chatgpt.com/uc/...) uses data-message-role
 const RESPONSE_SELECTOR = '[data-message-author-role="assistant"], [data-message-role="assistant"]';
 const MARKDOWN_SELECTOR = ".markdown, [data-assistant-markdown]";
+// ChatGPT's prompt box is a contenteditable div (#prompt-textarea); older layouts used a real <textarea>
+const PROMPT_INPUT_SELECTOR = '#prompt-textarea, form textarea, form [contenteditable="true"]';
+const SEND_BUTTON_SELECTOR = '[data-testid="send-button"], button[aria-label*="Send"]';
 const STREAM_DONE_MS = 1500; // no changes for this long = response finished streaming
 const BLOCK_TAGS = new Set([
   "P", "LI", "H1", "H2", "H3", "H4", "H5", "H6", "PRE", "BLOCKQUOTE", "TR", "TD", "TH", "DIV",

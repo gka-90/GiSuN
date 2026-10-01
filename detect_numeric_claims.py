@@ -9,36 +9,86 @@ renderer can treat numeric flags and bias flags the same way:
 
 import re
 
-# Patterns from the Excel spec:
-#   \d+(\.\d+)?%      -> percentages, e.g. 8.5%
-#   \$\d+             -> dollar amounts, e.g. $8.5B (basic version, see notes below)
-#   \b(19|20)\d{2}\b  -> years from 1900-2099
+from sentences import find_sentence_span
+
+# A number: "40,000" / "1,200.5" (thousands separators) or "8.5" / "8,5" (European decimal).
+# The thousands form is tried first, so "8,5" only matches as a decimal.
+NUM = r"\d{1,3}(?:,\d{3})+(?:\.\d+)?|\d+(?:[.,]\d+)?"
+# Not glued to a preceding word/number, so "8,5%" isn't read as "5%"
+START = r"(?<![\w.,])"
+SIGN = r"[-+−]?"
+RANGE_TAIL = rf"(?:\s?(?:-|–|—|to)\s?{SIGN}(?:{NUM}))?"  # "5-10%", "5 to 10 percent"
+SCALE = r"(?:trillion|billion|million|thousand|tn|bn|mn|[tbmk])\b"
+SCALE_WORD = r"(?:trillion|billion|million|thousand)"
+SMALL = r"(?:one|two|three|four|five|six|seven|eight|nine|ten|\d+)"
+
+# Ordered by type; when matches overlap, the longest one wins (see _drop_overlaps).
 PATTERNS = {
-    "percentage": re.compile(r"\d+(?:\.\d+)?%"),
-    "dollar_amount": re.compile(r"\$\d+(?:,\d{3})*(?:\.\d+)?\s?(?:[BbMmKk](?:illion)?)?"),
-    "year": re.compile(r"\b(?:19|20)\d{2}\b"),
+    "percentage": [
+        rf"{START}{SIGN}(?:{NUM}){RANGE_TAIL}\s?(?:%|percent\b|per cent\b)",
+    ],
+    "percentage_points": [
+        rf"{START}{SIGN}(?:{NUM}){RANGE_TAIL}\s?(?:percentage points?|basis points?|pp\b|bps\b)",
+    ],
+    "dollar_amount": [
+        rf"(?:US)?\$\s?(?:{NUM})(?:\s?(?:-|–|to)\s?\$?(?:{NUM}))?(?:\s?{SCALE})?",
+        rf"{START}(?:{NUM})(?:\s{SCALE_WORD})?\s(?:dollars|USD)\b",
+        rf"\bUSD\s?(?:{NUM})(?:\s?{SCALE})?",
+    ],
+    "currency_amount": [
+        rf"[€£¥]\s?(?:{NUM})(?:\s?{SCALE})?",
+        # not plain "pounds": "5 pounds of flour" is a weight
+        rf"{START}(?:{NUM})(?:\s{SCALE_WORD})?\s(?:euros?|pounds sterling|yen|EUR|GBP|JPY)\b",
+        rf"\b(?:EUR|GBP|JPY)\s?(?:{NUM})",
+    ],
+    "count": [
+        rf"(?<![\w.,$€£¥])(?:{NUM})\s{SCALE_WORD}\b",         # 3 million
+        r"(?<![\w.,$€£¥])\d{1,3}(?:,\d{3})+(?:\.\d+)?(?![\d%])",  # 40,000
+    ],
+    "ratio": [
+        rf"\b{SMALL}\s(?:in|out of)\s{SMALL}\b",               # one in three, 9 out of 10
+        r"\b(?:half|one[- ]third|a third|one[- ]quarter|a quarter|two[- ]thirds|three[- ]quarters)\sof\b",
+        r"\b(?:doubled|tripled|quadrupled|halved)\b",
+        r"(?<![\w.])\d+(?:\.\d+)?(?:x|×|-fold|\sfold)(?!\w)",  # 2x, 3-fold
+    ],
+    "year": [
+        r"\b(?:19|20)\d{2}s?\b",                               # 2020, 2020s
+        r"\bFY\s?(?:(?:19|20)\d{2}|\d{2})\b",                  # FY2023, FY23
+    ],
 }
+PATTERNS = {t: [re.compile(p, re.IGNORECASE) for p in ps] for t, ps in PATTERNS.items()}
+
+# A "year" right after these is a page / version / ID number, not a date
+NOT_A_YEAR_BEFORE = re.compile(
+    r"(?:page|pages|p\.|pp\.|version|v\.?|no\.|number|#|chapter|section|room|model|isbn|route|flight)\s*$",
+    re.IGNORECASE)
+# "100% sure", "110% effort": figures of speech, not statistics
+IDIOM_AFTER = re.compile(
+    r"^\s*(?:sure|certain|confident|positive|honest|correct|right|committed|effort|agree)\b", re.IGNORECASE)
+
+
+def _keep(text: str, claim_type: str, match: re.Match) -> bool:
+    if claim_type == "year" and NOT_A_YEAR_BEFORE.search(text[max(0, match.start() - 12):match.start()]):
+        return False
+    if claim_type == "percentage" and IDIOM_AFTER.match(text[match.end():]):
+        return False
+    return True
+
+
+def _drop_overlaps(flags: list[dict]) -> list[dict]:
+    """Patterns overlap ("1.2 billion" is a count, "1.2 billion dollars" a dollar
+    amount). Walk in reading order and keep the longest match at each spot."""
+    flags.sort(key=lambda f: (f["start_index"], -(f["end_index"] - f["start_index"])))
+    kept, last_end = [], -1
+    for flag in flags:
+        if flag["start_index"] >= last_end:
+            kept.append(flag)
+            last_end = flag["end_index"]
+    return kept
 
 
 def _find_sentence_span(text: str, match_start: int, match_end: int):
-    """Given the text and a match's character range, return the full
-    sentence that contains it (and that sentence's own start index in text).
-    Splits on . ! ? followed by whitespace -- good enough for chatbot prose,
-    not meant to handle abbreviations like 'Dr.' perfectly."""
-    sentence_boundaries = [m.end() for m in re.finditer(r"[.!?]\s+", text)]
-    sentence_start = 0
-    for boundary in sentence_boundaries:
-        if boundary > match_start:
-            break
-        sentence_start = boundary
-
-    sentence_end = len(text)
-    for boundary in sentence_boundaries:
-        if boundary >= match_end:
-            sentence_end = boundary
-            break
-
-    return text[sentence_start:sentence_end].strip(), sentence_start
+    return find_sentence_span(text, match_start, match_end)
 
 
 def detect_numeric_claims(text: str) -> list[dict]:
@@ -51,25 +101,28 @@ def detect_numeric_claims(text: str) -> list[dict]:
             "matched_value": the exact substring that was matched,
             "start_index": character offset of the match in `text`,
             "end_index": character offset where the match ends in `text`,
-            "type": which pattern matched ("percentage" | "dollar_amount" | "year"),
+            "type": which pattern matched: "percentage" | "percentage_points" |
+                    "dollar_amount" | "currency_amount" | "count" | "ratio" | "year",
         }
     """
     flags = []
 
-    for claim_type, pattern in PATTERNS.items():
-        for match in pattern.finditer(text):
-            sentence, _ = _find_sentence_span(text, match.start(), match.end())
-            flags.append({
-                "sentence": sentence,
-                "matched_value": match.group(),
-                "start_index": match.start(),
-                "end_index": match.end(),
-                "type": claim_type,
-            })
+    for claim_type, patterns in PATTERNS.items():
+        for pattern in patterns:
+            for match in pattern.finditer(text):
+                if not _keep(text, claim_type, match):
+                    continue
+                sentence, _ = _find_sentence_span(text, match.start(), match.end())
+                flags.append({
+                    "sentence": sentence,
+                    "matched_value": match.group(),
+                    "start_index": match.start(),
+                    "end_index": match.end(),
+                    "type": claim_type,
+                })
 
-    # Sort by position so the frontend can process them in reading order
-    flags.sort(key=lambda f: f["start_index"])
-    return flags
+    # _drop_overlaps also leaves them in reading order for the frontend
+    return _drop_overlaps(flags)
 
 
 def save_results_to_json(results, filename: str, output_dir: str = "output"):

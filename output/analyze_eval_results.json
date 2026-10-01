@@ -1,0 +1,427 @@
+{
+  "summary": {
+    "model": "qwen2.5:3b",
+    "responses": 10,
+    "claims": 19,
+    "runs": 3,
+    "rules_vs_agent": 0.9649122807017544,
+    "by_agent": 0.3333333333333333,
+    "consistency": 0.9473684210526315,
+    "latency_s": {
+      "rules": 0.0028,
+      "agent": 7.33
+    }
+  },
+  "disagreements": [
+    {
+      "id": "r04",
+      "sentence": "Officials stressed that the situation at the border is not a crisis.",
+      "gold": null,
+      "rules": [
+        "loaded_language",
+        "Flagged \"crisis\": wording that pushes an opinion or emotion instead of describing neutrally."
+      ],
+      "agent": [
+        "not_endorsed",
+        "the loaded word 'crisis' is negated, but the response itself does not endorse this view"
+      ]
+    },
+    {
+      "id": "r04",
+      "sentence": "Officials stressed that the situation at the border is not a crisis.",
+      "gold": null,
+      "rules": [
+        "loaded_language",
+        "Flagged \"crisis\": wording that pushes an opinion or emotion instead of describing neutrally."
+      ],
+      "agent": [
+        "not_endorsed",
+        "the loaded word 'crisis' is negated, but the response itself does not endorse this view"
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "r01",
+      "claims": [
+        {
+          "sentence": "The U.S. unemployment rate fell to 3.7% in 2023.",
+          "gold": null,
+          "rules": "needs_source",
+          "agent": [
+            "needs_source",
+            "needs_source",
+            "needs_source"
+          ],
+          "by": [
+            "rules",
+            "rules",
+            "rules"
+          ],
+          "agent_reasons": []
+        },
+        {
+          "sentence": "Wage growth was strongest among low-income workers, rising about 6% year over year.",
+          "gold": null,
+          "rules": "needs_source",
+          "agent": [
+            "needs_source",
+            "needs_source",
+            "needs_source"
+          ],
+          "by": [
+            "rules",
+            "rules",
+            "rules"
+          ],
+          "agent_reasons": []
+        },
+        {
+          "sentence": "Experts say the labor market remains tight.",
+          "gold": null,
+          "rules": "vague_attribution",
+          "agent": [
+            "vague_attribution",
+            "vague_attribution",
+            "vague_attribution"
+          ],
+          "by": [
+            "rules",
+            "rules",
+            "rules"
+          ],
+          "agent_reasons": []
+        }
+      ]
+    },
+    {
+      "id": "r02",
+      "claims": [
+        {
+          "sentence": "According to the Bureau of Labor Statistics, the unemployment rate averaged 3.6% in 2023.",
+          "gold": null,
+          "rules": "ok",
+          "agent": [
+            "ok",
+            "ok",
+            "ok"
+          ],
+          "by": [
+            "rules",
+            "rules",
+            "rules"
+          ],
+          "agent_reasons": []
+        },
+        {
+          "sentence": "In 2020 it peaked at 14.7% during the pandemic.",
+          "gold": null,
+          "rules": "needs_source",
+          "agent": [
+            "needs_source",
+            "needs_source",
+            "needs_source"
+          ],
+          "by": [
+            "agent",
+            "rules",
+            "agent"
+          ],
+          "agent_reasons": [
+            "The Bureau of Labor Statistics is a named entity, but no specific source is given for the unemployment rate data in 2020.",
+            "The Bureau of Labor Statistics is a named entity, but no specific source is given for the unemployment rate data in 2020."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "r03",
+      "claims": [
+        {
+          "sentence": "Home prices have been skyrocketing in most major cities.",
+          "gold": null,
+          "rules": "loaded_language",
+          "agent": [
+            "loaded_language",
+            "loaded_language",
+            "loaded_language"
+          ],
+          "by": [
+            "rules",
+            "rules",
+            "agent"
+          ],
+          "agent_reasons": [
+            "The claim uses the superlative 'skyrocketing' to describe home price increases, which is a form of loaded language that pushes an opinion. It does not provide a specific source for the data or evidence of the claim."
+          ]
+        },
+        {
+          "sentence": "The median home price rose 40% between 2019 and 2023.",
+          "gold": null,
+          "rules": "needs_source",
+          "agent": [
+            "needs_source",
+            "needs_source",
+            "needs_source"
+          ],
+          "by": [
+            "rules",
+            "agent",
+            "agent"
+          ],
+          "agent_reasons": [
+            "The claim about the median home price rising 40% between 2019 and 2023 needs a source to verify the data.",
+            "The claim provides a statistic about the rise in median home prices, but it lacks a named source. This makes it difficult to verify the claim and thus it cannot be deemed 'ok'. The reason should quote the flagged text and explain why it is fine, which is the specific years provided (2019 and 2023)."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "r04",
+      "claims": [
+        {
+          "sentence": "Officials stressed that the situation at the border is not a crisis.",
+          "gold": null,
+          "rules": "loaded_language",
+          "agent": [
+            "not_endorsed",
+            "loaded_language",
+            "not_endorsed"
+          ],
+          "by": [
+            "agent",
+            "agent",
+            "agent"
+          ],
+          "agent_reasons": [
+            "the loaded word 'crisis' is negated, but the response itself does not endorse this view",
+            "the situation is not a crisis makes the response push a view by framing the situation as not a crisis.",
+            "the loaded word 'crisis' is negated, but the response itself does not endorse this view"
+          ]
+        },
+        {
+          "sentence": "Crossings fell by roughly 30% in the first half of 2024, according to Customs and Border Protection.",
+          "gold": null,
+          "rules": "ok",
+          "agent": [
+            "ok",
+            "ok",
+            "ok"
+          ],
+          "by": [
+            "rules",
+            "rules",
+            "rules"
+          ],
+          "agent_reasons": []
+        }
+      ]
+    },
+    {
+      "id": "r05",
+      "claims": [
+        {
+          "sentence": "Studies show that remote workers are more productive.",
+          "gold": null,
+          "rules": "vague_attribution",
+          "agent": [
+            "vague_attribution",
+            "vague_attribution",
+            "vague_attribution"
+          ],
+          "by": [
+            "rules",
+            "rules",
+            "rules"
+          ],
+          "agent_reasons": []
+        },
+        {
+          "sentence": "One survey found that 68% of employees prefer working from home at least part of the time.",
+          "gold": null,
+          "rules": "needs_source",
+          "agent": [
+            "needs_source",
+            "needs_source",
+            "needs_source"
+          ],
+          "by": [
+            "agent",
+            "rules",
+            "rules"
+          ],
+          "agent_reasons": [
+            "the claim about employee preference does not specify the source of the survey, making it hard to verify the statistic. 68% of employees prefer working from home at least part of the time."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "r06",
+      "claims": [
+        {
+          "sentence": "The WHO estimates that immunization prevents 3.5 to 5 million deaths every year.",
+          "gold": null,
+          "rules": "ok",
+          "agent": [
+            "ok",
+            "ok",
+            "ok"
+          ],
+          "by": [
+            "rules",
+            "rules",
+            "rules"
+          ],
+          "agent_reasons": []
+        }
+      ]
+    },
+    {
+      "id": "r07",
+      "claims": [
+        {
+          "sentence": "Everyone knows that tax cuts always pay for themselves.",
+          "gold": null,
+          "rules": "overgeneralization",
+          "agent": [
+            "overgeneralization",
+            "overgeneralization",
+            "overgeneralization"
+          ],
+          "by": [
+            "agent",
+            "rules",
+            "rules"
+          ],
+          "agent_reasons": [
+            "the phrase 'Everyone knows' implies a consensus without evidence, pushing a view."
+          ]
+        },
+        {
+          "sentence": "In reality, the Congressional Budget Office found that the 2017 tax law would add about $1.9 trillion to deficits over ten years.",
+          "gold": null,
+          "rules": "ok",
+          "agent": [
+            "ok",
+            "ok",
+            "ok"
+          ],
+          "by": [
+            "rules",
+            "rules",
+            "rules"
+          ],
+          "agent_reasons": []
+        }
+      ]
+    },
+    {
+      "id": "r08",
+      "claims": [
+        {
+          "sentence": "Source: Pew Research Center, 2023.",
+          "gold": null,
+          "rules": "ok",
+          "agent": [
+            "ok",
+            "ok",
+            "ok"
+          ],
+          "by": [
+            "rules",
+            "rules",
+            "rules"
+          ],
+          "agent_reasons": []
+        },
+        {
+          "sentence": "About 40% of Americans say they get news from social media regularly.",
+          "gold": null,
+          "rules": "needs_source",
+          "agent": [
+            "needs_source",
+            "needs_source",
+            "needs_source"
+          ],
+          "by": [
+            "agent",
+            "agent",
+            "agent"
+          ],
+          "agent_reasons": [
+            "40% is a specific percentage and should be checked for accuracy and relevance.",
+            "40% is a specific percentage that should be sourced.",
+            "40% is a specific percentage that should be attributed to the source."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "r09",
+      "claims": [
+        {
+          "sentence": "The term \"illegal alien\" appears in older federal statutes, and some outlets still use it.",
+          "gold": null,
+          "rules": "loaded_language",
+          "agent": [
+            "loaded_language",
+            "loaded_language",
+            "loaded_language"
+          ],
+          "by": [
+            "agent",
+            "agent",
+            "agent"
+          ],
+          "agent_reasons": [
+            "The term \"illegal alien\" is used without a specific source, pushing a political view.",
+            "The term 'illegal alien' is used without a specific source, pushing a political view.",
+            "The term \"illegal alien\" is used without a specific source, pushing a biased view."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "r10",
+      "claims": [
+        {
+          "sentence": "Sales of electric vehicles doubled between 2021 and 2023.",
+          "gold": null,
+          "rules": "needs_source",
+          "agent": [
+            "needs_source",
+            "needs_source",
+            "needs_source"
+          ],
+          "by": [
+            "rules",
+            "rules",
+            "rules"
+          ],
+          "agent_reasons": []
+        },
+        {
+          "sentence": "Battery costs have fallen about 90% since 2010.",
+          "gold": null,
+          "rules": "needs_source",
+          "agent": [
+            "needs_source",
+            "needs_source",
+            "needs_source"
+          ],
+          "by": [
+            "agent",
+            "agent",
+            "agent"
+          ],
+          "agent_reasons": [
+            "The claim about battery costs falling 90% since 2010 does not provide a specific source for the data, which is a problem.",
+            "The claim about battery costs falling 90% since 2010 does not provide a specific source for the data, which is a problem.",
+            "The claim about battery costs falling 90% since 2010 does not provide a specific source for the data, which is a problem."
+          ]
+        }
+      ]
+    }
+  ]
+}

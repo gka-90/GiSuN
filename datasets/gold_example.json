@@ -1,0 +1,23 @@
+[
+  {"id": "ex1", "question": "How bad was unemployment in 2020?",
+   "text": "Unemployment hit 14.8% in April 2020, according to the Bureau of Labor Statistics. Experts say the recovery was a disaster for small businesses. Remote work always increases productivity.",
+   "labels": {
+     "Unemployment hit 14.8%": {"C1": "not_met", "C2": "not_met"},
+     "Experts say the recovery": {"C3": "met", "C5": "met"},
+     "Remote work always": {"C4": "met"}}},
+  {"id": "ex2", "question": "What was the US unemployment rate in 2020?",
+   "text": "The U.S. unemployment rate averaged 12% in 2020. Officials stressed that the situation was not a crisis.",
+   "labels": {
+     "averaged 12%": {"C1": "met", "C2": "met"},
+     "not a crisis": {"C3": "not_met"}}},
+  {"id": "ex3", "question": "How many people live in the US?",
+   "text": "The 2020 Census counted about 331 million residents. Studies show that immigration caused most of that growth.",
+   "labels": {
+     "331 million": {"C1": "not_met", "C2": "not_met"},
+     "Studies show": {"C5": "met", "C6": "met"}}},
+  {"id": "ex4", "question": "What is the minimum wage?",
+   "text": "The federal minimum wage is $9.50 per hour. Everyone knows that raising it never helps workers.",
+   "labels": {
+     "$9.50": {"C1": "met", "C2": "met"},
+     "Everyone knows": {"C4": "met"}}}
+]

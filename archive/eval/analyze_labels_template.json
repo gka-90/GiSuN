@@ -1,0 +1,126 @@
+{
+  "_annotator": "YOUR NAME -- fill in independently, don't look at the other file",
+  "_verdicts": {
+    "needs_source": "a number or factual claim with no specific source given",
+    "loaded_language": "wording that pushes an opinion or emotion instead of describing neutrally",
+    "overgeneralization": "absolute or sweeping wording (always, never, everyone ...)",
+    "vague_attribution": "credits unnamed people (experts say, studies show ...) instead of a real source",
+    "ok": "nothing the reader needs to double-check"
+  },
+  "_format": "for each claim, set verdict to the one that fits best; note is optional",
+  "r01": [
+    {
+      "sentence": "The U.S. unemployment rate fell to 3.7% in 2023.",
+      "verdict": "",
+      "note": ""
+    },
+    {
+      "sentence": "Wage growth was strongest among low-income workers, rising about 6% year over year.",
+      "verdict": "",
+      "note": ""
+    },
+    {
+      "sentence": "Experts say the labor market remains tight.",
+      "verdict": "",
+      "note": ""
+    }
+  ],
+  "r02": [
+    {
+      "sentence": "According to the Bureau of Labor Statistics, the unemployment rate averaged 3.6% in 2023.",
+      "verdict": "",
+      "note": ""
+    },
+    {
+      "sentence": "In 2020 it peaked at 14.7% during the pandemic.",
+      "verdict": "",
+      "note": ""
+    }
+  ],
+  "r03": [
+    {
+      "sentence": "Home prices have been skyrocketing in most major cities.",
+      "verdict": "",
+      "note": ""
+    },
+    {
+      "sentence": "The median home price rose 40% between 2019 and 2023.",
+      "verdict": "",
+      "note": ""
+    }
+  ],
+  "r04": [
+    {
+      "sentence": "Officials stressed that the situation at the border is not a crisis.",
+      "verdict": "",
+      "note": ""
+    },
+    {
+      "sentence": "Crossings fell by roughly 30% in the first half of 2024, according to Customs and Border Protection.",
+      "verdict": "",
+      "note": ""
+    }
+  ],
+  "r05": [
+    {
+      "sentence": "Studies show that remote workers are more productive.",
+      "verdict": "",
+      "note": ""
+    },
+    {
+      "sentence": "One survey found that 68% of employees prefer working from home at least part of the time.",
+      "verdict": "",
+      "note": ""
+    }
+  ],
+  "r06": [
+    {
+      "sentence": "The WHO estimates that immunization prevents 3.5 to 5 million deaths every year.",
+      "verdict": "",
+      "note": ""
+    }
+  ],
+  "r07": [
+    {
+      "sentence": "Everyone knows that tax cuts always pay for themselves.",
+      "verdict": "",
+      "note": ""
+    },
+    {
+      "sentence": "In reality, the Congressional Budget Office found that the 2017 tax law would add about $1.9 trillion to deficits over ten years.",
+      "verdict": "",
+      "note": ""
+    }
+  ],
+  "r08": [
+    {
+      "sentence": "Source: Pew Research Center, 2023.",
+      "verdict": "",
+      "note": ""
+    },
+    {
+      "sentence": "About 40% of Americans say they get news from social media regularly.",
+      "verdict": "",
+      "note": ""
+    }
+  ],
+  "r09": [
+    {
+      "sentence": "The term \"illegal alien\" appears in older federal statutes, and some outlets still use it.",
+      "verdict": "",
+      "note": ""
+    }
+  ],
+  "r10": [
+    {
+      "sentence": "Sales of electric vehicles doubled between 2021 and 2023.",
+      "verdict": "",
+      "note": ""
+    },
+    {
+      "sentence": "Battery costs have fallen about 90% since 2010.",
+      "verdict": "",
+      "note": ""
+    }
+  ]
+}

@@ -1,0 +1,424 @@
+{
+  "summary": {
+    "model": "qwen2.5:3b",
+    "runs_per_sentence": 5,
+    "sentences": 25,
+    "labels": "labels_draft.json",
+    "accepted_proposals": 25,
+    "precision": 0.0,
+    "recall": 0.0,
+    "consistency": 0.8,
+    "false_positives_by_group": {
+      "neutral": 0,
+      "wordlist_hit_negated_or_quoted": 18,
+      "wordlist_hit_slanted": 7,
+      "wordlist_missed_slanted": 0
+    },
+    "seconds": 423
+  },
+  "items": [
+    {
+      "id": "hit-01",
+      "group": "wordlist_hit_slanted",
+      "text": "Experts say the new policy is a disaster for small businesses.",
+      "labeled": [],
+      "runs": [
+        [],
+        [],
+        [
+          "new policy is"
+        ],
+        [],
+        []
+      ],
+      "consistent": false
+    },
+    {
+      "id": "hit-02",
+      "group": "wordlist_hit_slanted",
+      "text": "The city has seen an invasion of tourists this summer.",
+      "labeled": [],
+      "runs": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "consistent": true
+    },
+    {
+      "id": "hit-03",
+      "group": "wordlist_hit_slanted",
+      "text": "Rents are skyrocketing in every major city.",
+      "labeled": [],
+      "runs": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "consistent": true
+    },
+    {
+      "id": "hit-04",
+      "group": "wordlist_hit_slanted",
+      "text": "The governor slammed the proposal as a government takeover of healthcare.",
+      "labeled": [],
+      "runs": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "consistent": true
+    },
+    {
+      "id": "hit-05",
+      "group": "wordlist_hit_slanted",
+      "text": "Coastal elites have ignored the concerns of rural voters.",
+      "labeled": [],
+      "runs": [
+        [
+          "ignored the concerns",
+          "rural voters"
+        ],
+        [],
+        [
+          "ignored the concerns",
+          "rural voters"
+        ],
+        [],
+        [
+          "ignored the concerns",
+          "rural voters"
+        ]
+      ],
+      "consistent": false
+    },
+    {
+      "id": "hit-06",
+      "group": "wordlist_hit_slanted",
+      "text": "Everyone knows that tax cuts always pay for themselves.",
+      "labeled": [],
+      "runs": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "consistent": true
+    },
+    {
+      "id": "neg-01",
+      "group": "wordlist_hit_negated_or_quoted",
+      "text": "Officials stressed that the situation is not a crisis.",
+      "labeled": [],
+      "runs": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "consistent": true
+    },
+    {
+      "id": "neg-02",
+      "group": "wordlist_hit_negated_or_quoted",
+      "text": "Opponents called the protest a riot, while organizers described it as a peaceful march.",
+      "labeled": [],
+      "runs": [
+        [
+          "peaceful",
+          "protest"
+        ],
+        [
+          "peaceful march",
+          "protest"
+        ],
+        [
+          "peaceful march"
+        ],
+        [
+          "peaceful march"
+        ],
+        [
+          "peaceful march"
+        ]
+      ],
+      "consistent": false
+    },
+    {
+      "id": "neg-03",
+      "group": "wordlist_hit_negated_or_quoted",
+      "text": "The article examines why some outlets used the term \"illegal alien\" in the 1990s.",
+      "labeled": [],
+      "runs": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "consistent": true
+    },
+    {
+      "id": "neg-04",
+      "group": "wordlist_hit_negated_or_quoted",
+      "text": "There is no evidence of a surge of migrants at the border this year.",
+      "labeled": [],
+      "runs": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "consistent": true
+    },
+    {
+      "id": "neg-05",
+      "group": "wordlist_hit_negated_or_quoted",
+      "text": "Historians still debate whether the event should be called a massacre.",
+      "labeled": [],
+      "runs": [
+        [],
+        [
+          "event"
+        ],
+        [],
+        [
+          "debate",
+          "event",
+          "historians",
+          "still"
+        ],
+        [
+          "event",
+          "historians still debate",
+          "should be called",
+          "whether"
+        ]
+      ],
+      "consistent": false
+    },
+    {
+      "id": "neg-06",
+      "group": "wordlist_hit_negated_or_quoted",
+      "text": "Engineers found that the bridge collapse was caused by corrosion.",
+      "labeled": [],
+      "runs": [
+        [],
+        [
+          "found"
+        ],
+        [
+          "corrosion"
+        ],
+        [],
+        []
+      ],
+      "consistent": false
+    },
+    {
+      "id": "miss-01",
+      "group": "wordlist_missed_slanted",
+      "text": "The draconian new rules will hurt farmers across the state.",
+      "labeled": [
+        "draconian"
+      ],
+      "runs": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "consistent": true
+    },
+    {
+      "id": "miss-02",
+      "group": "wordlist_missed_slanted",
+      "text": "Lawmakers passed another job-killing regulation on Tuesday.",
+      "labeled": [
+        "job-killing"
+      ],
+      "runs": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "consistent": true
+    },
+    {
+      "id": "miss-03",
+      "group": "wordlist_missed_slanted",
+      "text": "Supporters of the so-called reform say it will help families.",
+      "labeled": [
+        "so-called"
+      ],
+      "runs": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "consistent": true
+    },
+    {
+      "id": "miss-04",
+      "group": "wordlist_missed_slanted",
+      "text": "The senator's reckless plan would drain the pension system.",
+      "labeled": [
+        "reckless"
+      ],
+      "runs": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "consistent": true
+    },
+    {
+      "id": "miss-05",
+      "group": "wordlist_missed_slanted",
+      "text": "Greedy landlords are squeezing tenants for every last dollar.",
+      "labeled": [
+        "Greedy",
+        "squeezing tenants for every last dollar"
+      ],
+      "runs": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "consistent": true
+    },
+    {
+      "id": "miss-06",
+      "group": "wordlist_missed_slanted",
+      "text": "The company slashed thousands of jobs to prop up its stock price.",
+      "labeled": [
+        "slashed",
+        "prop up"
+      ],
+      "runs": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "consistent": true
+    },
+    {
+      "id": "neu-01",
+      "group": "neutral",
+      "text": "The Federal Reserve raised interest rates by a quarter point in March.",
+      "labeled": [],
+      "runs": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "consistent": true
+    },
+    {
+      "id": "neu-02",
+      "group": "neutral",
+      "text": "The bill passed the Senate by a vote of 52 to 48.",
+      "labeled": [],
+      "runs": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "consistent": true
+    },
+    {
+      "id": "neu-03",
+      "group": "neutral",
+      "text": "Photosynthesis converts light energy into chemical energy.",
+      "labeled": [],
+      "runs": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "consistent": true
+    },
+    {
+      "id": "neu-04",
+      "group": "neutral",
+      "text": "The museum is open from 9 a.m. to 5 p.m. on weekdays.",
+      "labeled": [],
+      "runs": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "consistent": true
+    },
+    {
+      "id": "neu-05",
+      "group": "neutral",
+      "text": "The study followed 1,200 participants for five years.",
+      "labeled": [],
+      "runs": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "consistent": true
+    },
+    {
+      "id": "neu-06",
+      "group": "neutral",
+      "text": "Voter turnout in the election was 61 percent.",
+      "labeled": [],
+      "runs": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "consistent": true
+    },
+    {
+      "id": "neu-07",
+      "group": "neutral",
+      "text": "The storm caused severe flooding in several coastal towns.",
+      "labeled": [],
+      "runs": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "consistent": true
+    }
+  ]
+}

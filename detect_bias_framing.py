@@ -15,6 +15,9 @@ and extend without touching this code.
 import json
 import re
 import os
+from functools import lru_cache
+
+from sentences import find_sentence_span
 
 
 def _load_wordlist(path: str = "bias_wordlist.json") -> dict:
@@ -22,25 +25,16 @@ def _load_wordlist(path: str = "bias_wordlist.json") -> dict:
         return json.load(f)
 
 
+@lru_cache(maxsize=8)
+def _compiled_wordlist(path: str, mtime: float) -> list[tuple[str, re.Pattern]]:
+    """Read and compile the word list once; `mtime` is part of the cache key so
+    editing bias_wordlist.json takes effect without restarting the server."""
+    return [(category, re.compile(r"\b" + re.escape(phrase) + r"\b", re.IGNORECASE))
+            for category, phrases in _load_wordlist(path).items() for phrase in phrases]
+
+
 def _find_sentence_span(text: str, match_start: int, match_end: int):
-    """Same sentence-boundary logic as detect_numeric_claims, kept
-    duplicated for now since these are still independent scripts --
-    consider moving to a shared utils module once both are combined
-    into the extension's backend."""
-    sentence_boundaries = [m.end() for m in re.finditer(r"[.!?]\s+", text)]
-    sentence_start = 0
-    for boundary in sentence_boundaries:
-        if boundary > match_start:
-            break
-        sentence_start = boundary
-
-    sentence_end = len(text)
-    for boundary in sentence_boundaries:
-        if boundary >= match_end:
-            sentence_end = boundary
-            break
-
-    return text[sentence_start:sentence_end].strip()
+    return find_sentence_span(text, match_start, match_end)[0]
 
 
 def detect_bias_framing(text: str, wordlist_path: str = "bias_wordlist.json") -> list[dict]:
@@ -59,23 +53,20 @@ def detect_bias_framing(text: str, wordlist_path: str = "bias_wordlist.json") ->
             "category": which word-list category it came from,
         }
     """
-    wordlist = _load_wordlist(wordlist_path)
     flags = []
 
-    for category, phrases in wordlist.items():
-        for phrase in phrases:
-            # \b word boundaries so "crisis" doesn't match inside a longer word
-            pattern = re.compile(r"\b" + re.escape(phrase) + r"\b", re.IGNORECASE)
-            for match in pattern.finditer(text):
-                sentence = _find_sentence_span(text, match.start(), match.end())
-                flags.append({
-                    "sentence": sentence,
-                    "matched_value": match.group(),
-                    "start_index": match.start(),
-                    "end_index": match.end(),
-                    "type": "bias_framing",
-                    "category": category,
-                })
+    # \b word boundaries so "crisis" doesn't match inside a longer word
+    for category, pattern in _compiled_wordlist(wordlist_path, os.path.getmtime(wordlist_path)):
+        for match in pattern.finditer(text):
+            sentence = _find_sentence_span(text, match.start(), match.end())
+            flags.append({
+                "sentence": sentence,
+                "matched_value": match.group(),
+                "start_index": match.start(),
+                "end_index": match.end(),
+                "type": "bias_framing",
+                "category": category,
+            })
 
     flags.sort(key=lambda f: f["start_index"])
     return flags

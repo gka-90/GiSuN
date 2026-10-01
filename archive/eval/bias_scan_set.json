@@ -1,0 +1,30 @@
+[
+  {"id": "hit-01", "group": "wordlist_hit_slanted", "text": "Experts say the new policy is a disaster for small businesses."},
+  {"id": "hit-02", "group": "wordlist_hit_slanted", "text": "The city has seen an invasion of tourists this summer."},
+  {"id": "hit-03", "group": "wordlist_hit_slanted", "text": "Rents are skyrocketing in every major city."},
+  {"id": "hit-04", "group": "wordlist_hit_slanted", "text": "The governor slammed the proposal as a government takeover of healthcare."},
+  {"id": "hit-05", "group": "wordlist_hit_slanted", "text": "Coastal elites have ignored the concerns of rural voters."},
+  {"id": "hit-06", "group": "wordlist_hit_slanted", "text": "Everyone knows that tax cuts always pay for themselves."},
+
+  {"id": "neg-01", "group": "wordlist_hit_not_slanted", "text": "Officials stressed that the situation is not a crisis."},
+  {"id": "neg-02", "group": "wordlist_hit_not_slanted", "text": "Opponents called the protest a riot, while organizers described it as a peaceful march."},
+  {"id": "neg-03", "group": "wordlist_hit_not_slanted", "text": "The article examines why some outlets used the term \"illegal alien\" in the 1990s."},
+  {"id": "neg-04", "group": "wordlist_hit_not_slanted", "text": "There is no evidence of a surge of migrants at the border this year."},
+  {"id": "neg-05", "group": "wordlist_hit_not_slanted", "text": "Historians still debate whether the event should be called a massacre."},
+  {"id": "neg-06", "group": "wordlist_hit_not_slanted", "text": "Engineers found that the bridge collapse was caused by corrosion."},
+
+  {"id": "miss-01", "group": "wordlist_missed_slanted", "text": "The draconian new rules will hurt farmers across the state."},
+  {"id": "miss-02", "group": "wordlist_missed_slanted", "text": "Lawmakers passed another job-killing regulation on Tuesday."},
+  {"id": "miss-03", "group": "wordlist_missed_slanted", "text": "Supporters of the so-called reform say it will help families."},
+  {"id": "miss-04", "group": "wordlist_missed_slanted", "text": "The senator's reckless plan would drain the pension system."},
+  {"id": "miss-05", "group": "wordlist_missed_slanted", "text": "Greedy landlords are squeezing tenants for every last dollar."},
+  {"id": "miss-06", "group": "wordlist_missed_slanted", "text": "The company slashed thousands of jobs to prop up its stock price."},
+
+  {"id": "neu-01", "group": "neutral", "text": "The Federal Reserve raised interest rates by a quarter point in March."},
+  {"id": "neu-02", "group": "neutral", "text": "The bill passed the Senate by a vote of 52 to 48."},
+  {"id": "neu-03", "group": "neutral", "text": "Photosynthesis converts light energy into chemical energy."},
+  {"id": "neu-04", "group": "neutral", "text": "The museum is open from 9 a.m. to 5 p.m. on weekdays."},
+  {"id": "neu-05", "group": "neutral", "text": "The study followed 1,200 participants for five years."},
+  {"id": "neu-06", "group": "neutral", "text": "Voter turnout in the election was 61 percent."},
+  {"id": "neu-07", "group": "neutral", "text": "The storm caused severe flooding in several coastal towns."}
+]

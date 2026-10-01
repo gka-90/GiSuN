@@ -1,0 +1,418 @@
+{
+  "summary": {
+    "model": "qwen2.5:3b",
+    "responses": 10,
+    "claims": 19,
+    "runs": 3,
+    "rules_vs_agent": 1.0,
+    "by_agent": 0.5789473684210527,
+    "consistency": 1.0,
+    "latency_s": {
+      "rules": 0.0023,
+      "agent": 7.98
+    }
+  },
+  "disagreements": [],
+  "items": [
+    {
+      "id": "r01",
+      "claims": [
+        {
+          "sentence": "The U.S. unemployment rate fell to 3.7% in 2023.",
+          "gold": null,
+          "rules": "needs_source",
+          "agent": [
+            "needs_source",
+            "needs_source",
+            "needs_source"
+          ],
+          "by": [
+            "agent",
+            "agent",
+            "rules"
+          ],
+          "agent_reasons": [
+            "The percentage 3.7% and the year 2023 are given without a specific source.",
+            "The U.S. unemployment rate fell to 3.7% in 2023. This percentage and year are not sourced, which could be due to rounding or lack of specific data for exact figures. It is important to know where such precise numbers come from."
+          ]
+        },
+        {
+          "sentence": "Wage growth was strongest among low-income workers, rising about 6% year over year.",
+          "gold": null,
+          "rules": "needs_source",
+          "agent": [
+            "needs_source",
+            "needs_source",
+            "needs_source"
+          ],
+          "by": [
+            "agent",
+            "agent",
+            "rules"
+          ],
+          "agent_reasons": [
+            "The percentage 6% is given without a specific source.",
+            "Wage growth was strongest among low-income workers, rising about 6% year over year. This percentage is not sourced, which could be due to rounding or lack of specific data for exact figures. It is important to know where such precise numbers come from."
+          ]
+        },
+        {
+          "sentence": "Experts say the labor market remains tight.",
+          "gold": null,
+          "rules": "vague_attribution",
+          "agent": [
+            "vague_attribution",
+            "vague_attribution",
+            "vague_attribution"
+          ],
+          "by": [
+            "agent",
+            "agent",
+            "agent"
+          ],
+          "agent_reasons": [
+            "The attribution 'Experts say' is vague and lacks a specific source.",
+            "Experts say the labor market remains tight. This attribution is vague and lacks a specific source, which could be due to the nature of expert opinions. It is important to know where such opinions come from.",
+            "Experts say the labor market remains tight. The attribution is vague and lacks a specific source."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "r02",
+      "claims": [
+        {
+          "sentence": "According to the Bureau of Labor Statistics, the unemployment rate averaged 3.6% in 2023.",
+          "gold": null,
+          "rules": "ok",
+          "agent": [
+            "ok",
+            "ok",
+            "ok"
+          ],
+          "by": [
+            "rules",
+            "rules",
+            "rules"
+          ],
+          "agent_reasons": []
+        },
+        {
+          "sentence": "In 2020 it peaked at 14.7% during the pandemic.",
+          "gold": null,
+          "rules": "needs_source",
+          "agent": [
+            "needs_source",
+            "needs_source",
+            "needs_source"
+          ],
+          "by": [
+            "agent",
+            "rules",
+            "agent"
+          ],
+          "agent_reasons": [
+            "The unemployment rate peaked at 14.7% in 2020 during the pandemic according to the Bureau of Labor Statistics. This percentage is not sourced and should be checked.",
+            "The percentage 14.7% in 2020 during the pandemic is not attributed to a specific source."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "r03",
+      "claims": [
+        {
+          "sentence": "Home prices have been skyrocketing in most major cities.",
+          "gold": null,
+          "rules": "loaded_language",
+          "agent": [
+            "loaded_language",
+            "loaded_language",
+            "loaded_language"
+          ],
+          "by": [
+            "agent",
+            "agent",
+            "agent"
+          ],
+          "agent_reasons": [
+            "The phrase 'skyrocketing' pushes an opinion that prices are rising extremely fast, without providing specific evidence.",
+            "The phrase 'skyrocketing' pushes an opinion that prices are rising very quickly, without providing specific evidence or context.",
+            "Home prices have been skyrocketing in most major cities, which is a loaded language that pushes an opinion instead of describing neutrally."
+          ]
+        },
+        {
+          "sentence": "The median home price rose 40% between 2019 and 2023.",
+          "gold": null,
+          "rules": "needs_source",
+          "agent": [
+            "needs_source",
+            "needs_source",
+            "needs_source"
+          ],
+          "by": [
+            "agent",
+            "agent",
+            "rules"
+          ],
+          "agent_reasons": [
+            "The sentence mentions a 40% increase in median home prices between 2019 and 2023 but does not provide a specific source for this statistic.",
+            "The sentence mentions a 40% increase in median home prices between 2019 and 2023, but no specific source is provided."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "r04",
+      "claims": [
+        {
+          "sentence": "Officials stressed that the situation at the border is not a crisis.",
+          "gold": null,
+          "rules": "loaded_language",
+          "agent": [
+            "loaded_language",
+            "loaded_language",
+            "loaded_language"
+          ],
+          "by": [
+            "agent",
+            "agent",
+            "agent"
+          ],
+          "agent_reasons": [
+            "The word 'crisis' is used to push an opinion instead of describing neutrally.",
+            "Officials stressing that the situation is not a crisis could be seen as minimizing the severity of the situation. This framing could be seen as emotionally charged and misleading.",
+            "Officials stressing that the situation is not a crisis could be seen as minimizing the severity of the situation."
+          ]
+        },
+        {
+          "sentence": "Crossings fell by roughly 30% in the first half of 2024, according to Customs and Border Protection.",
+          "gold": null,
+          "rules": "ok",
+          "agent": [
+            "ok",
+            "ok",
+            "ok"
+          ],
+          "by": [
+            "rules",
+            "rules",
+            "rules"
+          ],
+          "agent_reasons": []
+        }
+      ]
+    },
+    {
+      "id": "r05",
+      "claims": [
+        {
+          "sentence": "Studies show that remote workers are more productive.",
+          "gold": null,
+          "rules": "vague_attribution",
+          "agent": [
+            "vague_attribution",
+            "vague_attribution",
+            "vague_attribution"
+          ],
+          "by": [
+            "rules",
+            "agent",
+            "rules"
+          ],
+          "agent_reasons": [
+            "Studies show is flagged as a vague_or_unsourced_attribution."
+          ]
+        },
+        {
+          "sentence": "One survey found that 68% of employees prefer working from home at least part of the time.",
+          "gold": null,
+          "rules": "needs_source",
+          "agent": [
+            "needs_source",
+            "needs_source",
+            "needs_source"
+          ],
+          "by": [
+            "agent",
+            "agent",
+            "agent"
+          ],
+          "agent_reasons": [
+            "One survey found that 68% of employees prefer working from home at least part of the time. This percentage is not sourced and may be misleading.",
+            "68% of employees prefer working from home at least part of the time is flagged as a needs_source.",
+            "One survey found that 68% of employees prefer working from home at least part of the time. This is a number or factual claim with no specific source given."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "r06",
+      "claims": [
+        {
+          "sentence": "The WHO estimates that immunization prevents 3.5 to 5 million deaths every year.",
+          "gold": null,
+          "rules": "ok",
+          "agent": [
+            "ok",
+            "ok",
+            "ok"
+          ],
+          "by": [
+            "rules",
+            "rules",
+            "rules"
+          ],
+          "agent_reasons": []
+        }
+      ]
+    },
+    {
+      "id": "r07",
+      "claims": [
+        {
+          "sentence": "Everyone knows that tax cuts always pay for themselves.",
+          "gold": null,
+          "rules": "overgeneralization",
+          "agent": [
+            "overgeneralization",
+            "overgeneralization",
+            "overgeneralization"
+          ],
+          "by": [
+            "rules",
+            "rules",
+            "rules"
+          ],
+          "agent_reasons": []
+        },
+        {
+          "sentence": "In reality, the Congressional Budget Office found that the 2017 tax law would add about $1.9 trillion to deficits over ten years.",
+          "gold": null,
+          "rules": "ok",
+          "agent": [
+            "ok",
+            "ok",
+            "ok"
+          ],
+          "by": [
+            "rules",
+            "rules",
+            "rules"
+          ],
+          "agent_reasons": []
+        }
+      ]
+    },
+    {
+      "id": "r08",
+      "claims": [
+        {
+          "sentence": "Source: Pew Research Center, 2023.",
+          "gold": null,
+          "rules": "ok",
+          "agent": [
+            "ok",
+            "ok",
+            "ok"
+          ],
+          "by": [
+            "rules",
+            "rules",
+            "rules"
+          ],
+          "agent_reasons": []
+        },
+        {
+          "sentence": "About 40% of Americans say they get news from social media regularly.",
+          "gold": null,
+          "rules": "needs_source",
+          "agent": [
+            "needs_source",
+            "needs_source",
+            "needs_source"
+          ],
+          "by": [
+            "agent",
+            "agent",
+            "agent"
+          ],
+          "agent_reasons": [
+            "40% is a specific percentage and should be attributed to Pew Research Center, 2023.",
+            "40% is a specific percentage and should be attributed to the source Pew Research Center, 2023.",
+            "40% is a specific percentage and should be attributed to the source Pew Research Center, 2023."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "r09",
+      "claims": [
+        {
+          "sentence": "The term \"illegal alien\" appears in older federal statutes, and some outlets still use it.",
+          "gold": null,
+          "rules": "loaded_language",
+          "agent": [
+            "loaded_language",
+            "loaded_language",
+            "loaded_language"
+          ],
+          "by": [
+            "agent",
+            "agent",
+            "agent"
+          ],
+          "agent_reasons": [
+            "\"illegal alien\" pushes an opinion or emotion instead of describing neutrally",
+            "\"illegal alien\" is a loaded term that frames people as lawbreakers, potentially biasing the discussion.",
+            "\"illegal alien\" is a loaded term that frames people negatively, suggesting they are lawbreakers by default."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "r10",
+      "claims": [
+        {
+          "sentence": "Sales of electric vehicles doubled between 2021 and 2023.",
+          "gold": null,
+          "rules": "needs_source",
+          "agent": [
+            "needs_source",
+            "needs_source",
+            "needs_source"
+          ],
+          "by": [
+            "agent",
+            "agent",
+            "agent"
+          ],
+          "agent_reasons": [
+            "Sales of electric vehicles doubled between 2021 and 2023. This is a numeric claim without a specific source, which could be misleading.",
+            "Sales of electric vehicles doubled between 2021 and 2023. This is a numeric claim with no specific source, so it needs a source to be reliable.",
+            "Sales of electric vehicles doubled between 2021 and 2023. This is a claim with a numeric value, but no specific source is provided."
+          ]
+        },
+        {
+          "sentence": "Battery costs have fallen about 90% since 2010.",
+          "gold": null,
+          "rules": "needs_source",
+          "agent": [
+            "needs_source",
+            "needs_source",
+            "needs_source"
+          ],
+          "by": [
+            "agent",
+            "agent",
+            "agent"
+          ],
+          "agent_reasons": [
+            "Battery costs have fallen about 90% since 2010. This is a numeric claim without a specific source, which could be misleading.",
+            "Battery costs have fallen about 90% since 2010. This is a numeric claim with no specific source, so it needs a source to be reliable.",
+            "Battery costs have fallen about 90% since 2010. This is a claim with a numeric value, but no specific source is provided."
+          ]
+        }
+      ]
+    }
+  ]
+}

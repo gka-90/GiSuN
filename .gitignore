@@ -3,3 +3,14 @@ __pycache__/
 *.pyc
 .DS_Store
 node_modules/
+# Pipeline run results and secrets
+outputs/
+evaluation/outputs/
+.env
+# Model weights / large binaries
+*.gguf
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.onnx

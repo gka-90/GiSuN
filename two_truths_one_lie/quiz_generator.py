@@ -19,31 +19,15 @@ import re
 import random
 import ollama
 
+try:
+    from two_truths_one_lie.quiz_static import FALLBACK_QUIZZES  # one curated bank, shared with quiz_static
+except ImportError:  # run as a script from inside two_truths_one_lie/
+    from quiz_static import FALLBACK_QUIZZES
+
 MODEL = "qwen2.5:1.5b"
 MAX_RETRIES = 2
 
 PLACEHOLDER_PATTERNS = {"statement a", "statement b", "statement c"}
-
-FALLBACK_QUIZZES = [
-    {
-        "statements": [
-            "A qubit can exist in a superposition of both 0 and 1 simultaneously.",
-            "Quantum computers can break all encryption algorithms in the world in just a few seconds.",
-            "Quantum entanglement allows two particles to be correlated even when separated by a great distance.",
-        ],
-        "false_index": 1,
-        "explanation": "While quantum computers are powerful, they cannot instantly break all encryption algorithms. This is a common exaggeration.",
-    },
-    {
-        "statements": [
-            "Photosynthesis primarily takes place in the chloroplasts of plant cells.",
-            "During photosynthesis, plants consume oxygen and release carbon dioxide as waste.",
-            "The light-dependent reactions of photosynthesis convert solar energy into chemical energy stored in ATP.",
-        ],
-        "false_index": 1,
-        "explanation": "Photosynthesis consumes carbon dioxide and releases oxygen, not the other way around.",
-    },
-]
 
 
 def _build_prompt(topic: str) -> str:

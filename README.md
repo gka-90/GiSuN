@@ -9,7 +9,9 @@ Built as a semester-long CS senior seminar project at Hamilton College.
 - **Detects** numeric/statistical claims and biased or contested phrasing in chatbot responses (currently targeting ChatGPT)
 - **Highlights** flagged content directly on the page, with distinct visual styles for risk warnings vs. citations
 - **Interacts** with the user via one of two modes: a quiet hover tooltip (citation mode) or a blocking modal (in-your-face mode)
-- **Teaches** critical reading through a "Two Truths and a Lie" quiz generated from the chatbot's response
+- **Teaches** critical reading through a "Two Truths and a Lie" quiz on a topic (planned: generated from the chatbot's response itself; today `/quiz` only takes a topic)
+- **Prebunks**: when a question is about medicine, history or politics, a banner above the answer warns about that topic's common pitfalls before the user reads it
+- **Gates** first use: ChatGPT's input stays disabled until the user answers one critical-reading question correctly
 
 ## How it works
 
@@ -30,6 +32,26 @@ new assistant response  ──►  content.js                              serve
 
 If the backend isn't running, `background.js` falls back to a small built-in set of regexes and bias terms so the extension still highlights something. The fallback word list is much smaller than `bias_wordlist.json`.
 
+### Agent layer → [PIPELINE.md](PIPELINE.md)
+
+`/verify` stays model-free so highlights appear instantly. The model-based analysis is the **multi-agent pipeline** in `gisun/` (Plan / Task / Debug / Judge / Check agents, per-criterion decisions, deterministic scoring), served as `POST /pipeline` + `GET /pipeline/{id}`. See **[PIPELINE.md](PIPELINE.md)** for the design, criteria, run commands and evaluation.
+
+The earlier single-agent `/analyze` (`agent/analyzer.py`, `agent/scanner.py`) has been removed. Its evaluation scripts and data are kept in `archive/eval/` (for reference only: they import the removed modules, so they no longer run), and its results in `output/` (`scan_eval_results.json`, `analyze_eval_*.json`, `context_eval_v1_prompt.json`): on 19 claims x 3 runs it matched the rule fallback 100% while taking ~8s vs ~2ms per response.
+
+`agent/` now only holds the quiz agent (the pipeline doesn't do quizzes yet):
+
+**`POST /quiz`** (`agent/quiz_agent.py`): Two Truths and a Lie, with self-checking instead of blind retries.
+- The model submits through a `submit_quiz` tool. Each submission is checked for format (same rules as `quiz_generator._validate`, but explained), **focus** (the explanation has to be about the statement at `false_index`), and a **blind solve**: separate model calls see only the three statements and pick the lie (up to 3 calls at different temperatures, 2 must agree). If the majority picks a different one, or no two agree, the model is told and revises the same quiz.
+- `verified: true` means a blind-solve majority agreed (every accepted model quiz). If it never passes, a curated quiz from `quiz_static.py` is used (matching the topic when one does) with `verified: false`, since it was never blind-solved. Same model for writing and solving, so their mistakes are correlated: a passed blind solve shows the lie is findable, not that the truths are true.
+
+Small-model robustness built into the loop (`agent/core.py`): tool errors are returned to the model instead of raised; a tool call written as plain JSON text is recovered; when the model answers in prose it gets a nudge naming the next concrete step; a model repeating itself is stopped early; `num_ctx` is raised so the instructions aren't cut off.
+
+Set the model with `GISUN_MODEL` (default `qwen2.5:1.5b` for `/quiz`; the pipeline's defaults are in `gisun/config.py`). **Use 3b or larger** if the machine can run it; 1.5b rarely completes a run and mostly ends in the fallback:
+```bash
+GISUN_MODEL=qwen2.5:3b uvicorn server:app --port 8000 --reload
+```
+Each model call times out after `GISUN_TIMEOUT` seconds (default 60); a timed-out quiz run ends in the curated fallback.
+
 ### Flag format
 
 Every detector returns flags in the same shape, and `/verify` returns them sorted by position:
@@ -44,7 +66,7 @@ Every detector returns flags in the same shape, and `/verify` returns them sorte
 }
 ```
 
-- `type`: `percentage` | `dollar_amount` | `year` | `bias_framing`
+- `type`: `percentage` | `percentage_points` | `dollar_amount` | `currency_amount` | `count` | `ratio` | `year` | `bias_framing`
 - `category`: only present on `bias_framing` flags (the word-list category)
 - `start_index` / `end_index`: offsets into the response text, in **UTF-16 code units** so they match JavaScript string indexing (Python code-point offsets would drift after any emoji). `server.py` does this conversion.
 
@@ -61,8 +83,8 @@ Every detector returns flags in the same shape, and `/verify` returns them sorte
 ## Project status
 
 ### Done 9/26/2026
-- [x] `detect_numeric_claims()` — Regex-based detection of percentages, dollar amounts, and years. No model needed, fast and stable.
-- [x] `detect_bias_framing()` — Word-list based detection (81 terms across 5 categories: political framing, emotionally charged language, event framing, absolutist claims, identity/group terms). No model needed.
+- [x] `detect_numeric_claims()` — Regex-based detection of percentages, dollar amounts, and years. No model needed, fast and stable. (Extended 10/1, see below.)
+- [x] `detect_bias_framing()` — Word-list based detection (269 terms across 6 categories: political framing, emotionally charged language, event framing, absolutist claims, identity/group terms, vague or unsourced attribution; nested matches like "war on" inside "war on women" are collapsed to the longest one in `/verify`). No model needed.
 - [x] `generate_quiz()` (Two Truths and a Lie) — Local Qwen2.5 generation with JSON cleanup, validation, retry (up to 2x), and fallback to a curated word bank. Extensively tested (~20 runs); `success_rate_test.py` measures model vs. fallback rates.
 
 ### Done 9/28/2026
@@ -71,14 +93,30 @@ Every detector returns flags in the same shape, and `/verify` returns them sorte
 - [x] `server.py` — FastAPI `POST /verify` wrapping both detectors, returning flags in the shared format.
 - [x] Updated for the 2026 ChatGPT layout (`chatgpt.com/uc/...`, `data-message-role="assistant"`, `data-assistant-markdown`); the old layout's selectors are still supported. Responses already on the page at load time are scanned too.
 
+### Done 10/1/2026
+- [x] Agent architecture (`agent/`): tool-calling loop with self-check and step trace. `POST /analyze` judges each claim using the detectors as tools; `POST /quiz` generates Two Truths and a Lie with format / focus / blind-solve checks and revision instead of blind retries. `/verify` is unchanged.
+- [x] Numeric edge cases: `detect_numeric_claims()` now also catches spelled-out percents, percentage/basis points, other currencies, "1.2 billion dollars", counts ("40,000", "3 million"), ratios ("one in three", "two-thirds of", "doubled", "3x"), decades and fiscal years; keeps ranges ("5-10%") and signs ("-3%") whole; reads "8,5%" as 8.5%; skips page/version numbers and "100% sure". Sentence splitting (`sentences.py`, shared by both detectors) no longer cuts at "U.S." / "Dr.". Source detection recognizes "(BLS, 2023)", footnotes "[1]", "The BLS reports...", "Source: ...", case-insensitive "According to", while "experts found" / "the report says" don't count. 60+ cases in `tests/test_numeric_edge_cases.py`.
+- [x] Scan agent (`agent/scanner.py`, `/analyze` with `"scan": true`): the model proposes slanted wording the word list missed; each proposal must be quoted word-for-word from the text (offsets computed by code), 1-5 words, not already flagged, in one of the 6 categories, and gets `by: "agent"`. **Evaluated and turned off by default**: on 25 labeled sentences x 5 runs with qwen2.5:3b (`archive/eval/eval_scan.py`, draft labels), precision 0% and recall 0% -- it found none of the missed phrases (draconian, job-killing, so-called, ...) and its 25 accepted proposals were all false positives, mostly words next to existing word-list hits in quoted/negated sentences ("peaceful march", "historians still debate"). Removed with `/analyze` when the pipeline replaced it (evaluation kept in `archive/eval/`).
+- Tested with qwen2.5:3b: `/analyze` on a 4-claim response gave the same correct verdicts in 5/5 runs, 3 of 4 claims by the agent (~14s per run); `/quiz` passed on 3/3 topics, one after a blind-solve rejection and revision.
+
+- [x] Prebunking banner (`extension/prebunk.js`): keyword match on the submitted question (Medicine / History / Politics), banner with that category's warnings inserted above the new response, close button, nothing shown when no category matches.
+- [x] Gated access check (`extension/gate.js`): until `isPassed` is true in `chrome.storage.local`, the prompt box is disabled (and Enter / the send button blocked) behind a question modal; wrong answers keep it locked, the right one stores `isPassed` and unlocks. A MutationObserver re-disables the box when ChatGPT re-renders it. Both tested in headless Chrome on a mock page (25 checks); not yet on the live ChatGPT page.
+
 ### TODO
+- [ ] Call `/pipeline` from the extension (see "Not done yet" in PIPELINE.md).
 - [ ] `fetch_citations()` — actually look up sources for flagged numbers (currently the extension only says "check a source").
 - [ ] Popup/options page to switch between citation and in-your-face mode (right now the mode is only stored in `chrome.storage.sync`, default `citation`).
-- [ ] Hook up the quiz: a `/quiz` endpoint for `generate_quiz()` and a trigger in the extension UI.
-- [ ] Feed `extract_claims()` into the pipeline.
+- [ ] Replace the placeholder gate question (`GATE_QUESTION` / `GATE_OPTIONS` / `GATE_CORRECT_INDEX` / `GATE_WRONG_MESSAGE` at the top of `extension/gate.js`).
+- [ ] Prebunk: classify the question with the model instead of keywords (TODO in `extension/prebunk.js`).
+- [ ] Labels: replace `datasets/gold_example.json` with 50+ real ChatGPT answers labeled independently by each of us (see PIPELINE.md). The draft labels in `archive/eval/` are by Claude, not by us.
+- [ ] Quiz trigger in the extension UI (the `/quiz` endpoint exists).
+- [ ] `extract_claims()` is used by the pipeline (`gisun/preprocess.py`); `/verify` still returns raw flags without it.
 
 ### Known limitations (documented, not bugs)
 - Local model (Qwen2.5:1.5b/3b) output for quiz generation is not 100% reliable — roughly 1/4 to 1/3 of raw generations are fully clean; validation/retry/fallback handles this but cannot guarantee semantic correctness (e.g. `false_index` matching the explanation), only format correctness.
+- Agent self-checks are mechanical: they catch verdicts with no detector evidence, ungrounded or copied reasons, and quizzes whose lie an independent reader can't find, but they can't prove a reason or quiz is actually correct. The model can also refuse a correct rejection (e.g. insisting "according to the Bureau of Labor Statistics" isn't a source), in which case rules decide that claim.
+- Numbers: a statistic with no source in **the same sentence** is always `needs_source` -- a source given in the previous sentence ("Source: Pew. 40% agree.") isn't linked. Figures of speech that look like statistics ("gave half of the effort") are flagged too; a "not a claim" verdict was tried and removed because qwen2.5:3b used it to wave through real statistics. Plain small numbers ("3 cats"), temperatures and other units aren't detected. The extension's offline fallback in `background.js` still has only the old 3 patterns.
+- Quiz focus check (`_focus_problem` in `agent/quiz_agent.py`) compares content words between the explanation and each statement. If the explanation shares no content words with any statement, or ties between statements, it passes unchecked; only the blind solve can catch a mismatch then.
 - Word-list bias detection cannot catch phrasing outside the list, doesn't account for context/negation/quotation, and is English-only.
 - ChatGPT changes its DOM often. If highlights stop appearing, the selectors at the top of `extension/content.js` (`RESPONSE_SELECTOR`, `MARKDOWN_SELECTOR`) are the first thing to check.
 
@@ -101,7 +139,7 @@ uvicorn server:app --port 8000 --reload
 ```
 Check it's up by opening http://localhost:8000/docs (you can try `/verify` from there).
 
-### 3. Local LLM (Ollama + Qwen) — only needed for the quiz
+### 3. Local LLM (Ollama + Qwen) — needed for `/quiz` and `/pipeline` (except `mode: rules_only`)
 ```bash
 brew install ollama
 brew services start ollama
@@ -109,6 +147,12 @@ ollama pull qwen2.5:1.5b   # 8GB RAM machines
 # or
 ollama pull qwen2.5:3b     # 16GB RAM machines
 ```
+
+### Tests (no model needed)
+```bash
+python -m unittest discover tests
+```
+Covers numeric detection edge cases, sentence splitting, source detection (`gisun/tools/attribution.py`), the quiz agent's self-checks, and the pipeline flow with a scripted fake model (`tests/test_pipeline.py`). Run it after touching any regex.
 
 ### 4. Chrome extension
 1. Go to `chrome://extensions`
@@ -119,6 +163,9 @@ ollama pull qwen2.5:3b     # 16GB RAM machines
 After editing anything in `extension/`, click the ↻ reload button on the GiSuN card and refresh the ChatGPT tab.
 
 ## Troubleshooting
+
+- **Reset the gate question** (to see it again) — open the extension's service worker console (link on the extension card) and run `chrome.storage.local.remove("isPassed")`, then refresh the ChatGPT tab.
+- **Gate doesn't unlock typing / prebunk banner never appears** — ChatGPT changed its prompt box or send button; update `PROMPT_INPUT_SELECTOR` / `SEND_BUTTON_SELECTOR` at the top of `content.js`.
 
 - **No highlights at all** — In the ChatGPT tab's DevTools console, run:
   ```js
@@ -136,20 +183,48 @@ After editing anything in `extension/`, click the ↻ reload button on the GiSuN
 /
 ├── extension/
 │   ├── manifest.json            # Extension config (Manifest V3)
-│   ├── content.js               # DOM observer, highlighting, tooltip/modal
+│   ├── content.js               # DOM observer, highlighting, tooltip/modal; page selectors
+│   ├── prebunk.js               # Prebunking banner: category keywords + warnings
+│   ├── gate.js                  # Gated access check before first use
 │   ├── background.js            # Relays text to /verify; fallback detectors if backend is down
 │   └── styles.css               # Highlight, tooltip, modal styles
-├── server.py                    # FastAPI backend: POST /verify
+├── server.py                    # FastAPI backend: /verify, /quiz, + /pipeline router from gisun/api.py
+├── PIPELINE.md                  # Multi-agent pipeline: design, criteria, run, evaluation
+├── gisun/                       # Multi-agent pipeline
+│   ├── pipeline.py              # Entry point (python -m gisun.pipeline), modes, phases
+│   ├── api.py                   # POST /pipeline, GET /pipeline/{id} (background jobs + cache)
+│   ├── preprocess.py            # Tier 1 detectors -> claims with context
+│   ├── criteria.py              # C1-C6 criteria and their deterministic rules
+│   ├── scoring.py               # Claim / response risk from criterion decisions
+│   ├── llm.py, config.py        # Model backend (Ollama / OpenAI-compatible) and settings
+│   ├── agents/                  # plan, task, debug, judge, check, loop, toolbox
+│   └── tools/                   # attribution, language (context cues), numbers, retrieval
+├── baseline/zero_tool.py        # One-call, no-tools baseline
+├── evaluation/                  # evaluate.py (RQ1/RQ2), run_ablation.py (RQ3)
+├── datasets/gold_example.json   # 4 hand-made labeled items (to be replaced by 50+ real answers)
+├── data/reference_corpus.json   # Sample reference corpus for C2 retrieval
+├── hpc/run_eval.slurm           # HPC (vLLM) evaluation job
+├── agent/                       # Quiz only (the pipeline doesn't do quizzes yet)
+│   ├── core.py                  # Tool-calling loop with self-check + trace, model call timeout
+│   └── quiz_agent.py            # /quiz: Two Truths and a Lie with blind-solve check
+├── archive/
+│   └── eval/                    # Evaluation of the removed /analyze + scan agents (evidence for the report)
 ├── requirements.txt             # Python dependencies
 ├── detect_numeric_claims.py     # Regex-based numeric/stat detection
 ├── detect_bias_framing.py       # Word-list based bias detection
-├── bias_wordlist.json           # Curated word list (81 terms, 5 categories)
+├── bias_wordlist.json           # Curated word list (269 terms, 6 categories)
+├── sentences.py                 # Sentence splitting shared by both detectors
 ├── extract_claims.py            # Tier 1 claim extraction from flags
+├── tests/
+│   ├── test_numeric_edge_cases.py  # Detection / sentence / source edge cases
+│   ├── test_agent_checks.py     # Quiz agent: blind solve, majority vote, fallback
+│   └── test_pipeline.py         # Pipeline flow with a scripted fake model
 ├── two_truths_one_lie/
 │   ├── quiz_generator.py        # Two Truths and a Lie: Qwen call + validation + fallback
 │   ├── quiz_static.py           # Fallback word bank only (no model call), for reliable demos
 │   └── success_rate_test.py     # Measures model vs. fallback success rates
-└── output/                      # JSON results from running the scripts above
+├── output/                      # JSON results from the scripts above (incl. archived /analyze evals)
+└── outputs/                     # Pipeline run results (python -m gisun.pipeline)
 ```
 
 ## Team

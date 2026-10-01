@@ -1,0 +1,8 @@
+[
+  {"id": "bls-unemployment-2020", "publisher": "U.S. Bureau of Labor Statistics", "title": "Unemployment rate 2020 annual average United States",
+   "text": "The U.S. unemployment rate averaged 8.1 percent in 2020, up from 3.7 percent in 2019. The monthly rate peaked at 14.8 percent in April 2020 (seasonally adjusted, revised), the highest since data collection began in 1948. SAMPLE ENTRY - replace with an official data snapshot."},
+  {"id": "census-2020-population", "publisher": "U.S. Census Bureau", "title": "2020 Census resident population of the United States",
+   "text": "The resident population of the United States was 331,449,281 on April 1, 2020, according to the 2020 Census, an increase of 7.4 percent from 2010. SAMPLE ENTRY - replace with an official data snapshot."},
+  {"id": "dol-minimum-wage", "publisher": "U.S. Department of Labor", "title": "Federal minimum wage United States",
+   "text": "The federal minimum wage for covered nonexempt employees is $7.25 per hour, effective July 24, 2009. Many states set a higher minimum wage. SAMPLE ENTRY - replace with an official data snapshot."}
+]
