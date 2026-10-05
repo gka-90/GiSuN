@@ -31,6 +31,7 @@ if __name__ == "__main__":
         secs = [v.get("seconds", 0) for v in json.load(open(os.path.join(batch, "batch_summary.json")))["items"].values()]
         table[mode] = {"f1": m["rq1_overall"]["f1"], "accuracy": m["rq1_overall"]["accuracy"],
                        "claim_risk_acc": m["rq2_claim_risk_accuracy"], "decided_by": m["decided_by"],
+                       "not_run": m["decided_by"].get("not_run", 0),  # gold pairs this mode skipped
                        "avg_seconds": round(sum(secs) / max(len(secs), 1), 1)}
     json.dump({"model": config.MODEL, "modes": table}, open(os.path.join(root, "summary.json"), "w"), indent=2)
     print(json.dumps(table, indent=2))

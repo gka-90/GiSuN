@@ -19,10 +19,10 @@ class LLMError(RuntimeError):
     pass
 
 
-def _ollama_chat(messages, tools):
+def _ollama_chat(messages, tools, model, base_url):
     import ollama
     client = ollama.Client(timeout=config.TIMEOUT_S)
-    reply = client.chat(model=config.MODEL, messages=messages, tools=tools or None,
+    reply = client.chat(model=model, messages=messages, tools=tools or None,
                         options={"temperature": config.TEMPERATURE, "num_ctx": config.NUM_CTX})
     msg = reply.message
     return {"content": msg.content or "",
@@ -30,7 +30,7 @@ def _ollama_chat(messages, tools):
                            for c in msg.tool_calls or []]}
 
 
-def _openai_chat(messages, tools):
+def _openai_chat(messages, tools, model, base_url):
     # The OpenAI format wants tool results linked to call ids; we keep our own
     # simpler history, so flatten tool turns into user turns for this backend.
     flat = []
@@ -42,10 +42,10 @@ def _openai_chat(messages, tools):
                 {"tool_calls": m["tool_calls"]}, ensure_ascii=False)})
         else:
             flat.append({"role": m["role"], "content": m.get("content", "")})
-    body = {"model": config.MODEL, "messages": flat, "temperature": config.TEMPERATURE}
+    body = {"model": model, "messages": flat, "temperature": config.TEMPERATURE}
     if tools:
         body["tools"] = tools
-    req = urllib.request.Request(config.BASE_URL.rstrip("/") + "/chat/completions",
+    req = urllib.request.Request(base_url.rstrip("/") + "/chat/completions",
                                  data=json.dumps(body).encode(),
                                  headers={"Content-Type": "application/json",
                                           "Authorization": f"Bearer {config.API_KEY}"})
@@ -74,12 +74,16 @@ def available() -> bool:
     return _override is not None or config.BACKEND in _BACKENDS
 
 
-def chat(messages: list[dict], tools: list[dict] | None = None) -> dict:
-    fn = _override or _BACKENDS.get(config.BACKEND)
-    if fn is None:
+def chat(messages: list[dict], tools: list[dict] | None = None, judge: bool = False) -> dict:
+    """judge=True uses GISUN_JUDGE_MODEL / GISUN_JUDGE_BASE_URL (same as the task model by default)."""
+    fn = _BACKENDS.get(config.BACKEND)
+    if _override is None and fn is None:
         raise LLMError(f"no model backend (GISUN_BACKEND={config.BACKEND!r})")
+    model, base_url = (config.JUDGE_MODEL, config.JUDGE_BASE_URL) if judge else (config.MODEL, config.BASE_URL)
     try:
-        return fn(messages, tools)
+        if _override is not None:  # tests: fake backends take (messages, tools)
+            return _override(messages, tools)
+        return fn(messages, tools, model, base_url)
     except LLMError:
         raise
     except Exception as e:  # network, timeout, bad JSON from server ...
@@ -99,9 +103,9 @@ def parse_json(text: str) -> dict | None:
     return obj if isinstance(obj, dict) else None
 
 
-def chat_json(system: str, user: str) -> dict:
+def chat_json(system: str, user: str, judge: bool = False) -> dict:
     """Single call that must return a JSON object."""
-    reply = chat([{"role": "system", "content": system}, {"role": "user", "content": user}])
+    reply = chat([{"role": "system", "content": system}, {"role": "user", "content": user}], judge=judge)
     obj = parse_json(reply["content"])
     if obj is None:
         raise LLMError(f"reply was not JSON: {reply['content'][:200]!r}")

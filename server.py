@@ -23,6 +23,7 @@ from agent.quiz_agent import generate_quiz_agent
 from detect_bias_framing import detect_bias_framing
 from detect_numeric_claims import detect_numeric_claims
 from gisun.api import router as pipeline_router
+from gisun.tools.language import context_cues
 
 WORDLIST_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "bias_wordlist.json")
 
@@ -65,9 +66,19 @@ def _drop_nested(flags: list[dict]) -> list[dict]:
     ]
 
 
+def _in_use(flag: dict) -> bool:
+    """Drop loaded words that are negated, quoted or only mentioned ("not a crisis",
+    the term "illegal alien"): highlighting those teaches users to ignore highlights.
+    Vague attribution ("experts say") is kept: negating it doesn't add a source."""
+    if flag.get("category") == "vague_or_unsourced_attribution":
+        return True
+    cues = context_cues(flag["sentence"], flag["matched_value"])
+    return not (cues.get("negated") or cues.get("quoted") or cues.get("mentioned_not_used"))
+
+
 def _detect(text: str) -> tuple[list[dict], list[dict]]:
     numeric_flags = detect_numeric_claims(text)
-    bias_flags = _drop_nested(detect_bias_framing(text, wordlist_path=WORDLIST_PATH))
+    bias_flags = [f for f in _drop_nested(detect_bias_framing(text, wordlist_path=WORDLIST_PATH)) if _in_use(f)]
     return numeric_flags, bias_flags
 
 

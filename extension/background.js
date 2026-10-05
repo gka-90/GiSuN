@@ -1,24 +1,61 @@
-// Relays response text from content.js to the FastAPI backend (POST /verify).
+// Relays requests from content.js to the FastAPI backend:
+//   "verify"   -> POST /verify (instant rule flags)
+//   "pipeline" -> POST /pipeline, then polls GET /pipeline/{id} (the agent "deep check")
 
-const VERIFY_URL = "http://localhost:8000/verify";
+const BACKEND_URL = "http://localhost:8000";
+const PIPELINE_POLL_MS = 2000;
+const PIPELINE_TIMEOUT_MS = 4 * 60 * 1000; // a laptop model can take minutes on a long answer
 
 chrome.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
-  if (msg.type !== "verify") return;
+  if (msg.type === "verify") {
+    verify(msg.text).then(sendResponse);
+    return true;
+  }
+  if (msg.type === "pipeline") {
+    runPipeline(msg)
+      .then((result) => sendResponse({ result }))
+      .catch((err) => sendResponse({ error: err.message }));
+    return true;
+  }
+});
 
-  fetch(VERIFY_URL, {
+// Rule flags from the backend; if it is down, the small built-in detectors below (source: "fallback")
+async function verify(text) {
+  try {
+    const res = await fetch(`${BACKEND_URL}/verify`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text }),
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    return { flags: (await res.json()).flags, source: "server" };
+  } catch (err) {
+    console.warn("[GiSuN] backend unreachable, using fallback flags:", err.message);
+    return { flags: fallbackFlags(text), source: "fallback" };
+  }
+}
+
+// The pipeline runs in the background on the server; poll until it is done.
+async function runPipeline({ text, question, mode }) {
+  const start = await fetch(`${BACKEND_URL}/pipeline`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ text: msg.text }),
-  })
-    .then((res) => (res.ok ? res.json() : Promise.reject(new Error(`HTTP ${res.status}`))))
-    .then((data) => sendResponse({ flags: data.flags, source: "server" }))
-    .catch((err) => {
-      console.warn("[GiSuN] backend unreachable, using fallback flags:", err.message);
-      sendResponse({ flags: fallbackFlags(msg.text), source: "fallback" });
-    });
+    body: JSON.stringify({ text, question: question ?? "", mode: mode ?? "full" }),
+  });
+  if (!start.ok) throw new Error(`backend returned HTTP ${start.status}`);
+  const { job_id: jobId } = await start.json();
 
-  return true;
-});
+  const deadline = Date.now() + PIPELINE_TIMEOUT_MS;
+  while (Date.now() < deadline) {
+    const res = await fetch(`${BACKEND_URL}/pipeline/${jobId}`);
+    if (!res.ok) throw new Error(`backend returned HTTP ${res.status}`);
+    const job = await res.json();
+    if (job.status === "done") return job.result;
+    if (job.status === "error") throw new Error(job.error);
+    await new Promise((resolve) => setTimeout(resolve, PIPELINE_POLL_MS));
+  }
+  throw new Error("the deep check timed out");
+}
 
 //TEMP fallback detectors (same patterns as the Python versions)
 
@@ -30,7 +67,7 @@ const NUMERIC_PATTERNS = {
 
 const TEST_BIAS_TERMS = {
   emotionally_charged_terms: ["crisis", "catastrophe", "unprecedented", "shocking"],
-  absolutist_claims: ["everyone knows", "always", "never"],
+  absolutist_or_overgeneralizing_terms: ["everyone knows", "always", "never"], // same name as bias_wordlist.json
   loaded_political_terms: ["radical left", "radical right", "regime"],
 };
 

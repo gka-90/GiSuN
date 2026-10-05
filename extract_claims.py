@@ -74,6 +74,7 @@ def _merge_similar(claims: list[dict]) -> list[dict]:
             kept.append(claim)
             continue
         match["flags"] += claim["flags"]
+        match["detector_hit"] = match["detector_hit"] or claim["detector_hit"]  # flagged if either was
         match["signals"] = sorted(set(match["signals"]) | set(claim["signals"]))
         match["score"] = max(match["score"], claim["score"])
         match["duplicates"].append(claim["sentence"])
@@ -81,10 +82,16 @@ def _merge_similar(claims: list[dict]) -> list[dict]:
 
 
 def extract_claims(numeric_flags: list[dict], bias_flags: list[dict],
-                   min_score: int = 1) -> list[dict]:
+                   min_score: int = 1, sentences: list[str] | None = None) -> list[dict]:
     """
     Turn the flags from detect_numeric_claims() and detect_bias_framing()
     into a list of check-worthy claims, one per flagged sentence.
+
+    If `sentences` (all sentences of the text, in reading order) is given,
+    factual sentences with no flag become claims too, with "flags": [] and
+    "detector_hit": False. That lets the agents look at wording the regexes
+    and word list miss ("Every worker was affected"); rules still drop
+    questions, filler and advice.
 
     Returns claims in reading order:
         {
@@ -99,7 +106,8 @@ def extract_claims(numeric_flags: list[dict], bias_flags: list[dict],
         }
     """
     # Group flags by the sentence they came from, in reading order
-    by_sentence = {}
+    # Seed with every sentence (reading order) so unflagged ones can become claims too
+    by_sentence = {s: [] for s in sentences or []}
     for flag in sorted(numeric_flags + bias_flags, key=lambda f: f["start_index"]):
         by_sentence.setdefault(flag["sentence"], []).append(flag)
 
@@ -123,13 +131,15 @@ def extract_claims(numeric_flags: list[dict], bias_flags: list[dict],
             signals.append("hedged")
             score -= 1
 
-        if score >= min_score:
+        # Unflagged sentences are kept whatever their score: the agents decide about them
+        if score >= min_score or (sentences is not None and not flags):
             claims.append({
                 "sentence": sentence,
                 "type": "claim",
                 "score": score,
                 "signals": signals,
                 "flags": flags,
+                "detector_hit": bool(flags),
                 "duplicates": [],
             })
 

@@ -8,19 +8,26 @@ Treating "U.S." as a sentence end cut "U.S. unemployment hit 8.5%" down to
 "unemployment hit 8.5%". The cost of never splitting after an acronym is that
 "...in the U.S. Prices rose." stays one sentence -- merging two sentences is
 less harmful than cutting the subject off a claim.
+
+A line break also ends a sentence: content.js puts one between block elements
+(list items, table cells, headings), which usually have no final period.
+Without it, "- Unemployment: 14.8%" and "- Source: BLS" merged into one
+sentence, so one item's source counted for its neighbour.
 """
 
 import re
 
 TITLES = {"dr", "mr", "mrs", "ms", "prof", "st", "no", "vs", "approx", "fig", "jr", "sr", "gov", "sen", "rep"}
 ACRONYM = re.compile(r"(?:\b[A-Za-z]\.){2,}$")  # U.S.  e.g.  a.m.
-BOUNDARY = re.compile(r"[.!?]\s+")
+BOUNDARY = re.compile(r"[.!?]\s+|[ \t]*\n\s*")
 
 
 def _boundaries(text: str) -> list[int]:
     ends = []
     for m in BOUNDARY.finditer(text):
         before = text[:m.start() + 1]
+        if m.end() == len(text):
+            continue  # trailing whitespace, not a sentence boundary
         if text[m.start()] == ".":
             word = re.search(r"(\w+)\.$", before)
             if word and word.group(1).lower() in TITLES:

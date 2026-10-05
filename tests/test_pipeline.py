@@ -6,12 +6,14 @@ Pipeline tests with a scripted fake model (no Ollama / HPC needed).
 import json
 import re
 import unittest
+from unittest.mock import patch
 
-from gisun import llm
+from gisun import config, llm
 from gisun.agents.check import check_decision
 from gisun.pipeline import run
 from gisun.preprocess import preprocess
-from gisun.tools.numbers import compare_numbers
+from gisun.scoring import score_claim
+from gisun.tools.numbers import compare_numbers, parse_value
 
 TEXT = ("The U.S. unemployment rate averaged 12% in 2020. "
         "Officials stressed that the situation was not a crisis. "
@@ -62,7 +64,9 @@ class FakeModel:
         if crit == "C1":
             return submit(decision="met", strength="strong", reasoning="The 12% figure has no named source anywhere nearby.",
                           evidence=[{"quote": "12%", "source": "response"}])
-        word = {"C3": "disaster", "C5": "Experts say"}.get(crit, claim.split()[0])
+        word = {"C3": "disaster", "C5": "Experts say"}.get(crit, "")
+        if not word or word not in claim:  # open criteria also run on sentences without that word
+            word = claim.split()[0]
         return submit(decision="met", strength="moderate", reasoning=f"The wording {word} is used without a specific basis.",
                       evidence=[{"quote": word, "source": "response"}])
 
@@ -115,6 +119,58 @@ class PipelineTest(unittest.TestCase):
         self.assertTrue(compare_numbers("331 million", "331,449,281")["match"])
         self.assertFalse(compare_numbers("12%", "8.1 percent")["match"])
         self.assertFalse(compare_numbers("3%", "3 percentage points")["comparable"])
+        self.assertTrue(compare_numbers("forty-two thousand", "42,000")["match"])
+        self.assertAlmostEqual(parse_value("one in three")["value"], 1 / 3)
+        self.assertIsNone(parse_value("most Americans"))
+
+    # open problem #1: sentences no rule flagged
+    def test_open_criteria_reach_unflagged_sentences(self):
+        text = "Every worker was affected by the policy. Unemployment hit 12% in 2020."
+        llm.set_backend(FakeModel())
+        full = run(text, mode="full")
+        unflagged = next(c for c in full["claims"] if c["sentence"].startswith("Every worker"))
+        self.assertFalse(unflagged["detector_hit"])
+        self.assertTrue({"C3", "C4", "C5", "C6"} <= set(unflagged["criteria"]))
+        self.assertFalse(any(c["sentence"].startswith("Every worker") for c in run(text, mode="rules_only")["claims"]))
+
+    def test_open_criteria_can_be_turned_off(self):
+        llm.set_backend(FakeModel())
+        with patch.object(config, "OPEN_CRITERIA", False):
+            r = run("Every worker was affected by the policy.", mode="full")
+        self.assertEqual(r["claims"], [])
+
+    # open problem #7: same measure, same year
+    def test_c2_rule_needs_the_same_year(self):
+        # the BLS sample gives 3.7 percent for 2019: that must not confirm an undated claim
+        r = run("According to the Bureau of Labor Statistics, the unemployment rate is 3.7 percent.", mode="rules_only")
+        self.assertEqual(r["claims"][0]["criteria"]["C2"]["decision"], "undetermined")
+        r = run("Unemployment peaked at 14.8% in April 2020.", mode="rules_only")
+        self.assertEqual(r["claims"][0]["criteria"]["C2"]["decision"], "not_met")
+
+    def test_check_rejects_contradiction_without_year(self):
+        ctx = preprocess("The unemployment rate is 12%.")
+        ctx.record_read("bls-unemployment-2020", "The U.S. unemployment rate averaged 8.1 percent in 2020.")
+        log = [{"tool": "compare_numbers", "args": {}, "output": compare_numbers("12%", "8.1 percent")}]
+        problems = check_decision("C2", {"decision": "met", "strength": "strong",
+                                         "reasoning": "BLS reports a different unemployment rate.",
+                                         "evidence": [{"quote": "8.1 percent", "source": "bls-unemployment-2020"}]},
+                                  ctx.claims[0], ctx, log)
+        self.assertTrue(any("no year" in p for p in problems))
+
+    # open problem #5: C1 + C5 are one attribution problem
+    def test_attribution_cap(self):
+        score = score_claim({"C1": {"decision": "met", "strength": "strong"},
+                             "C5": {"decision": "met", "strength": "moderate"}})
+        self.assertEqual(score["points"], 2)
+        self.assertEqual(score["risk"], "medium")
+
+    # open problem #3: only the most check-worthy claims get C2
+    def test_c2_funnel_logs_dropped_claims(self):
+        text = "Sales rose 5% in 2020. Costs rose 7% in 2021. Prices rose 9% in 2022."
+        with patch.object(config, "C2_MAX_CLAIMS", 1):
+            r = run(text, mode="rules_only")
+        self.assertEqual(sum("C2" in c["criteria"] for c in r["claims"]), 1)
+        self.assertEqual(sum(n.get("by") == "funnel" for n in r["plan"]["notes"]), 2)
 
 
 if __name__ == "__main__":

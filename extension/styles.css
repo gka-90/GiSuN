@@ -3,7 +3,7 @@ mark.gisun-flag {
   color: inherit;
   border-radius: 2px;
   padding: 0 1px;
-  cursor: help;
+  cursor: pointer; /* click = deep check */
 }
 mark.gisun-citation {
   background: rgba(255, 196, 0, 0.25);
@@ -26,6 +26,63 @@ mark.gisun-risk {
   font: 13px/1.4 system-ui, sans-serif;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   pointer-events: none;
+}
+
+/* Deep check panel (click a highlight) */
+.gisun-deep {
+  position: fixed;
+  z-index: 2147483646;
+  width: 380px;
+  max-width: calc(100vw - 16px);
+  max-height: 60vh;
+  overflow-y: auto;
+  padding: 12px 36px 12px 14px;
+  border-radius: 10px;
+  background: #fff;
+  color: #111;
+  font: 13px/1.45 system-ui, sans-serif;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+}
+.gisun-deep p { margin: 0 0 8px; }
+.gisun-deep-close {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 26px;
+  height: 26px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+.gisun-deep-close:hover,
+.gisun-deep-close:focus-visible { background: rgba(127, 127, 127, 0.2); }
+.gisun-deep-risk { font-weight: 700; }
+.gisun-deep-high { color: #c62828; }
+.gisun-deep-medium { color: #8a5a00; }
+.gisun-deep-low { color: #2e7d32; }
+.gisun-deep-list { margin: 0 0 8px; padding-left: 18px; }
+.gisun-deep-list li { margin-bottom: 6px; }
+.gisun-deep-source { margin-top: 2px; font-style: italic; }
+.gisun-deep-meta { color: #666; font-size: 12px; }
+
+/* Backend offline notice */
+.gisun-offline {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 2147483646;
+  max-width: 360px;
+  padding: 10px 14px;
+  border-left: 4px solid #e53935;
+  border-radius: 8px;
+  background: #1f1f1f;
+  color: #fff;
+  font: 13px/1.4 system-ui, sans-serif;
+  cursor: pointer;
 }
 
 /* In-your-face mode: blocking modal (the gate reuses the same look) */

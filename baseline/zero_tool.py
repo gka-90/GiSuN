@@ -22,9 +22,10 @@ Return ONLY JSON: {"claims": [{"claim_id": 0, "criteria": {"C1": "met"}}]}"""
 
 
 def run(text: str, question: str = "") -> dict:
-    ctx = preprocess(text, question)
+    ctx = preprocess(text, question, all_sentences=config.OPEN_CRITERIA)  # same claims as the full pipeline
     table = "\n".join(f"{k}: {v['question']}" for k, v in CRITERIA.items())
-    claims = [{"claim_id": c["claim_id"], "sentence": c["sentence"], "criteria": applicable(c)} for c in ctx.claims]
+    claims = [{"claim_id": c["claim_id"], "sentence": c["sentence"], "criteria": applicable(c, config.OPEN_CRITERIA)}
+              for c in ctx.claims]
     out = llm.chat_json(SYSTEM, f"Criteria:\n{table}\n\nAnswer:\n{text}\n\nClaims:\n{json.dumps(claims, indent=1)}")
     by_id = {int(c.get("claim_id", -1)): c.get("criteria", {}) for c in out.get("claims", [])}
     claims_out = []

@@ -3,7 +3,9 @@ RQ1  criterion-level: accuracy / precision / recall / F1 of "met" over (claim, c
 RQ2  claim-level: does the claim's risk agree with the gold ("high/medium" if any gold criterion is met, else "low")
 
 Gold format (datasets/gold_example.json): each item has "labels": {sentence_substring: {criterion: decision}}.
-A gold pair the pipeline never evaluated counts as a miss (predicted "not_run").
+A gold pair the pipeline never evaluated counts as a miss (predicted "not_run"), and is counted under
+decided_by["not_run"]: a mode can lose points because the plan agent (or the C2 funnel) dropped a
+criterion, not because a decision was wrong, so report that count next to F1.
 
     python -m evaluation.evaluate --gold datasets/gold_example.json --batch outputs/batch_full_.../
 """
@@ -29,8 +31,7 @@ def evaluate(gold_path: str, batch_dir: str) -> dict:
             for cid, gold_dec in crits.items():
                 pred = claim["criteria"].get(cid) if claim else None
                 pred_dec = pred["decision"] if pred else "not_run"
-                if pred:
-                    sources[pred["by"]] += 1
+                sources[pred["by"] if pred else "not_run"] += 1
                 pairs.append((item["id"], key, cid, gold_dec, pred_dec))
                 g, p = gold_dec == "met", pred_dec == "met"
                 per_crit[cid]["tp" if g and p else "fp" if p else "fn" if g else "tn"] += 1

@@ -9,18 +9,27 @@ Claim risk:
     low      nothing met
   + "unverified": a statistic with no source (C1 met) that C2 could not check either
 Response level = the highest claim risk.
+
+C1 (no source for the number) and C5 (vague "studies show") usually describe the same
+missing source, so together they add at most ATTRIBUTION_CAP points (open problem #5):
+"Studies show 40% ..." is one attribution problem, not two.
 """
 
 from gisun.criteria import CRITERIA
 
 ORDER = {"low": 0, "medium": 1, "high": 2}
+ATTRIBUTION_GROUP = {"C1", "C5"}
+ATTRIBUTION_CAP = 2
 
 
 def score_claim(decisions: dict[str, dict]) -> dict:
-    points, reasons = 0, []
+    points, reasons, attribution = 0, [], 0
     for cid, d in decisions.items():
         if d["decision"] == "met":
             p = CRITERIA[cid]["severity"].get(d["strength"], 1)
+            if cid in ATTRIBUTION_GROUP:  # C1 and C5 share one budget of ATTRIBUTION_CAP points
+                p = min(p, ATTRIBUTION_CAP - attribution)
+                attribution += p
             points += p
             reasons.append(f"{cid} {CRITERIA[cid]['name']} (+{p})")
     if decisions.get("C2", {}).get("decision") == "met" or points >= 3:

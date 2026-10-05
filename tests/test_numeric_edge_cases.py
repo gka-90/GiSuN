@@ -67,6 +67,17 @@ class TestNumericDetection(unittest.TestCase):
                           [("2019", "year"), ("2023", "year"), ("$10M", "dollar_amount"),
                            ("$50M", "dollar_amount"), ("400%", "percentage")]),
         "year range": ("From 1990-2000 crime fell.", [("1990", "year"), ("2000", "year")]),
+        # spelled-out numbers and quantity words (open problem #2)
+        "spelled count": ("Forty-two thousand jobs were lost.", [("Forty-two thousand", "count")]),
+        "spelled hundreds": ("Two hundred and five thousand people.", [("Two hundred and five thousand", "count")]),
+        "a million": ("A million people came.", [("A million", "count")]),
+        "spelled percent": ("About forty percent agreed.", [("forty percent", "percentage")]),
+        "most + group": ("Most Americans agree.", [("Most Americans", "quantity")]),
+        "majority of": ("The vast majority of voters said no.", [("The vast majority of", "quantity")]),
+        "almost all": ("Almost all experts agree.", [("Almost all", "quantity")]),
+        "a lot is not a number": ("It was a lot of work.", []),
+        "most + adjective": ("The most important thing.", []),
+        "one of": ("One of the best.", []),
     }
 
     def test_cases(self):
@@ -94,6 +105,11 @@ class TestSentenceSplitting(unittest.TestCase):
 
     def test_decimal_does_not_end_sentence(self):
         self.assertEqual(self.sentence_of("Rates hit 8.5% today. Next."), "Rates hit 8.5% today.")
+
+    def test_line_break_ends_sentence(self):
+        # list items have no final period; they must not merge (open problem #16)
+        flags = detect_numeric_claims("- Unemployment: 14.8%\n- Inflation: 3%")
+        self.assertEqual([f["sentence"] for f in flags], ["- Unemployment: 14.8%", "- Inflation: 3%"])
 
     def test_normal_split(self):
         self.assertEqual(self.sentence_of("Prices rose. Rent hit $2,000 in 2023! Wow."),

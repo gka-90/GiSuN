@@ -21,11 +21,21 @@ RANGE_TAIL = rf"(?:\s?(?:-|–|—|to)\s?{SIGN}(?:{NUM}))?"  # "5-10%", "5 to 10
 SCALE = r"(?:trillion|billion|million|thousand|tn|bn|mn|[tbmk])\b"
 SCALE_WORD = r"(?:trillion|billion|million|thousand)"
 SMALL = r"(?:one|two|three|four|five|six|seven|eight|nine|ten|\d+)"
+# Spelled-out numbers up to the hundreds: "forty-two", "seventeen", "two hundred and five"
+_ONES = r"(?:one|two|three|four|five|six|seven|eight|nine)"
+_TEENS = r"(?:ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen)"
+_TENS = r"(?:twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)"
+_UNDER_100 = rf"(?:{_TENS}(?:[- ]{_ONES})?|{_TEENS}|{_ONES})"
+SPELLED = rf"(?:{_UNDER_100}(?:\shundred(?:\s(?:and\s)?{_UNDER_100})?)?|a\shundred|a)"
+# "most Americans": a quantity with no number, which still needs a source
+GROUP = (r"(?:Americans|people|adults|voters|experts|scientists|economists|doctors|students|"
+         r"workers|users|children|parents|women|men|countries|states|households|companies|businesses)")
 
 # Ordered by type; when matches overlap, the longest one wins (see _drop_overlaps).
 PATTERNS = {
     "percentage": [
         rf"{START}{SIGN}(?:{NUM}){RANGE_TAIL}\s?(?:%|percent\b|per cent\b)",
+        rf"\b(?!a\s){SPELLED}\s(?:percent|per cent)\b",           # forty percent
     ],
     "percentage_points": [
         rf"{START}{SIGN}(?:{NUM}){RANGE_TAIL}\s?(?:percentage points?|basis points?|pp\b|bps\b)",
@@ -44,6 +54,12 @@ PATTERNS = {
     "count": [
         rf"(?<![\w.,$€£¥])(?:{NUM})\s{SCALE_WORD}\b",         # 3 million
         r"(?<![\w.,$€£¥])\d{1,3}(?:,\d{3})+(?:\.\d+)?(?![\d%])",  # 40,000
+        rf"\b{SPELLED}\s{SCALE_WORD}\b",                        # forty-two thousand, a million
+    ],
+    "quantity": [
+        r"\b(?:the|a)\s(?:(?:vast|large|slim|narrow|small|clear)\s)?(?:majority|minority)\sof\b",
+        r"\b(?:nearly|almost|virtually|practically)\s(?:all|everyone|everybody|no one|none)\b",
+        rf"\bmost\s(?:of\s(?:the\s)?)?{GROUP}\b",
     ],
     "ratio": [
         rf"\b{SMALL}\s(?:in|out of)\s{SMALL}\b",               # one in three, 9 out of 10
@@ -102,7 +118,8 @@ def detect_numeric_claims(text: str) -> list[dict]:
             "start_index": character offset of the match in `text`,
             "end_index": character offset where the match ends in `text`,
             "type": which pattern matched: "percentage" | "percentage_points" |
-                    "dollar_amount" | "currency_amount" | "count" | "ratio" | "year",
+                    "dollar_amount" | "currency_amount" | "count" | "ratio" |
+                    "quantity" | "year",
         }
     """
     flags = []

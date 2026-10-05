@@ -33,7 +33,7 @@ from datetime import datetime
 
 from gisun import config, llm
 from gisun.agents.check import check_decision, normalize
-from gisun.agents.debug import run_with_debug
+from gisun.agents.debug import failure_entry, run_with_debug
 from gisun.agents.judge import judge
 from gisun.agents.plan import plan
 from gisun.agents.task import run_task
@@ -68,7 +68,8 @@ def _run_one(ctx, claim: dict, cid: str, mode: dict) -> dict:
         debug_log = []
         try:
             res = attempt(None)
-            res = res if res.answer is not None else None
+            if res.answer is None:  # no Debug agent in this mode: just record why it failed
+                res, debug_log = None, [failure_entry(1, res)]
         except llm.LLMError as e:
             res, debug_log = None, [{"attempt": 1, "error": str(e)}]
 
@@ -107,8 +108,10 @@ def run(text: str, question: str = "", mode: str = "full", keep_trace: bool = Tr
         m = dict(MODES["rules_only"])
         mode = "rules_only (no model backend)"
     t0 = time.time()
-    ctx = preprocess(text, question)
-    the_plan = plan(ctx, use_model=m["plan"])
+    # Model modes also look at sentences the detectors missed (open problem #1); rules_only can't use them
+    open_criteria = m["task"] and config.OPEN_CRITERIA
+    ctx = preprocess(text, question, all_sentences=open_criteria)
+    the_plan = plan(ctx, use_model=m["plan"], open_criteria=open_criteria)
     results: dict[int, dict[str, dict]] = {c["claim_id"]: {} for c in ctx.claims}
 
     with ThreadPoolExecutor(max_workers=config.MAX_PARALLEL_TASKS) as pool:
@@ -131,12 +134,14 @@ def run(text: str, question: str = "", mode: str = "full", keep_trace: bool = Tr
         if not keep_trace:
             for d in decisions.values():
                 d.pop("trace", None)
-        claims_out.append({"claim_id": claim["claim_id"], "sentence": claim["sentence"],
+        # detector_hit False = no rule flagged this sentence; only the agents (open criteria) judged it
+        claims_out.append({"claim_id": claim["claim_id"], "sentence": claim["sentence"], "detector_hit": claim["detector_hit"],
                            "flags": [f["matched_value"] for f in claim["flags"]],
                            "criteria": decisions, "score": score_claim(decisions)})
     by = [d["by"] for c in claims_out for d in c["criteria"].values()]
     return {
         "mode": mode, "model": config.MODEL if m["task"] else None, "backend": config.BACKEND if m["task"] else None,
+        "judge_model": config.JUDGE_MODEL if m["judge"] else None, "open_criteria": open_criteria,
         "question": question, "text": text,
         "plan": {"by": the_plan["by"], "notes": the_plan["notes"],
                  "tasks": {str(k): v for k, v in the_plan["tasks"].items()}},

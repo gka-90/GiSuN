@@ -8,6 +8,12 @@ variables so the same code runs on a laptop (Ollama) and on the HPC (vLLM).
     GISUN_SEARCH    local (default) | searxng
     GISUN_SEARXNG_URL  e.g. http://localhost:8888
     GISUN_CORPUS    path to the local reference corpus (data/reference_corpus.json)
+    GISUN_JUDGE_MODEL, GISUN_JUDGE_BASE_URL
+                    a different (e.g. larger) model for the Judge agent, so it doesn't share the
+                    Task agent's blind spots (open problem #11). Default: same as GISUN_MODEL.
+    GISUN_OPEN_CRITERIA  1 (default) = in model modes, run C3-C6 on every factual sentence,
+                    not only on sentences the detectors flagged (open problem #1). 0 = old behaviour.
+    GISUN_C2_MAX_CLAIMS  only the N most check-worthy claims get the slow C2 source check (#3)
 """
 
 import os
@@ -21,6 +27,11 @@ API_KEY = os.environ.get("GISUN_API_KEY", "EMPTY")  # vLLM ignores it
 TEMPERATURE = float(os.environ.get("GISUN_TEMPERATURE", "0.2"))
 NUM_CTX = int(os.environ.get("GISUN_NUM_CTX", "8192"))
 TIMEOUT_S = int(os.environ.get("GISUN_TIMEOUT", "120"))
+JUDGE_MODEL = os.environ.get("GISUN_JUDGE_MODEL", MODEL)
+JUDGE_BASE_URL = os.environ.get("GISUN_JUDGE_BASE_URL", BASE_URL)
+
+OPEN_CRITERIA = os.environ.get("GISUN_OPEN_CRITERIA", "1") == "1"
+C2_MAX_CLAIMS = int(os.environ.get("GISUN_C2_MAX_CLAIMS", "5"))
 
 SEARCH = os.environ.get("GISUN_SEARCH", "local")
 SEARXNG_URL = os.environ.get("GISUN_SEARXNG_URL", "http://localhost:8888")

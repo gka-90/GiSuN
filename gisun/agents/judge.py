@@ -25,7 +25,7 @@ def judge(ctx, claim: dict, cid: str, decision: dict, tool_log: list[dict]) -> d
             f"Decision under review:\n{json.dumps(decision, ensure_ascii=False, indent=1)}\n\n"
             f"Tool results the agent saw:\n{json.dumps(seen, ensure_ascii=False, indent=1)}")
     try:
-        out = llm.chat_json(SYSTEM, user)
+        out = llm.chat_json(SYSTEM, user, judge=True)  # GISUN_JUDGE_MODEL, if set (open problem #11)
     except llm.LLMError as e:
         return {"verdict": "approve", "problems": [], "note": f"judge unavailable: {e}"}
     verdict = out.get("verdict") if out.get("verdict") in ("approve", "revise") else "approve"

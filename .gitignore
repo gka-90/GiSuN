@@ -14,3 +14,6 @@ evaluation/outputs/
 *.pt
 *.pth
 *.onnx
+# Slurm job logs (the folder itself must exist before sbatch, so it is kept)
+logs/*
+!logs/.gitkeep
