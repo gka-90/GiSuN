@@ -14,12 +14,14 @@ treat all criteria the same way.
     applies(claim)      deterministic pre-filter the plan agent starts from
     open                True = in model modes, also run on claims the detectors didn't
                         trigger for it (open problem #1: the agents can only catch what
-                        the rules miss if they get to see those sentences)
+                        the rules miss if they get to see those sentences); or a
+                        function(claim) that says which extra claims it runs on
     rule(claim, ctx)    deterministic decision: used in rules_only mode and as the
                         fallback when the agent fails (like the variant pipeline's
                         error path, but with an answer instead of a gap)
 """
 
+from extract_claims import CUES
 from gisun.preprocess import split_sentences
 from gisun.tools.language import context_cues
 from gisun.tools.numbers import NUMBER, compare_numbers, parse_value, years_in
@@ -53,12 +55,14 @@ def _used_terms(claim, cats):
 
 def rule_c1(claim, ctx):
     src = claim["attribution"]["source_text"] or claim["attribution_nearby"]["source_text"]
-    values = ", ".join(claim["stat_values"])
+    # The numbers, or for a claim with no number the record/trend/comparison words ("the highest ever")
+    quoted = claim["stat_values"] or [m.group(0) for m in CUES["quantitative"].finditer(claim["sentence"])]
+    values = ", ".join(quoted)
     if src:
         return _decision("not_met", "moderate", f"{values} is attributed to {src}.",
                          [{"quote": src, "source": "response"}])
     return _decision("met", "strong", f"{values} is given with no named source in this or the previous sentences.",
-                     [{"quote": v, "source": "response"} for v in claim["stat_values"]])
+                     [{"quote": v, "source": "response"} for v in quoted])
 
 
 def claim_years(claim) -> list[str]:
@@ -80,7 +84,7 @@ def rule_c2(claim, ctx):
         for sentence in split_sentences(doc["text"]):
             if not any(y in sentence for y in years):
                 continue
-            for value in claim["stat_values"]:
+            for value in claim["checkable_values"]:  # not rankings or p-values: nothing to compare
                 for m in NUMBER.finditer(sentence):
                     if m.group(0).strip() in years:
                         continue  # the year itself is not the figure
@@ -131,15 +135,20 @@ def rule_c6(claim, ctx):
 CRITERIA = {
     "C1": {
         "name": "unsourced_statistic",
-        "question": "Does the claim give a statistic without naming a specific source (in this or the previous two sentences)?",
-        "guidance": "A specific source is a named organisation, publication, dataset or link. 'Experts', 'studies' or "
+        "question": "Does the claim give a statistic or other quantitative claim without naming a specific source "
+                    "(in this or the previous two sentences)?",
+        "guidance": "Quantitative claims include numbers, but also records, trends and comparisons with no number: "
+                    "'the highest ever', 'a record low', 'skyrocketed', 'the fastest-growing', 'outpaced inflation'. "
+                    "A specific source is a named organisation, publication, dataset or link. 'Experts', 'studies' or "
                     "'reports' are NOT specific. Use find_attribution and context_window; a source in the previous "
-                    "sentence counts if it clearly covers this number.",
+                    "sentence counts if it clearly covers this claim.",
         "phase": 1, "depends_on": {},
         "tools": ["find_attribution", "context_window"],
         "severity": {"strong": 2, "moderate": 2, "supporting": 1},
         "applies": lambda c: bool(c["stat_values"]),
-        "open": False,
+        # In model modes also a claim with no number but a record/trend/comparison cue; the rules-only
+        # baseline keeps the narrower gate, so its numbers stay comparable with earlier runs
+        "open": lambda c: "quantitative" in c["signals"],
         "rule": rule_c1,
     },
     "C3": {
@@ -210,7 +219,7 @@ CRITERIA = {
         "tools": ["search", "read_source", "compare_numbers"],
         "severity": {"strong": 3, "moderate": 3, "supporting": 2},
         # only values compare_numbers can read ("most Americans" needs a source, but can't be checked)
-        "applies": lambda c: any(parse_value(v) is not None for v in c["stat_values"]),
+        "applies": lambda c: any(parse_value(v) is not None for v in c["checkable_values"]),
         "open": False,
         "rule": rule_c2,
     },
@@ -220,5 +229,8 @@ PHASES = sorted({c["phase"] for c in CRITERIA.values()})
 
 def applicable(claim: dict, open_criteria: bool = False) -> list[str]:
     """Criteria to run for a claim. open_criteria=True (model modes) adds the open criteria
-    (C3-C6) to every claim, so the agents also judge sentences the rules didn't trigger on."""
-    return [cid for cid, c in CRITERIA.items() if c["applies"](claim) or (open_criteria and c["open"])]
+    (C3-C6 always, C1 for numberless quantitative claims), so the agents also judge sentences
+    the rules didn't trigger on."""
+    def is_open(c):  # "open" is True/False, or a test for which claims it opens up to
+        return c["open"](claim) if callable(c["open"]) else c["open"]
+    return [cid for cid, c in CRITERIA.items() if c["applies"](claim) or (open_criteria and is_open(c))]

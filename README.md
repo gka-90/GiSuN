@@ -7,8 +7,8 @@ Built as a semester-long CS senior seminar project at Hamilton College.
 ## What it does
 
 - **Detects** numeric/statistical claims and biased or contested phrasing in chatbot responses (currently targeting ChatGPT)
-- **Highlights** flagged content directly on the page, with distinct visual styles for risk warnings vs. citations. Highlights are warnings ("worth checking"), not verdicts: the rules can't tell whether a claim is true
-- **Deep check**: clicking a highlight runs the multi-agent pipeline on the whole answer and shows that claim's risk level and the reasons (C1-C6, see [PIPELINE.md](PIPELINE.md)). Only the C2 source check can say a source gives a different figure
+- **Highlights claims chosen by the agents**: when an answer finishes, the multi-agent pipeline checks every claim against C1-C6 (see [PIPELINE.md](PIPELINE.md)); the claims it flags are underlined in their risk colour, and the exact words the agents pointed to ("job-killing", "12%") are filled in. Claims with no problem stay unmarked. Hover for the reasons, click for the full verdict. Highlights are warnings ("worth checking"), not verdicts; only the C2 source check can say a source gives a different figure
+- **Falls back to rule highlights** (numbers and listed words, instant) when the agents can't run, and says so under the answer
 - **Interacts** with the user via one of two modes: a quiet hover tooltip (citation mode) or a blocking modal (in-your-face mode)
 - **Teaches** critical reading through a "Two Truths and a Lie" quiz on a topic (planned: generated from the chatbot's response itself; today `/quiz` only takes a topic)
 - **Prebunks**: when a question is about medicine, history or politics, a banner above the answer warns about that topic's common pitfalls before the user reads it
@@ -29,19 +29,31 @@ new assistant response  ──►  content.js                              serve
                                   ▼
                              render_highlights()   → <mark> around each flag
                              handle_interaction_mode() → tooltip or modal
-
-click a highlight       ──►  deepCheck()  ── POST /pipeline ──►          gisun/ pipeline (agents, C1-C6)
-                             (once per answer, cached)  ◄─ poll GET /pipeline/{id} ─
-                             panel: risk, reasons, sources
 ```
 
-`/verify` drops loaded words that are negated, quoted or only mentioned ("not a crisis"), and the extension doesn't highlight bare years (they are context, not claims; the deep check still sees them). Highlighting everything trains users to ignore highlights.
+That diagram is the **fallback**. Normally the agents decide the highlights:
+
+```
+new assistant response  ──►  processResponse(): "GiSuN is checking the claims in this answer…"
+                                  │  POST /pipeline {text, question}  ──►  gisun/ pipeline (agents, C1-C6)
+                                  │  ◄── poll GET /pipeline/{id} until done (one answer at a time)
+                                  ▼
+                             render_claims()  → underline medium/high-risk claim sentences,
+                                                fill in the words the agents quoted as evidence
+                             status note: "GiSuN: 3 claims worth checking (1 high risk)"
+                             hover = reasons, click = panel with the full verdict and source quotes
+                             (if /pipeline fails: the /verify rule highlights above, with a note)
+```
+
+With a model on the HPC (PIPELINE.md, "Use the HPC model from a laptop") an answer takes roughly 10-40 s; with no model reachable, the pipeline's rules decide every criterion (a few seconds) and the note says so.
+
+`/verify` drops loaded words that are negated, quoted or only mentioned ("not a crisis"), and the rule highlights skip bare years (they are context, not claims). Highlighting everything trains users to ignore highlights.
 
 If the backend isn't running, `background.js` falls back to a small built-in set of regexes and bias terms so the extension still highlights something, and the page shows a notice saying so. The fallback word list is much smaller than `bias_wordlist.json`.
 
 ### Agent layer → [PIPELINE.md](PIPELINE.md)
 
-`/verify` stays model-free so highlights appear instantly. The model-based analysis is the **multi-agent pipeline** in `gisun/` (Plan / Task / Debug / Judge / Check agents, per-criterion decisions, deterministic scoring), served as `POST /pipeline` + `GET /pipeline/{id}` and called by the extension's deep check. See **[PIPELINE.md](PIPELINE.md)** for the design, criteria, run commands, the Hamilton HPC setup and evaluation.
+`/verify` stays model-free so highlights appear instantly. The model-based analysis is the **multi-agent pipeline** in `gisun/` (Plan / Task / Debug / Judge / Check agents, per-criterion decisions, deterministic scoring), served as `POST /pipeline` + `GET /pipeline/{id}`, which the extension calls for every answer. See **[PIPELINE.md](PIPELINE.md)** for the design, criteria, run commands, the Hamilton HPC setup and evaluation.
 
 The earlier single-agent `/analyze` (`agent/analyzer.py`, `agent/scanner.py`) has been removed. Its evaluation scripts and data are kept in `archive/eval/` (for reference only: they import the removed modules, so they no longer run), and its results in `output/` (`scan_eval_results.json`, `analyze_eval_*.json`, `context_eval_v1_prompt.json`): on 19 claims x 3 runs it matched the rule fallback 100% while taking ~8s vs ~2ms per response.
 
@@ -73,7 +85,8 @@ Every detector returns flags in the same shape, and `/verify` returns them sorte
 }
 ```
 
-- `type`: `percentage` | `percentage_points` | `dollar_amount` | `currency_amount` | `count` | `ratio` | `quantity` ("most Americans", "the majority of") | `year` | `bias_framing`
+- `type`: `percentage` | `percentage_points` | `dollar_amount` | `currency_amount` | `count` | `ratio` | `quantity` ("most Americans", "nearly half", "tens of thousands") | `score` (polls, ratings, sports: "rated 4.7 stars", "a 10-2 record") | `statistic` (research: "p < 0.05", "n = 1,200") | `ranking` ("top 10", "the second-largest") | `year` | `bias_framing`
+- What counts as a statistic follows *Statistic Formats for Claim Detection* (Oct 5, 2026): its examples are tests in `tests/test_numeric_edge_cases.py` (131 of its 140 positive examples are caught; the rest, like a bare "about 500" or "twenty-five", are left out on purpose, and none of its look-alikes are flagged)
 - `category`: only present on `bias_framing` flags (the word-list category)
 - `start_index` / `end_index`: offsets into the response text, in **UTF-16 code units** so they match JavaScript string indexing (Python code-point offsets would drift after any emoji). `server.py` does this conversion.
 
@@ -123,14 +136,20 @@ Every detector returns flags in the same shape, and `/verify` returns them sorte
 - [x] #10 (tool) `evaluation/agreement.py`: Cohen's kappa between two label files. Evaluation reports `not_run` pairs.
 - [x] #11 `GISUN_JUDGE_MODEL`: the Judge can use a different model; the Slurm script can serve both.
 - [x] #14 Highlight labels are worded as warnings, not verdicts.
-- [x] #15 Deep check: click a highlight to run `/pipeline` on the answer and see that claim's risk and reasons.
+- [x] #15 The agents run on every answer (`/pipeline`) and decide the highlights: flagged claim sentences plus the words they quoted; click for the full verdict. Rule highlights only as a fallback.
 - [x] #17 Notice on the page when the backend is offline and the fallback is used (fallback category name fixed).
 - [x] #18 Self-test: a console warning when the page has conversation turns but no selector matches.
 - [x] #20 README drift fixed (this section, `/analyze` entries, TODO list).
 
+### Done 10/5/2026
+- [x] **The agents decide the highlights.** Every finished answer goes to `/pipeline`; the flagged claims (medium/high risk) are underlined and the words the agents quoted are filled in, including sentences no rule flags ("Every worker was affected by the job-killing policy"). A status note under the answer says what's happening. Rule highlights are the fallback when the agents can't run.
+- [x] Number detection follows *Statistic Formats for Claim Detection*: multipliers, fractions, ratios and odds, vague quantities, abbreviated magnitudes, other grouping styles and currencies, polls/ratings/sports scores, research statistics, rankings. Coverage of its examples went from 71/135 to 131/140, with no look-alikes flagged; the examples are tests now.
+- [x] C1 also covers quantitative claims with no number ("the highest ever", "skyrocketed", "outpaced inflation") in model modes. C2 only compares values it can look up (not rankings or p-values).
+
 ### TODO
 - [ ] Data, labels and a decision (the highest-priority items): 50+ real answers labeled by both of us with guidelines (#9, #10), real reference data for 2-3 C2 domains (#6), and the product promise (#14). See "Not done yet" in PIPELINE.md.
-- [ ] `fetch_citations()` — actually look up sources for flagged numbers outside the deep check (currently the highlight only says it's worth checking).
+- [ ] Speed: an answer takes roughly 10-40 s on the HPC model (one model conversation per claim and criterion). Ideas: one call per sentence for C3-C6, `task_only` in the extension, more parallel requests, showing claims as they finish.
+- [ ] Suggestions for unsourced numbers (where to look), instead of only "no source".
 - [ ] Popup/options page to switch between citation and in-your-face mode and pick the deep-check mode (right now both live only in `chrome.storage.sync`: `mode`, default `citation`; `deepMode`, default `full`).
 - [ ] Replace the placeholder gate question (`GATE_QUESTION` / `GATE_OPTIONS` / `GATE_CORRECT_INDEX` / `GATE_WRONG_MESSAGE` at the top of `extension/gate.js`).
 - [ ] Prebunk: classify the question with the model instead of keywords (TODO in `extension/prebunk.js`).
@@ -142,7 +161,7 @@ Every detector returns flags in the same shape, and `/verify` returns them sorte
 - Local model (Qwen2.5:1.5b/3b) output for quiz generation is not 100% reliable — roughly 1/4 to 1/3 of raw generations are fully clean; validation/retry/fallback handles this but cannot guarantee semantic correctness (e.g. `false_index` matching the explanation), only format correctness.
 - Agent self-checks are mechanical: they catch verdicts with no detector evidence, ungrounded or copied reasons, and quizzes whose lie an independent reader can't find, but they can't prove a reason or quiz is actually correct. The model can also refuse a correct rejection (e.g. insisting "according to the Bureau of Labor Statistics" isn't a source), in which case rules decide that claim.
 - Numbers: the highlight doesn't know about sources; the deep check's C1 looks for a source in the same and the two previous sentences, but not after the number ("14.8%. Source: BLS" on the next line isn't linked). Figures of speech that look like statistics ("gave half of the effort") are flagged too; a "not a claim" verdict was tried and removed because qwen2.5:3b used it to wave through real statistics. Plain small numbers ("3 cats"), temperatures and other units aren't detected. The extension's offline fallback in `background.js` still has only the old 3 patterns (the page now says when it's in use).
-- Deep check on a laptop: the full pipeline with a 3B model can take minutes on a long answer (the extension waits up to 4). Set `chrome.storage.sync.set({deepMode: "rules_only"})` for an instant, model-free check, or point the backend at the HPC (PIPELINE.md).
+- Agent highlights on a laptop: the full pipeline with a 1.5-3B model can take minutes per answer (the extension waits up to 4, and checks one answer at a time). Point the backend at the HPC model (PIPELINE.md), or set `chrome.storage.sync.set({deepMode: "rules_only"})` for model-free, rules-decided highlights.
 - Quiz focus check (`_focus_problem` in `agent/quiz_agent.py`) compares content words between the explanation and each statement. If the explanation shares no content words with any statement, or ties between statements, it passes unchecked; only the blind solve can catch a mismatch then.
 - Word-list bias detection cannot catch phrasing outside the list and is English-only. Negation / quotation / mention is caught by simple cues (a negator in the 4 words before, an open quote, "so-called", "the term"), not by understanding the sentence.
 - ChatGPT changes its DOM often. If highlights stop appearing, the selectors at the top of `extension/content.js` (`RESPONSE_SELECTOR`, `MARKDOWN_SELECTOR`) are the first thing to check.
@@ -186,7 +205,7 @@ Covers numeric detection edge cases, sentence splitting, source detection (`gisu
 2. Turn on **Developer mode** (toggle in the top-right corner). The **Load unpacked** button only appears after this.
 3. Click **Load unpacked** and select the **`extension/`** folder (not the project root — `manifest.json` lives in `extension/`)
 4. Open [chatgpt.com](https://chatgpt.com) (refresh any tab that was already open). Answer the gate question first. Then ask something with numbers, e.g. *"Give me 3 statistics about US unemployment with years and percentages."* Highlights appear ~1.5s after the response finishes.
-5. **Deep check:** click any highlight. A panel shows the claim's risk and reasons once the pipeline finishes (one run per answer; later clicks on the same answer are instant). With no model running, set `chrome.storage.sync.set({deepMode: "rules_only"})` in the extension's service worker console for an instant rules-only check.
+5. **Agent highlights:** under each answer a note says "GiSuN is checking the claims in this answer…"; when the agents finish, the flagged claims are underlined (hover = reasons, click = full verdict). For real agent decisions a model must be running (step 3, or the HPC model, PIPELINE.md); without one the rules decide. `chrome.storage.sync.set({deepMode: "rules_only"})` in the extension's service worker console skips the model entirely.
 6. **Modal mode:** `chrome.storage.sync.set({mode: "in_your_face"})` in the same console (back: `"citation"`).
 
 After editing anything in `extension/`, click the ↻ reload button on the GiSuN card and refresh the ChatGPT tab.
@@ -204,7 +223,8 @@ After editing anything in `extension/`, click the ↻ reload button on the GiSuN
   - First > 0, second `0`: check the **Errors** button on the extension card.
   - Chrome may ask you to type `allow pasting` before it lets you paste into the console.
 - **Only a few bias words get flagged / "backend isn't running" notice** — the backend isn't reachable, so the extension is using its fallback. Open the extension's service worker console (link on the extension card) and look for `backend unreachable, using fallback flags`; start uvicorn (step 2).
-- **Deep check says "failed" or takes very long** — the backend must be running; with `deepMode: "full"` it also needs a model (Ollama, step 3). Without one, every decision falls back to the rules after the model calls fail. Use `deepMode: "rules_only"` to test the panel without a model.
+- **Only "basic rule highlights" / "agents couldn't check this answer"** — `/pipeline` failed: is the backend running (step 2)? The note under the answer gives the error.
+- **"Checking…" for a long time** — the agents are slow with a small laptop model, and answers are checked one at a time. Use the HPC model, or `deepMode: "rules_only"` to test without a model.
 - **Console warns that no response matches `RESPONSE_SELECTOR`** — ChatGPT changed its layout; update the selectors at the top of `content.js`.
 - **VS Code says `Import "fastapi" could not be resolved`** — select the `ai-guardrail` interpreter (Cmd+Shift+P → *Python: Select Interpreter*).
 

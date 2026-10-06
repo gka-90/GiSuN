@@ -10,6 +10,7 @@ from unittest.mock import patch
 
 from gisun import config, llm
 from gisun.agents.check import check_decision
+from gisun.criteria import rule_c1
 from gisun.pipeline import run
 from gisun.preprocess import preprocess
 from gisun.scoring import score_claim
@@ -138,6 +139,16 @@ class PipelineTest(unittest.TestCase):
         with patch.object(config, "OPEN_CRITERIA", False):
             r = run("Every worker was affected by the policy.", mode="full")
         self.assertEqual(r["claims"], [])
+
+    # C1 also covers quantitative claims with no number ("the highest ever"), in model modes only
+    def test_c1_covers_numberless_quantitative_claims(self):
+        text = "Home prices hit the highest level ever recorded last year."
+        llm.set_backend(FakeModel())
+        claim = run(text, mode="full")["claims"][0]
+        self.assertIn("C1", claim["criteria"])
+        self.assertEqual(run(text, mode="rules_only")["claims"], [])  # the rules baseline is unchanged
+        ctx = preprocess(text, all_sentences=True)
+        self.assertIn("highest level ever", rule_c1(ctx.claims[0], ctx)["evidence"][0]["quote"])
 
     # open problem #7: same measure, same year
     def test_c2_rule_needs_the_same_year(self):

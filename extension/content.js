@@ -1,10 +1,13 @@
-// Flow: observe_dom_for_new_response() -> background.js (POST /verify)
-//       -> render_highlights() -> handle_interaction_mode()
-// Click a highlight -> deepCheck() -> background.js (POST /pipeline, poll) -> per-claim verdict panel
+// Flow: observe_dom_for_new_response() -> processResponse()
+//   -> background.js (POST /pipeline, poll): the agents check every claim in the answer
+//   -> render_claims(): underline the risky claim sentences and mark the words the agents quoted
+//   -> handle_interaction_mode(): hover tooltip or blocking modal; click a highlight for details
+// Only a "checking..." note is shown while the agents work. If they can't run (backend down,
+// pipeline error), the instant rule highlights from POST /verify are shown instead.
 
 // Old ChatGPT layout used data-message-author-role; the 2026 layout (chatgpt.com/uc/...) uses data-message-role
 const RESPONSE_SELECTOR = '[data-message-author-role="assistant"], [data-message-role="assistant"]';
-// The user's messages, to send the question along with the deep check
+// The user's messages, to send the question along with the answer
 const USER_SELECTOR = '[data-message-author-role="user"], [data-message-role="user"]';
 const MARKDOWN_SELECTOR = ".markdown, [data-assistant-markdown]";
 // ChatGPT's prompt box is a contenteditable div (#prompt-textarea); older layouts used a real <textarea>
@@ -12,10 +15,12 @@ const PROMPT_INPUT_SELECTOR = '#prompt-textarea, form textarea, form [contentedi
 const SEND_BUTTON_SELECTOR = '[data-testid="send-button"], button[aria-label*="Send"]';
 const STREAM_DONE_MS = 1500; // no changes for this long = response finished streaming
 const SELF_TEST_MS = 15000; // warn if the page has conversation turns but none match our selectors
-// Bare years are context, not claims; highlighting every year trains users to ignore highlights.
-// They still reach the backend, so the deep check sees them.
+// Rule highlights only (fallback): bare years are context, not claims; highlighting every
+// year trains users to ignore highlights.
 const QUIET_TYPES = new Set(["year"]);
-// Plain-language names for the pipeline criteria, shown in the deep-check panel
+// Claims at these risk levels are highlighted; "low" means the agents found no problem
+const HIGHLIGHT_RISKS = new Set(["medium", "high"]);
+// Plain-language names for the pipeline criteria, shown in tooltips, the modal and the panel
 const CRITERION_LABELS = {
   C1: "No source for the number",
   C2: "A source gives a different figure",
@@ -29,11 +34,15 @@ const BLOCK_TAGS = new Set([
 ]);
 
 let currentMode = "citation"; // "citation" | "in_your_face"
-let deepMode = "full"; // pipeline mode for the deep check; "rules_only" needs no model
+let deepMode = "full"; // pipeline mode; "rules_only" needs no model (instant, rules decide everything)
 const pendingTimers = new Map();
 const processedText = new WeakMap();
-const deepChecks = new WeakMap(); // response container -> { text, promise }, so a second click reuses the run
+const results = new WeakMap(); // response container -> pipeline result, for the click panel
+const statusNotes = new WeakMap(); // response -> its "GiSuN is checking..." note
 let offlineNoticeShown = false;
+// One pipeline run at a time: answers already on the page wait their turn instead of
+// all hitting the model at once
+let pipelineQueue = Promise.resolve();
 
 // Detect new responses
 
@@ -65,20 +74,63 @@ function scheduleCheck(response) {
   }, STREAM_DONE_MS));
 }
 
+// The agents decide what gets highlighted; until they finish, only a status note is shown
 async function processResponse(response) {
   const container = response.querySelector(MARKDOWN_SELECTOR) ?? response;
   const { text } = buildTextMap(container);
   // Our own highlighting also triggers the observer; the text is unchanged, so skip it
   if (!text.trim() || processedText.get(response) === text) return;
   processedText.set(response, text);
+  container.dataset.gisunMode = currentMode;
 
+  setStatus(response, "checking", "GiSuN is checking the claims in this answer…");
+  const res = await enqueue(() => requestPipeline(text, findQuestion(container)));
+  if (buildTextMap(container).text !== text) return; // the answer changed meanwhile; a new check is scheduled
+
+  if (res.error) {
+    await showRuleHighlights(response, container, text, res.error);
+    return;
+  }
+  results.set(container, res.result);
+  const flagged = render_claims(container, res.result);
+  setStatus(response, "done", summaryMessage(flagged, res.result));
+  handle_interaction_mode(currentMode, container, flagged.map(claimModalItem));
+}
+
+function enqueue(task) {
+  const run = pipelineQueue.then(task, task);
+  pipelineQueue = run.catch(() => {});
+  return run;
+}
+
+// background.js does the POST and the polling; resolves with { result } or { error }
+function requestPipeline(text, question) {
+  return new Promise((resolve) => {
+    chrome.runtime.sendMessage({ type: "pipeline", text, question, mode: deepMode }, (res) => {
+      resolve(chrome.runtime.lastError ? { error: chrome.runtime.lastError.message } : res ?? { error: "no reply" });
+    });
+  });
+}
+
+// The user's question is the closest user message before this response
+function findQuestion(container) {
+  const before = [...document.querySelectorAll(USER_SELECTOR)]
+    .filter((u) => u.compareDocumentPosition(container) & Node.DOCUMENT_POSITION_FOLLOWING);
+  return before.at(-1)?.innerText.trim() ?? "";
+}
+
+// Fallback when the agents can't run: the rule highlights from POST /verify (or, with the
+// backend down, background.js's small built-in detectors), with a note saying so
+async function showRuleHighlights(response, container, text, error) {
   const { flags: allFlags, source } = await requestFlags(text);
   if (buildTextMap(container).text !== text) return;
   if (source === "fallback") showOfflineNotice();
-
   const flags = allFlags.filter((f) => !QUIET_TYPES.has(f.type));
   render_highlights(container, flags);
-  handle_interaction_mode(currentMode, container, flags);
+  setStatus(response, "fallback", source === "server"
+    ? `GiSuN's agents couldn't check this answer (${error}), so these are the basic rule highlights.`
+    : "GiSuN's backend isn't running, so only a few basic patterns are highlighted.");
+  handle_interaction_mode(currentMode, container, flags.map(flagModalItem));
 }
 
 function requestFlags(text) {
@@ -107,6 +159,28 @@ function showOfflineNotice() {
   setTimeout(() => note.remove(), 15000);
 }
 
+// A short note under the answer: "checking...", then the summary (or why the rules were used)
+function setStatus(response, state, message) {
+  let note = statusNotes.get(response);
+  if (!note?.isConnected) {
+    note = makeEl("div", "gisun-status");
+    note.setAttribute("role", "status");
+    response.parentNode?.insertBefore(note, response.nextSibling); // next to the answer, like the prebunk banner
+    statusNotes.set(response, note);
+  }
+  note.className = `gisun-status gisun-status-${state}`;
+  note.textContent = message;
+}
+
+function summaryMessage(flagged, result) {
+  // agent_share 0 = every model call failed (no model running), so the rules decided everything
+  const how = result.model && result.agent_share ? "" : " (decided by the rules: no model was reachable)";
+  if (!flagged.length) return `GiSuN checked this answer: no claims flagged${how}.`;
+  const high = flagged.filter((c) => c.score.risk === "high").length;
+  return `GiSuN: ${flagged.length} claim${flagged.length > 1 ? "s" : ""} worth checking` +
+    `${high ? ` (${high} high risk)` : ""}${how}. Hover a highlight for the reasons, click it for details.`;
+}
+
 // Builds the plain text sent to the backend, plus a map from text offsets back to DOM text nodes.
 
 function buildTextMap(root) {
@@ -132,8 +206,62 @@ function closestBlock(node, root) {
   return root;
 }
 
-// Highlight flags
+// Agent highlights: the claims the agents flagged (medium/high risk). Returns those claims.
+function render_claims(container, result) {
+  clearHighlights(container);
+  const { text, segments } = buildTextMap(container);
+  const lower = text.toLowerCase();
 
+  // Where each claim's sentence is in the page text (claims come in reading order)
+  const placed = [];
+  let cursor = 0;
+  for (const claim of result.claims) {
+    let start = text.indexOf(claim.sentence, cursor);
+    if (start < 0) start = text.indexOf(claim.sentence);
+    if (start < 0) continue;
+    cursor = start + claim.sentence.length;
+    if (HIGHLIGHT_RISKS.has(claim.score.risk)) placed.push({ claim, start, end: cursor });
+  }
+
+  // 1) Underline each flagged sentence. Last first, so splitting text nodes doesn't move
+  //    the offsets of sentences still to come.
+  for (const p of [...placed].reverse()) wrapSpan(segments, p.start, p.end, () => claimMark(p.claim));
+
+  // 2) Inside those sentences, mark the exact words the agents quoted as evidence ("job-killing",
+  //    "12%"). The Check agent guarantees the quotes are in the answer; match case-insensitively
+  //    like it does, and skip a quote that overlaps one already marked.
+  const keys = [];
+  for (const p of placed) {
+    for (const key of keyWords(p.claim)) {
+      const at = lower.indexOf(key.quote.toLowerCase(), p.start);
+      if (at >= 0 && at + key.quote.length <= p.end) keys.push({ ...key, claim: p.claim, start: at, end: at + key.quote.length });
+    }
+  }
+  keys.sort((a, b) => a.start - b.start || b.end - a.end);
+  const kept = keys.filter((k, i) => !keys.slice(0, i).some((o) => o.start < k.end && k.start < o.end));
+  const fresh = buildTextMap(container).segments; // the text nodes changed in step 1
+  for (const k of kept.reverse()) wrapSpan(fresh, k.start, k.end, () => keyMark(k));
+
+  return placed.map((p) => p.claim);
+}
+
+// The words the agents quoted from the answer for each problem they found, merged per quote
+function keyWords(claim) {
+  const byQuote = new Map();
+  for (const [cid, d] of Object.entries(claim.criteria)) {
+    if (d.decision !== "met") continue;
+    for (const e of d.evidence ?? []) {
+      const quote = (e.quote ?? "").trim();
+      if (e.source !== "response" || !quote) continue;
+      const key = byQuote.get(quote.toLowerCase()) ?? { quote, reasons: [] };
+      key.reasons.push(`${CRITERION_LABELS[cid] ?? cid}: ${d.reasoning}`);
+      byQuote.set(quote.toLowerCase(), key);
+    }
+  }
+  return [...byQuote.values()];
+}
+
+// Rule highlights (fallback only): one <mark> per flag
 function render_highlights(container, flags) {
   clearHighlights(container);
   const { text, segments } = buildTextMap(container);
@@ -149,29 +277,63 @@ function render_highlights(container, flags) {
       continue;
     }
     lastStart = flag.start_index;
-
-    //a flag can span several text nodes (e.g. "8.<b>5%</b>"), so wrap each piece
-    for (let i = segments.length - 1; i >= 0; i--) {
-      const { node, start } = segments[i];
-      const a = Math.max(flag.start_index, start) - start;
-      const b = Math.min(flag.end_index, start + node.data.length) - start;
-      if (a < b) wrapRange(node, a, b, flag);
-    }
+    wrapSpan(segments, flag.start_index, flag.end_index, () => ruleMark(flag));
   }
 }
 
-function wrapRange(node, a, b, flag) {
+// Wrap text[start:end] in marks. A span can cross several text nodes (e.g. "8.<b>5%</b>"),
+// so each piece gets its own mark from makeMark().
+function wrapSpan(segments, start, end, makeMark) {
+  for (let i = segments.length - 1; i >= 0; i--) {
+    const { node, start: nodeStart } = segments[i];
+    const a = Math.max(start, nodeStart) - nodeStart;
+    const b = Math.min(end, nodeStart + node.data.length) - nodeStart;
+    if (a < b) wrapRange(node, a, b, makeMark());
+  }
+}
+
+function wrapRange(node, a, b, mark) {
   if (b < node.data.length) node.splitText(b);
   const target = a > 0 ? node.splitText(a) : node;
-  const mark = document.createElement("mark");
-  mark.className = `gisun-flag gisun-${flagKind(flag)}`;
-  mark.dataset.gisunLabel = flagLabel(flag);
   target.parentNode.insertBefore(mark, target);
   mark.appendChild(target);
 }
 
 function clearHighlights(container) {
-  container.querySelectorAll("mark.gisun-flag").forEach((mark) => mark.replaceWith(...mark.childNodes));
+  // (the text nodes the marks split stay split; their text, and so every offset, is unchanged)
+  container.querySelectorAll("mark.gisun-flag, mark.gisun-claim").forEach((mark) => mark.replaceWith(...mark.childNodes));
+}
+
+// A flagged claim sentence (underlined in its risk colour)
+function claimMark(claim) {
+  const mark = makeEl("mark", `gisun-claim gisun-claim-${claim.score.risk}`);
+  mark.dataset.gisunClaim = claim.claim_id;
+  mark.dataset.gisunLabel = claimLabel(claim);
+  return mark;
+}
+
+// The words inside a flagged claim that the agents pointed to
+function keyMark(key) {
+  const mark = makeEl("mark", `gisun-flag gisun-key gisun-key-${key.claim.score.risk}`);
+  mark.dataset.gisunClaim = key.claim.claim_id;
+  mark.dataset.gisunLabel = key.reasons.join(" ");
+  return mark;
+}
+
+// A rule flag (fallback only)
+function ruleMark(flag) {
+  const mark = makeEl("mark", `gisun-flag gisun-${flagKind(flag)}`);
+  mark.dataset.gisunLabel = flagLabel(flag);
+  return mark;
+}
+
+// "High risk: No source for the number; Loaded wording." -- for the tooltip and the modal
+function claimLabel(claim) {
+  const problems = Object.entries(claim.criteria)
+    .filter(([, d]) => d.decision === "met")
+    .map(([cid]) => CRITERION_LABELS[cid] ?? cid);
+  const risk = claim.score.risk;
+  return `${risk[0].toUpperCase()}${risk.slice(1)} risk: ${problems.join("; ")}.`;
 }
 
 // "risk" = loaded/biased phrasing, "citation" = number that needs a source
@@ -180,7 +342,7 @@ function flagKind(flag) {
 }
 
 // Warnings, not verdicts (open problem #14): the rules can't tell whether a claim is true,
-// only that it is worth a second look. Only the deep check's C2 can say a source disagrees.
+// only that it is worth a second look. Only the agents' C2 can say a source disagrees.
 function flagLabel(flag) {
   if (flag.type === "bias_framing") {
     if (flag.category === "vague_or_unsourced_attribution") {
@@ -197,24 +359,35 @@ function flagLabel(flag) {
 
 //Interaction modes
 
-function handle_interaction_mode(mode, container, flags) {
+// items: [{ quote, label, kind }] -- flagged claims, or rule flags in the fallback
+function handle_interaction_mode(mode, container, items) {
   container.dataset.gisunMode = mode;
-  if (mode === "in_your_face" && flags.length > 0) showModal(flags);
+  if (mode === "in_your_face" && items.length > 0) showModal(items);
 }
 
+function claimModalItem(claim) {
+  const quote = claim.sentence.length > 140 ? `${claim.sentence.slice(0, 137)}…` : claim.sentence;
+  return { quote, label: claimLabel(claim), kind: claim.score.risk === "high" ? "risk" : "citation" };
+}
+
+function flagModalItem(flag) {
+  return { quote: flag.matched_value, label: flagLabel(flag), kind: flagKind(flag) };
+}
+
+// Citation mode: hovering a highlight shows its reasons (the innermost mark: key words before sentences)
 function setupTooltip() {
   const tip = makeEl("div", "gisun-tooltip");
   tip.hidden = true;
   document.body.appendChild(tip);
 
   document.addEventListener("mouseover", (e) => {
-    const mark = e.target.closest?.("mark.gisun-flag");
+    const mark = e.target.closest?.("mark.gisun-flag, mark.gisun-claim");
     if (!mark || mark.closest("[data-gisun-mode]")?.dataset.gisunMode !== "citation") {
       tip.hidden = true;
       return;
     }
     const rect = mark.getBoundingClientRect();
-    tip.textContent = `${mark.dataset.gisunLabel} Click for a deep check.`;
+    tip.textContent = mark.dataset.gisunClaim ? `${mark.dataset.gisunLabel} Click for details.` : mark.dataset.gisunLabel;
     tip.style.left = `${rect.left}px`;
     tip.style.top = `${rect.bottom + 6}px`;
     tip.hidden = false;
@@ -222,8 +395,8 @@ function setupTooltip() {
   window.addEventListener("scroll", () => { tip.hidden = true; }, true);
 }
 
-// Blocking modal; if one is already open, new flags are added to it instead of stacking modals
-function showModal(flags) {
+// Blocking modal; if one is already open, new items are added to it instead of stacking modals
+function showModal(items) {
   let overlay = document.querySelector(".gisun-overlay");
   if (!overlay) {
     overlay = makeEl("div", "gisun-overlay");
@@ -246,19 +419,20 @@ function showModal(flags) {
   }
 
   const list = overlay.querySelector(".gisun-modal-list");
-  for (const flag of flags) {
-    list.appendChild(makeEl("li", `gisun-${flagKind(flag)}`, `"${flag.matched_value}": ${flagLabel(flag)}`));
+  for (const item of items) {
+    list.appendChild(makeEl("li", `gisun-${item.kind}`, `"${item.quote}": ${item.label}`));
   }
 }
 
-// Deep check (open problem #15): clicking a highlight runs the multi-agent pipeline on the whole
-// answer once (cached per response) and shows that claim's per-criterion verdict.
-
-function setupDeepCheck() {
+// Clicking an agent highlight opens a panel with that claim's full verdict (no new model call:
+// the result is already here)
+function setupClaimDetails() {
   document.addEventListener("click", (e) => {
-    const mark = e.target.closest?.("mark.gisun-flag");
+    const mark = e.target.closest?.("mark[data-gisun-claim]");
     const container = mark?.closest("[data-gisun-mode]");
-    if (container) deepCheck(mark, container);
+    const result = container && results.get(container);
+    const claim = result?.claims.find((c) => String(c.claim_id) === mark.dataset.gisunClaim);
+    if (claim) renderDeepResult(showDeepPanel(mark), claim, result);
   });
   // The panel is fixed to the viewport, so close it when the conversation scrolls under it
   window.addEventListener("scroll", (e) => {
@@ -266,71 +440,11 @@ function setupDeepCheck() {
   }, true);
 }
 
-// Shows the panel right away, then fills it when the (shared, cached) pipeline run for this answer is done
-function deepCheck(mark, container) {
-  const panel = showDeepPanel(mark);
-  setPanel(panel, [makeEl("p", "", "Deep check running: the agents check every claim in this answer. " +
-    "This can take a minute.")]);
-
-  const { text, segments } = buildTextMap(container);
-  let job = deepChecks.get(container);
-  if (!job || job.text !== text) {
-    job = { text, promise: requestPipeline(text, findQuestion(container)) };
-    deepChecks.set(container, job);
-  }
-  // Where the clicked highlight starts in the answer text, to pick the right claim
-  const first = document.createTreeWalker(mark, NodeFilter.SHOW_TEXT).nextNode();
-  const offset = segments.find((s) => s.node === first)?.start ?? -1;
-
-  job.promise.then((res) => {
-    if (!panel.isConnected) return;
-    if (res.error) {
-      deepChecks.delete(container); // let the next click retry
-      setPanel(panel, [makeEl("p", "", `The deep check failed: ${res.error}. Is the backend running?`)]);
-      return;
-    }
-    renderDeepResult(panel, findClaim(res.result, mark.textContent, text, offset), res.result);
-  });
-}
-
-// background.js does the POST and the polling; resolves with { result } or { error }
-function requestPipeline(text, question) {
-  return new Promise((resolve) => {
-    chrome.runtime.sendMessage({ type: "pipeline", text, question, mode: deepMode }, (res) => {
-      resolve(chrome.runtime.lastError ? { error: chrome.runtime.lastError.message } : res ?? { error: "no reply" });
-    });
-  });
-}
-
-// The user's question is the closest user message before this response
-function findQuestion(container) {
-  const before = [...document.querySelectorAll(USER_SELECTOR)]
-    .filter((u) => u.compareDocumentPosition(container) & Node.DOCUMENT_POSITION_FOLLOWING);
-  return before.at(-1)?.innerText.trim() ?? "";
-}
-
-// The claim whose sentence contains the clicked text at the clicked position
-// (the same sentence can appear twice in one answer)
-function findClaim(result, markText, text, offset) {
-  const candidates = result.claims.filter((c) => c.sentence.includes(markText));
-  const covers = (c) => {
-    for (let i = text.indexOf(c.sentence); i !== -1; i = text.indexOf(c.sentence, i + 1)) {
-      if (offset >= i && offset < i + c.sentence.length) return true;
-    }
-    return false;
-  };
-  return candidates.find(covers) ?? candidates[0];
-}
-
 // Risk level, the problems found (with any source quotes), what was fine and what couldn't be checked
 function renderDeepResult(panel, claim, result) {
-  const footer = makeEl("p", "gisun-deep-meta",
-    result.model ? `Checked by ${result.model} (${result.mode} mode).` : `Checked by rules only (${result.mode}).`);
-  if (!claim) {
-    setPanel(panel, [makeEl("p", "", "The deep check didn't treat this sentence as a factual claim " +
-      "(it looked like a question, advice or filler)."), footer]);
-    return;
-  }
+  const footer = makeEl("p", "gisun-deep-meta", result.model && result.agent_share
+    ? `Checked by ${result.model} (${result.mode} mode).`
+    : `Checked by the rules only (${result.mode}).`);
 
   const { risk, unverified } = claim.score;
   const heading = makeEl("p", `gisun-deep-risk gisun-deep-${risk}`,
@@ -347,13 +461,13 @@ function renderDeepResult(panel, claim, result) {
     for (const e of d.evidence ?? []) {
       if (e.source && e.source !== "response") item.appendChild(makeEl("div", "gisun-deep-source", `Source (${e.source}): "${e.quote}"`));
     }
-    if (d.by === "rules" && result.model) {
+    if (d.by === "rules" && result.agent_share) {
       item.appendChild(makeEl("div", "gisun-deep-meta", "Decided by the rules (the agent didn't finish)."));
     }
     list.appendChild(item);
   }
 
-  const children = [heading];
+  const children = [makeEl("p", "gisun-deep-claim", claim.sentence), heading];
   children.push(problems.length ? list : makeEl("p", "", "No problems found in this sentence."));
   if (fine.length) children.push(makeEl("p", "gisun-deep-meta", `Checked and fine: ${fine.join(", ")}.`));
   if (unknown.length) children.push(makeEl("p", "gisun-deep-meta", `Couldn't check: ${unknown.join(", ")}.`));
@@ -366,7 +480,7 @@ function showDeepPanel(mark) {
   document.querySelector(".gisun-deep")?.remove();
   const panel = makeEl("div", "gisun-deep");
   panel.setAttribute("role", "dialog");
-  panel.setAttribute("aria-label", "GiSuN deep check");
+  panel.setAttribute("aria-label", "GiSuN claim details");
   const close = makeEl("button", "gisun-deep-close", "×");
   close.type = "button";
   close.setAttribute("aria-label", "Close");
@@ -417,6 +531,6 @@ chrome.storage.onChanged.addListener((changes) => {
 });
 
 setupTooltip();
-setupDeepCheck();
+setupClaimDetails();
 observe_dom_for_new_response();
 selfTest();

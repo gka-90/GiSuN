@@ -1,6 +1,6 @@
 // Relays requests from content.js to the FastAPI backend:
-//   "verify"   -> POST /verify (instant rule flags)
-//   "pipeline" -> POST /pipeline, then polls GET /pipeline/{id} (the agent "deep check")
+//   "pipeline" -> POST /pipeline, then polls GET /pipeline/{id} (the agents: they decide the highlights)
+//   "verify"   -> POST /verify (instant rule flags; only used when the agents can't run)
 
 const BACKEND_URL = "http://localhost:8000";
 const PIPELINE_POLL_MS = 2000;

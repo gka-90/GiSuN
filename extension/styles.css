@@ -1,10 +1,12 @@
-/* Highlights: citation = number needing a source, risk = loaded phrasing */
+/* Rule highlights (shown only when the agents can't run): citation = number needing a source,
+   risk = loaded phrasing. gisun-flag is also on the agents' key words (see gisun-key below). */
 mark.gisun-flag {
   color: inherit;
   border-radius: 2px;
   padding: 0 1px;
-  cursor: pointer; /* click = deep check */
+  cursor: help;
 }
+mark[data-gisun-claim] { cursor: pointer; } /* agent highlights: click = claim details */
 mark.gisun-citation {
   background: rgba(255, 196, 0, 0.25);
   border-bottom: 2px dotted #c98a00;
@@ -13,6 +15,34 @@ mark.gisun-risk {
   background: rgba(229, 57, 53, 0.18);
   border-bottom: 2px solid #e53935;
 }
+
+/* Agent highlights: a flagged claim sentence is underlined in its risk colour... */
+mark.gisun-claim {
+  color: inherit;
+  background: transparent;
+  cursor: pointer; /* click = claim details */
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+mark.gisun-claim-medium { text-decoration-color: #c98a00; text-decoration-style: dotted; }
+mark.gisun-claim-high { text-decoration-color: #e53935; }
+/* ...and the words the agents quoted inside it are filled in */
+mark.gisun-key-medium { background: rgba(255, 196, 0, 0.25); }
+mark.gisun-key-high { background: rgba(229, 57, 53, 0.18); }
+
+/* Status note under an answer: checking..., the summary, or the rule fallback */
+.gisun-status {
+  margin: 6px 0 12px;
+  padding: 6px 10px;
+  border-left: 3px solid #1e88e5;
+  border-radius: 6px;
+  background: rgba(30, 136, 229, 0.08);
+  color: inherit;
+  font: 13px/1.4 system-ui, sans-serif;
+}
+.gisun-status-checking { border-left-color: #9e9e9e; background: rgba(127, 127, 127, 0.1); }
+.gisun-status-fallback { border-left-color: #e53935; }
 
 /* Citation mode: hover tooltip */
 .gisun-tooltip {
@@ -60,6 +90,7 @@ mark.gisun-risk {
 }
 .gisun-deep-close:hover,
 .gisun-deep-close:focus-visible { background: rgba(127, 127, 127, 0.2); }
+.gisun-deep-claim { font-style: italic; color: #444; } /* the claim the panel is about */
 .gisun-deep-risk { font-weight: 700; }
 .gisun-deep-high { color: #c62828; }
 .gisun-deep-medium { color: #8a5a00; }

@@ -14,8 +14,12 @@ from sentences import _boundaries
 from gisun import config
 from gisun.tools.attribution import find_attribution
 
-# "quantity" ("most Americans") has no number but still needs a source, so C1 applies to it
-STAT_TYPES = {"percentage", "percentage_points", "dollar_amount", "currency_amount", "count", "ratio", "quantity"}
+# Every numeric flag that needs a source (C1). "quantity" ("most Americans") has no number but still
+# needs one; scores, research statistics and rankings come from the statistic-formats reference.
+STAT_TYPES = {"percentage", "percentage_points", "dollar_amount", "currency_amount", "count", "ratio",
+              "quantity", "score", "statistic", "ranking"}
+# The ones C2 can look up and compare in a reference source (not "top 10" or "p < 0.05")
+CHECKABLE_TYPES = {"percentage", "percentage_points", "dollar_amount", "currency_amount", "count", "ratio"}
 
 
 def split_sentences(text: str) -> list[str]:
@@ -75,6 +79,7 @@ def preprocess(text: str, question: str = "", all_sentences: bool = False) -> Ru
                                         if find_attribution(s)["names_specific_source"]),
                                        {"names_specific_source": False, "source_text": None})
         c["stat_values"] = [f["matched_value"] for f in c["flags"] if f["type"] in STAT_TYPES]
+        c["checkable_values"] = [f["matched_value"] for f in c["flags"] if f["type"] in CHECKABLE_TYPES]  # for C2
         c["bias_terms"] = [{"term": f["matched_value"], "category": f["category"]}
                            for f in c["flags"] if f["type"] == "bias_framing"]
     return RunContext(text=text, question=question, sentences=sentences, claims=claims,

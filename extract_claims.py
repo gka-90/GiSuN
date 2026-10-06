@@ -34,6 +34,15 @@ CUES = {
     "superlative": re.compile(
         r"\b(largest|smallest|biggest|highest|lowest|most|least|first|only|best|worst|"
         r"more than|less than|fewer than)\b", re.IGNORECASE),
+    # A quantitative claim with no number (statistic-formats reference, "Comparisons and claims
+    # without explicit numbers"): records, trends and comparisons that still need a source (C1)
+    "quantitative": re.compile(
+        r"\b(?:(?:the\s)?(?:highest|lowest|largest|biggest|smallest|fastest|slowest|most|least|best|worst)"
+        r"(?:\s\w+)?\s(?:ever|on record|since|in\s(?:a|the|over\s\w+)\s(?:decade|century|generation|history|years?))"
+        r"|record[- ](?:highs?|lows?|levels?|breaking|numbers?)|all[- ]time\s(?:highs?|lows?)"
+        r"|fastest[- ]growing|outpac\w+|outperform\w+|more than any other|less than any other"
+        r"|skyrocket\w*|plummet\w*|surg(?:ed|ing|es)|soar(?:ed|ing|s)|slump(?:ed|ing|s)?|plung(?:ed|ing|es)"
+        r"|a total of)\b", re.IGNORECASE),  # not "in all" / "combined": too common outside statistics
     "causal": re.compile(
         r"\b(causes?|caused|leads? to|led to|results? in|because|due to)\b", re.IGNORECASE),
     "named_entity": re.compile(r"(?<=\s)[A-Z][a-zA-Z]+"),

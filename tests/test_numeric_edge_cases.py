@@ -91,6 +91,58 @@ class TestNumericDetection(unittest.TestCase):
             self.assertEqual(text[f["start_index"]:f["end_index"]], f["matched_value"])
 
 
+class TestFormatsReference(unittest.TestCase):
+    """The examples from "Statistic Formats for Claim Detection" (Oct 5, 2026). Each string is
+    put in a sentence; bare years don't count, since a year alone is a date, not a claim."""
+
+    FLAGGED = [
+        # percentages, changes and multipliers
+        "45%", "45 per cent", ".5%", "3 pts", "leads by 4 points", "25 bps", "tenfold", "two-fold",
+        "a hundredfold", "×3", "2.5x increase", "twice as likely", "three times more", "thrice",
+        "half as many", "−3.2%", "up 8% YoY", "rose from 200 to 350", "5‰", "3‱", "٤٥٪",
+        # proportions, fractions and vague quantities
+        "one in five", "odds of 1 in 10,000", "two-thirds of voters", "1/3 of adults", "3/4", "½", "2½",
+        "3-to-1 odds", "a 2:1 margin", "nearly half", "a majority of", "roughly a third", "a minority",
+        "tens of thousands", "dozens of", "six-figure salary", "double-digit growth",
+        # magnitudes and spelled-out numbers
+        "$4.2B", "3.5M", "12k", "1.2bn", "£3m", "a billion", "three thousand", "a dozen", "top 10",
+        "the second-largest", "ranked 3rd", "3.2 × 10^6", "1e9", "₹2 lakh", "₹5 crore",
+        # bounds, ranges and rates
+        "nearly 1,000", "at least 40%", "<5%", "52% ± 3%", "10–20%", "$1.2–1.5 billion",
+        "between 30 and 40 percent", "12 per 100,000", "5 per one thousand", "$15/hour", "every 36 seconds",
+        # money
+        "500€", "USD 500", "500 EUR", "5 bucks", "ten euros",
+        # research, polls, ratings and sports
+        "an average of 3.2", "p < 0.05", "n = 1,200", "odds ratio of 1.8", "r = 0.65", "scored 98/100",
+        "rated 4.7 stars", "4.5 out of 5", "a .300 batting average", "a 10–2 record", "won 3–1",
+        # grouping and formatting
+        "1.000.000,50", "1 000 000", "10,00,000", "50 %", "40%[3]",
+    ]
+    NOT_FLAGGED = [
+        # look-alikes from the reference
+        "(555) 123-4567", "+1 315 555 0100", "10/05/2026", "2:30 pm", "14:00", "v2.3.1", "Python 3.12",
+        "Windows 11", "iPhone 15", "GPT-4", "Boeing 737", "4K TV", "COVID-19", "Section 230", "Route 66",
+        "221B Baker Street", "Suite 400", "John 3:16", "p. 45", "blood pressure 120/80", "20/20 vision",
+        "24/7", "a million thanks", "one of a kind",
+        # left out on purpose: a bare number or amount with no unit, and measurements
+        "twenty-five", "about 500", "fewer than 10", "the top 5 tips", "1/2 cup of sugar",
+        "a quarter of an hour",
+    ]
+
+    def flags(self, s: str) -> list:
+        return [f for f in detect_numeric_claims(f"They said {s} today.") if f["type"] != "year"]
+
+    def test_flagged(self):
+        for s in self.FLAGGED:
+            with self.subTest(s):
+                self.assertTrue(self.flags(s), f"{s!r} should be flagged")
+
+    def test_not_flagged(self):
+        for s in self.NOT_FLAGGED:
+            with self.subTest(s):
+                self.assertEqual(self.flags(s), [], f"{s!r} should not be flagged")
+
+
 class TestSentenceSplitting(unittest.TestCase):
     def sentence_of(self, text: str) -> str:
         return detect_numeric_claims(text)[0]["sentence"]

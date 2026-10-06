@@ -22,13 +22,13 @@ Phase 1 (parallel): C1 C3 C4 C5 C6       Phase 2: C2 (after C1)
       v
 scoring.py         claim risk (low/medium/high, +unverified) and response level   deterministic
       |
-      +--> outputs/*.json, /pipeline API, the extension's "deep check" (click a highlight)
+      +--> outputs/*.json, /pipeline API -> the extension highlights the flagged claims of every answer
 ```
 
 ## Criteria (`gisun/criteria.py`)
 | id | name | question ("met" = problem present) | tools | open |
 |---|---|---|---|---|
-| C1 | unsourced_statistic | statistic with no specific source nearby? | find_attribution, context_window | |
+| C1 | unsourced_statistic | statistic or other quantitative claim with no specific source nearby? | find_attribution, context_window | numberless records / trends / comparisons |
 | C2 | statistic_contradicted | does a reliable source contradict the number? | search, read_source, compare_numbers | |
 | C3 | loaded_language | slanted wording where neutral would do? | context_cues, wordlist_lookup | yes |
 | C4 | overgeneralization | sweeping absolute claim? | context_cues | yes |
@@ -51,6 +51,12 @@ the claim: the rule reads only source sentences that mention the claim's year, a
 agent rejects a "contradicted" verdict unless its source quote comes from such a sentence. A
 claim with no year can't be contradicted (it's "undetermined"). The guidance also asks the
 agent to match measure (U-3 vs U-6), place and unit (percent vs percentage points).
+
+**Quantitative claims without numbers.** "The highest ever", "a record low", "skyrocketed",
+"outpaced inflation" (the statistic-formats reference's "claims without explicit numbers") make a
+claim quantitative with no digits. In model modes C1 also runs on those (the `quantitative` cue in
+extract_claims.py); `rules_only` keeps its narrower gate. C2 only runs on values it can compare
+(percentages, amounts, counts, ratios), not on scores, rankings or research statistics.
 
 **Scoring.** C1 and C5 usually describe the same missing source, so together they add at
 most 2 points ("Studies show 40%" is one attribution problem, not two).
@@ -110,7 +116,7 @@ Each run: `cd /hpc/<name>/GiSuN && git pull && sbatch hpc/run_eval.slurm`, then
 - **Offline model.** `HF_HUB_OFFLINE=1` loads the downloaded copy; download on the login node first.
 - **`logs/` must exist** before `sbatch` (it's in the repo).
 
-**Use the HPC model from a laptop** (fast deep checks in the extension, speed tests):
+**Use the HPC model from a laptop** (agent highlights in the extension, speed tests):
 `sbatch hpc/serve_model.slurm` on the server; once its log says `Application startup complete`,
 open a tunnel on the laptop with `ssh -N -L 8011:cs-hpc-node-6:8011 <name>@150.209.91.65` and
 start the backend with `GISUN_BACKEND=openai_compat GISUN_BASE_URL=http://localhost:8011/v1
