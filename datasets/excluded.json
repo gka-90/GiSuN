@@ -1,0 +1,134 @@
+[
+  {
+    "dataset": "allenai/WildChat-1M",
+    "key": "e234ed003de479b69061ed4ee0269ba0",
+    "question": "Can you please help with writing three milestone descriptions for taking on a freelance illustration job. and also break",
+    "reason": "writing task, not a factual question"
+  },
+  {
+    "dataset": "allenai/WildChat-1M",
+    "key": "96edbd2d48c9fa16b55b1a8023c969fe",
+    "question": "How to turn off Snapchat video history",
+    "reason": "app how-to, off-domain"
+  },
+  {
+    "dataset": "allenai/WildChat-1M",
+    "key": "6af747cb81967fabe878366f72b5263c",
+    "question": "What is the satellite that contains all knowledge of Human history at the time of its launch that is set to orbit the pl",
+    "reason": "unclear premise, nothing checkable"
+  },
+  {
+    "dataset": "allenai/WildChat-1M",
+    "key": "c4b87c543762eea2d78494a97144dabe",
+    "question": "Can you explain the concept of quantum efficiency in the context of photocatalytic carbon dioxide reduction?",
+    "reason": "technical chemistry, off-domain"
+  },
+  {
+    "dataset": "allenai/WildChat-1M",
+    "key": "38574859eb55a2eab900566b6c53e8c7",
+    "question": "List down top most searched 500 LinkedIn key skills for order to cash, record to report, procure to pay, Quality assuran",
+    "reason": "list of job skills, off-domain"
+  },
+  {
+    "dataset": "allenai/WildChat-1M",
+    "key": "7d1465c0d4a10bae0c3048dcabce5899",
+    "question": "What is Zootopia: Crime Files?",
+    "reason": "entertainment product, off-domain"
+  },
+  {
+    "dataset": "allenai/WildChat-1M",
+    "key": "ea7ad29139087039d316fed875c977a5",
+    "question": "tell me where in Sao Cristovao in RdJ can I still see historic industry buildings. preferable near the military museum",
+    "reason": "travel recommendation, off-domain"
+  },
+  {
+    "dataset": "allenai/WildChat-1M",
+    "key": "0d1c8c76d029b43a29926c459fcc8f17",
+    "question": "what do services like Nerdify, Nerdhire, studyfaq, etc. charge for completing a college level world history final exam?",
+    "reason": "service pricing, off-domain"
+  },
+  {
+    "dataset": "allenai/WildChat-1M",
+    "key": "c211a8e05138fe009a872da8d2b889a1",
+    "question": "Is it normal to sleep for minutes but consciously and can't wake up and when trying to wake i sense a very high sensatio",
+    "reason": "personal symptom advice"
+  },
+  {
+    "dataset": "allenai/WildChat-1M",
+    "key": "e34d3d8ae8b8e62fa6cf0210f3d66583",
+    "question": "when I eat oily food and butter, my skin gets oily really quickly. when I eat fruit, my skin gets sticky even if I don't",
+    "reason": "personal skin advice"
+  },
+  {
+    "dataset": "allenai/WildChat-1M",
+    "key": "7d94435ead10ec842442584b3b6cdc44",
+    "question": "How can I reverse accepting a job offer?",
+    "reason": "personal career advice"
+  },
+  {
+    "dataset": "allenai/WildChat-1M",
+    "key": "3ca9a22c8da9eebc27e224edddc95d63",
+    "question": "How Many Brazilians Live In The Poverty line?",
+    "reason": "near-duplicate of wc018 (Brazil poverty)"
+  },
+  {
+    "dataset": "allenai/WildChat-1M",
+    "key": "97143b3af3ae5a95eb491ac6ffea7bbd",
+    "question": "What Did Paris Look Like During 9000 BC (Plus Population)?",
+    "reason": "speculative prehistory, nothing checkable"
+  },
+  {
+    "dataset": "allenai/WildChat-1M",
+    "key": "d0c0d5267796ac511bf50e455c1e7320",
+    "question": "List down top most searched 1000 LinkedIn key skills for order to cash, record to report, procure to pay, Quality assura",
+    "reason": "list of job skills, off-domain"
+  },
+  {
+    "dataset": "allenai/WildChat-1M",
+    "key": "ee1d1455fff9ebcb17475d621a771106",
+    "question": "Which item is more valuable in Q3 and QL: mega health or red armor?",
+    "reason": "video game question, off-domain"
+  },
+  {
+    "dataset": "allenai/WildChat-1M",
+    "key": "c5a9966d5a76351057dbd600a40f2927",
+    "question": "What is war of the servers?",
+    "reason": "gaming community event, off-domain"
+  },
+  {
+    "dataset": "allenai/WildChat-1M",
+    "key": "8cd12302d3bd25ddbabad7df3f087b59",
+    "question": "What was a comment of Steve Jobs about Michael Jackson's death?",
+    "reason": "celebrity quote, off-domain"
+  },
+  {
+    "dataset": "allenai/WildChat-1M",
+    "key": "e18e5499b454213856052817bc3aea53",
+    "question": "What caused the collapse of the Roman empire?",
+    "reason": "near-duplicate question (collapse of the Roman empire)"
+  },
+  {
+    "dataset": "allenai/WildChat-1M",
+    "key": "45ca55cec6ed94f6c1ed86795fc7dad7",
+    "question": "is there any public models that has been trained on historical data of stock market or something like that?",
+    "reason": "machine learning tools question, off-domain"
+  },
+  {
+    "dataset": "allenai/WildChat-1M",
+    "key": "03e2d7efd793ed0d818867046ea19595",
+    "question": "What questions should be included on a daily stress tracker for police officers?",
+    "reason": "asks for a questionnaire, not facts"
+  },
+  {
+    "dataset": "allenai/WildChat-1M",
+    "key": "548915669321a6a7829488e953a164a2",
+    "question": "how important is the job of an astronaut?",
+    "reason": "opinion question, nothing checkable"
+  },
+  {
+    "dataset": "allenai/WildChat-1M",
+    "key": "1183c8ead6ae3622b7e2d275e1ea0ac3",
+    "question": "When the war between Russia and Ukraine is over, how do you think Russia will react to having to take collective respons",
+    "reason": "speculation about the future, nothing checkable"
+  }
+]

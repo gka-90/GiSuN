@@ -160,8 +160,22 @@ Qwen2.5-32B-Instruct-AWQ, vLLM 0.22.1, one RTX PRO 6000 (Oct 4, 2026, before the
 task_only beat the rules by 2 pairs. The modes with the Plan agent ran only 6-10 of the 15
 gold pairs, because the Plan agent dropped criteria; their lower scores mostly measure that.
 
-## Tests (no model)
-`python -m unittest tests.test_pipeline`: a scripted fake model checks the full flow,
+## Automated tests
+`python -m evaluation.run_all` runs, in one go: the unit tests, a format check of every gold
+file, and RQ1-RQ3 on `datasets/gold_example.json` and `datasets/gold.json` (rules_only always;
+the model modes only if the model backend answers). Report: `evaluation/outputs/report_<time>/report.md`.
+Exit code 1 if a test fails or a gold file is malformed; `--min_f1 0.8` also fails it when
+rules_only drops below 0.8 (a guard for detector changes). `--skip_eval` = tests and checks only.
+
+## Gold set from real ChatGPT answers
+65 real ChatGPT answers are collected (`datasets/candidates_*.json`: 50 from WildChat-1M, 15
+from HC3) with blank labeling files in `datasets/annotation/`. Labeling rules, the merge and
+adjudication steps: **[datasets/ANNOTATION_GUIDE.md](datasets/ANNOTATION_GUIDE.md)**. Tools:
+`evaluation/collect.py` (download + filter + sample, `pip install pyarrow` for WildChat) and
+`evaluation/annotate.py` (`sheet` / `status` / `merge`).
+
+## Unit tests (no model)
+`python -m unittest discover tests`: a scripted fake model checks the full flow,
 rejection of an invented quote, judge revisions, rule fallback when the backend is down,
 open criteria on unflagged sentences, the same-year C2 rules, the C1+C5 cap and the C2 funnel.
 
@@ -169,7 +183,7 @@ open criteria on unflagged sentences, the same-year C2 rules, the C1+C5 cap and 
 Full list with priorities: *GiSuN: open problems and proposed solutions* (Fall 2026).
 - `data/reference_corpus.json` is 3 SAMPLE entries: replace with real snapshots for 2-3 domains
   (BLS, Census, World Bank) or run SearXNG on the HPC (`GISUN_SEARCH=searxng`). (#6)
-- `datasets/gold_example.json` is 4 hand-made items: build 50+ real ChatGPT answers, labeled by both
+- Label the 65 collected real ChatGPT answers (`datasets/annotation/`, see the guide), both
   of you with written guidelines; check agreement with `evaluation/agreement.py`. (#9, #10)
 - RQ4: label the right source per C2 claim and measure Recall@k. (#8)
 - The Plan agent ranks nothing yet: the C2 funnel uses extract_claims' rule score. (#3)

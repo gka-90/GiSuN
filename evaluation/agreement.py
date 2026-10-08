@@ -18,8 +18,9 @@ from collections import Counter, defaultdict
 def _pairs(path: str) -> dict[tuple, str]:
     with open(path, encoding="utf-8") as f:
         items = json.load(f)
-    return {(item["id"], key, cid): decision
-            for item in items for key, crits in item["labels"].items() for cid, decision in crits.items()}
+    return {(item["id"], key, cid): decision  # null = not labeled yet (evaluation/annotate.py sheets)
+            for item in items for key, crits in item["labels"].items() for cid, decision in crits.items()
+            if decision is not None}
 
 
 def cohen_kappa(a: list[str], b: list[str]) -> float | None:

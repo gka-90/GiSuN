@@ -1,0 +1,364 @@
+[
+  {
+    "id": "hc3001",
+    "domain": "economy",
+    "question": "Why adjust for inflation annually, as opposed to realising it after the holding period?",
+    "text": "Adjusting for inflation annually helps to ensure that the value of an investment is accurately reflected over time. If you do not adjust for inflation, the value of your investment may appear to be larger than it actually is in terms of purchasing power. For example, if you had an investment that was worth $100 and the inflation rate was 3% per year, the purchasing power of that $100 would decrease by 3% each year. After 10 years, the purchasing power of that $100 would be reduced to about $70. If you had adjusted for inflation each year, the value of the investment would have been adjusted downward to reflect the loss in purchasing power, so the value of the investment would more accurately reflect its true worth.",
+    "source": {
+      "dataset": "Hello-SimpleAI/HC3",
+      "license": "CC-BY-SA",
+      "config": "finance",
+      "row": 1741,
+      "model": "ChatGPT (Dec 2022)",
+      "date": "2022-12"
+    },
+    "detectors": {
+      "claims": 2,
+      "signals": {
+        "numeric": 2
+      },
+      "numbers": 6,
+      "bias_terms": 0
+    }
+  },
+  {
+    "id": "hc3002",
+    "domain": "health",
+    "question": "how much does U.S. pay on health care per person",
+    "text": "The United States spends more on healthcare per person than any other country in the world. According to data from the World Bank, in 2020, the United States spent an average of $10,586 per person on healthcare, which accounted for about 17.7% of the country's Gross Domestic Product (GDP). This is significantly higher than the average for other developed countries, which is around 9.9% of GDP.\\n\\nThere are several factors that contribute to the high cost of healthcare in the United States. One factor is the high cost of medical procedures and prescription drugs, which are often more expensive in the United States than in other countries. Additionally, the United States has a higher proportion of people with chronic conditions, such as diabetes and heart disease, which can drive up healthcare costs. Finally, the United States has a complex and fragmented healthcare system, which can lead to inefficiencies and higher costs.",
+    "source": {
+      "dataset": "Hello-SimpleAI/HC3",
+      "license": "CC-BY-SA",
+      "config": "open_qa",
+      "row": 667,
+      "model": "ChatGPT (Dec 2022)",
+      "date": "2022-12"
+    },
+    "detectors": {
+      "claims": 2,
+      "signals": {
+        "numeric": 2,
+        "attribution": 1,
+        "named_entity": 2
+      },
+      "numbers": 4,
+      "bias_terms": 0
+    }
+  },
+  {
+    "id": "hc3003",
+    "domain": "politics",
+    "question": "what did ronald reagan do as president",
+    "text": "Ronald Reagan was the 40th President of the United States, serving from 1981 to 1989. During his presidency, Reagan implemented a number of policies that had a significant impact on the country.\\n\\nSome of the key accomplishments of Reagan's presidency include:\\n\\nEconomic policies: Reagan implemented a number of policies designed to stimulate economic growth, including cutting taxes, reducing government regulation, and increasing military spending. These policies, known as supply-side economics or Reaganomics, were controversial but helped to spur economic growth and reduce inflation.\\n\\nForeign policy: Reagan was a strong advocate of a tough stance against the Soviet Union, and he worked to strengthen the military and improve relations with America's allies. He also supported efforts to promote democracy around the world, including supporting anti-communist rebels in Nicaragua and Afghanistan.\\n\\nSocial issues: Reagan was a strong supporter of traditional values and opposed efforts to expand the role of government in social issues. He supported a constitutional amendment to ban abortion, and he also opposed efforts to recognize same-sex relationships.\\n\\nEnvironmental policy: Reagan was generally seen as less concerned with environmental issues than his predecessor, President Jimmy Carter. However, he did support the Clean Air Act Amendments of 1990, which aimed to reduce air pollution and protect public health.\\n\\nOverall, Reagan's presidency was marked by a focus on economic growth, a strong national defense, and a commitment to traditional values.",
+    "source": {
+      "dataset": "Hello-SimpleAI/HC3",
+      "license": "CC-BY-SA",
+      "config": "open_qa",
+      "row": 865,
+      "model": "ChatGPT (Dec 2022)",
+      "date": "2022-12"
+    },
+    "detectors": {
+      "claims": 3,
+      "signals": {
+        "numeric": 2,
+        "named_entity": 3,
+        "bias_framing": 1
+      },
+      "numbers": 3,
+      "bias_terms": 1
+    }
+  },
+  {
+    "id": "hc3004",
+    "domain": "history",
+    "question": "how many people were killed in the holocaust",
+    "text": "The Holocaust was a genocide that occurred during World War II in which millions of people, including Jews, Romani, homosexuals, disabled individuals, and others deemed undesirable by the Nazi regime, were systematically murdered. The exact number of people killed in the Holocaust is not known, but it is estimated that up to 6 million Jews were killed, as well as millions of other victims from various groups. It is a devastating and tragic event in human history that should never be forgotten.",
+    "source": {
+      "dataset": "Hello-SimpleAI/HC3",
+      "license": "CC-BY-SA",
+      "config": "open_qa",
+      "row": 651,
+      "model": "ChatGPT (Dec 2022)",
+      "date": "2022-12"
+    },
+    "detectors": {
+      "claims": 3,
+      "signals": {
+        "numeric": 2,
+        "bias_framing": 2,
+        "named_entity": 2
+      },
+      "numbers": 3,
+      "bias_terms": 4
+    }
+  },
+  {
+    "id": "hc3005",
+    "domain": "society",
+    "question": "what is the population of center tx",
+    "text": "According to the United States Census Bureau, the population of Center, Texas was 5,193 as of the 2020 Census. This represents an increase from the population of 5,185 recorded in the 2010 Census.\\n\\nCenter is the county seat of Shelby County, which is located in East Texas. It is a small town with a rich history and a friendly, welcoming community. The town is known for its annual Swamp Pepper Festival, which celebrates the local pepper crop, and its annual Christmas parade, which is a beloved tradition for residents and visitors alike.\\n\\nI hope this information is helpful. Let me know if you have any other questions.",
+    "source": {
+      "dataset": "Hello-SimpleAI/HC3",
+      "license": "CC-BY-SA",
+      "config": "open_qa",
+      "row": 754,
+      "model": "ChatGPT (Dec 2022)",
+      "date": "2022-12"
+    },
+    "detectors": {
+      "claims": 2,
+      "signals": {
+        "numeric": 2,
+        "attribution": 1,
+        "named_entity": 2
+      },
+      "numbers": 4,
+      "bias_terms": 0
+    }
+  },
+  {
+    "id": "hc3006",
+    "domain": "economy",
+    "question": "How does revenue shared with someone else go into my tax return in Canada?",
+    "text": "If you are receiving revenue that is shared with someone else, such as a business partner or a spouse, you will need to report this income on your tax return. The process for reporting this type of income on your tax return depends on how the revenue is being shared.If the revenue is being shared equally with another person, you will each report half of the revenue on your respective tax returns. For example, if you and your business partner each receive $50,000 in revenue from the business, you will report $25,000 on your tax return and your business partner will report $25,000 on their tax return.If the revenue is being shared in a different way, such as an unequal split or if you are receiving a percentage of the revenue, you will need to report the full amount of revenue that you receive on your tax return. You will then need to provide information about how the revenue is being shared with the other person, including the percentage or amount that they are receiving.It is important to accurately report all income, including revenue shared with others, on your tax return. If you have any questions about how to report this type of income, you should consult with a tax professional or refer to the Canada Revenue Agency's (CRA) guidelines.",
+    "source": {
+      "dataset": "Hello-SimpleAI/HC3",
+      "license": "CC-BY-SA",
+      "config": "finance",
+      "row": 1961,
+      "model": "ChatGPT (Dec 2022)",
+      "date": "2022-12"
+    },
+    "detectors": {
+      "claims": 2,
+      "signals": {
+        "numeric": 2
+      },
+      "numbers": 4,
+      "bias_terms": 0
+    }
+  },
+  {
+    "id": "hc3007",
+    "domain": "health",
+    "question": "Why is company provided health insurance tax free, but individual health insurance is not?",
+    "text": "In the United States, employer-provided health insurance is generally tax-free for both the employer and the employee. This tax exclusion for employer-provided health insurance was established in the 1940s as a way to provide a financial incentive for employers to offer health coverage to their employees.The tax exclusion for employer-provided health insurance applies to the premiums that the employer pays for the coverage, as well as any contributions the employee makes to the cost of the coverage through payroll deductions. It also applies to the value of any benefits received under the plan, such as coverage for medical expenses or prescription drugs.On the other hand, individual health insurance, which is purchased by individuals directly from insurers or through the health insurance marketplace, is generally not tax-free. This means that individuals who purchase their own health insurance must pay taxes on the premiums they pay for the coverage. However, there are some tax credits and subsidies available to help lower-income individuals afford the cost of individual health insurance.It's important to note that the tax treatment of health insurance may vary depending on the specific circumstances and the specific type of health insurance coverage. It's always a good idea to consult with a tax professional or refer to the Internal Revenue Service (IRS) for more information on the tax treatment of health insurance.",
+    "source": {
+      "dataset": "Hello-SimpleAI/HC3",
+      "license": "CC-BY-SA",
+      "config": "finance",
+      "row": 16,
+      "model": "ChatGPT (Dec 2022)",
+      "date": "2022-12"
+    },
+    "detectors": {
+      "claims": 2,
+      "signals": {
+        "numeric": 1,
+        "bias_framing": 1,
+        "named_entity": 1
+      },
+      "numbers": 1,
+      "bias_terms": 1
+    }
+  },
+  {
+    "id": "hc3008",
+    "domain": "politics",
+    "question": "when did the cold war start",
+    "text": "The Cold War was a period of geopolitical tension between the United States and the Soviet Union and their respective allies that lasted from the late 1940s to the early 1990s. It is generally accepted that the Cold War began at the end of World War II, around 1945, and ended in 1991 with the collapse of the Soviet Union. The term \"Cold War\" refers to the fact that the two sides never directly engaged in a full-scale armed conflict, but rather used proxy wars, economic competition, and political and military intimidation to exert influence on each other. The tensions between the two sides were fueled by ideological differences, with the United States and its allies promoting democracy and capitalism, and the Soviet Union and its allies promoting communism.",
+    "source": {
+      "dataset": "Hello-SimpleAI/HC3",
+      "license": "CC-BY-SA",
+      "config": "open_qa",
+      "row": 1061,
+      "model": "ChatGPT (Dec 2022)",
+      "date": "2022-12"
+    },
+    "detectors": {
+      "claims": 3,
+      "signals": {
+        "numeric": 2,
+        "named_entity": 3,
+        "bias_framing": 2
+      },
+      "numbers": 4,
+      "bias_terms": 3
+    }
+  },
+  {
+    "id": "hc3009",
+    "domain": "economy",
+    "question": "When filing taxes in Canada, in what cases does box 39 on the T4 get reported as half of box 38?",
+    "text": "Box 39 on the T4 tax form in Canada, also known as the \"Employment income\" box, is used to report the total employment income earned by an employee during the tax year. This includes salary, wages, bonuses, and other forms of remuneration received from an employer.Box 38 on the T4 form, also known as the \"Total insurable earnings\" box, is used to report the total insurable earnings of an employee for the tax year. This includes the total amount of employment income earned by the employee, as well as any additional amounts that are subject to Employment Insurance (EI) premiums.In general, box 39 on the T4 form should be reported as half of box 38 if the employee has received Employment Insurance (EI) benefits during the tax year. EI benefits are paid to individuals who are temporarily unable to work due to illness, injury, pregnancy, or caring for a newborn or adopted child. When an employee receives EI benefits, they are required to pay EI premiums, which are calculated based on a percentage of their insurable earnings. In order to determine the amount of EI premiums that an employee is required to pay, the Canada Employment Insurance Commission (CEIC) uses the information reported in box 38 on the T4 form.If an employee has received EI benefits during the tax year, they should report half of their insurable earnings (as reported in box 38) in box 39 on the T4 form. This is because the employee is only required to pay EI premiums on half of their insurable earnings.It's important to note that the information reported in box 39 on the T4 form may be used to calculate other taxes and credits, such as the Canada Pension Plan (CPP) contributions, the Quebec Pension Plan (QPP) contributions, and the GST/HST credit. It's important to accurately report this information in order to ensure that the correct taxes and credits are calculated on your tax return.",
+    "source": {
+      "dataset": "Hello-SimpleAI/HC3",
+      "license": "CC-BY-SA",
+      "config": "finance",
+      "row": 1306,
+      "model": "ChatGPT (Dec 2022)",
+      "date": "2022-12"
+    },
+    "detectors": {
+      "claims": 3,
+      "signals": {
+        "numeric": 3,
+        "attribution": 3,
+        "named_entity": 3,
+        "superlative": 1,
+        "causal": 1,
+        "hedged": 1
+      },
+      "numbers": 3,
+      "bias_terms": 0
+    }
+  },
+  {
+    "id": "hc3010",
+    "domain": "health",
+    "question": "Do Americans still need extra health care / medical insurance after reform to health care? [U.S.]",
+    "text": "In the United States, it is still generally necessary for individuals to have some form of health insurance in order to cover the costs of medical care. The Affordable Care Act, also known as Obamacare, was a reform that aimed to increase access to health insurance and reduce the overall cost of health care. However, the law did not eliminate the need for individuals to have health insurance.Most Americans get their health insurance through their employer, but those who are self-employed or who do not have employer-sponsored coverage may need to purchase a private insurance plan. Some people may also be eligible for government-sponsored insurance programs, such as Medicaid or Medicare, depending on their income and other factors.It is important to have health insurance because medical care can be very expensive, especially in the event of an unexpected illness or injury. Without insurance, the costs of medical treatment can quickly become unaffordable, leading to financial hardship for individuals and families. Health insurance helps to protect against these costs by covering a portion of the expenses associated with medical care.In summary, while the Affordable Care Act has made it easier for many people to obtain health insurance, it is still necessary for most Americans to have some form of coverage in order to protect themselves and their families against the high costs of medical care.",
+    "source": {
+      "dataset": "Hello-SimpleAI/HC3",
+      "license": "CC-BY-SA",
+      "config": "finance",
+      "row": 1934,
+      "model": "ChatGPT (Dec 2022)",
+      "date": "2022-12"
+    },
+    "detectors": {
+      "claims": 2,
+      "signals": {
+        "numeric": 2,
+        "superlative": 2,
+        "named_entity": 2,
+        "hedged": 1
+      },
+      "numbers": 2,
+      "bias_terms": 0
+    }
+  },
+  {
+    "id": "hc3011",
+    "domain": "politics",
+    "question": "what percent of illegal immigrants are from mexico and europe",
+    "text": "It is difficult to accurately estimate the percentage of illegal immigrants in the United States who come from Mexico and Europe, as illegal immigration is a covert and often unregulated activity. However, according to data from the Department of Homeland Security, the majority of illegal immigrants in the United States come from countries in Latin America and the Caribbean, with Mexico being the country of origin for the largest number of illegal immigrants. A smaller number of illegal immigrants come from other regions, including Europe and Asia.\\n\\nIt is worth noting that the term \"illegal immigrant\" is sometimes used to refer to people who are living in a country without the necessary documentation or authorization, regardless of how they entered the country. Some people may enter a country illegally, while others may come to a country legally and then overstay their visas or otherwise violate the terms of their admission. The term \"undocumented immigrant\" is often used as a more neutral and accurate description for people who are living in a country without the necessary documentation.",
+    "source": {
+      "dataset": "Hello-SimpleAI/HC3",
+      "license": "CC-BY-SA",
+      "config": "open_qa",
+      "row": 1072,
+      "model": "ChatGPT (Dec 2022)",
+      "date": "2022-12"
+    },
+    "detectors": {
+      "claims": 2,
+      "signals": {
+        "numeric": 1,
+        "attribution": 1,
+        "superlative": 1,
+        "named_entity": 2,
+        "bias_framing": 1
+      },
+      "numbers": 1,
+      "bias_terms": 1
+    }
+  },
+  {
+    "id": "hc3012",
+    "domain": "economy",
+    "question": "Where should I park my money if I'm pessimistic about the economy and I think there will be high inflation?",
+    "text": "If you are concerned about high inflation and are looking for a place to park your money, there are a few options you might consider:Short-term government bonds: These bonds, also known as Treasury bills, have maturities of one year or less and are backed by the U.S. government. They generally offer lower returns than longer-term bonds, but they also have lower risk. In times of high inflation, the value of shorter-term bonds is less likely to be eroded by rising prices.TIPS (Treasury Inflation-Protected Securities): These are a type of bond issued by the U.S. government that is designed to protect against inflation. The principal value of a TIPS bond is adjusted for inflation, so the value of the bond increases along with the rate of inflation. As a result, TIPS can help to preserve the purchasing power of your money.Gold: Gold has traditionally been seen as a hedge against inflation, as its price tends to rise when the value of paper money falls. However, it is important to note that the price of gold can be volatile and may not always move in the direction you expect.Diversified portfolio of stocks: While stocks can be more risky than some of the other options listed here, a diversified portfolio of stocks may be able to generate higher returns over the long term. This is because stocks tend to do well when the economy is growing, and companies are able to increase their profits and dividends.It is always important to carefully consider your investment options and to diversify your portfolio to spread risk. It may be helpful to speak with a financial advisor or professional to discuss your specific financial situation and objectives.",
+    "source": {
+      "dataset": "Hello-SimpleAI/HC3",
+      "license": "CC-BY-SA",
+      "config": "finance",
+      "row": 1567,
+      "model": "ChatGPT (Dec 2022)",
+      "date": "2022-12"
+    },
+    "detectors": {
+      "claims": 2,
+      "signals": {
+        "bias_framing": 2,
+        "named_entity": 1,
+        "hedged": 1,
+        "causal": 1
+      },
+      "numbers": 0,
+      "bias_terms": 2
+    }
+  },
+  {
+    "id": "hc3013",
+    "domain": "politics",
+    "question": "when president nixon resigns",
+    "text": "President Richard Nixon resigned from office on August 9, 1974. His resignation came after a series of events known as the Watergate scandal, in which it was discovered that Nixon had been involved in the cover-up of a break-in at the Democratic National Committee headquarters. As the scandal unfolded, Nixon faced increasing pressure to resign, and he eventually chose to do so rather than face impeachment proceedings in the House of Representatives and a trial in the Senate. Vice President Gerald Ford succeeded Nixon as President and took the oath of office on the same day.",
+    "source": {
+      "dataset": "Hello-SimpleAI/HC3",
+      "license": "CC-BY-SA",
+      "config": "open_qa",
+      "row": 1179,
+      "model": "ChatGPT (Dec 2022)",
+      "date": "2022-12"
+    },
+    "detectors": {
+      "claims": 3,
+      "signals": {
+        "numeric": 1,
+        "named_entity": 3,
+        "bias_framing": 2
+      },
+      "numbers": 1,
+      "bias_terms": 2
+    }
+  },
+  {
+    "id": "hc3014",
+    "domain": "economy",
+    "question": "Can we amend last year's Schedule C to indicate reduced income due to a customer refund this year for a product we sold last year?",
+    "text": "It is generally not possible to amend a tax return for a prior tax year after the deadline for filing has passed. In general, the deadline for filing a tax return for the prior tax year is April 15 of the following year. However, if you need to make a change to a tax return that you have already filed, you can file an amended return using Form 1040X, Amended U.S. Individual Income Tax Return.To file an amended return, you will need to complete Form 1040X and include any additional forms or schedules that are necessary to reflect the changes you are making. You should also include any additional documentation that supports the changes you are making, such as a copy of the customer refund that you received.It is important to note that you can only file an amended return to correct errors or make changes to your original return. You cannot use an amended return to claim additional deductions or credits that you did not claim on your original return.If you have any questions about whether you can amend a tax return or how to do so, you should consult with a tax professional or refer to the instructions for Form 1040X.",
+    "source": {
+      "dataset": "Hello-SimpleAI/HC3",
+      "license": "CC-BY-SA",
+      "config": "finance",
+      "row": 1009,
+      "model": "ChatGPT (Dec 2022)",
+      "date": "2022-12"
+    },
+    "detectors": {
+      "claims": 2,
+      "signals": {
+        "numeric": 2,
+        "named_entity": 2
+      },
+      "numbers": 3,
+      "bias_terms": 0
+    }
+  },
+  {
+    "id": "hc3015",
+    "domain": "politics",
+    "question": "what year was gulf war",
+    "text": "The Gulf War, also known as the Persian Gulf War, was a conflict that took place between 1990 and 1991. It was a military conflict that involved a coalition of countries led by the United States, and was fought against Iraq in response to Iraq's invasion and annexation of Kuwait. The conflict began with the invasion of Kuwait by Iraq on August 2, 1990, and ended with the liberation of Kuwait and the defeat of Iraq on February 28, 1991.",
+    "source": {
+      "dataset": "Hello-SimpleAI/HC3",
+      "license": "CC-BY-SA",
+      "config": "open_qa",
+      "row": 972,
+      "model": "ChatGPT (Dec 2022)",
+      "date": "2022-12"
+    },
+    "detectors": {
+      "claims": 3,
+      "signals": {
+        "numeric": 2,
+        "named_entity": 3,
+        "bias_framing": 2
+      },
+      "numbers": 4,
+      "bias_terms": 2
+    }
+  }
+]

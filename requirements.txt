@@ -4,3 +4,6 @@ uvicorn>=0.54,<1
 
 # Two Truths and a Lie quiz (two_truths_one_lie/quiz_generator.py)
 ollama>=0.6,<1
+
+# Gold-set collection from WildChat (evaluation/collect.py)
+pyarrow>=15
