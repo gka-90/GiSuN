@@ -28,7 +28,8 @@ export XDG_CACHE_HOME=$HPC_DIR/.cache VLLM_CACHE_ROOT=$HPC_DIR/.cache/vllm   # k
 export XDG_CONFIG_HOME=$HPC_DIR/.config TRITON_CACHE_DIR=$HPC_DIR/.cache/triton \
        TORCHINDUCTOR_CACHE_DIR=$HPC_DIR/.cache/torchinductor VLLM_NO_USAGE_STATS=1 \
        TMPDIR=$HPC_DIR/tmp   # compile caches and temp files default to the (full) home folder
-mkdir -p "$TMPDIR" "$XDG_CONFIG_HOME"
+export HOME=$HPC_DIR/jobhome   # anything that still writes to ~ (e.g. ~/.nv, ~/.config) lands on /hpc, not the full /home
+mkdir -p "$TMPDIR" "$XDG_CONFIG_HOME" "$HOME"
 export VLLM_USE_FLASHINFER_SAMPLER=0   # the nodes have no nvcc, and FlashInfer's sampler compiles with it
 cd "$SLURM_SUBMIT_DIR"
 nvidia-smi
