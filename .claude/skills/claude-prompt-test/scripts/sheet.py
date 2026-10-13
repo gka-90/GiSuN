@@ -15,7 +15,7 @@ PROMPTS = os.path.join(HERE, "..", "prompts.json")
 START, END = "<!-- ANSWER START -->", "<!-- ANSWER END -->"
 
 
-def make(out):
+def make(out, prompts_path=PROMPTS):
     if os.path.exists(out):
         raise SystemExit(f"{out} exists; not overwriting pasted answers")
     os.makedirs(os.path.dirname(out), exist_ok=True)
@@ -23,15 +23,15 @@ def make(out):
              "For each prompt: open a NEW ChatGPT chat, paste the prompt, copy the whole answer "
              "(the copy button under the answer), and paste it between the two markers. "
              "Leave the markers and the ### lines unchanged.\n"]
-    for p in json.load(open(PROMPTS)):
+    for p in json.load(open(prompts_path)):
         parts.append(f"\n### {p['id']} | {p['category']}\n\n**Prompt:** {p['prompt']}\n\n{START}\n\n{END}\n")
     open(out, "w", encoding="utf-8").write("".join(parts))
     print(f"sheet written: {out}")
 
 
-def imp(sheet, model, provider):
+def imp(sheet, model, provider, prompts_path=PROMPTS):
     text = open(sheet, encoding="utf-8").read()
-    prompts = {p["id"]: p for p in json.load(open(PROMPTS))}
+    prompts = {p["id"]: p for p in json.load(open(prompts_path))}
     items, empty = [], []
     for m in re.finditer(r"^### (\S+) \|.*?" + re.escape(START) + r"(.*?)" + re.escape(END), text, re.S | re.M):
         pid, answer = m.group(1), m.group(2).strip()
@@ -51,8 +51,8 @@ def imp(sheet, model, provider):
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
-    m = sub.add_parser("make"); m.add_argument("--out", default="datasets/collected/claude_sheet.md")
+    m = sub.add_parser("make"); m.add_argument("--out", default="datasets/collected/claude_sheet.md"); m.add_argument("--prompts", default=PROMPTS)
     i = sub.add_parser("import"); i.add_argument("sheet"); i.add_argument("--model", default="ChatGPT web")
-    i.add_argument("--provider", default="chatgpt_web")
+    i.add_argument("--provider", default="chatgpt_web"); i.add_argument("--prompts", default=PROMPTS)
     a = ap.parse_args()
-    make(a.out) if a.cmd == "make" else imp(a.sheet, a.model, a.provider)
+    make(a.out, a.prompts) if a.cmd == "make" else imp(a.sheet, a.model, a.provider, a.prompts)
