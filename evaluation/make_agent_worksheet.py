@@ -69,6 +69,7 @@ def main():
     ap.add_argument("--rules")
     ap.add_argument("--answers", nargs="*", default=[])
     ap.add_argument("--out", required=True)
+    ap.add_argument("--keys", help="JSON list of [answer_id, sentence, criterion, shared] to keep (for splitting work)")
     a = ap.parse_args()
     agent, rules = load(a.agent), load(a.rules)
     items = {it["id"]: it for p in a.answers for it in json.load(open(p, encoding="utf-8"))}
@@ -96,6 +97,13 @@ def main():
         if v == "met" and key not in agent:
             rows.append((2, key[0], key[2], dom, key[1], "not run"))
     rows.sort(key=lambda r: (r[0], r[2], r[1]))
+    if a.keys:
+        keep = {(k[0], k[1], k[2]): k[3] for k in json.load(open(a.keys, encoding="utf-8"))}
+        rows = [r for r in rows if (r[1], r[4], r[2]) in keep]
+        shared = {k for k, v in keep.items() if v}
+        rows.sort(key=lambda r: ((r[1], r[4], r[2]) not in shared, r[0], r[2], r[1]))  # shared rows first
+    else:
+        shared = set()
 
     wb = Workbook()
     ans = wb.create_sheet("Answers")
@@ -111,7 +119,7 @@ def main():
                "Notes (why is the agent wrong?)", "Agent correct?", "Error type", "Full answer",
                "Error category"])
     for i, (g, aid, crit, dom, sent, v) in enumerate(rows, start=2):
-        ws.append([i - 1, GROUP[g], aid, dom, q.get(aid, ""), before(aid, sent), sent, source_note(aid, sent),
+        ws.append([i - 1, GROUP[g] + (" | SHARED" if (aid, sent, crit) in shared else ""), aid, dom, q.get(aid, ""), before(aid, sent), sent, source_note(aid, sent),
                    crit, CRIT.get(crit, ""), v, None, None,
                    f'=IF(OR(L{i}="",L{i}="unsure"),"",IF(K{i}=L{i},1,IF(AND(K{i}="not run",L{i}="not_met"),1,0)))',
                    f'=IF(OR(L{i}="",L{i}="unsure"),"",IF(AND(K{i}="met",L{i}="not_met"),"false positive",'
