@@ -1,0 +1,652 @@
+[
+ {
+  "id": "wc001",
+  "category": "economy",
+  "domain": "economy",
+  "question": "is there any economist book that addresses South korea's economic liberalization and addresses the misconception that goverment intervention was the cause of success?",
+  "text": "Yes. A good starting point is **Ha-Joon Chang’s _Kicking Away the Ladder: Development Strategy in Historical Perspective_**. Chang argues that South Korea’s growth relied on active state policies—such as industrial planning, trade protection, and support for targeted industries—rather than laissez-faire liberalization. He also challenges the idea that today’s rich countries, including South Korea, prospered by following the free-market policies they now recommend.\n\nFor a South Korea–focused account, see **Alice H. Amsden’s _Asia’s Next Giant: South Korea and Late Industrialization_**. Amsden examines how the state guided investment and disciplined firms, while emphasizing that intervention worked alongside export competition and performance requirements.\n\nBoth complicate the claim that government intervention alone caused South Korea’s success: they describe specific state policies interacting with firms, exports, global conditions, and other factors.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:12"
+ },
+ {
+  "id": "wc002",
+  "category": "health",
+  "domain": "health",
+  "question": "Give me a paragraphe for covid",
+  "text": "COVID-19 is an infectious disease caused by the coronavirus SARS-CoV-2. It can cause symptoms such as fever, cough, fatigue, and difficulty breathing, though some people have mild symptoms or none at all. The virus spreads mainly through respiratory droplets and particles, so staying up to date with recommended vaccines, improving indoor ventilation, and taking precautions when sick can help reduce its spread.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:12"
+ },
+ {
+  "id": "wc003",
+  "category": "politics",
+  "domain": "politics",
+  "question": "How long until civil war in the United States breaks out?",
+  "text": "There’s no reliable way to predict that, and I’m not aware of credible evidence that a U.S. civil war is imminent. Political violence and polarization are real concerns, but they don’t mean a civil war is inevitable or that anyone can give a meaningful countdown. If you’re worried about a specific threat, follow local emergency guidance and contact authorities if there’s immediate danger.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:12"
+ },
+ {
+  "id": "wc004",
+  "category": "history",
+  "domain": "history",
+  "question": "tell me about environmental laws during colonial india period",
+  "text": "During colonial rule in India (roughly 1757–1947), there was no comprehensive environmental law in the modern sense. British authorities mainly regulated forests, wildlife, land, and water to secure timber, revenue, and administrative control. These policies often restricted local communities’ customary access to resources.\n\nKey developments included:\n\n- **Forest laws:** The Indian Forest Acts of **1865, 1878, and 1927** expanded government control over forests. The 1878 Act classified forests as reserved, protected, or village forests, limiting activities such as grazing, collecting wood, and shifting cultivation. The 1927 Act consolidated forest rules and remained influential after independence.\n- **Wildlife regulation:** The **Wild Birds Protection Act, 1887**, and **Wild Birds and Animals Protection Act, 1912**, restricted the killing or capture of certain species. Protection was limited and often coexisted with hunting by colonial officials and rulers.\n- **Pollution and public health:** Laws such as the **Indian Easements Act, 1882**, and the **Indian Penal Code, 1860** addressed some issues involving water use, nuisance, or public health, but they did not establish a broad system for controlling industrial pollution.\n- **Land and resource management:** Revenue and tenancy systems reshaped land use, while irrigation and canal projects altered rivers and wetlands. These policies were generally designed around agriculture, revenue, and infrastructure rather than ecological conservation.\n\nColonial environmental policy was therefore largely about managing resources for the state and economy. It sometimes preserved forests or species, but commonly did so through centralized control, with significant effects on Adivasi and other rural communities.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:13"
+ },
+ {
+  "id": "wc005",
+  "category": "environment",
+  "domain": "environment",
+  "question": "Is Willie Soon considered a reliable source for climate info?",
+  "text": "Willie Soon is **not generally considered a reliable source for mainstream climate information**. He is an astrophysicist whose public claims about climate often conflict with the broad scientific consensus that recent global warming is primarily caused by human greenhouse gas emissions. His climate research and funding disclosures have also drawn scrutiny.\n\nFor a dependable overview, consult assessments from the IPCC, national science academies, or agencies such as NOAA and NASA.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:13"
+ },
+ {
+  "id": "wc006",
+  "category": "society",
+  "domain": "society",
+  "question": "What Is the Population of Britain (Acording To The 1991 Census, Which is Out Of Date)?",
+  "text": "According to the 1991 census, Great Britain had a population of about **56.4 million**. That figure covers England, Scotland and Wales; the United Kingdom total, including Northern Ireland, was about **57.4 million**.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:13"
+ },
+ {
+  "id": "wc007",
+  "category": "economy",
+  "domain": "economy",
+  "question": "Which jobs are in high demanding in Australia and Japan and there average salary in USD",
+  "text": "“High-demand” jobs vary by location and change over time. These roles are commonly sought in Australia and Japan; the figures below are **approximate gross annual salaries converted to USD** and can vary with experience, city, and exchange rates.\n\n| Country | In-demand jobs | Approx. salary (USD/year) |\n|---|---|---:|\n| **Australia** | Registered nurses | $55,000–$80,000 |\n|  | Software developers / engineers | $75,000–$125,000 |\n|  | Construction tradespeople (electricians, plumbers, carpenters) | $55,000–$95,000 |\n|  | Civil engineers | $70,000–$110,000 |\n|  | Aged-care and disability support workers | $40,000–$60,000 |\n|  | Early-childhood teachers | $45,000–$75,000 |\n| **Japan** | Software developers / IT engineers | $40,000–$80,000 |\n|  | Nurses and other healthcare professionals | $30,000–$55,000 |\n|  | Construction and skilled-trade workers | $30,000–$55,000 |\n|  | Care workers for older adults | $22,000–$38,000 |\n|  | Mechanical and electrical engineers | $40,000–$75,000 |\n|  | English-language teachers | $22,000–$40,000 |\n\nThese are broad estimates, not guaranteed offers. Japan’s salaries are often higher in Tokyo and for specialized or bilingual roles; Australian salaries are generally higher in major cities and remote regions where employers may offer incentives.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:13"
+ },
+ {
+  "id": "wc008",
+  "category": "health",
+  "domain": "health",
+  "question": "What are the benefits of smoking weed with a bong?",
+  "text": "A bong cools smoke as it passes through water, which can make each puff feel smoother and less harsh than dry smoke. It may also let you take larger hits with less effort. The water does **not** remove most harmful chemicals, and bigger hits can mean more smoke and THC at once, increasing the risk of coughing, irritation, anxiety, or impairment. Smoking cannabis still exposes your lungs to harmful substances.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:13"
+ },
+ {
+  "id": "wc009",
+  "category": "politics",
+  "domain": "politics",
+  "question": "Are you aware of the Eagle Act introduced in the US congress?",
+  "text": "Yes. The EAGLE Act is a proposed U.S. immigration bill; the acronym has been used for more than one bill, so the details depend on which version you mean. One recent version, introduced in 2022, proposed ending per-country limits on employment-based green cards gradually and changing rules for family-sponsored visas. It did not become law.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:13"
+ },
+ {
+  "id": "wc010",
+  "category": "history",
+  "domain": "history",
+  "question": "What are the major technology breakthrough from the last century",
+  "text": "Major technology breakthroughs of the 20th century include:\n\n- **Electricity and electrification:** Power grids brought lighting, appliances, and industrial machinery into everyday life.\n- **Automobiles and aviation:** Cars transformed transport, while powered flight made long-distance travel practical.\n- **Radio, television, and telecommunications:** These technologies enabled mass communication; later, satellites and mobile phones connected people across long distances.\n- **Computers and the internet:** Electronic computers transformed calculation and information processing, and the internet made global digital communication widely accessible.\n- **Semiconductors and microchips:** Transistors and integrated circuits made electronics smaller, faster, and more affordable.\n- **Medical advances:** Antibiotics, vaccines, medical imaging, organ transplantation, and improved surgical techniques greatly expanded the ability to prevent and treat disease.\n- **Nuclear technology:** Nuclear power provided a new energy source, while nuclear weapons profoundly changed warfare and geopolitics.\n- **Space technology:** Rockets, satellites, and human spaceflight expanded scientific knowledge and enabled services such as GPS and satellite communications.\n- **Synthetic materials and modern manufacturing:** Plastics, new alloys, and automated production reshaped products and industry.\n\nThese breakthroughs built on one another; for example, semiconductors enabled modern computers, which helped make the internet and smartphones possible.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:13"
+ },
+ {
+  "id": "wc011",
+  "category": "society",
+  "domain": "society",
+  "question": "What is England, where is it located, what is the population and what are the attractions there?",
+  "text": "England is a country in the United Kingdom, occupying the southern and central part of the island of Great Britain. It borders Scotland to the north and Wales to the west, with the North Sea to the east and the English Channel to the south.\n\nIts population is about **58.6 million** (2021 Census). Popular attractions include London’s Tower of London, Buckingham Palace, and British Museum; Stonehenge; the historic cities of Bath and York; the university cities of Oxford and Cambridge; the Lake District; and the coastal scenery of Cornwall.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:14"
+ },
+ {
+  "id": "wc012",
+  "category": "economy",
+  "domain": "economy",
+  "question": "What Was The Economy Of Botswana During 1966?",
+  "text": "When Botswana became independent in 1966, it was among the world’s poorest countries. Most people lived in rural areas and relied on subsistence farming and livestock, especially cattle. The economy had little industry, infrastructure, or formal employment, and the country depended heavily on migrant workers’ earnings and financial support from Britain and the regional customs union. Diamond mining had not yet begun; the major discoveries and development of the mines came later.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:14"
+ },
+ {
+  "id": "wc013",
+  "category": "health",
+  "domain": "health",
+  "question": "Is Type Two Diabetes An Curable Condition?",
+  "text": "Type 2 diabetes usually isn’t considered curable, but it can sometimes go into remission. Remission means blood sugar stays below the diabetes range without glucose-lowering medication for a sustained period. It’s more likely after substantial, sustained weight loss, though it can’t be guaranteed and diabetes may return.\n\nTreatment can include lifestyle changes, medication, or both. Don’t stop prescribed medication without discussing it with your clinician, and keep up with regular blood sugar checks and follow-up care.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:14"
+ },
+ {
+  "id": "wc014",
+  "category": "politics",
+  "domain": "politics",
+  "question": "Who will win the 2024 Russian election?",
+  "text": "Vladimir Putin was declared the winner of Russia’s 2024 presidential election, with official results reporting about 87% of the vote. The election was widely criticized internationally as neither free nor fair.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:14"
+ },
+ {
+  "id": "wc015",
+  "category": "history",
+  "domain": "history",
+  "question": "what caused the collapse of the western roman empire?",
+  "text": "The Western Roman Empire didn’t collapse because of a single event or cause. It weakened over centuries through a combination of pressures:\n\n- **Political instability:** Frequent civil wars, short-lived emperors, and struggles over succession undermined effective rule.\n- **Economic strain:** High military costs, heavy taxation, inflation, and disruption to trade weakened the state’s finances.\n- **Military pressures:** Rome struggled to recruit and pay enough soldiers, while its armies increasingly relied on groups outside the traditional Roman system.\n- **Invasions and migrations:** Goths, Vandals, and other peoples entered or crossed Roman territory. In 410, the Visigoths sacked Rome; in 455, the Vandals did.\n- **Loss of territory and revenue:** As provinces were lost, the western government had fewer resources to fund its armies and administration.\n- **Division of the empire:** The eastern half, centered on Constantinople, was generally wealthier and more resilient, while the western half faced greater difficulty defending its borders.\n\nThe conventional date for the fall is **476 CE**, when the Germanic leader Odoacer deposed the last western emperor, Romulus Augustulus. Roman institutions and culture continued in many forms afterward, and the Eastern Roman Empire survived for nearly a thousand more years.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:14"
+ },
+ {
+  "id": "wc016",
+  "category": "society",
+  "domain": "society",
+  "question": "What Was The Population of Big Island, Virginia, During 2000?",
+  "text": "Big Island, Virginia, had a population of **300** in the 2000 U.S. Census.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:14"
+ },
+ {
+  "id": "wc017",
+  "category": "economy",
+  "domain": "economy",
+  "question": "What Was The Poverty Headcount Ratio During 2011",
+  "text": "The poverty headcount ratio in 2011 depends on the country and the poverty threshold you mean. Which country or measure are you asking about?",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:15"
+ },
+ {
+  "id": "wc018",
+  "category": "health",
+  "domain": "health",
+  "question": "Did Chester Bennington mention anything about suicide before he took his own life?",
+  "text": "Yes. In a February 2017 interview, Chester Bennington spoke publicly about his depression and said he sometimes had “a hard time with life.” He also discussed his struggles with addiction and emotional pain in other interviews. That showed he was suffering, but it doesn’t establish that he told people he planned to die by suicide. His widow later said there had been warning signs, though she thought he was doing better in the days before his death. [Interview coverage](https://blabbermouth.net/news/chester-bennington-in-february-2017-interview-i-have-a-hard-time-with-life-video) · [CNN interview with his widow](https://transcripts.cnn.com/show/acd/date/2018-06-08/segment/01)",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:15"
+ },
+ {
+  "id": "wc019",
+  "category": "politics",
+  "domain": "politics",
+  "question": "Was the Republican party in the USA once the more liberal party? If so, when?",
+  "text": "Yes. In the mid-19th century, the Republican Party was founded in opposition to the expansion of slavery, and it was generally the more progressive party on that issue. During Reconstruction, Republicans also supported civil rights and voting rights for formerly enslaved people, though the party included a range of views.\n\nThe parties’ coalitions and positions shifted over many decades. By the mid-20th century, the Democratic and Republican parties had largely switched their regional bases and alignments on civil rights, and by the late 20th century the Republicans were generally the more conservative party nationally.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:15"
+ },
+ {
+  "id": "wc020",
+  "category": "history",
+  "domain": "history",
+  "question": "Was the island known as Taiwan ever under Chinese control at any time in history?",
+  "text": "Yes. The island now known as Taiwan was under Chinese rule at several points in history, though the extent and nature of that control varied.\n\nThe Qing dynasty incorporated Taiwan into its empire in 1683, and it became a province in 1887. Qing rule ended when China ceded Taiwan to Japan in 1895 after the First Sino-Japanese War. After Japan’s defeat in World War II, the Republic of China took control of Taiwan in 1945.\n\nEarlier periods are more complicated: Chinese settlers and officials were present before Qing rule, but there was no continuous Chinese administration over the whole island. Taiwan was also governed by Indigenous communities and, in parts of the 17th century, by Dutch and Spanish colonial powers.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:15"
+ },
+ {
+  "id": "wc021",
+  "category": "society",
+  "domain": "society",
+  "question": "what caused social media to affect children?",
+  "text": "Social media affects children because it is designed to keep people engaged, often through endless scrolling, notifications, and personalized recommendations. Children may be especially influenced because they’re still developing skills for managing attention, emotions, and peer pressure. Social media can shape how they compare themselves with others, communicate, and spend their time. The effects vary: it can help children connect and learn, but heavy or harmful use can contribute to stress, sleep problems, or bullying.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:15"
+ },
+ {
+  "id": "wc022",
+  "category": "economy",
+  "domain": "economy",
+  "question": "Can You Compare An Stock Market Ticker From 1966 To An Stock Market Ticker From 1979?",
+  "text": "Yes. If you mean comparing a company’s stock ticker in 1966 with its ticker in 1979, I can help—but I’ll need the company name or the two ticker symbols. Tickers can change over time, and historical records may use symbols that differ from today’s.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:15"
+ },
+ {
+  "id": "wc023",
+  "category": "health",
+  "domain": "health",
+  "question": "What group of drugs is conventin 100",
+  "text": "If you mean **Conventin 100**, it is a brand of **gabapentin**, an anticonvulsant medicine also used for nerve pain. Check the package’s active ingredient to confirm.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:15"
+ },
+ {
+  "id": "wc024",
+  "category": "politics",
+  "domain": "politics",
+  "question": "What is the Albanese government and how is it related to Australia?",
+  "text": "The Albanese government is the national government of Australia led by Prime Minister Anthony Albanese. It is formed by the Australian Labor Party, which won the 2022 federal election. “Albanese government” refers to the prime minister and ministers responsible for running the federal government, making national policy, and administering federal laws.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:15"
+ },
+ {
+  "id": "wc025",
+  "category": "history",
+  "domain": "history",
+  "question": "Has the surname of the Japanese Emperor never changed throughout history?",
+  "text": "No. The Japanese imperial family traditionally has no surname, so the emperor’s surname hasn’t “changed”—he generally doesn’t have one. Emperor’s names are usually given as a personal name plus “Emperor,” and the imperial house is referred to as the Imperial House of Japan.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:16"
+ },
+ {
+  "id": "wc026",
+  "category": "society",
+  "domain": "society",
+  "question": "Is it possible for the global population to stand on Jeju Island?",
+  "text": "No. Jeju Island is about 1,850 km², while the roughly 8 billion people alive today would need to fit at about 4.3 people per square meter—even before accounting for Jeju’s mountains, roads, buildings, and other unusable land. That density is physically unrealistic for the whole population.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:16"
+ },
+ {
+  "id": "wc027",
+  "category": "economy",
+  "domain": "economy",
+  "question": "What Was The National Poverty Rate In Australia During 1967?",
+  "text": "Australia’s national poverty rate in 1967 is not available as a single, authoritative statistic. Australia did not have an official poverty line then, and estimates vary depending on how poverty is defined.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:16"
+ },
+ {
+  "id": "wc028",
+  "category": "health",
+  "domain": "health",
+  "question": "Tell me about normal medical BNP test values by age, sex, etc.",
+  "text": "BNP (B-type natriuretic peptide) is a blood test used mainly to help assess heart failure. There isn’t one universal “normal” range: results depend on the lab, the specific test, and whether it measures **BNP** or **NT-proBNP** (a related but different test). Use the reference range printed on your report and discuss your result with your clinician.\n\nFor **BNP**, many labs use a reference limit around **100 pg/mL** (some use a lower limit, such as 35 pg/mL). In people being evaluated for **acute shortness of breath**, a BNP below **100 pg/mL** makes heart failure less likely, while higher values can support it. These are decision thresholds, not a diagnosis.\n\nFor **NT-proBNP**, thresholds differ by age when evaluating acute heart failure: roughly **450 pg/mL for people under 50**, **900 pg/mL for ages 50–75**, and **1,800 pg/mL for those over 75** are commonly used to help rule it in. A value below **300 pg/mL** makes acute heart failure less likely across adult age groups. These cutoffs are not the same as a lab’s healthy-person reference range.\n\n**Age, sex, and other factors:** BNP and NT-proBNP tend to rise with age and are often higher in women. Kidney impairment can raise them; obesity can lower them. Heart rhythm problems (especially atrial fibrillation), lung or other serious illnesses, and some heart conditions can also affect results. There are no broadly reliable sex-specific “normal” cutoffs used for routine interpretation.\n\nIf you share the test name (BNP or NT-proBNP), value, units, age, and why it was ordered, I can help explain what the result may mean.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:16"
+ },
+ {
+  "id": "wc029",
+  "category": "politics",
+  "domain": "politics",
+  "question": "What is President Kennedy’s point of view toward the goals of the space race?",
+  "text": "President Kennedy viewed the space race as a contest that mattered for national security, scientific progress, and global prestige. He argued that reaching the Moon would demonstrate American leadership and technological capability, while inspiring innovation and serving peaceful purposes.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:16"
+ },
+ {
+  "id": "wc030",
+  "category": "history",
+  "domain": "history",
+  "question": "tell me about all kings from shunga empire",
+  "text": "The Shunga Empire ruled much of northern India from about 185 to 73 BCE. Its rulers belonged to the Shunga dynasty, founded by Pushyamitra Shunga after he overthrew the Mauryan ruler Brihadratha. Ancient sources give varying details, especially for the later kings, so the chronology and lengths of reign are uncertain.\n\nThe kings commonly listed are:\n\n1. **Pushyamitra Shunga** (c. 185–149 BCE) — Founder of the dynasty and its best-known ruler. He established Shunga power in Magadha and is associated in literary sources with military campaigns and Vedic rituals.\n2. **Agnimitra** (c. 149–141 BCE) — Pushyamitra’s son and successor. He is the central figure in Kālidāsa’s play *Mālavikāgnimitram*, though the play was written centuries later.\n3. **Vasujyeshtha** (also called Sujyeshtha; dates uncertain) — Listed as a successor in some accounts, but little is known about his reign.\n4. **Vasumitra** (dates uncertain) — Traditionally identified as a son or descendant of Agnimitra. Texts associate him with a military victory, though details are unclear.\n5. **Andhraka** (dates uncertain) — A ruler named in some king lists; historical information is scant.\n6. **Pulindaka** (dates uncertain) — Known mainly from later lists, with few reliable details.\n7. **Ghosha** (dates uncertain) — Sometimes included among the later Shunga rulers; records are sparse.\n8. **Vajramitra** (dates uncertain) — Another ruler appearing in some lists, with little securely established about his reign.\n9. **Bhagabhadra** (date uncertain, often placed in the second century BCE) — Known from the Heliodorus pillar inscription at Besnagar, which refers to him as a Shunga king. The inscription records the dedication of a pillar by the Greek ambassador Heliodorus.\n10. **Devabhuti** (c. 83–73 BCE, traditionally) — Usually regarded as the last Shunga king. Later accounts say he was killed in a palace coup by his minister Vasudeva, who founded the Kanva dynasty.\n\nThese names come largely from later texts and inscriptions, and not every list agrees on the sequence or includes the same rulers. The best-attested Shunga kings are Pushyamitra, Agnimitra, Bhagabhadra, and Devabhuti.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:16"
+ },
+ {
+  "id": "wc031",
+  "category": "society",
+  "domain": "society",
+  "question": "What Was The Population of the South Bronx During 1975?",
+  "text": "There isn’t a single official 1975 population figure for the South Bronx, since its boundaries varied. One estimate puts the broader South Bronx at about **400,000 people in 1977**, compared with about **530,000 in 1970**; the three core community districts had 166,000 residents by 1980. So a precise 1975 figure depends on which area is counted. [TIME](https://time.com/4431300/see-the-bronx-in-the-days-of-the-get-down/) [Demographia](https://www.demographia.com/rac/sbronx.pdf)",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:16"
+ },
+ {
+  "id": "wc032",
+  "category": "economy",
+  "domain": "economy",
+  "question": "Does buyers of mixed use buildings or commercial buildings at mansion tax in New jersey",
+  "text": "New Jersey doesn’t have a statewide “mansion tax” based on a property’s price. It does have a **Graduated Percent Fee**, a realty transfer fee that applies to certain property sales of $1 million or more. For qualifying commercial or industrial property, the fee is generally paid by the seller. Mixed-use properties may be treated differently depending on their classification and the residential portion, so the deed and transaction details matter. Check with a New Jersey real estate attorney or title company for the specific property.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:16"
+ },
+ {
+  "id": "wc033",
+  "category": "health",
+  "domain": "health",
+  "question": "What are the nutrition facts in shark fish?",
+  "text": "Shark nutrition varies by species and preparation. A typical 3-ounce (85 g) cooked portion provides roughly:\n\n- **Calories:** 100–150\n- **Protein:** 20–25 g\n- **Fat:** 1–5 g\n- **Carbohydrates:** 0 g\n\nShark is also a source of vitamin B12, selenium, and phosphorus. Exact values vary, and shark can contain high levels of mercury; pregnant people, those who may become pregnant, and children should avoid it.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:16"
+ },
+ {
+  "id": "wc034",
+  "category": "politics",
+  "domain": "politics",
+  "question": "Who is india's president",
+  "text": "India’s president is Droupadi Murmu.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:16"
+ },
+ {
+  "id": "wc035",
+  "category": "economy",
+  "domain": "economy",
+  "question": "Did Steve Jobs visit Lee byung chul who chair man of Samsung in 1980s?",
+  "text": "There’s no reliable public evidence that Steve Jobs visited Lee Byung-chul in the 1980s. Lee died in 1987, and accounts of the Jobs–Samsung relationship generally focus on later dealings with Samsung Electronics rather than a meeting between the two men.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:17"
+ },
+ {
+  "id": "wc036",
+  "category": "health",
+  "domain": "health",
+  "question": "Is there any scientific evidence that drinking more water than thirst dictates is good for one’s health?",
+  "text": "For generally healthy people, there’s no strong evidence that routinely drinking more water than thirst calls for improves health. Drinking to thirst is usually a reasonable guide, though needs can change with heat, exercise, illness, pregnancy, or certain medications and health conditions.\n\nExtra water can help in specific situations—for example, preventing dehydration during prolonged exercise or heat exposure, or sometimes reducing recurrent kidney stones when a clinician recommends higher fluid intake. But forcing large amounts can be harmful: it can dilute blood sodium and cause dangerous hyponatremia, especially during endurance exercise.\n\nSo aim to drink when thirsty and pay attention to circumstances that increase fluid loss. Follow medical advice if you have a condition that affects fluid balance.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:17"
+ },
+ {
+  "id": "wc037",
+  "category": "politics",
+  "domain": "politics",
+  "question": "What is the reason for the Iran and Israel war",
+  "text": "The conflict between Iran and Israel has no single cause. It reflects decades of hostility, including Iran’s opposition to Israel and support for armed groups that fight it, and Israel’s efforts to counter Iran’s regional influence and prevent it from acquiring nuclear weapons. Disputes over Iran’s nuclear program, missile capabilities, and attacks by Iran-aligned groups have repeatedly escalated tensions.\n\nThe immediate cause depends on which outbreak or round of fighting you mean; events and responsibility can differ by date.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:17"
+ },
+ {
+  "id": "wc038",
+  "category": "economy",
+  "domain": "economy",
+  "question": "What Was The National Poverty Rate In The USA During 1930?",
+  "text": "There was no official U.S. poverty rate for 1930: the federal government did not establish its current poverty measure until 1960. Historical estimates vary depending on the definition used; one widely cited estimate puts about **55% of U.S. families below a poverty threshold in 1929**, but that is not a measured 1930 national rate. [Historical Statistics of the United States](https://hsus.cambridge.org/HSUSWeb/essay/pdf/Be.ESS.02.pdf)",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:17"
+ },
+ {
+  "id": "wc039",
+  "category": "health",
+  "domain": "health",
+  "question": "Is colon health related to rhinitis?",
+  "text": "Colon health and rhinitis usually aren’t directly related. Rhinitis is inflammation inside the nose, commonly triggered by allergies, infections, or irritants. Some studies suggest links between gut microbes and allergic conditions, but that doesn’t establish that colon problems cause rhinitis.\n\nIf nasal symptoms persist or you have concerning bowel symptoms, talk with a healthcare professional; they can assess each issue and whether they might be connected.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:17"
+ },
+ {
+  "id": "wc040",
+  "category": "politics",
+  "domain": "politics",
+  "question": "How many of the lawsuits claiming issues with the 2020 presidential election were about merits vs. other issues such as standing?",
+  "text": "Most of the lawsuits challenging the 2020 presidential election were dismissed on procedural grounds, such as lack of standing, rather than on the merits. Only a small number reached a decision on the merits.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:17"
+ },
+ {
+  "id": "wc041",
+  "category": "economy",
+  "domain": "economy",
+  "question": "What Was the GDP Of Botswana During 1966?",
+  "text": "Botswana’s GDP in 1966 was approximately **US$0.04 billion** (about **US$40 million** in current dollars).",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:17"
+ },
+ {
+  "id": "wc042",
+  "category": "health",
+  "domain": "health",
+  "question": "what is disease x",
+  "text": "“Disease X” is a placeholder name used by the World Health Organization for a disease caused by a pathogen not yet known to cause human illness. It describes the possibility of a future epidemic or pandemic, rather than a specific disease that currently exists.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:17"
+ },
+ {
+  "id": "wc043",
+  "category": "politics",
+  "domain": "politics",
+  "question": "is there a racist history behind requiring an id to vote",
+  "text": "Yes. In the United States, some voter ID requirements emerged from a longer history of racial discrimination in voting. After the Civil War, states used tools such as poll taxes, literacy tests, and complicated registration rules to disenfranchise Black voters. In later decades, some voter ID laws were adopted or enforced in ways that disproportionately burdened Black voters and other minority groups.\n\nThat history doesn’t mean every ID requirement was created for a racist purpose. Supporters often cite election security and public confidence; critics argue that in-person voter fraud is rare and that ID rules can make voting harder for eligible people who face barriers to obtaining accepted documents. The effects and origins vary by state and by law, so it’s useful to look at a specific policy’s history, accepted IDs, and evidence about who is affected.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:17"
+ },
+ {
+  "id": "wc044",
+  "category": "economy",
+  "domain": "economy",
+  "question": "How Many People Live in Poverty In West Virginia During 1967?",
+  "text": "About 380,000 West Virginians lived in poverty in 1967—roughly one in five residents. The exact figure can vary depending on the poverty measure and source.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:17"
+ },
+ {
+  "id": "wc045",
+  "category": "health",
+  "domain": "health",
+  "question": "What is the fast way to loose weight (accepting medical limits)?",
+  "text": "The fastest medically reasonable approach is a steady calorie deficit while keeping nutrition and muscle in mind. Aim to lose about **0.5–1% of your body weight per week**; faster loss can increase muscle loss, nutrient deficiencies, and rebound weight gain.\n\n- Eat mostly filling, minimally processed foods: vegetables, fruit, beans, lean protein, and whole grains. Include protein at each meal.\n- Reduce easy-to-overeat calories, especially sugary drinks, alcohol, takeout, and snack foods. Tracking portions for a couple of weeks can reveal where to adjust.\n- Do strength training at least twice weekly and add regular walking or other cardio.\n- Sleep 7–9 hours and keep a consistent routine.\n\nAvoid crash diets, dehydration, laxatives, or unprescribed weight-loss drugs. If you have a medical condition, take medications, are pregnant, or want to lose weight rapidly, talk with a clinician first. A clinician can assess whether prescription treatment or a supervised very-low-calorie plan is appropriate.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:18"
+ },
+ {
+  "id": "wc046",
+  "category": "politics",
+  "domain": "politics",
+  "question": "How could Trump lose the 2016 election?",
+  "text": "Trump lost the 2016 popular vote to Hillary Clinton, who received about 2.9 million more votes nationwide. But he won the Electoral College, 304–227, so he won the presidency. If you mean how he *could have lost the presidency*, a shift of votes in a few closely contested states—such as Michigan, Pennsylvania, and Wisconsin—would have given Clinton enough electoral votes to win.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:18"
+ },
+ {
+  "id": "wc047",
+  "category": "economy",
+  "domain": "economy",
+  "question": "Does new keynesianism draw macroeconomics from new classic economics?",
+  "text": "Yes, in part. New Keynesian economics uses many tools and assumptions associated with New Classical economics—such as rational expectations and microeconomic foundations—but adds features like sticky prices and wages to explain why monetary and fiscal policy can affect output in the short run. It is a distinct school, not simply a branch of New Classical economics.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:18"
+ },
+ {
+  "id": "wc048",
+  "category": "health",
+  "domain": "health",
+  "question": "How do you cure a cold in under 24 hours based on current medical advice?",
+  "text": "There’s no proven way to cure a common cold in under 24 hours; it usually improves on its own over several days. To feel better, rest, drink fluids, and use symptom relief such as saline spray, warm drinks, or an over-the-counter pain or fever medicine if it’s safe for you. Follow the label, and don’t give aspirin to children or teens. A pharmacist can help you choose medicines that fit your age, health conditions, and other medications.\n\nAntibiotics don’t treat colds. If symptoms began recently and you might have flu or COVID-19, consider testing and contact a clinician promptly—antiviral treatment can help some people when started early. Seek medical care for trouble breathing, chest pain, dehydration, a high or persistent fever, or symptoms that worsen or don’t improve.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:18"
+ },
+ {
+  "id": "wc049",
+  "category": "politics",
+  "domain": "politics",
+  "question": "Is it uncivilized to lock someone up for committing a crime from a high-level perspective?",
+  "text": "Not inherently. From a high-level perspective, confinement can protect others, deter harm, and hold people accountable—but it can also be cruel or unjust if it is arbitrary, excessive, discriminatory, or focused only on punishment.\n\nA society’s response is more humane when it uses confinement only when necessary, respects due process and people’s dignity, and offers rehabilitation and a path back into the community. The key question is not simply whether locking someone up is “civilized,” but whether it is fair, proportionate, and effective.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:18"
+ },
+ {
+  "id": "wc050",
+  "category": "economy",
+  "domain": "economy",
+  "question": "how to pay zero tax in India when salary is 24LPA",
+  "text": "At ₹24 LPA, paying **zero income tax legally may not be possible**; it depends on your taxable salary, deductions, and the tax regime you choose. Under India’s new tax regime, the salary standard deduction and available rebate may reduce tax, but the rebate applies only up to the prescribed taxable-income limit—not simply because your CTC is ₹24 lakh.\n\nTo reduce tax legally:\n\n- Compare the **new and old regimes** using your actual salary breakup and eligible deductions.\n- Check whether your employer can structure eligible components efficiently, such as EPF, NPS contributions, and qualifying reimbursements or benefits.\n- Under the old regime, claim only deductions and exemptions you genuinely qualify for, such as eligible 80C investments, health insurance under 80D, and HRA if applicable.\n- Use the tax calculator on the Income Tax Department website and confirm the result with a qualified tax professional.\n\nDon’t hide income, invent deductions, or submit false rent or investment proofs; those can lead to penalties and other legal consequences.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:18"
+ },
+ {
+  "id": "hc3001",
+  "category": "economy",
+  "domain": "economy",
+  "question": "Why adjust for inflation annually, as opposed to realising it after the holding period?",
+  "text": "Annual inflation adjustments preserve each year’s purchasing power and make comparisons across years meaningful. If you wait until the end, inflation is still reflected in the total change, but you lose the year-by-year picture—and, for taxes or investment returns, the timing of gains, losses, and cash flows can affect the calculation. For a simple lump sum with no interim cash flows, adjusting for cumulative inflation at the end gives the same real return as adjusting annually.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:18"
+ },
+ {
+  "id": "hc3002",
+  "category": "health",
+  "domain": "health",
+  "question": "how much does U.S. pay on health care per person",
+  "text": "The U.S. spends about **$14,570 per person per year** on health care, based on 2023 national health expenditure data. This includes spending by governments, insurers, employers, and individuals.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:18"
+ },
+ {
+  "id": "hc3003",
+  "category": "politics",
+  "domain": "politics",
+  "question": "what did ronald reagan do as president",
+  "text": "Ronald Reagan was U.S. president from 1981 to 1989. He cut taxes, increased defense spending, and pursued deregulation, arguing these policies would strengthen the economy. His administration also negotiated arms-control agreements with the Soviet Union as the Cold War eased. Domestically, he signed a major immigration reform law in 1986 and oversaw changes to federal social programs. His presidency was also marked by the Iran–Contra affair, in which officials secretly facilitated arms sales to Iran and diverted proceeds to Nicaraguan rebels.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:18"
+ },
+ {
+  "id": "hc3004",
+  "category": "history",
+  "domain": "history",
+  "question": "how many people were killed in the holocaust",
+  "text": "About 6 million Jews were murdered in the Holocaust. Nazi Germany and its collaborators also killed millions of other people, including Roma, disabled people, Polish civilians, Soviet prisoners of war, and others.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:18"
+ },
+ {
+  "id": "hc3005",
+  "category": "society",
+  "domain": "society",
+  "question": "what is the population of center tx",
+  "text": "Center, Texas, has a population of about 5,000. The 2020 U.S. Census counted 5,193 residents.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:19"
+ },
+ {
+  "id": "hc3006",
+  "category": "economy",
+  "domain": "economy",
+  "question": "How does revenue shared with someone else go into my tax return in Canada?",
+  "text": "It depends on what the payment is for and how the sharing arrangement works. In Canada, you generally report your share of the income, rather than the full amount received by someone else, if you’re entitled to a share under the arrangement. The payer’s tax slip may show the full amount under one person’s name, so keep records showing how the income and related expenses were divided.\n\nCommon examples:\n\n- **Business or freelance revenue:** Report your share as business income, usually on Form T2125 with your T1 return. Deduct only your share of eligible expenses.\n- **Partnership income:** The partnership generally allocates income to each partner, often on a T5013 slip. Each partner reports their allocated share.\n- **Rental income held jointly:** Co-owners generally report their share of rental income and expenses based on their ownership or beneficial interest.\n- **Investment income held jointly:** Report the share that belongs to you. The allocation may depend on who contributed the funds and who owns the investment—not simply whose name is on the account.\n- **Money that is not income:** A gift, loan repayment, or reimbursement may not be taxable income, depending on the circumstances.\n\nKeep the agreement, invoices, bank records, expense details, and any tax slips. If a slip reports more income to you than you actually earned, don’t simply ignore the mismatch; ask the payer to correct it, or get advice on how to explain and report it. The rules can vary by arrangement, so a Canadian tax preparer or accountant can help if the amount is significant or the ownership is unclear.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:19"
+ },
+ {
+  "id": "hc3007",
+  "category": "health",
+  "domain": "health",
+  "question": "Why is company provided health insurance tax free, but individual health insurance is not?",
+  "text": "In the U.S., employer health insurance is generally excluded from your taxable income because federal tax law treats it as a tax-favored employee benefit. Employers can usually deduct the premiums as a business expense, and employees generally owe no income or payroll tax on the employer-paid portion.\n\nIndividual insurance premiums are usually paid with after-tax dollars, so there is no automatic tax exclusion. Some people can still get tax benefits: self-employed people may deduct eligible premiums, and people who buy coverage through the ACA marketplace may qualify for premium tax credits. Rules and eligibility vary.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:19"
+ },
+ {
+  "id": "hc3008",
+  "category": "politics",
+  "domain": "politics",
+  "question": "when did the cold war start",
+  "text": "The Cold War is generally considered to have started around 1947, as tensions between the United States and the Soviet Union became more pronounced after World War II. Some historians date its beginnings to 1945, when wartime cooperation began to break down.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:19"
+ },
+ {
+  "id": "hc3009",
+  "category": "economy",
+  "domain": "economy",
+  "question": "When filing taxes in Canada, in what cases does box 39 on the T4 get reported as half of box 38?",
+  "text": "Box 39 is one-half of box 38 when the T4 reports a taxable benefit from exercising employee security options and the employee qualifies for the 50% deduction under paragraph 110(1)(d) of the Income Tax Act. This generally applies when the options meet the rules for the deduction, including the applicable share and exercise-price conditions. The employer reports the deduction in box 39; you generally claim it on line 24900 of your T1 return.\n\nIf you don’t qualify for that deduction, box 39 may be absent or different. Check the option terms and your T4, or ask a tax professional if eligibility is unclear. [CRA: T4 slip codes 38 and 39](https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/payroll/completing-filing-information-returns/t4-information-employers/t4-slip.html)",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:19"
+ },
+ {
+  "id": "hc3010",
+  "category": "health",
+  "domain": "health",
+  "question": "Do Americans still need extra health care / medical insurance after reform to health care? [U.S.]",
+  "text": "Yes. The Affordable Care Act (“health care reform”) expanded coverage and added protections, but it didn’t make health insurance unnecessary or provide universal coverage. Most Americans still need health insurance to help pay for routine care and protect against large medical bills. Some people get coverage through an employer or a public program such as Medicare, Medicaid, or the Children’s Health Insurance Program; others buy a plan themselves. Whether you need *additional* coverage—such as a supplemental policy—depends on what your existing plan covers and your circumstances.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:19"
+ },
+ {
+  "id": "hc3011",
+  "category": "politics",
+  "domain": "politics",
+  "question": "what percent of illegal immigrants are from mexico and europe",
+  "text": "There isn’t a reliable current percentage for that exact comparison. Estimates generally show that people from Mexico make up a substantial share of the unauthorized immigrant population in the United States, while people from Europe make up a much smaller share. The figures depend on the year and on how “from Europe” is defined; many estimates classify people by country of birth, not by continent.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:19"
+ },
+ {
+  "id": "hc3012",
+  "category": "economy",
+  "domain": "economy",
+  "question": "Where should I park my money if I'm pessimistic about the economy and I think there will be high inflation?",
+  "text": "If you’re worried about both a weak economy and high inflation, there’s no single safe place that reliably protects against both. Consider spreading money across assets with different risks, based on when you’ll need it:\n\n- **Near-term cash:** Keep emergency and near-term spending money in insured bank deposits, Treasury bills, or a government money market fund. These are relatively liquid and low risk, though inflation can erode their purchasing power.\n- **Inflation protection:** In the U.S., Treasury Inflation-Protected Securities (TIPS) adjust their principal with inflation. Their market price can still fall if interest rates rise, so match maturities to your time horizon.\n- **Longer-term growth:** A diversified portfolio of stocks and bonds may help preserve purchasing power over time, but both can decline during downturns. Avoid betting heavily on one sector or asset.\n- **Other diversifiers:** Commodities or real estate can sometimes respond to inflation, but they’re volatile and aren’t dependable short-term shelters.\n\nThe right mix depends on your country, timeline, and ability to tolerate losses. If this is a substantial sum, a fee-only fiduciary adviser can help tailor it.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:19"
+ },
+ {
+  "id": "hc3013",
+  "category": "politics",
+  "domain": "politics",
+  "question": "when president nixon resigns",
+  "text": "President Richard Nixon resigned on August 9, 1974, amid the Watergate scandal. Vice President Gerald Ford succeeded him and was sworn in that day.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:19"
+ },
+ {
+  "id": "hc3014",
+  "category": "economy",
+  "domain": "economy",
+  "question": "Can we amend last year's Schedule C to indicate reduced income due to a customer refund this year for a product we sold last year?",
+  "text": "Generally, no. A refund paid this year for a product sold last year usually belongs on this year’s Schedule C as a return or allowance, rather than as a reason to amend last year’s return. The exact treatment can depend on your accounting method and how the original sale and refund were recorded.\n\nIf the refund corrects an error in last year’s reported income—or the sale or refund was already reflected in last year’s books—you may need to amend instead. Keep the sale and refund records, and check with a tax professional about your specific facts.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:19"
+ },
+ {
+  "id": "hc3015",
+  "category": "politics",
+  "domain": "politics",
+  "question": "what year was gulf war",
+  "text": "The Gulf War began in 1990 and ended in 1991.",
+  "provider": "codex_exec",
+  "model": "codex default",
+  "collected_at": "2026-10-13 09:19"
+ }
+]
