@@ -8,7 +8,7 @@ Build an Excel worksheet that puts the rules_only and agent decisions side by si
         --answers datasets/candidates_wildchat.json datasets/candidates_hc3.json \
         --out test_reports/compare_worksheet.xlsx
 
-Rows where the two systems disagree come first. Fill the yellow "Human label" column
+Rows where exactly one system says 'met' come first, then scope-only differences. Fill the yellow "Human label" column
 (met / not_met / unsure); the Summary sheet updates by formula.
 """
 
@@ -59,19 +59,20 @@ def main():
         dom = (rules.get(key) or agent.get(key))[0]
         rv = rules.get(key, (None, "not run"))[1]
         av = agent.get(key, (None, "not run"))[1]
-        rows.append((rv == av, aid, crit, dom, sent, rv, av))
+        kind = 0 if (rv == "met") != (av == "met") else (2 if rv == av else 1)  # 0 real, 1 scope, 2 agree
+        rows.append((kind, aid, crit, dom, sent, rv, av))
     rows.sort(key=lambda r: (r[0], r[1], r[2]))  # disagreements first
 
     wb = Workbook()
     ws = wb.active
     ws.title = "Label"
     head = ["#", "Answer ID", "Domain", "Question", "Sentence", "Criterion", "Criterion question",
-            "Rules decision", "Agent decision", "Agree?", "Human label", "Notes",
+            "Rules decision", "Agent decision", "Agreement", "Human label", "Notes",
             "Rules correct?", "Agent correct?"]
     ws.append(head)
     for i, (agree, aid, crit, dom, sent, rv, av) in enumerate(rows, start=2):
         ws.append([i - 1, aid, dom, questions.get(aid, ""), sent, crit, CRIT.get(crit, ""), rv, av,
-                   f'=IF(H{i}=I{i},"agree","DISAGREE")', None, None,
+                   f'=IF(H{i}=I{i},"agree",IF(OR(H{i}="met",I{i}="met"),"DISAGREE","scope only"))', None, None,
                    f'=IF(K{i}="","",IF(K{i}="unsure","",IF(H{i}=K{i},1,0)))',
                    f'=IF(K{i}="","",IF(K{i}="unsure","",IF(I{i}=K{i},1,0)))'])
     n = len(rows) + 1
@@ -133,7 +134,8 @@ def main():
     notes = [
         "How to use",
         "1. On the Label sheet, fill the yellow 'Human label' column: met = the problem IS present, not_met = it is not, unsure = skip.",
-        "2. Start at the top: rows where rules and agent DISAGREE come first; they decide which system is better.",
+        "2. Start at the top. DISAGREE = one system says met and the other doesn't; these decide which system is better.",
+        "   'scope only' = one system didn't run that check and the other found no problem (both effectively say OK); label these last.",
         "3. Accuracy here = share of human-labeled rows where the system matched you. 'not run' never matches a label.",
         "4. Label independently from your partner, then compare; don't look at the other person's labels first.",
         f"Sources: {a.rules}; {a.agent}. Rows: one per (answer, sentence, criterion) that either system evaluated.",
@@ -143,7 +145,7 @@ def main():
         cell.font = Font(name=F, bold=(k == 0), italic=(k == len(notes) - 1), color="404040")
     wb.move_sheet("Summary", offset=-1)
     wb.save(a.out)
-    dis = sum(1 for r in rows if not r[0])
+    dis = sum(1 for r in rows if r[0] == 0)
     print(f"{len(rows)} rows ({dis} disagreements) -> {a.out}")
 
 
