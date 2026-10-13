@@ -101,10 +101,12 @@ def main():
 
     wb = Workbook()
     ans = wb.create_sheet("Answers")
-    ans.append(["Answer ID", "Domain", "Question", "Full answer (as ChatGPT wrote it)"])
+    ans.append(["Answer ID", "Domain", "Question", "Full answer", "Written by"])
     answer_row = {}
     for k, (aid, it) in enumerate(sorted(items.items()), start=2):
-        ans.append([aid, it.get("domain", ""), it.get("question", ""), it["text"][:32000]])
+        src = it.get("source") or {}
+        who = it.get("model") or (src.get("model") if isinstance(src, dict) else "") or it.get("provider", "")
+        ans.append([aid, it.get("domain", ""), it.get("question", ""), it["text"][:32000], who])
         answer_row[aid] = k
     ws = wb.active
     ws.title = "Label"
@@ -235,7 +237,7 @@ def main():
     for row in ans.iter_rows(min_row=2):
         for c in row:
             c.font, c.alignment = Font(name=F, size=10), Alignment(wrap_text=True, vertical="top")
-    for col, w in zip("ABCD", [10, 11, 40, 120]):
+    for col, w in zip("ABCDE", [10, 11, 40, 120, 22]):
         ans.column_dimensions[col].width = w
     ans.freeze_panes = "B2"
     wb.save(a.out)
