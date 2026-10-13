@@ -4,9 +4,9 @@ Split agent-worksheet labeling between two annotators, with a shared overlap for
     python -m evaluation.split_worksheet --agent <agent.json> --rules <rules.json> --answers <answers.json> \
         --prefix test_reports/claude_agent_worksheet
 
-Plan (P1 = agent flagged, P2 = possible miss):
+Plan (P1 = agent met, P2 = agent undetermined):
   annotator A: P1 C1 (random sample of --c1-sample) + P1 C6
-  annotator B: P1 C3, C4, C5 + all P2
+  annotator B: P1 C3, C4, C5 + all P2 (agent undetermined)
   shared:      --shared-per-criterion P1 rows per criterion (C1, C3, C4, C5, C6), labeled by BOTH, independently
 Writes <prefix>_<a>.xlsx and <prefix>_<b>.xlsx and <prefix>_assignment.json.
 """
@@ -38,8 +38,7 @@ def main():
     for (aid, sent, crit), (_, v) in agent.items():
         if v == "met":
             p1.setdefault(crit, []).append((aid, sent, crit))
-    p2 = [(aid, sent, crit) for (aid, sent, crit), (_, v) in rules.items()
-          if v == "met" and agent.get((aid, sent, crit), (None, "not run"))[1] != "met"]
+    p2 = [k for k, (_, v) in agent.items() if v == "undetermined" and k[2] != "C2"]  # C2 needs fact-checking; skipped
     for k in p1:
         p1[k].sort()
     c1 = rnd.sample(p1.get("C1", []), min(a.c1_sample, len(p1.get("C1", []))))

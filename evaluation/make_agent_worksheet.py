@@ -34,10 +34,9 @@ CRIT = {"C1": "Statistic with no specific source nearby?",
         "C4": "Sweeping absolute claim the evidence can't support?",
         "C5": "'Experts say' instead of a named source?",
         "C6": "Cause-and-effect stated without evidence?"}
-GROUP = {1: "P1 agent flagged", 2: "P2 possible miss",
-         3: "P3 undetermined", 4: "P4 spot-check"}
+GROUP = {1: "P1 agent: met", 2: "P2 agent: undetermined", 3: "P3 agent: not_met"}
 ERRORS = ["FP-SOURCE", "FP-CITATION", "FP-ADVICE", "FP-COMMON", "FP-NEUTRAL", "FP-ATTRIBUTED",
-          "FP-NOT-STAT", "FP-OTHER", "MISS-NOTRUN", "MISS-JUDGED"]
+          "FP-NOT-STAT", "FP-OTHER", "MISS-JUDGED"]
 ERR_DESC = {
     "FP-SOURCE": "A named source is in the sentence or just before it, but the agent said 'no source'",
     "FP-CITATION": "The 'sentence' is a citation or reference line, not a claim",
@@ -47,8 +46,7 @@ ERR_DESC = {
     "FP-ATTRIBUTED": "The view is clearly attributed ('critics argue') and reported, not asserted",
     "FP-NOT-STAT": "The number is not a statistic (a year, date, rank or count of items)",
     "FP-OTHER": "Another false positive: explain in Notes",
-    "MISS-NOTRUN": "A real problem the agent never checked (Agent decision = not run)",
-    "MISS-JUDGED": "A real problem the agent checked but called not_met / undetermined",
+    "MISS-JUDGED": "A real problem the agent called not_met or undetermined",
 }
 F = "Arial"
 
@@ -66,7 +64,7 @@ def load(path):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--agent", required=True)
-    ap.add_argument("--rules")
+    ap.add_argument("--rules", help="unused; kept for compatibility")
     ap.add_argument("--answers", nargs="*", default=[])
     ap.add_argument("--out", required=True)
     ap.add_argument("--keys", help="JSON list of [answer_id, sentence, criterion, shared] to keep (for splitting work)")
@@ -89,13 +87,9 @@ def main():
         return "; ".join(dict.fromkeys(hits)) if hits else "none found"
 
     rows = []
-    for key, (dom, v) in agent.items():
-        rflag = rules.get(key, ("", ""))[1] == "met"
-        g = 1 if v == "met" else 3 if v == "undetermined" else 2 if rflag else 4
+    for key, (dom, v) in agent.items():  # priority comes only from the agent's decision
+        g = 1 if v == "met" else 2 if v == "undetermined" else 3
         rows.append((g, key[0], key[2], dom, key[1], v))
-    for key, (dom, v) in rules.items():  # rules flagged, agent never checked it
-        if v == "met" and key not in agent:
-            rows.append((2, key[0], key[2], dom, key[1], "not run"))
     rows.sort(key=lambda r: (r[0], r[2], r[1]))
     if a.keys:
         keep = {(k[0], k[1], k[2]): k[3] for k in json.load(open(a.keys, encoding="utf-8"))}
@@ -147,7 +141,7 @@ def main():
     dv2 = DataValidation(type="list", formula1='"' + ",".join(ERRORS) + '"', allow_blank=True)
     ws.add_data_validation(dv2)
     dv2.add(f"Q2:Q{n}")
-    pfill = {1: "F4B183", 2: "FFE699", 3: "DDEBF7", 4: "EDEDED"}
+    pfill = {1: "F4B183", 2: "FFE699", 3: "EDEDED"}
     for r in range(2, n + 1):
         g = int(str(ws.cell(r, 2).value)[1])
         ws.cell(r, 2).fill = PatternFill("solid", fgColor=pfill[g])
@@ -181,9 +175,9 @@ def main():
     counts = {g: sum(r[0] == g for r in rows) for g in GROUP}
     notes = ["How to use",
              "Fill the yellow 'Human label' on the Label sheet: met = the problem IS in the sentence, not_met = it isn't, unsure = skip.",
-             f"Work top-down. Group 1 ({counts[1]} rows): every 'met' the agent gave — mark false positives. "
-             f"Group 2 ({counts[2]} rows): the rules flagged it but the agent didn't — mark misses.",
-             f"Groups 3-4 ({counts[3]}+{counts[4]} rows) are optional spot-checks.",
+             f"Priority follows the agent's decision. P1 ({counts[1]} rows): the agent said met; check for false positives. "
+             f"P2 ({counts[2]} rows): the agent couldn't decide; give the right answer.",
+             f"P3 ({counts[3]} rows): the agent said not_met; spot-check for misses.",
              "Context: 'Previous 2 sentences' and 'Named source nearby' help with C1/C5 (a source can sit one sentence earlier). "
              "'Named source nearby' is an automatic hint and can miss sources; click 'open' in the last column to read the whole answer.",
              "In 'Notes', say WHY the agent is wrong (e.g. 'advice, not a generalization'); these notes become the prompt fixes.",
@@ -203,8 +197,9 @@ def main():
     gd.append(["Column", "What it means", "Fill it in?"])
     guide = [
         ("#", "Row number", "No"),
-        ("Group", "Priority. P1 agent flagged: the agent said 'met'; check for false positives (label these first). "
-                  "P2 possible miss: the rules flagged it but the agent didn't. P3 undetermined. P4 spot-check: the agent said not_met.", "No"),
+        ("Group", "Priority, from the agent's decision. P1 agent: met (check for false positives; label first). "
+                  "P2 agent: undetermined (give the right answer). P3 agent: not_met (spot-check for misses). "
+                  "'| SHARED' = labeled by both annotators.", "No"),
         ("Answer ID", "Which chatbot answer the sentence comes from", "No"),
         ("Domain", "Topic category of the question", "No"),
         ("Question", "What the user asked the chatbot", "No"),
@@ -213,7 +208,7 @@ def main():
         ("Named source nearby (auto)", "A named source the program found in the sentence or the 2 before. A hint only: it can miss sources", "No"),
         ("Criterion", "C1-C6, the problem being checked", "No"),
         ("Criterion question", "The yes/no question for that criterion. 'met' = the problem is present", "No"),
-        ("Agent decision", "What the agent decided: met, not_met, undetermined, or 'not run' (the agent never checked this)", "No"),
+        ("Agent decision", "What the agent decided: met, not_met or undetermined", "No"),
         ("Human label", "YOUR answer to the criterion question: met / not_met / unsure", "YES"),
         ("Notes", "Why the agent is wrong, in a few words", "YES, when the agent is wrong"),
         ("Agent correct?", "Automatic: 1 = agent matches you, 0 = it doesn't", "No"),
