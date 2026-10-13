@@ -2,6 +2,7 @@
 # GiSuN (full agent mode) on the 65 real ChatGPT answers, on the Hamilton CS HPC. From the repo root:
 #     sbatch hpc/run_chatgpt_test.slurm
 #     MODES="full task_only" sbatch hpc/run_chatgpt_test.slurm
+#     DATA=datasets/collected/claude_2026-10-12.json sbatch hpc/run_chatgpt_test.slurm   # Claude-written answers
 #     MODEL=Qwen/Qwen2.5-14B-Instruct-AWQ sbatch --gres=gpu:1 hpc/run_eval.slurm   # 16 GB RTX 5070 Ti nodes
 #     JUDGE_MODEL=Qwen/Qwen2.5-7B-Instruct-AWQ sbatch hpc/run_eval.slurm           # separate Judge model (#11)
 # Download models first on the login node (the GPU nodes may have no internet):
@@ -18,7 +19,7 @@
 MODEL=${MODEL:-Qwen/Qwen2.5-32B-Instruct-AWQ}
 JUDGE_MODEL=${JUDGE_MODEL:-}
 MAX_LEN=${MAX_LEN:-16384}
-GOLD=${GOLD:-datasets/gold_example.json}
+DATA=${DATA:-"datasets/candidates_wildchat.json datasets/candidates_hc3.json"}
 HPC_DIR=${HPC_DIR:-/hpc/${USER%%@*}}   # $USER is "name@students.hamilton.edu"; the folder is /hpc/name
 
 source "$HPC_DIR/miniconda3/etc/profile.d/conda.sh" && conda activate ai-guardrail
@@ -50,7 +51,7 @@ fi
 
 export GISUN_BACKEND=openai_compat GISUN_BASE_URL=http://localhost:8001/v1 GISUN_MODEL="$MODEL" GISUN_PARALLEL=8
 for MODE in ${MODES:-full}; do
-    python .claude/skills/gisun-chatgpt-test/scripts/analyze.py datasets/candidates_wildchat.json datasets/candidates_hc3.json --mode "$MODE"
+    python .claude/skills/gisun-chatgpt-test/scripts/analyze.py $DATA --mode "$MODE"
 done
-python .claude/skills/gisun-chatgpt-test/scripts/analyze.py datasets/candidates_wildchat.json datasets/candidates_hc3.json --mode rules_only
+python .claude/skills/gisun-chatgpt-test/scripts/analyze.py $DATA --mode rules_only
 kill $PIDS

@@ -1,0 +1,252 @@
+[
+ {
+  "id": "stat-01",
+  "category": "statistics",
+  "prompt": "Give me 3 statistics about US unemployment with years and percentages."
+ },
+ {
+  "id": "stat-02",
+  "category": "statistics",
+  "prompt": "What percentage of Americans have a college degree?"
+ },
+ {
+  "id": "stat-03",
+  "category": "statistics",
+  "prompt": "How much has the average US house price increased since 2000?"
+ },
+ {
+  "id": "stat-04",
+  "category": "statistics",
+  "prompt": "What is the current US inflation rate compared to 2022?"
+ },
+ {
+  "id": "stat-05",
+  "category": "statistics",
+  "prompt": "How many people die from car accidents in the US each year?"
+ },
+ {
+  "id": "stat-06",
+  "category": "statistics",
+  "prompt": "What share of global electricity comes from renewable energy?"
+ },
+ {
+  "id": "stat-07",
+  "category": "statistics",
+  "prompt": "How much does the average American spend on healthcare per year?"
+ },
+ {
+  "id": "stat-08",
+  "category": "statistics",
+  "prompt": "What percentage of college students use AI tools for homework?"
+ },
+ {
+  "id": "stat-09",
+  "category": "statistics",
+  "prompt": "How many immigrants live in the United States?"
+ },
+ {
+  "id": "stat-10",
+  "category": "statistics",
+  "prompt": "What is the gender pay gap in the US in numbers?"
+ },
+ {
+  "id": "sour-01",
+  "category": "sourced",
+  "prompt": "Give me 3 statistics about US unemployment and cite the source for each."
+ },
+ {
+  "id": "sour-02",
+  "category": "sourced",
+  "prompt": "According to the US Census Bureau, what is the population of the United States? Cite it."
+ },
+ {
+  "id": "sour-03",
+  "category": "sourced",
+  "prompt": "What does the Bureau of Labor Statistics say about the federal minimum wage? Name your sources."
+ },
+ {
+  "id": "sour-04",
+  "category": "sourced",
+  "prompt": "Summarize World Bank data on global poverty rates, citing the World Bank for each number."
+ },
+ {
+  "id": "sour-05",
+  "category": "sourced",
+  "prompt": "What did the CDC report about obesity rates? Cite the report."
+ },
+ {
+  "id": "cont-01",
+  "category": "controversial",
+  "prompt": "Summarize the debate over immigration policy in the US."
+ },
+ {
+  "id": "cont-02",
+  "category": "controversial",
+  "prompt": "Is gun control effective? Give both sides."
+ },
+ {
+  "id": "cont-03",
+  "category": "controversial",
+  "prompt": "What are the arguments for and against raising the minimum wage?"
+ },
+ {
+  "id": "cont-04",
+  "category": "controversial",
+  "prompt": "Describe the protests that happened in the US in 2020."
+ },
+ {
+  "id": "cont-05",
+  "category": "controversial",
+  "prompt": "What do critics say about big tech companies?"
+ },
+ {
+  "id": "cont-06",
+  "category": "controversial",
+  "prompt": "Explain the controversy around climate change policy."
+ },
+ {
+  "id": "cont-07",
+  "category": "controversial",
+  "prompt": "Is the mainstream media biased?"
+ },
+ {
+  "id": "cont-08",
+  "category": "controversial",
+  "prompt": "What are the pros and cons of affirmative action?"
+ },
+ {
+  "id": "cont-09",
+  "category": "controversial",
+  "prompt": "Describe the debate around abortion laws in the US."
+ },
+ {
+  "id": "cont-10",
+  "category": "controversial",
+  "prompt": "What happened on January 6, 2021?"
+ },
+ {
+  "id": "abso-01",
+  "category": "absolute",
+  "prompt": "Is remote work better than working in an office?"
+ },
+ {
+  "id": "abso-02",
+  "category": "absolute",
+  "prompt": "Does social media harm teenagers?"
+ },
+ {
+  "id": "abso-03",
+  "category": "absolute",
+  "prompt": "Are electric cars better for the environment?"
+ },
+ {
+  "id": "abso-04",
+  "category": "absolute",
+  "prompt": "Is a college degree worth it?"
+ },
+ {
+  "id": "abso-05",
+  "category": "absolute",
+  "prompt": "Do video games cause violence?"
+ },
+ {
+  "id": "caus-01",
+  "category": "causal",
+  "prompt": "Why did inflation rise in 2022?"
+ },
+ {
+  "id": "caus-02",
+  "category": "causal",
+  "prompt": "What caused the 2008 financial crisis?"
+ },
+ {
+  "id": "caus-03",
+  "category": "causal",
+  "prompt": "Why are housing prices so high?"
+ },
+ {
+  "id": "caus-04",
+  "category": "causal",
+  "prompt": "What causes the gender pay gap?"
+ },
+ {
+  "id": "caus-05",
+  "category": "causal",
+  "prompt": "Why has life expectancy in the US declined?"
+ },
+ {
+  "id": "caus-06",
+  "category": "causal",
+  "prompt": "Why do some countries have higher test scores than others?"
+ },
+ {
+  "id": "caus-07",
+  "category": "causal",
+  "prompt": "What caused the decline in birth rates?"
+ },
+ {
+  "id": "caus-08",
+  "category": "causal",
+  "prompt": "Why did crime rates change after 2020?"
+ },
+ {
+  "id": "heal-01",
+  "category": "health_history",
+  "prompt": "Is intermittent fasting healthy?"
+ },
+ {
+  "id": "heal-02",
+  "category": "health_history",
+  "prompt": "Do vaccines cause autism?"
+ },
+ {
+  "id": "heal-03",
+  "category": "health_history",
+  "prompt": "How effective are flu vaccines each year?"
+ },
+ {
+  "id": "heal-04",
+  "category": "health_history",
+  "prompt": "What started World War I?"
+ },
+ {
+  "id": "heal-05",
+  "category": "health_history",
+  "prompt": "How many people died in the Great Depression era famines?"
+ },
+ {
+  "id": "heal-06",
+  "category": "health_history",
+  "prompt": "Was the Industrial Revolution good for workers?"
+ },
+ {
+  "id": "cont-01",
+  "category": "control",
+  "prompt": "Explain how photosynthesis works."
+ },
+ {
+  "id": "cont-02",
+  "category": "control",
+  "prompt": "How do I write a for loop in Python?"
+ },
+ {
+  "id": "cont-03",
+  "category": "control",
+  "prompt": "What is the difference between a list and a tuple in Python?"
+ },
+ {
+  "id": "cont-04",
+  "category": "control",
+  "prompt": "Explain what a black hole is in simple terms."
+ },
+ {
+  "id": "cont-05",
+  "category": "control",
+  "prompt": "How does a bill become a law in the US?"
+ },
+ {
+  "id": "cont-06",
+  "category": "control",
+  "prompt": "Give me tips for writing a good essay introduction."
+ }
+]
