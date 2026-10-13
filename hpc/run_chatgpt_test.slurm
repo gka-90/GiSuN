@@ -25,6 +25,10 @@ HPC_DIR=${HPC_DIR:-/hpc/${USER%%@*}}   # $USER is "name@students.hamilton.edu"; 
 source "$HPC_DIR/miniconda3/etc/profile.d/conda.sh" && conda activate ai-guardrail
 export HF_HOME=$HPC_DIR/hf_cache HF_HUB_OFFLINE=1        # use the downloaded model, don't contact Hugging Face
 export XDG_CACHE_HOME=$HPC_DIR/.cache VLLM_CACHE_ROOT=$HPC_DIR/.cache/vllm   # keep caches out of the small home folder
+export XDG_CONFIG_HOME=$HPC_DIR/.config TRITON_CACHE_DIR=$HPC_DIR/.cache/triton \
+       TORCHINDUCTOR_CACHE_DIR=$HPC_DIR/.cache/torchinductor VLLM_NO_USAGE_STATS=1 \
+       TMPDIR=$HPC_DIR/tmp   # compile caches and temp files default to the (full) home folder
+mkdir -p "$TMPDIR" "$XDG_CONFIG_HOME"
 export VLLM_USE_FLASHINFER_SAMPLER=0   # the nodes have no nvcc, and FlashInfer's sampler compiles with it
 cd "$SLURM_SUBMIT_DIR"
 nvidia-smi
