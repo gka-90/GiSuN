@@ -18,3 +18,4 @@ evaluation/outputs/
 logs/*
 !logs/.gitkeep
 datasets/raw/
+test_reports/
