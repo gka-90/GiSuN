@@ -26,7 +26,9 @@ independent and sees nothing from this repo. Answers come from the model your Co
    ```
 4. Agent analysis on the HPC (tell the user): commit and push the json, then on the HPC
    `git pull && DATA=datasets/collected/codex_latest_<date>.json sbatch hpc/run_chatgpt_test.slurm`.
-5. Report: answers collected / failed, model name recorded, and that these are answers from
+5. Record the exact model: if `--model` was not given, open `codex`, run `/status`, and put the
+   model name in every item's `model` field (the script can only write "codex default").
+6. Report: answers collected / failed, model name recorded, and that these are answers from
    `codex exec` (latest OpenAI model, Codex's own system prompt), not the chatgpt.com web app.
 
 ## Rules
