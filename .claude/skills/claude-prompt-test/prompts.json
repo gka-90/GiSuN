@@ -220,32 +220,32 @@
   "prompt": "Was the Industrial Revolution good for workers?"
  },
  {
-  "id": "cont-01",
+  "id": "ctrl-01",
   "category": "control",
   "prompt": "Explain how photosynthesis works."
  },
  {
-  "id": "cont-02",
+  "id": "ctrl-02",
   "category": "control",
   "prompt": "How do I write a for loop in Python?"
  },
  {
-  "id": "cont-03",
+  "id": "ctrl-03",
   "category": "control",
   "prompt": "What is the difference between a list and a tuple in Python?"
  },
  {
-  "id": "cont-04",
+  "id": "ctrl-04",
   "category": "control",
   "prompt": "Explain what a black hole is in simple terms."
  },
  {
-  "id": "cont-05",
+  "id": "ctrl-05",
   "category": "control",
   "prompt": "How does a bill become a law in the US?"
  },
  {
-  "id": "cont-06",
+  "id": "ctrl-06",
   "category": "control",
   "prompt": "Give me tips for writing a good essay introduction."
  }
