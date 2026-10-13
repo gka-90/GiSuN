@@ -34,8 +34,22 @@ CRIT = {"C1": "Statistic with no specific source nearby?",
         "C4": "Sweeping absolute claim the evidence can't support?",
         "C5": "'Experts say' instead of a named source?",
         "C6": "Cause-and-effect stated without evidence?"}
-GROUP = {1: "1 agent met: false positive?", 2: "2 possible miss (rules flagged)",
-         3: "3 undetermined", 4: "4 agent not_met: spot-check"}
+GROUP = {1: "P1 agent flagged", 2: "P2 possible miss",
+         3: "P3 undetermined", 4: "P4 spot-check"}
+ERRORS = ["FP-SOURCE", "FP-CITATION", "FP-ADVICE", "FP-COMMON", "FP-NEUTRAL", "FP-ATTRIBUTED",
+          "FP-NOT-STAT", "FP-OTHER", "MISS-NOTRUN", "MISS-JUDGED"]
+ERR_DESC = {
+    "FP-SOURCE": "A named source is in the sentence or just before it, but the agent said 'no source'",
+    "FP-CITATION": "The 'sentence' is a citation or reference line, not a claim",
+    "FP-ADVICE": "Advice or politeness ('always consult a doctor') treated as an overgeneralization",
+    "FP-COMMON": "Common knowledge that needs no source or evidence",
+    "FP-NEUTRAL": "Neutral or academic wording treated as loaded language",
+    "FP-ATTRIBUTED": "The view is clearly attributed ('critics argue') and reported, not asserted",
+    "FP-NOT-STAT": "The number is not a statistic (a year, date, rank or count of items)",
+    "FP-OTHER": "Another false positive: explain in Notes",
+    "MISS-NOTRUN": "A real problem the agent never checked (Agent decision = not run)",
+    "MISS-JUDGED": "A real problem the agent checked but called not_met / undetermined",
+}
 F = "Arial"
 
 
@@ -94,14 +108,15 @@ def main():
     ws.title = "Label"
     ws.append(["#", "Group", "Answer ID", "Domain", "Question", "Previous 2 sentences", "Sentence",
                "Named source nearby (auto)", "Criterion", "Criterion question", "Agent decision", "Human label",
-               "Notes (why is the agent wrong?)", "Agent correct?", "Error type", "Full answer"])
+               "Notes (why is the agent wrong?)", "Agent correct?", "Error type", "Full answer",
+               "Error category"])
     for i, (g, aid, crit, dom, sent, v) in enumerate(rows, start=2):
         ws.append([i - 1, GROUP[g], aid, dom, q.get(aid, ""), before(aid, sent), sent, source_note(aid, sent),
                    crit, CRIT.get(crit, ""), v, None, None,
                    f'=IF(OR(L{i}="",L{i}="unsure"),"",IF(K{i}=L{i},1,IF(AND(K{i}="not run",L{i}="not_met"),1,0)))',
                    f'=IF(OR(L{i}="",L{i}="unsure"),"",IF(AND(K{i}="met",L{i}="not_met"),"false positive",'
                    f'IF(AND(K{i}<>"met",L{i}="met"),"miss","")))',
-                   "open" if aid in items else ""])
+                   "open" if aid in items else "", None])
         if aid in items:
             ws.cell(i, 16).hyperlink = f"#'Answers'!A{answer_row[aid]}"
             ws.cell(i, 16).style = "Hyperlink"
@@ -113,14 +128,21 @@ def main():
     for row in ws.iter_rows(min_row=2, max_row=n):
         for c in row:
             c.font, c.alignment, c.border = Font(name=F, size=10), Alignment(wrap_text=True, vertical="top"), Border(bottom=thin)
-        row[11].fill = row[12].fill = yellow
-    for col, w in zip("ABCDEFGHIJKLMNOP", [5, 18, 10, 11, 24, 40, 50, 22, 7, 24, 11, 12, 30, 9, 13, 8]):
+        row[11].fill = row[12].fill = row[16].fill = yellow
+    for col, w in zip("ABCDEFGHIJKLMNOPQ", [5, 16, 10, 11, 24, 40, 50, 22, 7, 24, 11, 12, 30, 9, 13, 8, 15]):
         ws.column_dimensions[col].width = w
     ws.freeze_panes = "H2"
-    ws.auto_filter.ref = f"A1:P{n}"
+    ws.auto_filter.ref = f"A1:Q{n}"
     dv = DataValidation(type="list", formula1='"met,not_met,unsure"', allow_blank=True)
     ws.add_data_validation(dv)
     dv.add(f"L2:L{n}")
+    dv2 = DataValidation(type="list", formula1='"' + ",".join(ERRORS) + '"', allow_blank=True)
+    ws.add_data_validation(dv2)
+    dv2.add(f"Q2:Q{n}")
+    pfill = {1: "F4B183", 2: "FFE699", 3: "DDEBF7", 4: "EDEDED"}
+    for r in range(2, n + 1):
+        g = int(str(ws.cell(r, 2).value)[1])
+        ws.cell(r, 2).fill = PatternFill("solid", fgColor=pfill[g])
     ws.conditional_formatting.add(f"O2:O{n}", FormulaRule(formula=['O2<>""'], fill=PatternFill("solid", fgColor="F8CBAD")))
 
     s = wb.create_sheet("Summary")
@@ -160,7 +182,51 @@ def main():
              f"Source: {a.agent}"]
     for k, line in enumerate(notes):
         s.cell(t + 2 + k, 1, line).font = Font(name=F, bold=(k == 0), italic=(k == len(notes) - 1), color="404040")
-    wb.move_sheet("Summary", offset=-2)
+    s.cell(t + 2 + len(notes) + 1, 1, "Error category").font = Font(name=F, bold=True)
+    s.cell(t + 2 + len(notes) + 1, 2, "Meaning").font = Font(name=F, bold=True)
+    s.cell(t + 2 + len(notes) + 1, 3, "Count").font = Font(name=F, bold=True)
+    for k, e in enumerate(ERRORS):
+        r = t + 3 + len(notes) + 1 + k
+        s.cell(r, 1, e).font = Font(name=F)
+        s.cell(r, 2, ERR_DESC[e]).font = Font(name=F)
+        s.cell(r, 3, f'=COUNTIF(Label!$Q$2:$Q${n},A{r})').font = Font(name=F)
+
+    gd = wb.create_sheet("Guide")
+    gd.append(["Column", "What it means", "Fill it in?"])
+    guide = [
+        ("#", "Row number", "No"),
+        ("Group", "Priority. P1 agent flagged: the agent said 'met'; check for false positives (label these first). "
+                  "P2 possible miss: the rules flagged it but the agent didn't. P3 undetermined. P4 spot-check: the agent said not_met.", "No"),
+        ("Answer ID", "Which chatbot answer the sentence comes from", "No"),
+        ("Domain", "Topic category of the question", "No"),
+        ("Question", "What the user asked the chatbot", "No"),
+        ("Previous 2 sentences", "Context just before the sentence; sources often sit here", "No"),
+        ("Sentence", "The sentence being judged", "No"),
+        ("Named source nearby (auto)", "A named source the program found in the sentence or the 2 before. A hint only: it can miss sources", "No"),
+        ("Criterion", "C1-C6, the problem being checked", "No"),
+        ("Criterion question", "The yes/no question for that criterion. 'met' = the problem is present", "No"),
+        ("Agent decision", "What the agent decided: met, not_met, undetermined, or 'not run' (the agent never checked this)", "No"),
+        ("Human label", "YOUR answer to the criterion question: met / not_met / unsure", "YES"),
+        ("Notes", "Why the agent is wrong, in a few words", "YES, when the agent is wrong"),
+        ("Agent correct?", "Automatic: 1 = agent matches you, 0 = it doesn't", "No"),
+        ("Error type", "Automatic: 'false positive' (agent met, you not_met) or 'miss' (you met, agent didn't)", "No"),
+        ("Full answer", "Click 'open' to read the whole chatbot answer on the Answers sheet", "No"),
+        ("Error category", "When the agent is wrong, pick the kind of mistake (list below)", "YES, when the agent is wrong"),
+    ]
+    for row in guide:
+        gd.append(list(row))
+    gd.append([])
+    gd.append(["Error category", "Meaning", ""])
+    for e in ERRORS:
+        gd.append([e, ERR_DESC[e], ""])
+    for row in gd.iter_rows():
+        for c in row:
+            c.font = Font(name=F, size=10, bold=(c.row == 1 or c.value in ("Error category",)))
+            c.alignment = Alignment(wrap_text=True, vertical="top")
+    for col, w in zip("ABC", [26, 90, 22]):
+        gd.column_dimensions[col].width = w
+
+    wb._sheets = [wb["Guide"], wb["Summary"], wb["Label"], wb["Answers"]]
     for c in ans[1]:
         c.font, c.fill = Font(name=F, bold=True, color="FFFFFF"), hfill
     for row in ans.iter_rows(min_row=2):
