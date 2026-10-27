@@ -1,0 +1,1937 @@
+[
+  {
+    "id": "c4-a01",
+    "question": "Is breakfast the most important meal of the day?",
+    "text": "Breakfast has long been called the most important meal of the day, and there are some reasons for that reputation.\n\n**Why breakfast matters**\n\n- **Energy:** Eating in the morning refuels your body after an overnight fast.\n- **Focus:** Everyone concentrates better after a good breakfast.\n- **Weight:** People who skip breakfast always end up overeating later in the day.\n\n**What the research says**\n\nSome studies have linked regular breakfast eating to better diet quality, but randomized trials have found little effect on weight. Much of the older research was observational, so it can't show that breakfast itself causes the benefits.\n\n**Bottom line**\n\nBreakfast is the key to a healthy metabolism. That said, if you aren't hungry in the morning, skipping it is unlikely to harm most healthy adults.",
+    "domain": "c4_test",
+    "source": "c4_testset:answer",
+    "labels": {
+      "Breakfast has long been called the most important meal of the day, and there are some reasons for that reputation.": {
+        "C4": "not_met"
+      },
+      "- **Energy:** Eating in the morning refuels your body after an overnight fast.": {
+        "C4": "not_met"
+      },
+      "- **Focus:** Everyone concentrates better after a good breakfast.": {
+        "C4": "met"
+      },
+      "- **Weight:** People who skip breakfast always end up overeating later in the day.": {
+        "C4": "met"
+      },
+      "Some studies have linked regular breakfast eating to better diet quality, but randomized trials have found little effect on weight.": {
+        "C4": "not_met"
+      },
+      "Much of the older research was observational, so it can't show that breakfast itself causes the benefits.": {
+        "C4": "not_met"
+      },
+      "Breakfast is the key to a healthy metabolism.": {
+        "C4": "met"
+      },
+      "That said, if you aren't hungry in the morning, skipping it is unlikely to harm most healthy adults.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "c4-a02",
+    "question": "Are millennials worse with money than previous generations?",
+    "text": "It's a common stereotype, but the picture is more complicated.\n\n**Where the stereotype comes from**\n\n- The stereotype says millennials spend all their money on avocado toast and coffee instead of saving.\n- Millennials are bad at managing credit.\n\n**What the data shows**\n\n- Millennials entered the workforce during or after the 2008 recession, which delayed wealth building for many.\n- Student debt is higher for this generation than for earlier ones at the same age.\n- Surveys suggest many millennials save at rates similar to Gen X at the same age.\n\n**Bottom line**\n\nYoung people never think about retirement. Differences in wealth mostly reflect timing and costs, not a lack of discipline.",
+    "domain": "c4_test",
+    "source": "c4_testset:answer",
+    "labels": {
+      "It's a common stereotype, but the picture is more complicated.": {
+        "C4": "not_met"
+      },
+      "- The stereotype says millennials spend all their money on avocado toast and coffee instead of saving.": {
+        "C4": "not_met"
+      },
+      "- Millennials are bad at managing credit.": {
+        "C4": "met"
+      },
+      "- Millennials entered the workforce during or after the 2008 recession, which delayed wealth building for many.": {
+        "C4": "not_met"
+      },
+      "- Student debt is higher for this generation than for earlier ones at the same age.": {
+        "C4": "not_met"
+      },
+      "- Surveys suggest many millennials save at rates similar to Gen X at the same age.": {
+        "C4": "not_met"
+      },
+      "Young people never think about retirement.": {
+        "C4": "met"
+      },
+      "Differences in wealth mostly reflect timing and costs, not a lack of discipline.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "c4-a03",
+    "question": "Does money buy happiness?",
+    "text": "Money and happiness are related, but not in a simple way.\n\n- **Up to a point, yes:** Higher income is linked to higher life satisfaction, especially for people who struggle to cover basic needs.\n- A 2010 study by Daniel Kahneman and Angus Deaton suggested emotional well-being leveled off around $75,000 a year, though a 2023 follow-up found it keeps rising for most people.\n- **Experiences over things:** Spending on experiences always makes people happier than buying things.\n- Rich people are happier than everyone else.\n- **Giving:** Studies have found that spending money on others can boost happiness more than spending it on yourself.\n\n**Bottom line:** Money can't buy happiness.",
+    "domain": "c4_test",
+    "source": "c4_testset:answer",
+    "labels": {
+      "Money and happiness are related, but not in a simple way.": {
+        "C4": "not_met"
+      },
+      "- **Up to a point, yes:** Higher income is linked to higher life satisfaction, especially for people who struggle to cover basic needs.": {
+        "C4": "not_met"
+      },
+      "- A 2010 study by Daniel Kahneman and Angus Deaton suggested emotional well-being leveled off around $75,000 a year, though a 2023 follow-up found it keeps rising for most people.": {
+        "C4": "not_met"
+      },
+      "- **Experiences over things:** Spending on experiences always makes people happier than buying things.": {
+        "C4": "met"
+      },
+      "- Rich people are happier than everyone else.": {
+        "C4": "met"
+      },
+      "- **Giving:** Studies have found that spending money on others can boost happiness more than spending it on yourself.": {
+        "C4": "not_met"
+      },
+      "**Bottom line:** Money can't buy happiness.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "c4-a04",
+    "question": "Is organic food healthier than conventional food?",
+    "text": "Organic food is often seen as healthier, but the evidence is mixed.\n\n**What organic means**\n\nIn the US, food labeled \"USDA Organic\" must be produced without synthetic pesticides, synthetic fertilizers, or genetically engineered ingredients.\n\n**Possible benefits**\n\n- Organic produce tends to have lower pesticide residues.\n- Organic food is always more nutritious than conventional food.\n\n**Limits**\n\n- Large reviews, such as a 2012 Stanford analysis, found little difference in vitamin and mineral content.\n- Conventional produce in the US is generally well below safety limits for pesticide residues.\n\n**Bottom line:** Organic farming is the only way to eat healthily. Eating more fruits and vegetables, organic or not, matters more for health than the label.",
+    "domain": "c4_test",
+    "source": "c4_testset:answer",
+    "labels": {
+      "Organic food is often seen as healthier, but the evidence is mixed.": {
+        "C4": "not_met"
+      },
+      "In the US, food labeled \"USDA Organic\" must be produced without synthetic pesticides, synthetic fertilizers, or genetically engineered ingredients.": {
+        "C4": "not_met"
+      },
+      "- Organic produce tends to have lower pesticide residues.": {
+        "C4": "not_met"
+      },
+      "- Organic food is always more nutritious than conventional food.": {
+        "C4": "met"
+      },
+      "- Large reviews, such as a 2012 Stanford analysis, found little difference in vitamin and mineral content.": {
+        "C4": "not_met"
+      },
+      "- Conventional produce in the US is generally well below safety limits for pesticide residues.": {
+        "C4": "not_met"
+      },
+      "**Bottom line:** Organic farming is the only way to eat healthily.": {
+        "C4": "met"
+      },
+      "Eating more fruits and vegetables, organic or not, matters more for health than the label.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "c4-a05",
+    "question": "Do kids learn better with homework?",
+    "text": "Homework's benefits depend a lot on a student's age.\n\n- **High school:** Research, including reviews by Harris Cooper at Duke, has linked moderate homework to higher achievement for older students.\n- **Elementary school:** The link is much weaker for young children.\n- Homework teaches every child responsibility and time management.\n- **Too much homework:** Students who spend more than about two hours a night often see no added benefit and report more stress.\n- Kids who don't do homework fall behind.\n\n**Bottom line:** The quality and amount of homework matter more than whether it's assigned at all.",
+    "domain": "c4_test",
+    "source": "c4_testset:answer",
+    "labels": {
+      "Homework's benefits depend a lot on a student's age.": {
+        "C4": "not_met"
+      },
+      "- **High school:** Research, including reviews by Harris Cooper at Duke, has linked moderate homework to higher achievement for older students.": {
+        "C4": "not_met"
+      },
+      "- **Elementary school:** The link is much weaker for young children.": {
+        "C4": "not_met"
+      },
+      "- Homework teaches every child responsibility and time management.": {
+        "C4": "met"
+      },
+      "- **Too much homework:** Students who spend more than about two hours a night often see no added benefit and report more stress.": {
+        "C4": "not_met"
+      },
+      "- Kids who don't do homework fall behind.": {
+        "C4": "met"
+      },
+      "**Bottom line:** The quality and amount of homework matter more than whether it's assigned at all.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "c4-a06",
+    "question": "Are introverts worse leaders than extroverts?",
+    "text": "No, introverts are not worse leaders, although they often lead differently.\n\n- Extroverts are natural leaders.\n- Introverts never enjoy public speaking.\n- Research by Adam Grant and colleagues found that introverted leaders can be more effective with proactive teams because they listen to suggestions.\n- Some well-known leaders, such as Bill Gates and Abraham Lincoln, have been described as introverted.\n- **Strengths:** Introverts tend to prepare carefully and think before acting.\n\n**Bottom line:** Leadership depends more on skills and context than on personality type.",
+    "domain": "c4_test",
+    "source": "c4_testset:answer",
+    "labels": {
+      "No, introverts are not worse leaders, although they often lead differently.": {
+        "C4": "not_met"
+      },
+      "- Extroverts are natural leaders.": {
+        "C4": "met"
+      },
+      "- Introverts never enjoy public speaking.": {
+        "C4": "met"
+      },
+      "- Research by Adam Grant and colleagues found that introverted leaders can be more effective with proactive teams because they listen to suggestions.": {
+        "C4": "not_met"
+      },
+      "- Some well-known leaders, such as Bill Gates and Abraham Lincoln, have been described as introverted.": {
+        "C4": "not_met"
+      },
+      "- **Strengths:** Introverts tend to prepare carefully and think before acting.": {
+        "C4": "not_met"
+      },
+      "**Bottom line:** Leadership depends more on skills and context than on personality type.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "c4-a07",
+    "question": "Is coffee bad for your health?",
+    "text": "For most adults, moderate coffee drinking appears to be safe and may even have benefits.\n\n- **Moderate intake:** The FDA cites 400 mg of caffeine a day, about four cups of coffee, as an amount not generally associated with negative effects for healthy adults.\n- Coffee drinkers live longer.\n- **Possible benefits:** Large observational studies have linked coffee to lower risk of type 2 diabetes and Parkinson's disease.\n- **Downsides:** Too much caffeine can cause anxiety, insomnia, and a faster heart rate.\n- Coffee always dehydrates you.\n- Pregnant people are usually advised to limit caffeine to about 200 mg a day.\n\n**Bottom line:** Coffee is completely safe for everyone.",
+    "domain": "c4_test",
+    "source": "c4_testset:answer",
+    "labels": {
+      "For most adults, moderate coffee drinking appears to be safe and may even have benefits.": {
+        "C4": "not_met"
+      },
+      "- **Moderate intake:** The FDA cites 400 mg of caffeine a day, about four cups of coffee, as an amount not generally associated with negative effects for healthy adults.": {
+        "C4": "not_met"
+      },
+      "- Coffee drinkers live longer.": {
+        "C4": "met"
+      },
+      "- **Possible benefits:** Large observational studies have linked coffee to lower risk of type 2 diabetes and Parkinson's disease.": {
+        "C4": "not_met"
+      },
+      "- **Downsides:** Too much caffeine can cause anxiety, insomnia, and a faster heart rate.": {
+        "C4": "not_met"
+      },
+      "- Coffee always dehydrates you.": {
+        "C4": "met"
+      },
+      "- Pregnant people are usually advised to limit caffeine to about 200 mg a day.": {
+        "C4": "not_met"
+      },
+      "**Bottom line:** Coffee is completely safe for everyone.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "c4-a08",
+    "question": "Do we only use 10% of our brains?",
+    "text": "No, the idea that we only use 10% of our brains is a myth.\n\n- Brain imaging shows that nearly all parts of the brain are active over the course of a day.\n- Every part of the brain has a known function.\n- Damage to almost any area of the brain causes some loss of ability, which wouldn't happen if 90% were unused.\n- The myth is often traced to misquoted early 20th-century psychology.\n- Scientists all agree that the brain is fully understood.\n\n**Bottom line:** You use virtually all of your brain, just not all of it at the same moment.",
+    "domain": "c4_test",
+    "source": "c4_testset:answer",
+    "labels": {
+      "No, the idea that we only use 10% of our brains is a myth.": {
+        "C4": "not_met"
+      },
+      "- Brain imaging shows that nearly all parts of the brain are active over the course of a day.": {
+        "C4": "not_met"
+      },
+      "- Every part of the brain has a known function.": {
+        "C4": "met"
+      },
+      "- Damage to almost any area of the brain causes some loss of ability, which wouldn't happen if 90% were unused.": {
+        "C4": "not_met"
+      },
+      "- The myth is often traced to misquoted early 20th-century psychology.": {
+        "C4": "not_met"
+      },
+      "- Scientists all agree that the brain is fully understood.": {
+        "C4": "met"
+      },
+      "**Bottom line:** You use virtually all of your brain, just not all of it at the same moment.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "c4-a09",
+    "question": "Is college necessary to get a good job?",
+    "text": "A college degree helps many people, but it isn't the only path to a good job.\n\n- **Earnings:** Bachelor's degree holders earn more on average than people with only a high school diploma.\n- Without a degree, you will never earn a good salary.\n- **Trades:** Electricians, plumbers, and other skilled trades can earn solid incomes through apprenticeships.\n- Employers only care about degrees.\n- Some large companies, including IBM and Google, have dropped degree requirements for some roles.\n\n**Bottom line:** Everyone should go to college.",
+    "domain": "c4_test",
+    "source": "c4_testset:answer",
+    "labels": {
+      "A college degree helps many people, but it isn't the only path to a good job.": {
+        "C4": "not_met"
+      },
+      "- **Earnings:** Bachelor's degree holders earn more on average than people with only a high school diploma.": {
+        "C4": "not_met"
+      },
+      "- Without a degree, you will never earn a good salary.": {
+        "C4": "met"
+      },
+      "- **Trades:** Electricians, plumbers, and other skilled trades can earn solid incomes through apprenticeships.": {
+        "C4": "not_met"
+      },
+      "- Employers only care about degrees.": {
+        "C4": "met"
+      },
+      "- Some large companies, including IBM and Google, have dropped degree requirements for some roles.": {
+        "C4": "not_met"
+      },
+      "**Bottom line:** Everyone should go to college.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "c4-a10",
+    "question": "Are electric cars cheaper to own than gas cars?",
+    "text": "Electric cars can be cheaper to own, but it depends on how and where you drive.\n\n- **Fuel:** Charging at home usually costs less per mile than gasoline.\n- **Maintenance:** EVs have fewer moving parts and don't need oil changes.\n- EVs never need repairs.\n- **Purchase price:** EVs often cost more upfront, although tax credits can narrow the gap.\n- Electric cars are always cheaper than gas cars.\n- **Insurance:** Premiums for EVs are sometimes higher because repairs can be expensive.\n\n**Bottom line:** Total cost of ownership varies with electricity prices, mileage, and the specific models compared.",
+    "domain": "c4_test",
+    "source": "c4_testset:answer",
+    "labels": {
+      "Electric cars can be cheaper to own, but it depends on how and where you drive.": {
+        "C4": "not_met"
+      },
+      "- **Fuel:** Charging at home usually costs less per mile than gasoline.": {
+        "C4": "not_met"
+      },
+      "- **Maintenance:** EVs have fewer moving parts and don't need oil changes.": {
+        "C4": "not_met"
+      },
+      "- EVs never need repairs.": {
+        "C4": "met"
+      },
+      "- **Purchase price:** EVs often cost more upfront, although tax credits can narrow the gap.": {
+        "C4": "not_met"
+      },
+      "- Electric cars are always cheaper than gas cars.": {
+        "C4": "met"
+      },
+      "- **Insurance:** Premiums for EVs are sometimes higher because repairs can be expensive.": {
+        "C4": "not_met"
+      },
+      "**Bottom line:** Total cost of ownership varies with electricity prices, mileage, and the specific models compared.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "c4-a11",
+    "question": "What is a prime number?",
+    "text": "A prime number is a whole number greater than 1 that has exactly two divisors: 1 and itself.\n\n- **Examples:** 2, 3, 5, 7, 11, and 13 are prime.\n- 2 is the only even prime number.\n- Every whole number greater than 1 is either prime or can be written as a product of primes.\n- There are infinitely many prime numbers, as Euclid proved more than 2,000 years ago.\n- 1 is never considered prime.\n- Primes are used in encryption methods like RSA.",
+    "domain": "c4_test",
+    "source": "c4_testset:answer",
+    "labels": {
+      "A prime number is a whole number greater than 1 that has exactly two divisors: 1 and itself.": {
+        "C4": "not_met"
+      },
+      "- **Examples:** 2, 3, 5, 7, 11, and 13 are prime.": {
+        "C4": "not_met"
+      },
+      "- 2 is the only even prime number.": {
+        "C4": "not_met"
+      },
+      "- Every whole number greater than 1 is either prime or can be written as a product of primes.": {
+        "C4": "not_met"
+      },
+      "- There are infinitely many prime numbers, as Euclid proved more than 2,000 years ago.": {
+        "C4": "not_met"
+      },
+      "- 1 is never considered prime.": {
+        "C4": "not_met"
+      },
+      "- Primes are used in encryption methods like RSA.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "c4-a12",
+    "question": "What are the requirements to become US president?",
+    "text": "The US Constitution sets three requirements to be president.\n\n- A president must be at least 35 years old.\n- A president must be a natural-born citizen.\n- A president must have lived in the US for at least 14 years.\n- No one can be elected president more than twice, under the 22nd Amendment.\n- Every president so far has been a man.\n- Presidents always win the popular vote.",
+    "domain": "c4_test",
+    "source": "c4_testset:answer",
+    "labels": {
+      "The US Constitution sets three requirements to be president.": {
+        "C4": "not_met"
+      },
+      "- A president must be at least 35 years old.": {
+        "C4": "not_met"
+      },
+      "- A president must be a natural-born citizen.": {
+        "C4": "not_met"
+      },
+      "- A president must have lived in the US for at least 14 years.": {
+        "C4": "not_met"
+      },
+      "- No one can be elected president more than twice, under the 22nd Amendment.": {
+        "C4": "not_met"
+      },
+      "- Every president so far has been a man.": {
+        "C4": "not_met"
+      },
+      "- Presidents always win the popular vote.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "c4-a13",
+    "question": "How do leap years work?",
+    "text": "A leap year adds an extra day, February 29, to keep the calendar in line with Earth's orbit.\n\n- Earth takes about 365.24 days to orbit the Sun.\n- **The rule:** A year is a leap year if it is divisible by 4.\n- Years divisible by 100 are not leap years, unless they are also divisible by 400.\n- That's why 2000 was a leap year but 1900 was not.\n- Every leap year has 366 days.\n- Leap years always fall in US presidential election years.",
+    "domain": "c4_test",
+    "source": "c4_testset:answer",
+    "labels": {
+      "A leap year adds an extra day, February 29, to keep the calendar in line with Earth's orbit.": {
+        "C4": "not_met"
+      },
+      "- Earth takes about 365.24 days to orbit the Sun.": {
+        "C4": "not_met"
+      },
+      "- **The rule:** A year is a leap year if it is divisible by 4.": {
+        "C4": "not_met"
+      },
+      "- Years divisible by 100 are not leap years, unless they are also divisible by 400.": {
+        "C4": "not_met"
+      },
+      "- That's why 2000 was a leap year but 1900 was not.": {
+        "C4": "not_met"
+      },
+      "- Every leap year has 366 days.": {
+        "C4": "not_met"
+      },
+      "- Leap years always fall in US presidential election years.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "c4-a14",
+    "question": "Does social media make people lonely?",
+    "text": "The relationship between social media and loneliness is real but complicated.\n\n- Some studies have found that heavy social media users report feeling lonelier.\n- A 2018 University of Pennsylvania experiment found that limiting social media to 30 minutes a day reduced loneliness and depression over three weeks.\n- Social media destroys real friendships.\n- Teenagers are addicted to their phones.\n- **Active vs. passive use:** Messaging friends may help, while passive scrolling seems more likely to hurt.\n- Lonely people may also be more likely to use social media in the first place, so the causation can run both ways.",
+    "domain": "c4_test",
+    "source": "c4_testset:answer",
+    "labels": {
+      "The relationship between social media and loneliness is real but complicated.": {
+        "C4": "not_met"
+      },
+      "- Some studies have found that heavy social media users report feeling lonelier.": {
+        "C4": "not_met"
+      },
+      "- A 2018 University of Pennsylvania experiment found that limiting social media to 30 minutes a day reduced loneliness and depression over three weeks.": {
+        "C4": "not_met"
+      },
+      "- Social media destroys real friendships.": {
+        "C4": "met"
+      },
+      "- Teenagers are addicted to their phones.": {
+        "C4": "met"
+      },
+      "- **Active vs. passive use:** Messaging friends may help, while passive scrolling seems more likely to hurt.": {
+        "C4": "not_met"
+      },
+      "- Lonely people may also be more likely to use social media in the first place, so the causation can run both ways.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "c4-a15",
+    "question": "Will AI replace software engineers?",
+    "text": "AI is changing software engineering, but full replacement is unlikely soon.\n\n- AI coding assistants can write boilerplate code, suggest fixes, and explain unfamiliar code.\n- AI will replace all programmers within five years.\n- Developers who use AI tools are always more productive.\n- Some controlled studies have found faster task completion with AI assistants, while others found slowdowns for experienced developers.\n- Engineers still need to design systems, review AI output, and decide what to build.\n- Junior developers have nothing to fear.",
+    "domain": "c4_test",
+    "source": "c4_testset:answer",
+    "labels": {
+      "AI is changing software engineering, but full replacement is unlikely soon.": {
+        "C4": "not_met"
+      },
+      "- AI coding assistants can write boilerplate code, suggest fixes, and explain unfamiliar code.": {
+        "C4": "not_met"
+      },
+      "- AI will replace all programmers within five years.": {
+        "C4": "met"
+      },
+      "- Developers who use AI tools are always more productive.": {
+        "C4": "met"
+      },
+      "- Some controlled studies have found faster task completion with AI assistants, while others found slowdowns for experienced developers.": {
+        "C4": "not_met"
+      },
+      "- Engineers still need to design systems, review AI output, and decide what to build.": {
+        "C4": "not_met"
+      },
+      "- Junior developers have nothing to fear.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "c4-a16",
+    "question": "Do multivitamins work?",
+    "text": "For most healthy adults who eat a balanced diet, multivitamins offer little measurable benefit.\n\n- A 2022 US Preventive Services Task Force review found insufficient evidence that multivitamins prevent heart disease or cancer.\n- **Who may benefit:** Pregnant people, older adults, and people with certain deficiencies or restricted diets may need specific supplements.\n- Vitamins are natural, so they can never hurt you.\n- Taking extra vitamin D is good for everyone.\n- High doses of some vitamins, like A and D, can be harmful.\n- Supplements are not a substitute for a healthy diet.",
+    "domain": "c4_test",
+    "source": "c4_testset:answer",
+    "labels": {
+      "For most healthy adults who eat a balanced diet, multivitamins offer little measurable benefit.": {
+        "C4": "not_met"
+      },
+      "- A 2022 US Preventive Services Task Force review found insufficient evidence that multivitamins prevent heart disease or cancer.": {
+        "C4": "not_met"
+      },
+      "- **Who may benefit:** Pregnant people, older adults, and people with certain deficiencies or restricted diets may need specific supplements.": {
+        "C4": "not_met"
+      },
+      "- Vitamins are natural, so they can never hurt you.": {
+        "C4": "met"
+      },
+      "- Taking extra vitamin D is good for everyone.": {
+        "C4": "met"
+      },
+      "- High doses of some vitamins, like A and D, can be harmful.": {
+        "C4": "not_met"
+      },
+      "- Supplements are not a substitute for a healthy diet.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S001",
+    "question": "",
+    "text": "Inflation can hit lower-income households harder because they spend more of their income on essentials.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Inflation can hit lower-income households harder because they spend more of their income on essentials.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S002",
+    "question": "",
+    "text": "The myth that we only use 10% of our brains is still widespread.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "The myth that we only use 10% of our brains is still widespread.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S003",
+    "question": "",
+    "text": "The stock market always goes up over time.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "The stock market always goes up over time.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S004",
+    "question": "",
+    "text": "Every US state has two senators.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "Every US state has two senators.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S005",
+    "question": "",
+    "text": "Many people meet their fluid needs without counting glasses of water.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Many people meet their fluid needs without counting glasses of water.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S006",
+    "question": "",
+    "text": "Some surveys suggest Gen Z workers value flexibility more than earlier generations did.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Some surveys suggest Gen Z workers value flexibility more than earlier generations did.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S007",
+    "question": "",
+    "text": "Students caught cheating can face serious academic penalties.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Students caught cheating can face serious academic penalties.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S008",
+    "question": "",
+    "text": "Learning to code can be useful for some children, depending on their interests.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Learning to code can be useful for some children, depending on their interests.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S009",
+    "question": "",
+    "text": "Exercise usually improves sleep quality.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "Exercise usually improves sleep quality.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S010",
+    "question": "",
+    "text": "Exercise always improves mood.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Exercise always improves mood.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S011",
+    "question": "",
+    "text": "Regular exercise often improves mood, according to many studies.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Regular exercise often improves mood, according to many studies.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S012",
+    "question": "",
+    "text": "Some tasks in many jobs could be automated in the coming decades.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Some tasks in many jobs could be automated in the coming decades.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S013",
+    "question": "",
+    "text": "Nobody uses cash anymore.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Nobody uses cash anymore.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S014",
+    "question": "",
+    "text": "Humans cannot breathe underwater without equipment.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "Humans cannot breathe underwater without equipment.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S015",
+    "question": "",
+    "text": "Men are better at math than women.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Men are better at math than women.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S016",
+    "question": "",
+    "text": "Public schools are failing students.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Public schools are failing students.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S017",
+    "question": "",
+    "text": "Recycling some materials, like aluminum, saves energy compared with making them new.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Recycling some materials, like aluminum, saves energy compared with making them new.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S018",
+    "question": "",
+    "text": "Teenagers don't care about politics.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Teenagers don't care about politics.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S019",
+    "question": "",
+    "text": "Some research links city living to higher stress for certain people.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Some research links city living to higher stress for certain people.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S020",
+    "question": "",
+    "text": "The ad claimed the product works for everyone.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "The ad claimed the product works for everyone.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S021",
+    "question": "",
+    "text": "Night owls may struggle with early school and work schedules.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Night owls may struggle with early school and work schedules.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S022",
+    "question": "",
+    "text": "Electric cars can suit drivers who have home charging and predictable commutes.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Electric cars can suit drivers who have home charging and predictable commutes.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S023",
+    "question": "",
+    "text": "Small businesses always fail within five years.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Small businesses always fail within five years.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S024",
+    "question": "",
+    "text": "Critics argue that social media is always harmful to teenagers.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "Critics argue that social media is always harmful to teenagers.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S025",
+    "question": "",
+    "text": "Meditation cures anxiety.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Meditation cures anxiety.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S026",
+    "question": "",
+    "text": "Recycling makes no difference.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Recycling makes no difference.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S027",
+    "question": "",
+    "text": "Every triangle's angles add up to 180 degrees in flat geometry.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "Every triangle's angles add up to 180 degrees in flat geometry.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S028",
+    "question": "",
+    "text": "Every respondent in the 2023 survey was over 18.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "Every respondent in the 2023 survey was over 18.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S029",
+    "question": "",
+    "text": "The senator said that immigrants never pay taxes, a claim fact-checkers rated false.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "The senator said that immigrants never pay taxes, a claim fact-checkers rated false.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S030",
+    "question": "",
+    "text": "The US stock market has risen over most long periods, though it has also had long declines.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "The US stock market has risen over most long periods, though it has also had long declines.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S031",
+    "question": "",
+    "text": "None of the 12 patients in the trial had side effects.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "None of the 12 patients in the trial had side effects.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S032",
+    "question": "",
+    "text": "Everyone needs eight glasses of water a day.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Everyone needs eight glasses of water a day.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S033",
+    "question": "",
+    "text": "Cash use has declined in the US, though many people still use it.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Cash use has declined in the US, though many people still use it.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S034",
+    "question": "",
+    "text": "Incomes in Silicon Valley are high on average, but many residents struggle with housing costs.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Incomes in Silicon Valley are high on average, but many residents struggle with housing costs.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S035",
+    "question": "",
+    "text": "Coffee may lower the risk of type 2 diabetes for some people.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "Coffee may lower the risk of type 2 diabetes for some people.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S036",
+    "question": "",
+    "text": "Rich countries are always happier.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Rich countries are always happier.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S037",
+    "question": "",
+    "text": "All politicians are corrupt.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "All politicians are corrupt.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S038",
+    "question": "",
+    "text": "Some studies have linked vegetarian diets to lower heart disease risk.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Some studies have linked vegetarian diets to lower heart disease risk.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S039",
+    "question": "",
+    "text": "Older workers can't learn new technology.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Older workers can't learn new technology.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S040",
+    "question": "",
+    "text": "Inflation hurts everyone equally.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Inflation hurts everyone equally.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S041",
+    "question": "",
+    "text": "Opponents claimed the law would destroy all small businesses.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "Opponents claimed the law would destroy all small businesses.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S042",
+    "question": "",
+    "text": "Natural remedies are completely safe.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Natural remedies are completely safe.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S043",
+    "question": "",
+    "text": "Electric cars are the best choice for every driver.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Electric cars are the best choice for every driver.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S044",
+    "question": "",
+    "text": "All squares are rectangles.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "All squares are rectangles.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S045",
+    "question": "",
+    "text": "Few people read the terms and conditions in full, according to some surveys.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Few people read the terms and conditions in full, according to some surveys.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S046",
+    "question": "",
+    "text": "Antibiotics treat many bacterial infections but do not work against viruses.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Antibiotics treat many bacterial infections but do not work against viruses.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S047",
+    "question": "",
+    "text": "Some older workers take longer to adopt new technology, while many adapt quickly.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Some older workers take longer to adopt new technology, while many adapt quickly.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S048",
+    "question": "",
+    "text": "Every job will be automated.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Every job will be automated.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S049",
+    "question": "",
+    "text": "Online classes are worse than in-person classes.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Online classes are worse than in-person classes.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S050",
+    "question": "",
+    "text": "In most cases, mild colds go away within a week.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "In most cases, mild colds go away within a week.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S051",
+    "question": "",
+    "text": "Each of the three bills passed the House in 2021.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "Each of the three bills passed the House in 2021.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S052",
+    "question": "",
+    "text": "Self-driving cars are completely safe.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Self-driving cars are completely safe.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S053",
+    "question": "",
+    "text": "Everyone in Silicon Valley is rich.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Everyone in Silicon Valley is rich.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S054",
+    "question": "",
+    "text": "All five of the company's factories closed during the 2020 lockdown.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "All five of the company's factories closed during the 2020 lockdown.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S055",
+    "question": "",
+    "text": "A Python tuple can never be changed after it is created.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "A Python tuple can never be changed after it is created.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S056",
+    "question": "",
+    "text": "Night owls are lazy.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Night owls are lazy.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S057",
+    "question": "",
+    "text": "Many, but not all, economists support a carbon tax.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "Many, but not all, economists support a carbon tax.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S058",
+    "question": "",
+    "text": "Drivers must always stop at a red light.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "Drivers must always stop at a red light.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S059",
+    "question": "",
+    "text": "Students who cheat never succeed.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Students who cheat never succeed.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S060",
+    "question": "",
+    "text": "All living things are made of cells.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "All living things are made of cells.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S061",
+    "question": "",
+    "text": "Some startups use venture capital to grow faster, while others grow on their own revenue.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Some startups use venture capital to grow faster, while others grow on their own revenue.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S062",
+    "question": "",
+    "text": "Nobody reads the terms and conditions.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Nobody reads the terms and conditions.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S063",
+    "question": "",
+    "text": "Meditation may reduce anxiety symptoms for some people.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Meditation may reduce anxiety symptoms for some people.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S064",
+    "question": "",
+    "text": "Every student must complete 32 credits to graduate.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "Every student must complete 32 credits to graduate.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S065",
+    "question": "",
+    "text": "Some company reports show fewer crashes per mile for self-driving cars, but independent data is limited.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Some company reports show fewer crashes per mile for self-driving cars, but independent data is limited.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S066",
+    "question": "",
+    "text": "Learning a second language makes you smarter.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Learning a second language makes you smarter.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S067",
+    "question": "",
+    "text": "The Moon always shows the same face to Earth.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "The Moon always shows the same face to Earth.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S068",
+    "question": "",
+    "text": "Every Super Bowl so far has been played in January or February.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "Every Super Bowl so far has been played in January or February.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S069",
+    "question": "",
+    "text": "Supporters say the policy will help every family.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "Supporters say the policy will help every family.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S070",
+    "question": "",
+    "text": "Dogs can be good pets for families who have time for training and exercise.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Dogs can be good pets for families who have time for training and exercise.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S071",
+    "question": "",
+    "text": "City life is more stressful than rural life.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "City life is more stressful than rural life.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S072",
+    "question": "",
+    "text": "Reading before bed may help some people fall asleep.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Reading before bed may help some people fall asleep.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S073",
+    "question": "",
+    "text": "A large share of small businesses close within five years.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "A large share of small businesses close within five years.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S074",
+    "question": "",
+    "text": "No even number greater than 2 is prime.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "No even number greater than 2 is prime.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S075",
+    "question": "",
+    "text": "Some natural remedies can interact with medications.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Some natural remedies can interact with medications.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S076",
+    "question": "",
+    "text": "Every week has seven days.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "Every week has seven days.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S077",
+    "question": "",
+    "text": "No player except the goalkeeper may handle the ball in soccer.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "No player except the goalkeeper may handle the ball in soccer.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S078",
+    "question": "",
+    "text": "Some news stories contain errors or misleading framing.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Some news stories contain errors or misleading framing.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S079",
+    "question": "",
+    "text": "Cats are independent and don't need attention.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Cats are independent and don't need attention.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S080",
+    "question": "",
+    "text": "All of the study's participants were college students.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "All of the study's participants were college students.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S081",
+    "question": "",
+    "text": "Some students do worse in online classes, especially without support.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Some students do worse in online classes, especially without support.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S082",
+    "question": "",
+    "text": "Some public schools have struggled with test scores since 2020.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Some public schools have struggled with test scores since 2020.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S083",
+    "question": "",
+    "text": "Some people with high test scores report social difficulties, but many do not.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Some people with high test scores report social difficulties, but many do not.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S084",
+    "question": "",
+    "text": "Some studies have looked for a link between violent video games and aggression, with mixed results.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Some studies have looked for a link between violent video games and aggression, with mixed results.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S085",
+    "question": "",
+    "text": "In chess, a pawn can never move backward.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "In chess, a pawn can never move backward.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S086",
+    "question": "",
+    "text": "Results varied widely between schools.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "Results varied widely between schools.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S087",
+    "question": "",
+    "text": "The evidence on multivitamins is mixed.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "The evidence on multivitamins is mixed.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S088",
+    "question": "",
+    "text": "Water always boils at a lower temperature at high altitude.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "Water always boils at a lower temperature at high altitude.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S089",
+    "question": "",
+    "text": "Exercise can help with weight loss, especially combined with changes in diet.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Exercise can help with weight loss, especially combined with changes in diet.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S090",
+    "question": "",
+    "text": "All eligible voters in Australia are required by law to vote.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "All eligible voters in Australia are required by law to vote.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S091",
+    "question": "",
+    "text": "A popular saying holds that money can't buy happiness.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "A popular saying holds that money can't buy happiness.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S092",
+    "question": "",
+    "text": "All passengers must go through security screening before boarding.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "All passengers must go through security screening before boarding.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S093",
+    "question": "",
+    "text": "All mammals breathe air.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "All mammals breathe air.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S094",
+    "question": "",
+    "text": "Every startup needs venture capital to grow.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Every startup needs venture capital to grow.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S095",
+    "question": "",
+    "text": "Surveys suggest that political interest among teenagers varies widely.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Surveys suggest that political interest among teenagers varies widely.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S096",
+    "question": "",
+    "text": "Exercise is the only way to lose weight.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Exercise is the only way to lose weight.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S097",
+    "question": "",
+    "text": "Some people believe that breakfast is the most important meal of the day.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "Some people believe that breakfast is the most important meal of the day.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S098",
+    "question": "",
+    "text": "Fast food is always unhealthy.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Fast food is always unhealthy.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S099",
+    "question": "",
+    "text": "Smart people are bad at social skills.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Smart people are bad at social skills.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S100",
+    "question": "",
+    "text": "All 50 US states have a governor.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "All 50 US states have a governor.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S101",
+    "question": "",
+    "text": "Antibiotics cure every infection.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Antibiotics cure every infection.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S102",
+    "question": "",
+    "text": "Diets never work in the long run.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Diets never work in the long run.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S103",
+    "question": "",
+    "text": "Richer countries tend to report higher life satisfaction on average.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Richer countries tend to report higher life satisfaction on average.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S104",
+    "question": "",
+    "text": "Many fast food meals are high in calories, salt, and fat.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Many fast food meals are high in calories, salt, and fat.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S105",
+    "question": "",
+    "text": "Several politicians have been convicted of corruption in recent years.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Several politicians have been convicted of corruption in recent years.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S106",
+    "question": "",
+    "text": "Video games make children violent.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Video games make children violent.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S107",
+    "question": "",
+    "text": "Learning a second language may improve some thinking skills, though the evidence is debated.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Learning a second language may improve some thinking skills, though the evidence is debated.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S108",
+    "question": "",
+    "text": "Vegetarians are healthier than meat eaters.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Vegetarians are healthier than meat eaters.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S109",
+    "question": "",
+    "text": "Some remote workers report being more productive than they were in the office.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Some remote workers report being more productive than they were in the office.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S110",
+    "question": "",
+    "text": "Every child should learn to code.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Every child should learn to code.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S111",
+    "question": "",
+    "text": "Dogs are the best pets for families.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Dogs are the best pets for families.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S112",
+    "question": "",
+    "text": "Reading before bed guarantees better sleep.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Reading before bed guarantees better sleep.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S113",
+    "question": "",
+    "text": "All news is fake.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "All news is fake.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S114",
+    "question": "",
+    "text": "Everyone in the experiment received the same instructions.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "Everyone in the experiment received the same instructions.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S115",
+    "question": "",
+    "text": "Many people regain weight after a diet, though some keep it off.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Many people regain weight after a diet, though some keep it off.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S116",
+    "question": "",
+    "text": "Remote workers are more productive than office workers.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Remote workers are more productive than office workers.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S117",
+    "question": "",
+    "text": "Light always travels at the same speed in a vacuum.",
+    "domain": "c4_test",
+    "source": "c4_testset:trap",
+    "labels": {
+      "Light always travels at the same speed in a vacuum.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S118",
+    "question": "",
+    "text": "Gen Z doesn't want to work.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Gen Z doesn't want to work.": {
+        "C4": "met"
+      }
+    }
+  },
+  {
+    "id": "S119",
+    "question": "",
+    "text": "Many cats are more independent than dogs, but they still need care and attention.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Many cats are more independent than dogs, but they still need care and attention.": {
+        "C4": "not_met"
+      }
+    }
+  },
+  {
+    "id": "S120",
+    "question": "",
+    "text": "Differences in average math test scores between boys and girls are small and vary by country.",
+    "domain": "c4_test",
+    "source": "c4_testset:pair",
+    "labels": {
+      "Differences in average math test scores between boys and girls are small and vary by country.": {
+        "C4": "not_met"
+      }
+    }
+  }
+]

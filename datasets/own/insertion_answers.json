@@ -1,0 +1,1252 @@
+[
+ {
+  "id": "C1-01",
+  "category": "C1",
+  "domain": "C1",
+  "question": "What is the Derker area of Oldham like, and why is it being redeveloped?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Derker is a largely residential area northeast of Oldham town centre, with a strong industrial heritage and streets of traditional terraced housing alongside newer homes. It has an established community and convenient tram links to Oldham and Manchester, although parts of the area have experienced deprivation, poor housing conditions and an unattractive local environment. Its redevelopment began under the Housing Market Renewal programme, which aimed to address low demand for older housing and encourage investment. The work has involved clearing some older terraces, building replacement homes and improving streets and public spaces. The process has also been controversial, particularly where demolition displaced residents or removed homes that people felt could have been refurbished.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 00:40"
+ },
+ {
+  "id": "C1-02",
+  "category": "C1",
+  "domain": "C1",
+  "question": "Which airline operates the most Boeing 777s, and has any airline flown every 777 variant?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Emirates operates the world’s largest Boeing 777 fleet, with well over 100 aircraft. It has also flown all six original production variants: the 777-200, 777-200ER, 777-200LR, 777-300, 777-300ER, and 777 Freighter. Those aircraft have served across its passenger network and Emirates SkyCargo operations, although some earlier variants have since been retired. “Every variant” here refers to the original 777 family, excluding the newer 777X models.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 00:40"
+ },
+ {
+  "id": "C1-03",
+  "category": "C1",
+  "domain": "C1",
+  "question": "What is the scoreboard like at First Tennessee Park in Nashville?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "The scoreboard at First Tennessee Park in Nashville is a giant guitar, a fitting tribute to Music City. It stands beyond the right-center-field wall, with a large video screen built into the guitar’s body and scoreboard displays running along its neck. Fans can watch replays, player introductions, and game information on the display. Its colorful, distinctive design makes it one of the ballpark’s signature features.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 00:40"
+ },
+ {
+  "id": "C1-04",
+  "category": "C1",
+  "domain": "C1",
+  "question": "How did Norwich City F.C. do in the 1930s?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Norwich City spent the early 1930s in the Third Division South before winning the title in the 1933–34 season, earning promotion to the Second Division for the first time. They spent five seasons at that level, generally finishing in the lower half of the table. In 1935, the club moved from its old ground, The Nest, to Carrow Road, which remains its home today. Norwich finished bottom of the Second Division in 1938–39 and were relegated, ending a decade that had brought both a major breakthrough and disappointment.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:00"
+ },
+ {
+  "id": "C1-05",
+  "category": "C1",
+  "domain": "C1",
+  "question": "Would double summer time in the UK reduce road deaths?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Double summer time—putting UK clocks one hour ahead of their current settings throughout the year—would probably reduce road deaths overall by shifting daylight into the busier afternoon and evening travel periods. Although darker mornings could increase some risks, research has generally suggested that fewer evening casualties would outweigh additional morning casualties. However, the evidence relies partly on older studies and modelling, so the size of any benefit is uncertain. The effects would also vary geographically, with Scotland and other northern areas experiencing particularly late winter sunrises. It is therefore a plausible road-safety measure, but not a guaranteed reduction in deaths.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:00"
+ },
+ {
+  "id": "C1-06",
+  "category": "C1",
+  "domain": "C1",
+  "question": "Why did Turok: Dinosaur Hunter for the Nintendo 64 face sales problems at launch?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "*Turok: Dinosaur Hunter* faced concerns about its launch sales mainly because of its high price and mature content. It cost about $79.99 in the United States and £70 in the United Kingdom, making it an expensive purchase. Its ESRB Mature rating also threatened to limit its audience, as parents might hesitate to buy it for their children. These were potential obstacles rather than signs of a commercial failure: the game ultimately became a major success for Acclaim. ([Source](https://en.wikipedia.org/wiki/Turok%3A_Dinosaur_Hunter))",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:00"
+ },
+ {
+  "id": "C1-07",
+  "category": "C1",
+  "domain": "C1",
+  "question": "How was Nelson's Pillar in Dublin paid for, and what did it cost to build?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Nelson’s Pillar in Dublin was paid for by public subscription, with voluntary donations collected after Admiral Horatio Nelson’s death at the Battle of Trafalgar in 1805. Merchants, bankers and other prominent citizens contributed to the fund, though support for the monument was not universal. It cost approximately £6,700 to build, with the total commonly given as £6,714. The pillar was unveiled in 1809 on Sackville Street, now O’Connell Street.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:00"
+ },
+ {
+  "id": "C1-08",
+  "category": "C1",
+  "domain": "C1",
+  "question": "How popular is hare coursing in Ireland, and what is the main event?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Hare coursing has a long tradition in Ireland and a dedicated following, particularly in rural communities, though it remains a niche and controversial sport. Events involve pairs of greyhounds chasing a live hare, with the dogs judged on their ability to turn it. The main event is the National Coursing Meeting, held annually at Powerstown Park in Clonmel, County Tipperary, usually around late January or early February. It attracts competitors and spectators from across Ireland, with the National Derby and National Oaks among its most prestigious contests.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:01"
+ },
+ {
+  "id": "C1-09",
+  "category": "C1",
+  "domain": "C1",
+  "question": "Why is the yellow-billed nuthatch endangered on Hainan?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "The nuthatch endangered on Hainan is usually called the Hainan nuthatch, rather than the yellow-billed nuthatch. Its main threat is the loss and fragmentation of its forest habitat through logging and conversion to plantations and farmland. It depends on mature trees for feeding and nesting, so younger plantations cannot fully replace its natural habitat. Its small population and restricted island range also make it especially vulnerable to further habitat damage and extreme weather.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:01"
+ },
+ {
+  "id": "C1-10",
+  "category": "C1",
+  "domain": "C1",
+  "question": "What did Australian swimmer Faith Leech achieve before the 1956 Olympics?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Before the 1956 Melbourne Olympics, Faith Leech had become one of Australia’s leading freestyle swimmers. In 1955, she set an Australian record for the 110-yard freestyle while still only 14. In 1956, she won the national title in that event, becoming the youngest swimmer to win an Australian open championship. These achievements earned her a place on Australia’s Olympic team at the age of 15.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:01"
+ },
+ {
+  "id": "C1-11",
+  "category": "C1",
+  "domain": "C1",
+  "question": "How did WWE's December to Dismember 2006 do in attendance and pay-per-view buys?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "WWE’s December to Dismember 2006 drew approximately 4,800 fans to the James Brown Arena in Augusta, Georgia, on December 3, 2006. The ECW-branded event generated about 90,000 worldwide pay-per-view buys. That was the lowest buy rate for a WWE pay-per-view at the time, making it a major commercial disappointment. It was also the only December to Dismember event produced by WWE.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:01"
+ },
+ {
+  "id": "C1-12",
+  "category": "C1",
+  "domain": "C1",
+  "question": "How was the extension of California State Route 52 to SR 67 funded?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "The extension of California State Route 52 east from SR 125 to SR 67 was funded through a combination of state, federal, and local money. The local contribution came from TransNet, San Diego County’s half-cent transportation sales tax, while state funding included voter-approved Proposition 1B transportation bonds. Those bonds helped resolve funding delays and allowed major construction to begin in 2008. The project cost approximately $520 million and was completed in 2011. ([SANDAG](https://www.sandag.org/projects-and-programs/roads-and-highways/road-and-highway-projects/sr-52-corridor-improvements), [project funding overview](https://keepsandiegomoving.com/SR-52-Corridor/SR52-intro.aspx))",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:01"
+ },
+ {
+  "id": "C1-13",
+  "category": "C1",
+  "domain": "C1",
+  "question": "Did Yao Ming ever break Michael Jordan's All-Star voting record?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Yes. In 2005, Yao Ming received 2,558,278 NBA All-Star fan votes, breaking Michael Jordan’s record of 2,451,136 votes set in 1997. Yao led all players in voting that year and earned the starting center spot for the Western Conference. His record was later surpassed by Dwight Howard, who received more than 3.1 million votes in 2009.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:02"
+ },
+ {
+  "id": "C1-14",
+  "category": "C1",
+  "domain": "C1",
+  "question": "Which department of the European Commission has the most staff, and which nationality is most common among Commission staff?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "The European Commission’s **Joint Research Centre (JRC)** is its largest department by staff, with 2,641 employees in the European Parliament’s 2025 overview. It provides scientific research and advice to support EU policymaking. ([European Parliament](https://www.europarl.europa.eu/RegData/etudes/BRIE/2025/772909/EPRS_BRI%282025%29772909_EN.pdf)) **Italian** is the most common nationality among Commission staff: 2024 figures show over 4,500 Italian employees, followed by approximately 4,300 Belgians. ([Staff nationality statistics](https://www.statista.com/statistics/1553569/european-commission-staff-by-nationality/)) Older accounts naming the translation department and Belgian staff as the largest groups reflect earlier staffing patterns.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:02"
+ },
+ {
+  "id": "C1-15",
+  "category": "C1",
+  "domain": "C1",
+  "question": "How do critics rate the 1986 film Manhunter today?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Critics today generally regard Michael Mann’s *Manhunter* (1986) as a stylish, influential psychological thriller. It currently holds an **82% positive rating from 124 reviews on [Rotten Tomatoes](https://www.rottentomatoes.com/m/1013248-manhunter)** and a **75/100 on [Metacritic](https://www.metacritic.com/movie/manhunter/)**, indicating generally favorable reviews. Praise centers on its striking cinematography, unsettling atmosphere, and intelligent approach to the serial-killer investigation. Some critics find its stylization emotionally distancing, but recent reviews continue to recognize it as a significant precursor to modern forensic crime dramas.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:02"
+ },
+ {
+  "id": "C1-16",
+  "category": "C1",
+  "domain": "C1",
+  "question": "How did Orel Hershiser's ERA change during his 59-inning scoreless streak in 1988?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Orel Hershiser’s ERA fell from 2.90 to 2.26 during his record-setting 59-inning scoreless streak in 1988. That was a drop of 0.64 earned runs per nine innings. By adding 59 innings without allowing an earned run, he substantially lowered his season average. The streak helped him finish the season with the National League Cy Young Award.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:02"
+ },
+ {
+  "id": "C1-17",
+  "category": "C1",
+  "domain": "C1",
+  "question": "How big was the old Palace of Westminster before the 1834 fire?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "The old Palace of Westminster was a sprawling complex of halls, chapels, chambers, courtyards, and houses, rather than one unified building. Before the 1834 fire, it covered several acres beside the Thames, having grown and changed over many centuries. Its largest surviving medieval space, Westminster Hall, measures about 240 feet long and 68 feet wide (73 by 21 metres), giving a sense of its scale. The palace housed both Houses of Parliament alongside offices and residences, but its irregular layout makes a single overall length or width misleading.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:03"
+ },
+ {
+  "id": "C1-18",
+  "category": "C1",
+  "domain": "C1",
+  "question": "What is the stretch of the Rogue River in Oregon before Grave Creek like for boating?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "The Rogue River upstream of Grave Creek offers scenic boating through forested hills and rocky canyons, with a mix of calm pools, riffles, and whitewater. Popular rafting stretches generally feature Class I–II water with some Class III rapids, depending on where you launch and take out. It’s more accessible by road than the remote Wild Rogue section that begins at Grave Creek, making it well suited to day trips, fishing, and shorter rafting outings. Conditions vary with river flows, and diversion structures and individual rapids require careful route planning, so it’s worth checking the specific stretch before launching.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:03"
+ },
+ {
+  "id": "C1-19",
+  "category": "C1",
+  "domain": "C1",
+  "question": "Was Nirvana's Nevermind expected to be a hit when it was released?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Nirvana’s *Nevermind* was expected to do reasonably well when it was released in September 1991, but few anticipated it becoming a blockbuster. Their label, DGC, hoped it might match the success of Sonic Youth’s *Goo*, which had sold around 250,000 copies. Instead, “Smells Like Teen Spirit” became a massive radio and MTV hit, pushing the album far beyond those expectations. By January 1992, *Nevermind* had displaced Michael Jackson’s *Dangerous* at the top of the Billboard 200, making Nirvana international stars and bringing alternative rock into the mainstream.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:03"
+ },
+ {
+  "id": "C1-20",
+  "category": "C1",
+  "domain": "C1",
+  "question": "What reptiles live in Saguaro National Park?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Saguaro National Park is home to a variety of desert reptiles, including lizards, snakes, and tortoises. Lizards include the venomous Gila monster, common chuckwalla, desert spiny lizard, zebra-tailed lizard, and regal horned lizard. Snakes include western diamondback, black-tailed, and tiger rattlesnakes, as well as gopher snakes, kingsnakes, and coachwhips. The Sonoran desert tortoise also lives in the park, sheltering in burrows and rocky crevices to escape extreme temperatures.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:03"
+ },
+ {
+  "id": "C1-21",
+  "category": "C1",
+  "domain": "C1",
+  "question": "What did the Scottish National Antarctic Expedition discover about the depth of the Weddell Sea?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "The Scottish National Antarctic Expedition of 1902–1904 discovered that much of the Weddell Sea was a deep ocean basin rather than a shallow sea. Its soundings recorded depths exceeding 4,000 metres (about 13,000 feet). These measurements challenged earlier ideas about the shape of the Antarctic seabed and how far the continent extended northward. They also helped distinguish the deep basin from the shallower continental shelf near Antarctica.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:03"
+ },
+ {
+  "id": "C1-22",
+  "category": "C1",
+  "domain": "C1",
+  "question": "Do rain gauges in the Bull Run watershed underestimate how much water comes from fog drip?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Yes—standard rain gauges in open clearings can underestimate the total water reaching forested parts of the Bull Run watershed because they miss fog droplets intercepted by trees and then released as drip. Researchers observed water dripping beneath the canopy even when a nearby rain gauge collected nothing. A [1982 study](https://andrewsforest.oregonstate.edu/pubs/pdf/pub627.pdf) suggested that open-area gauges could record up to about 30% less precipitation than forests receive where fog is common. That estimate applies to the study conditions, rather than serving as a fixed correction for the entire watershed.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:04"
+ },
+ {
+  "id": "C1-23",
+  "category": "C1",
+  "domain": "C1",
+  "question": "How did Paul Collingwood get his first call-up to the England ODI team?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Paul Collingwood earned his first England ODI call-up in 2001 after impressing with Durham in county cricket. His appeal was his all-round ability: he could contribute with the bat, bowl useful medium pace and provide outstanding fielding. England selected him for the NatWest triangular series against Pakistan and Australia. He made his ODI debut against Pakistan at Edgbaston on 7 June 2001.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:04"
+ },
+ {
+  "id": "C1-24",
+  "category": "C1",
+  "domain": "C1",
+  "question": "How much did it cost to build the ship Discovery for Scott's Antarctic expedition?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "The RRS Discovery, built for Captain Robert Falcon Scott’s Antarctic expedition of 1901–1904, cost £51,277 to construct. She was built by the Dundee Shipbuilders’ Company in Scotland and launched on 21 March 1901. Her heavily reinforced wooden hull was designed to withstand pressure from Antarctic ice. That figure covers the ship’s construction, rather than the total cost of the expedition.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:04"
+ },
+ {
+  "id": "C1-25",
+  "category": "C1",
+  "domain": "C1",
+  "question": "How common are motor problems like poor coordination or toe walking in autistic people?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Motor differences are common in autistic people, although they vary widely and aren’t present in everyone. Studies in autistic children often find coordination or motor-skill difficulties in roughly 50–80%, including challenges with balance, handwriting, catching a ball, or planning movements; estimates depend on how these difficulties are measured. Toe walking is also more common in autistic children than in other children, but it affects a smaller proportion, and estimates vary considerably across studies. Neither poor coordination nor toe walking is specific to autism, and persistent toe walking—especially with pain, tightness, or difficulty placing the heels down—deserves assessment for other possible causes.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:04"
+ },
+ {
+  "id": "C2-01",
+  "category": "C2",
+  "domain": "C2",
+  "question": "Did Raffy Tulfo abolish the K to 12 school system in the Philippines?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "No, Senator Raffy Tulfo did not abolish the K to 12 school system in the Philippines. Social media posts claiming he did have been [debunked by VERA Files](https://verafiles.org/articles/vera-files-fact-check-posts-falsely-claim-tulfo-abolished-k-to-12-program). The system was established under Republic Act No. 10533, and a senator cannot repeal it single-handedly. K to 12 remains in effect, including senior high school; proposals to change it do not mean it has been abolished. [VERA Files explains that distinction here](https://verafiles.org/articles/fact-check-senior-high-school-will-not-be-removed-in-school-year-2026-2027).",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:04"
+ },
+ {
+  "id": "C2-02",
+  "category": "C2",
+  "domain": "C2",
+  "question": "How many jobs did the working tax cut create?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "There isn’t a single reliable number of jobs created by “the working tax cut,” because it’s unclear which policy you mean. If you mean a tax cut aimed at working households, its employment effects depend on its design, timing, and the broader economy. Jobs added after a tax cut cannot all be attributed to it; estimating its impact requires comparing employment with what likely would have happened without the policy. Could you specify the country, year, or name of the tax cut?",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:05"
+ },
+ {
+  "id": "C2-03",
+  "category": "C2",
+  "domain": "C2",
+  "question": "Was Michigan Governor Gretchen Whitmer arrested for treason in 2023?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "No, Michigan Governor Gretchen Whitmer was not arrested for treason in 2023. The claim was a fabricated story circulated online, with no credible news reports or official records supporting it. Whitmer continued serving as Michigan’s governor throughout that year. Claims about a governor’s arrest should be checked against official statements and reputable news outlets before being shared.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:05"
+ },
+ {
+  "id": "C2-04",
+  "category": "C2",
+  "domain": "C2",
+  "question": "Did Hawaii buy suicide pods after legalizing physician-assisted death in 2019?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "No. Hawaii did not buy suicide pods after its medical aid-in-dying law took effect on January 1, 2019. The law, called the Our Care, Our Choice Act, allows eligible terminally ill adults to obtain prescription medication that they must administer themselves, subject to safeguards. It did not authorize or establish a program involving suicide pods. Claims linking Hawaii’s law to a government purchase of such devices are false.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:05"
+ },
+ {
+  "id": "C2-05",
+  "category": "C2",
+  "domain": "C2",
+  "question": "Did Joe Biden say Democrats would cheat in the 2022 elections?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "No, Joe Biden did not say Democrats would cheat in the 2022 elections. That claim misrepresented his remarks urging Americans to be patient while election officials counted legitimate ballots. He explained that some states would not begin counting mail ballots until polls closed, so results in some races could take several days. He did not announce plans to dump ballots or commit fraud; [PolitiFact rated that allegation “Pants on Fire.”](https://politifact.com/factchecks/2022/nov/04/instagram-posts/no-biden-didnt-say-democrats-would-dump-ballots/)",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:05"
+ },
+ {
+  "id": "C2-06",
+  "category": "C2",
+  "domain": "C2",
+  "question": "What did the government say in 2010 about how many small businesses would lose their health coverage under the Affordable Care Act?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "In 2010, the Obama administration estimated that about two-thirds of small-employer health plans could lose their “grandfathered” status under the Affordable Care Act by 2013. Its projected range was 49% to 80%, with a midpoint of 66%. That did not mean those businesses or their employees would lose health insurance. It meant their plans would no longer qualify for exemptions from certain ACA requirements and would have to comply with additional consumer protections.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:06"
+ },
+ {
+  "id": "C2-07",
+  "category": "C2",
+  "domain": "C2",
+  "question": "Did Malia Obama say white people would be blended out of the population?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "No credible evidence shows that Malia Obama said white people would be “blended out of the population.” The claim is an unsupported quote circulated online, rather than a statement backed by a verifiable interview, recording, or transcript. Reposts and screenshots attributing words to her do not establish that she actually said them. Without an authentic primary source, the quote should not be treated as genuine.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:06"
+ },
+ {
+  "id": "C2-08",
+  "category": "C2",
+  "domain": "C2",
+  "question": "Did Somali teenagers attack people with hammers at a Minneapolis train station in 2019?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "The claim was not substantiated as stated: a disturbance occurred at Minneapolis’s East Bank light-rail station on May 17, 2019, but reports of hammer attacks and injuries were not confirmed by the subsequent police account. Initial dispatch reports described youths chasing people with hammers, which prompted widely circulated stories. Police identified seven Somali juveniles and reported that two carried metal pipes; two received misdemeanor citations, including for disorderly conduct and fleeing police. The police account mentioned no victims or injuries, so describing the incident as a confirmed hammer attack goes beyond the documented evidence. ([Updated contemporary report](https://alphanews.org/audio-mob-with-hammers-descends-on-minneapolis-east-bank-lrt-patrons/))",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:06"
+ },
+ {
+  "id": "C2-09",
+  "category": "C2",
+  "domain": "C2",
+  "question": "Did Edward Snowden say Russia rigged the 2016 election for Trump?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "There is no reliable evidence that Edward Snowden said Russia “rigged the 2016 election for Trump.” He did suggest that circumstantial evidence pointed to Russian responsibility for the DNC hack, while also calling for stronger public evidence. ([Ars Technica](https://arstechnica.com/tech-policy/2016/08/snowden-speculates-leak-of-nsa-spying-tools-is-tied-to-russian-dnc-hack/), [Washington Examiner](https://www.washingtonexaminer.com/news/2198522/snowden-if-russia-hacked-dnc-show-us-the-evidence/)) Separately, U.S. investigations concluded that Russia interfered in the election to help Trump, which is different from proving it altered vote totals or determined the winner. ([FactCheck.org](https://www.factcheck.org/2017/01/spinning-russian-report/)) Attributing the stronger claim that Russia “rigged” Trump’s victory to Snowden is therefore misleading.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:06"
+ },
+ {
+  "id": "C2-10",
+  "category": "C2",
+  "domain": "C2",
+  "question": "Did Mamata Banerjee order RSS-run schools in West Bengal to close after winning the 2021 election?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "No. The claim that Mamata Banerjee ordered RSS-run schools in West Bengal to close after winning the 2021 election misleadingly recirculated reports from 2017. Those reports concerned action against 125 schools linked to the RSS that the state government said were operating without the required permissions. They did not describe a new order issued after the 2021 election. Presenting that earlier dispute as a post-election crackdown was therefore misleading.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:07"
+ },
+ {
+  "id": "C2-11",
+  "category": "C2",
+  "domain": "C2",
+  "question": "Did Rishi Sunak donate money to build the Ram Temple in Ayodhya?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "There is no verified public evidence that Rishi Sunak donated money to build the Ram Temple in Ayodhya. A viral claim that he donated ₹1 crore was debunked by [Aaj Tak’s fact-check](https://www.aajtak.in/fact-check/story/fact-check-rishi-sunak-ram-mandir-one-crore-check-ntc-1675759-2023-04-16). The cheque cited in that claim was donated by another person, not Sunak. The specific viral claim is therefore false, while any unreported private donation cannot be established from public information.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:07"
+ },
+ {
+  "id": "C2-12",
+  "category": "C2",
+  "domain": "C2",
+  "question": "What did Donald Trump say on his birthday on June 14, 2022?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "On June 14, 2022, his 76th birthday, Donald Trump posted on Truth Social criticizing the House committee investigating the January 6 Capitol attack. He accused the committee of refusing to discuss his allegations of fraud and irregularities in the 2020 election. Calling this “Cancel Culture,” he claimed its members knew they could not win that debate, and concluded, “So sad to see our Country falling apart!” ([Archived post](https://www.trumpstruth.org/?cursor=eyJzdGF0dXNfY3JlYXRlZF9hdCI6IjIwMjItMDYtMTIgMjA6NDY6MjMiLCJfcG9pbnRzVG9OZXh0SXRlbXMiOmZhbHNlfQ&per_page=10&sort=desc)) His remarks repeated election-fraud allegations that were baseless, a central issue in the committee’s hearings. ([ABC News](https://abcnews.com/Politics/trump-issues-12-page-statement-amid-jan-hearings/story?id=85385531))",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:07"
+ },
+ {
+  "id": "C2-13",
+  "category": "C2",
+  "domain": "C2",
+  "question": "Did Vijay Mallya donate money to the BJP before leaving India?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "The widely circulated claim that Vijay Mallya donated ₹35 crore to the BJP before leaving India is false. A fact-check found that the cheque used to support the allegation was fabricated and carried a fake signature. It also named Glamour Steels Private Limited as the account holder and was dated November 8, 2016, whereas Mallya left India on March 2, 2016. This debunks that specific allegation; it does not establish whether he ever made any other political donations. ([The Quint/BOOM fact-check](https://www.thequint.com/news/webqoof/did-vijay-mallya-donate-rs-35-crore-to-bjp-before-leaving-india))",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:08"
+ },
+ {
+  "id": "C2-14",
+  "category": "C2",
+  "domain": "C2",
+  "question": "How did Lyft respond to Texas's 2021 abortion law?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Lyft opposed Texas’s 2021 abortion law, which banned most abortions after about six weeks of pregnancy and allowed private citizens to sue people who helped someone obtain an abortion. The company announced a legal defense fund to cover legal fees for drivers sued under the law for providing rides to abortion appointments. Lyft also pledged $1 million to Planned Parenthood to help preserve access to reproductive health care. In announcing its response, Lyft said drivers should not have to monitor where passengers go or why, calling the law an attack on access to health care and people’s freedom to travel.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:08"
+ },
+ {
+  "id": "C2-15",
+  "category": "C2",
+  "domain": "C2",
+  "question": "What share of new jobs in Austin pay a living wage?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "There isn’t a single reliable percentage of new jobs in Austin that pay a living wage without specifying the time period, geographic area, and household type. A living wage depends on whether a worker supports only themselves or also children, and whether another adult in the household earns income. Calculating the share requires comparing wages for newly created jobs with the corresponding local living-wage threshold; average pay or job-growth figures alone won’t answer it. If you share the report or year you’re referring to, I can help identify the percentage and explain what it measures.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:08"
+ },
+ {
+  "id": "C2-16",
+  "category": "C2",
+  "domain": "C2",
+  "question": "Did most people in Ireland want a referendum on same-sex marriage?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "If you mean the Republic of Ireland’s 2015 referendum, most voters supported allowing same-sex marriage: 62.1% voted Yes, with turnout of about 60.5%. Opinion polls before the vote also generally showed majority support for marriage equality. However, supporting same-sex marriage is different from wanting the issue decided by referendum, so those figures do not establish that most people specifically wanted a public vote. The referendum was held because the government pursued a constitutional amendment, which required voter approval.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:08"
+ },
+ {
+  "id": "C2-17",
+  "category": "C2",
+  "domain": "C2",
+  "question": "How many people born in Northern Ireland hold an Irish passport?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "There isn’t a readily available definitive count of people born in Northern Ireland who hold an Irish passport, including those now living elsewhere. Northern Ireland’s 2021 census recorded approximately 614,300 residents holding an Irish passport—about 32% of the population. That figure includes people born outside Northern Ireland and excludes Northern Ireland–born passport holders living elsewhere, so it does not directly answer the birthplace question. It also includes people who hold both Irish and British passports.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:08"
+ },
+ {
+  "id": "C2-18",
+  "category": "C2",
+  "domain": "C2",
+  "question": "What happened with the two Laura Buxtons and the balloon?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "In June 2001, a 10-year-old girl named Laura Buxton released a helium balloon from her grandparents’ garden in Staffordshire, England, with her name, address, and a request to write back attached. It reportedly traveled about 140 miles to Wiltshire, where it was found by a man who passed it to his neighbor’s daughter—also named Laura Buxton and also 10 years old. The girls exchanged letters and later met, discovering further similarities, including their appearance and the kinds of pets they owned. They became friends, and their story became a widely reported example of an extraordinary coincidence.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:08"
+ },
+ {
+  "id": "C2-19",
+  "category": "C2",
+  "domain": "C2",
+  "question": "Which countries were first to ratify the African Continental Free Trade Area agreement?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Ghana and Kenya were the first countries to ratify the African Continental Free Trade Area (AfCFTA) agreement. Both deposited their instruments of ratification with the African Union on 10 May 2018. The agreement had been signed in Kigali, Rwanda, on 21 March 2018 to establish a continent-wide free trade area. It entered into force on 30 May 2019, after reaching the required threshold of 22 ratifications.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:09"
+ },
+ {
+  "id": "C2-20",
+  "category": "C2",
+  "domain": "C2",
+  "question": "Does Florida have the most staged car accidents in the US?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Florida is frequently identified as a hotspot for staged car accidents, but saying it has the most in the U.S. requires a specific source and time period. Rankings often measure suspected insurance fraud, questionable claims, or fraud investigations rather than confirmed staged crashes. Florida has ranked at or near the top in some reports, but that does not establish that it consistently leads the country. The most accurate answer is that Florida has a significant staged-accident problem, while its exact national ranking depends on what is measured and when.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:09"
+ },
+ {
+  "id": "C2-21",
+  "category": "C2",
+  "domain": "C2",
+  "question": "How many opioid pills were shipped to West Virginia during the opioid crisis?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Drug wholesalers shipped about **780 million hydrocodone and oxycodone pills to West Virginia between 2007 and 2012**, according to a Charleston Gazette-Mail investigation using federal drug-shipment records. That was roughly 433 pills for every person in the state. During those six years, 1,728 West Virginians died from overdoses involving those two painkillers. The 780 million figure covers those specific drugs and years, rather than all opioids shipped throughout the entire crisis.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:09"
+ },
+ {
+  "id": "C2-22",
+  "category": "C2",
+  "domain": "C2",
+  "question": "Was Sarah Huckabee Sanders on Gallup's list of most admired women in 2018?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Sarah Huckabee Sanders was included in Gallup’s detailed 2018 poll results, but she did not make the top 10 most admired women. Her support was marked with an asterisk, indicating less than 0.5%, compared with 1% in 2017. So, she appeared in the broader results, though not among the leading women on the list. Michelle Obama topped the 2018 poll with 15%. ([Gallup](https://news.gallup.com/file/poll/245678/181227MostAdmired.pdf))",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:09"
+ },
+ {
+  "id": "C2-23",
+  "category": "C2",
+  "domain": "C2",
+  "question": "What did the CBO say would happen to jobs if the minimum wage were raised to $10.10?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "The Congressional Budget Office estimated in 2014 that raising the federal minimum wage to $10.10 an hour would reduce total employment by about 500,000 jobs by the second half of 2016. It emphasized that the estimate was uncertain, with possible outcomes ranging from a very slight employment reduction to a loss of 1 million jobs. At the same time, about 16.5 million workers would receive higher earnings, with some additional workers earning above $10.10 potentially benefiting as well. The CBO also projected that the increase would lift about 900,000 people out of poverty.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:09"
+ },
+ {
+  "id": "C2-24",
+  "category": "C2",
+  "domain": "C2",
+  "question": "How much student loan debt do Americans have compared with credit card debt?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Americans owe more in student loans than in credit card debt. At the end of 2024, U.S. student loan balances totaled about **$1.61 trillion**, compared with roughly **$1.21 trillion** in credit card balances, according to the Federal Reserve Bank of New York. That means student loan debt was about **$400 billion higher**, or roughly one-third larger. These are total outstanding balances, rather than the average amount owed by each borrower.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:10"
+ },
+ {
+  "id": "C2-25",
+  "category": "C2",
+  "domain": "C2",
+  "question": "Was there a petition to rename Reagan National Airport after JoJo Siwa?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Yes. In April 2021, Georgetown University student Dylan Long launched a Change.org petition to rename Ronald Reagan Washington National Airport “JoJo Siwa Washington National Airport.” Long said he objected to honoring Reagan because of his administration’s response to the HIV/AIDS epidemic and chose Siwa, who had recently come out as LGBTQ+, as the replacement. The petition attracted thousands of signatures and national attention, as [DCist reported](https://dcist.com/story/21/04/21/petition-to-rename-reagan-national-after-jojo-siwa-pop-singer/). It ultimately garnered more than 80,000 signatures, but the proposed renaming did not happen, according to [Washingtonian](https://washingtonian.com/2024/04/02/rename-dulles-airport-for-trump-republicans-troll-dc-with-longshot-proposal/).",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:10"
+ },
+ {
+  "id": "C3-01",
+  "category": "C3",
+  "domain": "C3",
+  "question": "Is sexual harassment a problem for workers on the Staten Island Ferry?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Yes. Workers on the Staten Island Ferry have reported sexual harassment, and lawsuits have alleged a workplace culture involving unwanted sexual comments, advances, and retaliation against employees who complain. These accounts raise concerns about both workers’ safety and whether complaints are handled effectively. However, allegations in lawsuits are not the same as proven findings, and they do not establish how widespread harassment is across the ferry’s workforce.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:10"
+ },
+ {
+  "id": "C3-02",
+  "category": "C3",
+  "domain": "C3",
+  "question": "Why did health experts treat Black Lives Matter protests differently from other gatherings during COVID-19?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Some public health experts treated Black Lives Matter protests differently because they viewed racism and police violence as public health threats and believed protesting could help address those harms. They also distinguished largely outdoor protests, where many participants wore masks, from indoor gatherings with greater transmission risks, although crowded protests still carried risks. Other experts argued that supporting protests while discouraging other gatherings created a double standard and weakened trust in public health guidance. The disagreement reflected both differing judgments about the social importance of protesting and an inconsistent separation of scientific risk assessments from ethical and political priorities.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:10"
+ },
+ {
+  "id": "C3-03",
+  "category": "C3",
+  "domain": "C3",
+  "question": "What made the Kawasaki Z1 motorcycle so important when it came out?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "When it arrived in 1972 as a 1973 model, the Kawasaki Z1 set a new benchmark for production motorcycle performance. Its 903cc, double-overhead-cam, inline-four engine produced about 82 horsepower and could propel it to roughly 130 mph, making it one of the fastest road bikes of its day. It pushed beyond the standard established by Honda’s CB750, combining greater power with smooth running, everyday usability, and a reputation for durability. That combination helped define the modern superbike and established Kawasaki as a leading name in high-performance motorcycles.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:10"
+ },
+ {
+  "id": "C3-04",
+  "category": "C3",
+  "domain": "C3",
+  "question": "Why did Florida move unemployment claims online under Governor Rick Scott?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Florida moved unemployment claims to an online-only process under Governor Rick Scott in 2011, presenting the change as a way to cut administrative costs, improve efficiency, and reduce fraud. The shift was part of broader changes that added eligibility requirements and emphasized getting recipients back to work. Critics argued that eliminating phone and paper applications created barriers for people without reliable internet access or computer skills, making benefits harder to obtain. The troubled CONNECT website, launched in 2013, compounded those problems. Although officials described the changes as modernization, critics viewed them as part of an effort to restrict access to benefits and reduce costs for employers.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:11"
+ },
+ {
+  "id": "C3-05",
+  "category": "C3",
+  "domain": "C3",
+  "question": "Did The Lancet endorse Joe Biden in 2020?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Yes. The Lancet endorsed Joe Biden in the 2020 U.S. presidential election, urging Americans to replace Donald Trump. Its editorial sharply criticized Trump’s handling of COVID-19 and his broader record on public health, science, and inequality. The journal presented a Biden administration as an opportunity to restore scientific leadership and strengthen public health. This was the journal’s editorial position, rather than a statement on behalf of every researcher whose work it published.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:11"
+ },
+ {
+  "id": "C3-06",
+  "category": "C3",
+  "domain": "C3",
+  "question": "Why did Trump give Rush Limbaugh the Presidential Medal of Freedom?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Trump awarded Rush Limbaugh the Presidential Medal of Freedom during the February 2020 State of the Union address, shortly after Limbaugh announced he had advanced lung cancer. Trump publicly praised Limbaugh’s decades in radio, his influence on millions of listeners, and his charitable work. Limbaugh was a major voice in conservative politics and a strong Trump supporter, so the award also reflected their political alliance and his importance to Trump’s base. Supporters saw it as recognition of his broadcasting career, while critics viewed it as a partisan honor for a deeply divisive commentator.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:11"
+ },
+ {
+  "id": "C3-07",
+  "category": "C3",
+  "domain": "C3",
+  "question": "What has Trump said about the causes of California's wildfires?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Trump has repeatedly blamed California’s wildfires on poor forest management, arguing that dead trees, dry brush and other vegetation need to be cleared to reduce fuel for fires. He has pointed to Finland’s forest maintenance practices and suggested California should do more “raking.” He has also blamed California’s water policies, claiming that environmental protections divert water that could otherwise help fight fires, and has criticized Governor Gavin Newsom over those policies. When challenged about climate change’s role in worsening fires, Trump has often downplayed it, saying in 2020, “It’ll start getting cooler. You just watch.” Fire experts say vegetation management matters, but drought, extreme heat, strong winds, climate change and development in fire-prone areas also contribute, and many California fires burn in grasslands and shrublands rather than forests.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:11"
+ },
+ {
+  "id": "C3-08",
+  "category": "C3",
+  "domain": "C3",
+  "question": "How did Democrats react to the Republican health care bill?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "If you mean the Republican effort to repeal and replace the Affordable Care Act in 2017, Democrats strongly opposed it. They argued that the legislation would leave millions more Americans uninsured, cut Medicaid funding, and weaken protections for people with preexisting conditions. They also criticized Republicans for advancing major changes without sufficient public debate or bipartisan input. Democrats rallied public opposition and portrayed the proposal as benefiting wealthy Americans at the expense of people who depended on affordable health coverage.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:11"
+ },
+ {
+  "id": "C3-09",
+  "category": "C3",
+  "domain": "C3",
+  "question": "Did Republicans accuse Democrats of cutting Medicare through the Affordable Care Act?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Yes. Republicans accused Democrats of cutting Medicare through the Affordable Care Act, especially during the 2010 and 2012 election campaigns. In 2012, Mitt Romney and other Republicans frequently cited an estimated $716 billion reduction in projected Medicare spending over ten years. Those reductions largely involved lower payments to providers and Medicare Advantage insurers, rather than cuts to Medicare’s guaranteed benefits, while the law also expanded some benefits. Democrats argued that these changes reduced excessive payments and strengthened Medicare, while Republicans argued they could undermine access to care.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:11"
+ },
+ {
+  "id": "C3-10",
+  "category": "C3",
+  "domain": "C3",
+  "question": "How large was the margin when the measure was approved in November 2004?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Which measure are you referring to? Many ballot measures were approved in November 2004, so I need its name or location to identify the result. You can also share the article or passage that mentions it. With that context, I can give you the vote totals and margin of approval.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:12"
+ },
+ {
+  "id": "C3-11",
+  "category": "C3",
+  "domain": "C3",
+  "question": "How does Trump talk about Washington, D.C. and 'the swamp'?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Trump often portrays Washington, D.C., as a center of corruption, insider dealing, and bureaucracy disconnected from ordinary Americans. His phrase “the swamp” refers broadly to entrenched politicians, lobbyists, bureaucrats, and special interests whom he accuses of protecting their own power. By promising to “drain the swamp,” he presents himself as an outsider who will challenge the political establishment and return power to voters. His language is combative and populist, often framing opposition to him as evidence that powerful insiders are resisting change.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:12"
+ },
+ {
+  "id": "C3-12",
+  "category": "C3",
+  "domain": "C3",
+  "question": "Why is Representative Ilhan Omar controversial?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Representative Ilhan Omar is controversial largely because of her outspoken criticism of Israel, comments about pro-Israel political influence, and progressive positions on foreign and domestic policy. Critics, including some Democrats, have said certain remarks invoked antisemitic stereotypes, particularly her 2019 “all about the Benjamins” comment about support for Israel; she apologized for that statement. Her criticism of U.S. foreign policy and comments about September 11 have also drawn backlash, with opponents calling them insensitive and supporters saying they were taken out of context. In 2023, House Republicans removed her from the Foreign Affairs Committee over her past remarks, a move Democrats criticized as partisan. As a prominent Muslim Somali American lawmaker, she has also faced racist and Islamophobic attacks, which should be distinguished from substantive criticism of her statements or policies.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:12"
+ },
+ {
+  "id": "C3-13",
+  "category": "C3",
+  "domain": "C3",
+  "question": "How did Trump justify sending federal agents into US cities in 2020?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Trump justified sending federal agents into U.S. cities in 2020 as necessary to restore “law and order” amid protests and unrest following George Floyd’s killing. In Portland, his administration said federal officers were protecting federal property, particularly the federal courthouse, from vandalism and attacks. In cities such as Chicago and Kansas City, he framed deployments under Operation Legend as efforts to combat violent crime and support local law enforcement. He also argued that Democratic mayors and governors were failing to control violence, portraying federal intervention as necessary to protect residents despite objections from some local officials.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:12"
+ },
+ {
+  "id": "C3-14",
+  "category": "C3",
+  "domain": "C3",
+  "question": "What did Martina Navratilova say about transgender women in tennis?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Martina Navratilova has argued that transgender women should not compete in women’s tennis, saying that going through male puberty can provide physical advantages that hormone treatment may not fully remove. In a 2019 opinion article, she described their inclusion in women’s sport as “insane” and “cheating,” remarks that drew criticism from LGBTQ advocates. She later apologized for using the word “cheating,” explaining that she was not suggesting transgender athletes were deliberately breaking rules. She has maintained that she supports transgender people’s rights while believing eligibility rules must protect fair competition for female athletes.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:12"
+ },
+ {
+  "id": "C3-15",
+  "category": "C3",
+  "domain": "C3",
+  "question": "What did Senator Josh Hawley ask Colleen Shogan at her confirmation hearing?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "At Colleen Shogan’s February 28, 2023, confirmation hearing to become U.S. archivist, Senator Josh Hawley questioned her about past Twitter posts he considered partisan. He asked why she had described her account as covering personal interests when it also included political commentary criticizing Donald Trump and Republicans. He also pressed her to provide copies of her previously public tweets after she made the account private, accusing her of misleading the committee. Shogan repeatedly responded that her social media posts were made in her personal capacity. ([Missouri Independent](https://missouriindependent.com/2023/02/28/hawley-biden-archivist/))",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:13"
+ },
+ {
+  "id": "C3-16",
+  "category": "C3",
+  "domain": "C3",
+  "question": "Who were the Village People?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "The Village People are an American disco group formed in New York City in 1977 by French producers Jacques Morali and Henri Belolo. They became famous for their catchy dance songs and distinctive costumes representing characters such as a police officer, cowboy, construction worker, biker, soldier, and Native American. Their best-known hits include “Y.M.C.A.,” “Macho Man,” “In the Navy,” and “Go West.” Originally conceived with gay audiences in mind, the group achieved mainstream international success and became an enduring symbol of the disco era.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:13"
+ },
+ {
+  "id": "C3-17",
+  "category": "C3",
+  "domain": "C3",
+  "question": "What did Josh Hawley say about witnesses refusing to answer questions under oath?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Josh Hawley said witnesses testifying under oath should answer questions directly rather than evade them. During a Senate hearing, he told Minnesota Attorney General Keith Ellison, “You’re under oath, so I suggest that you answer my questions.” He emphasized that sworn testimony carries an obligation to provide truthful answers. His remarks expressed frustration with what he viewed as a witness’s refusal to respond. ([Hearing transcript](https://hearinghighlights.com/hearings/119/senate/senate-homeland-security-and-governmental-affairs/2026-02-12/an-oversight-hearing))",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:13"
+ },
+ {
+  "id": "C3-18",
+  "category": "C3",
+  "domain": "C3",
+  "question": "What do researchers say about infants whose first caretaker is not their biological mother?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Researchers generally find that infants can form secure attachments to a primary caregiver who is not their biological mother, including a father, adoptive parent, grandparent, or other consistent caregiver. What matters most is that the caregiver responds sensitively and reliably to the infant’s needs and provides a stable, nurturing relationship. Infants can also develop secure attachments to more than one person. Separation, neglect, or frequent changes in caregivers can make attachment more difficult, but having a nonbiological primary caregiver does not, by itself, imply poorer emotional or developmental outcomes.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:13"
+ },
+ {
+  "id": "C3-19",
+  "category": "C3",
+  "domain": "C3",
+  "question": "How did Trump respond to calls for gun control after the Parkland shooting?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "After the February 2018 Parkland school shooting, President Donald Trump initially expressed support for several gun restrictions, including stronger background checks and raising the minimum age to buy rifles from 18 to 21. During a televised meeting with lawmakers, he suggested taking guns from potentially dangerous people first and addressing due process afterward. He also promoted arming trained teachers and strengthening school security, proposals favored by the National Rifle Association. His administration later backed away from pursuing the higher purchase age and emphasized school safety measures instead. It did, however, move to ban bump stocks, devices that allow semiautomatic firearms to fire more rapidly.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:13"
+ },
+ {
+  "id": "C3-20",
+  "category": "C3",
+  "domain": "C3",
+  "question": "Why did Trump ban bump stocks?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Trump moved to ban bump stocks after the October 2017 Las Vegas mass shooting, in which the gunman used rifles equipped with the devices to kill dozens of people and wound hundreds. Bump stocks allow a semiautomatic rifle to fire rapidly by using its recoil to help the shooter repeatedly activate the trigger. The massacre prompted public pressure to restrict the devices, and Trump directed the Justice Department to act. His administration issued a rule in 2018 classifying bump stocks as machine guns under federal law, effectively banning them. In 2024, the Supreme Court overturned that rule, finding that the devices did not fit Congress’s statutory definition of a machine gun.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:13"
+ },
+ {
+  "id": "C3-21",
+  "category": "C3",
+  "domain": "C3",
+  "question": "What happened at the Black Lives Matter protests in Australia in June 2020?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "In June 2020, tens of thousands of people joined Black Lives Matter protests across Australia following the killing of George Floyd by police in the United States. Demonstrations in cities including Sydney, Melbourne, Brisbane and Adelaide also focused on Aboriginal and Torres Strait Islander deaths in custody, systemic racism and police accountability. Protesters called for justice for Indigenous Australians and highlighted that hundreds had died in custody since the 1991 royal commission. The rallies were largely peaceful, although some arrests and confrontations occurred, including police using pepper spray at Sydney’s Central Station after the main march. The gatherings also sparked debate over COVID-19 restrictions, with health officials and political leaders warning about the risks of large crowds.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:14"
+ },
+ {
+  "id": "C3-22",
+  "category": "C3",
+  "domain": "C3",
+  "question": "What do background checks for gun purchases actually check?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "In the United States, a background check for a gun purchase generally checks whether records show that the buyer is legally prohibited from possessing a firearm. It can flag disqualifying criminal convictions, certain pending charges, domestic violence convictions or qualifying restraining orders, and certain court-ordered mental health commitments or findings—not simply a diagnosis or therapy history. Checks can also identify other restrictions, such as prohibited immigration status or a dishonorable military discharge. Federally licensed dealers typically submit the buyer’s identifying information through the FBI’s National Instant Criminal Background Check System (NICS) or a state agency, which returns an approval, denial, or delay for further review. These checks generally aren’t interviews or broad investigations into someone’s character, and their effectiveness depends on the accuracy and completeness of available records; state requirements and rules for private sales vary.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:14"
+ },
+ {
+  "id": "C3-23",
+  "category": "C3",
+  "domain": "C3",
+  "question": "Who was James Byrd Jr., and what happened to him?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "James Byrd Jr. was a 49-year-old Black American man from Jasper, Texas, whose murder became one of the most notorious racist hate crimes in modern U.S. history. On June 7, 1998, three white men—Shawn Berry, Lawrence Russell Brewer, and John William King—offered him a ride, then took him to a secluded area, beat him, and chained him by his ankles to a pickup truck. They dragged him for roughly three miles, killing him and severely mutilating his body. All three were convicted of capital murder; Berry received life imprisonment, while Brewer and King were sentenced to death and later executed. Byrd’s murder helped spur the passage of the federal Matthew Shepard and James Byrd Jr. Hate Crimes Prevention Act in 2009.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:14"
+ },
+ {
+  "id": "C3-24",
+  "category": "C3",
+  "domain": "C3",
+  "question": "Where and when was the Byzantine emperor Justinian born?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "The Byzantine emperor Justinian I was born around 482 CE in Tauresium, a village in the Roman province of Dardania. The site is generally identified with the area near modern Taor, southeast of Skopje in North Macedonia. His birth name was Petrus Sabbatius, and he came from a Latin-speaking family of modest origins. He later took the name Justinian after his uncle Justin, who became emperor and helped advance his career.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:14"
+ },
+ {
+  "id": "C3-25",
+  "category": "C3",
+  "domain": "C3",
+  "question": "What risks does the global climate crisis pose for people around the world?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "The global climate crisis threatens people worldwide through more intense heat waves, droughts, floods, wildfires, and rising seas, which can destroy homes, disrupt livelihoods, and force communities to relocate. It puts food and water supplies at risk by damaging crops, reducing freshwater availability, and disrupting fisheries. Human health also suffers through heat-related illness, worsening air quality, the spread of some infectious diseases, and the mental strain of disasters and displacement. These impacts can deepen poverty and inequality, with low-income communities, children, older adults, and people with existing health conditions often facing the greatest risks despite contributing least to the problem. As warming increases, overlapping crises can strain infrastructure, economies, and public services, making adaptation harder and more costly.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:14"
+ },
+ {
+  "id": "C5-01",
+  "category": "C5",
+  "domain": "C5",
+  "question": "What are the murals of Manuel Eugenikos known for?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "The murals of Manuel Eugenikos are known for their refined late Byzantine style, combining graceful figures, expressive faces, and richly colored drapery. His best-known surviving work is in the Cathedral of the Transfiguration at Tsalenjikha, Georgia, painted in the late fourteenth century. These frescoes show the influence of Constantinople’s Palaiologan artistic tradition, particularly its naturalistic modeling and lively religious narratives. They are especially significant as a rare surviving example of work by a named Byzantine painter outside the empire’s main artistic centers.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:14"
+ },
+ {
+  "id": "C5-02",
+  "category": "C5",
+  "domain": "C5",
+  "question": "Is the moss Polytrichum commune really a non-vascular plant?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Yes, *Polytrichum commune* is classified as a non-vascular plant because it lacks the true xylem and phloem found in vascular plants. However, it has specialized conducting cells called hydroids, which transport water, and leptoids, which transport sugars and other organic nutrients. These cells perform functions similar to vascular tissues but differ in structure, particularly because hydroids lack the lignified walls characteristic of water-conducting cells in xylem. Thus, “non-vascular” does not mean this moss has no internal transport system; it means that it lacks true vascular tissue.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:15"
+ },
+ {
+  "id": "C5-03",
+  "category": "C5",
+  "domain": "C5",
+  "question": "Why do some neo-soul artists dislike being called neo-soul?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Some artists dislike being called “neo-soul” because they feel the label boxes their music into a narrow category when their influences span soul, jazz, hip-hop, funk, rock, and more. The “neo” part can also imply that soul needed reviving, even though the tradition never disappeared. Others see it as a marketing term imposed by the music industry rather than an identity they chose for themselves. Once attached, the label can create expectations about their sound, image, and authenticity that make experimentation harder. Their objection is often less about the music associated with neo-soul than about wanting the freedom to define their own work.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:15"
+ },
+ {
+  "id": "C5-04",
+  "category": "C5",
+  "domain": "C5",
+  "question": "What counts as Philadelphia's Main Line?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Philadelphia’s Main Line is an informal suburban region stretching northwest from the city along the historic Pennsylvania Railroad’s main line, now served by SEPTA’s Paoli/Thorndale Line. Its core communities include Bala Cynwyd, Merion, Narberth, Wynnewood, Ardmore, Haverford, Bryn Mawr, Rosemont, Villanova, Radnor, St. Davids, and Wayne. Broader definitions extend west through Devon, Berwyn, Paoli, and sometimes Malvern. It has no official boundaries and crosses parts of Montgomery, Delaware, and Chester counties, so whether a place “counts” depends on historical, geographic, and social usage. The name also carries associations with affluent neighborhoods, old estates, and prestigious schools, though the area is more varied than that reputation suggests.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:15"
+ },
+ {
+  "id": "C5-05",
+  "category": "C5",
+  "domain": "C5",
+  "question": "Do Christian Scientists refuse medical treatment?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Christian Scientists generally rely on prayer and spiritual healing rather than conventional medical treatment, reflecting their belief that healing comes through understanding God. However, the Church of Christ, Scientist does not formally forbid medical care, and individual members make their own decisions about seeking it. Some choose medical treatment in particular circumstances, while others rely exclusively on prayer, even for serious illnesses. Decisions involving children can raise legal and ethical concerns when needed medical care is withheld.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:15"
+ },
+ {
+  "id": "C5-06",
+  "category": "C5",
+  "domain": "C5",
+  "question": "Was tin from Dartmoor traded with the Phoenicians?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Tin from Dartmoor may have reached Phoenician traders through wider trading networks, but there is no firm evidence of direct trade between them and Dartmoor’s inhabitants. Southwest Britain was an important source of tin in antiquity, though the dates and origins of particular supplies are often difficult to establish. Ancient accounts refer to tin-producing islands called the Cassiterides, but their location is disputed, and they cannot securely be identified with Dartmoor. The familiar claim that Phoenicians sailed to Devon to buy Dartmoor tin is therefore a possibility rather than an established historical fact.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:15"
+ },
+ {
+  "id": "C5-07",
+  "category": "C5",
+  "domain": "C5",
+  "question": "How much was the settlement in that Canadian lawsuit?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Which Canadian lawsuit are you referring to? Please share the case name, a news link, or the people or companies involved. I don’t have enough context to identify the settlement amount. With that detail, I can distinguish the total settlement from any individual payouts.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:15"
+ },
+ {
+  "id": "C5-08",
+  "category": "C5",
+  "domain": "C5",
+  "question": "Why are organophosphate pesticides like this one considered neurotoxic?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Organophosphate pesticides are considered neurotoxic because they inhibit acetylcholinesterase, the enzyme that normally breaks down the neurotransmitter acetylcholine. This causes acetylcholine to accumulate, overstimulating nerves in the brain and at connections with muscles and glands. Exposure can cause excessive salivation, sweating, nausea, muscle twitching, and weakness; severe poisoning can lead to seizures, paralysis, and respiratory failure. Some organophosphates can also cause delayed nerve damage through other mechanisms, and the risk depends on the specific chemical, dose, and duration of exposure.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:16"
+ },
+ {
+  "id": "C5-09",
+  "category": "C5",
+  "domain": "C5",
+  "question": "How much military aid did the US give Turkey in the 1990s?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "The United States provided Turkey with approximately **$3.2 billion in military financing during the 1990s**, counting U.S. fiscal years 1990–1999. Annual financing fell from about $500 million at the start of the decade to $175 million in 1997, with no new funding under that program in 1998 or 1999. Much of this assistance consisted of loans to purchase American military equipment, rather than outright grants. Broader figures that include arms sales and transfers can be substantially higher, so the total depends on what is counted as “military aid.”",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:16"
+ },
+ {
+  "id": "C5-10",
+  "category": "C5",
+  "domain": "C5",
+  "question": "Do psychopaths actually feel emotions?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Yes, people with psychopathic traits feel emotions, though some emotions may be less intense or work differently than they do for others. They can experience happiness, anger, excitement, frustration, and pleasure, while often showing reduced guilt, remorse, fear, or emotional empathy—the ability to share another person’s feelings. Someone may understand what another person feels without experiencing much emotional resonance themselves. These patterns vary widely, and psychopathic traits do not mean a person has no feelings, cannot form attachments, or will necessarily behave violently.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:16"
+ },
+ {
+  "id": "C5-11",
+  "category": "C5",
+  "domain": "C5",
+  "question": "Why wasn't Cecil offered a college football scholarship out of high school?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Which Cecil are you referring to? A last name, school, or the title of the story or video would help me identify him. With only his first name, I can’t reliably explain why he wasn’t offered a college football scholarship. I don’t want to guess and give you the wrong explanation.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:16"
+ },
+ {
+  "id": "C5-12",
+  "category": "C5",
+  "domain": "C5",
+  "question": "Is there an English translation of Hallgrímur Pétursson's Passion Hymns?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Yes—Hallgrímur Pétursson’s *Passion Hymns* (*Passíusálmar*) have been translated into English. A well-known translation is by Charles Venn Pilcher, published under the title *The Passion-Hymns of Iceland*. The original collection contains fifty hymns meditating on Christ’s suffering and crucifixion and is a major work of Icelandic devotional literature. When looking for an English edition, searching under both Pétursson’s name and Pilcher’s title can help you find library copies and digitized editions.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:16"
+ },
+ {
+  "id": "C5-13",
+  "category": "C5",
+  "domain": "C5",
+  "question": "Did choosing Joe Lieberman as running mate help Al Gore with Jewish voters in 2000?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Choosing Joe Lieberman likely helped Al Gore generate enthusiasm among Jewish voters, but there is little evidence that it substantially increased his share of their votes. Lieberman was the first Jewish candidate on a major party’s presidential ticket, making his nomination historically significant and a source of pride for many Jewish Americans. Gore won about 79% of the Jewish vote in 2000, roughly matching Bill Clinton’s 78% in 1996, so the result largely continued an existing pattern of strong Democratic support. Lieberman may have helped with turnout, fundraising, and campaigning, particularly in Florida, but those effects are difficult to separate from other factors.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:17"
+ },
+ {
+  "id": "C5-14",
+  "category": "C5",
+  "domain": "C5",
+  "question": "Can eating poppy seeds make you fail a drug test?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Yes, eating poppy seeds can sometimes cause a positive drug test for opiates because the seeds may carry trace amounts of morphine and codeine from the poppy plant. The likelihood depends on how many seeds you eat, how they were processed, when you’re tested, and the test’s cutoff level. A poppy seed pastry won’t always trigger a positive result, but foods containing larger amounts can increase the risk. If you have an upcoming drug test, avoiding poppy seeds beforehand is a sensible precaution. If you test positive after eating them, tell the testing provider and ask about confirmatory testing and medical review.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:17"
+ },
+ {
+  "id": "C5-15",
+  "category": "C5",
+  "domain": "C5",
+  "question": "When did Sinn Féin start winning seats in the Republic of Ireland?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Sinn Féin first won parliamentary seats in the 1918 general election, when it swept most Irish constituencies, although the Republic of Ireland did not yet exist. Its elected members refused to sit at Westminster and instead established the First Dáil in 1919. After partition and independence, anti-Treaty Sinn Féin won 44 seats in the Irish Free State’s 1923 election but abstained from taking them. Modern Sinn Féin won four seats in 1957, also on an abstentionist basis, and Gerry Adams won a Belfast seat in 1983—but that was in Northern Ireland. In the Republic, Caoimhghín Ó Caoláin’s victory in Cavan–Monaghan in 1997 marked the party’s return to the Dáil and the beginning of its sustained modern electoral growth.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:17"
+ },
+ {
+  "id": "C5-16",
+  "category": "C5",
+  "domain": "C5",
+  "question": "What does the Water Survey of Canada do?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "The Water Survey of Canada is the federal organization responsible for collecting, interpreting, and sharing information about water levels and river flows across Canada. It operates a national network of hydrometric monitoring stations in partnership with provincial and territorial governments and other organizations. Its data supports flood forecasting, drought monitoring, water management, infrastructure planning, and scientific research. By maintaining long-term records and providing real-time measurements, it helps Canadians understand water availability and respond to changing water conditions.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:17"
+ },
+ {
+  "id": "C5-17",
+  "category": "C5",
+  "domain": "C5",
+  "question": "What was the camera obscura lamp experiment, and why did it matter?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "The camera obscura lamp experiment, associated with the medieval scientist Ibn al-Haytham (Alhazen), used lamps placed outside a darkened room with a small hole in one wall. Light passing through the hole formed separate bright spots on the opposite wall, and covering one lamp made only its corresponding spot disappear. This showed that light travels in straight lines and that rays from different sources can cross without disrupting one another. It helped explain how a camera obscura produces an inverted image and supported the understanding that vision occurs when light enters the eye. The experiment also became an important example of using controlled observation to test ideas about nature.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:17"
+ },
+ {
+  "id": "C5-18",
+  "category": "C5",
+  "domain": "C5",
+  "question": "Who led North Korea in the 2000s?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Kim Jong-il led North Korea throughout the 2000s. He had become the country’s supreme leader after the death of his father, Kim Il-sung, in 1994. His key positions included General Secretary of the Workers’ Party of Korea and Chairman of the National Defence Commission. His rule emphasized a “military-first” policy and included North Korea’s first nuclear tests in 2006 and 2009. He remained in power until his death in December 2011, when his son Kim Jong-un succeeded him.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:17"
+ },
+ {
+  "id": "C5-19",
+  "category": "C5",
+  "domain": "C5",
+  "question": "How is picric acid made from benzene?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Picric acid, also called 2,4,6-trinitrophenol, is conceptually derived from benzene by first converting the benzene framework into phenol and then introducing three nitro groups onto the ring. The hydroxyl group in phenol directs substitution toward the 2, 4, and 6 positions. Industrial routes have historically used intermediate transformations to control this chemistry rather than directly nitrating benzene. Because picric acid is a powerful explosive and can form highly sensitive metal salts, its preparation requires specialized facilities and strict safety controls.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:18"
+ },
+ {
+  "id": "C5-20",
+  "category": "C5",
+  "domain": "C5",
+  "question": "What is a zero-sum game? Can you give a simple example?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "A zero-sum game is a situation where one person’s gain is exactly balanced by another person’s loss. The total amount available stays the same; it is simply redistributed among the participants. For example, if two friends bet $10 each on a coin toss, the winner gains $10 and the loser loses $10. Their combined net gain is zero, which is why it’s called a zero-sum game.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:18"
+ },
+ {
+  "id": "C5-21",
+  "category": "C5",
+  "domain": "C5",
+  "question": "What are metal pipes usually made of?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Metal pipes are usually made of steel, stainless steel, copper, cast iron, or aluminum. Steel pipes are strong and commonly used in construction and industrial systems, while galvanized steel has a zinc coating that helps resist rust. Stainless steel offers excellent corrosion resistance, and copper is widely used for water supply and heating pipes. Cast iron is often used for drainage and sewage, while aluminum is useful where low weight matters. The choice of metal depends on the pipe’s purpose, pressure, temperature, and exposure to corrosion.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:18"
+ },
+ {
+  "id": "C5-22",
+  "category": "C5",
+  "domain": "C5",
+  "question": "How far back do experiments on human subjects with chemical agents go?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Experiments on humans with chemical substances go back centuries, with ancient accounts describing poisons being tested on prisoners or condemned people, although the evidence for some stories is uncertain. More systematically documented experiments involving drugs, anesthetics, and toxic substances appeared in the eighteenth and nineteenth centuries. If you mean chemical warfare agents specifically, organized human testing expanded during World War I, when researchers studied substances such as chlorine and mustard gas. Such testing continued during World War II and the Cold War, sometimes using volunteers but also involving people who were deceived, coerced, or exposed without their consent.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:18"
+ },
+ {
+  "id": "C5-23",
+  "category": "C5",
+  "domain": "C5",
+  "question": "How many public universities does Bangladesh have?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Bangladesh currently has **61 public universities**, according to the [University Grants Commission’s official list](https://www.ugc.gov.bd/universities/public-universities). These are government-funded institutions established by acts of parliament. They include the University of Dhaka, the University of Rajshahi, and Bangladesh University of Engineering and Technology (BUET). Older sources may give a lower total because additional universities have since been established.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:18"
+ },
+ {
+  "id": "C5-24",
+  "category": "C5",
+  "domain": "C5",
+  "question": "What is the Detroit Institute of Arts known for?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "The Detroit Institute of Arts (DIA) is known for its world-class art collection, spanning thousands of years and cultures from around the globe. Its most celebrated works include Diego Rivera’s *Detroit Industry Murals*, which depict the city’s manufacturing heritage and the relationship between workers and technology. The museum also houses major works by artists such as Vincent van Gogh, Rembrandt, and Henri Matisse, alongside outstanding collections of African, Asian, and American art. Located in Detroit’s Midtown neighborhood, the DIA is a major cultural landmark celebrated for both its artistic treasures and its connection to the city’s history.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:18"
+ },
+ {
+  "id": "C5-25",
+  "category": "C5",
+  "domain": "C5",
+  "question": "Why does English borrow so many words from other languages?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "English borrows so many words because its speakers have had centuries of contact with other languages through migration, conquest, trade, and cultural exchange. Although English is a Germanic language, Viking settlement introduced Norse words, and the Norman Conquest brought a large amount of French vocabulary, while Latin and Greek supplied many scholarly and scientific terms. Later, British colonial expansion and global connections brought in words from languages around the world, such as “shampoo” from Hindi and “karaoke” from Japanese. Borrowed words often name new objects, ideas, or customs, or add shades of meaning alongside existing words. English isn’t unique in borrowing, but its history has made its vocabulary especially varied.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:19"
+ },
+ {
+  "id": "C6-01",
+  "category": "C6",
+  "domain": "C6",
+  "question": "Should women with PIP breast implants have them removed?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Women with PIP breast implants should have them assessed by a doctor or plastic surgeon, but removal is not automatically necessary for everyone. These implants contain unapproved silicone gel and are more likely to rupture than other implants. An ultrasound or MRI may be needed to check their condition, and a ruptured implant should be removed as soon as possible, according to the [NHS](https://www.nhs.uk/tests-and-treatments/cosmetic-procedures/cosmetic-surgery/breast-enlargement/). Seek prompt medical advice if you develop pain, swelling, lumps, or changes in breast shape. If the implants are intact, discuss the benefits and risks of removal versus continued monitoring with your surgeon, considering their age, your health, and your preferences.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:19"
+ },
+ {
+  "id": "C6-02",
+  "category": "C6",
+  "domain": "C6",
+  "question": "Why was the cholesterol drug bococizumab discontinued?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Pfizer discontinued development of bococizumab, an experimental PCSK9 cholesterol-lowering drug, in November 2016 because its effectiveness declined over time and varied substantially among patients. Many patients developed antibodies against the drug, which weakened its ability to lower LDL (“bad”) cholesterol. Bococizumab also caused more injection-site reactions and immune responses than other drugs in its class. Together, these findings made its long-term clinical value less promising, leading Pfizer to stop development before approval. ([Pfizer announcement](https://www.pfizer.com/news/press-release/press-release-detail/pfizer_discontinues_global_development_of_bococizumab_its_investigational_pcsk9_inhibitor), [clinical study](https://www.nejm.org/doi/full/10.1056/NEJMoa1614062))",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:19"
+ },
+ {
+  "id": "C6-03",
+  "category": "C6",
+  "domain": "C6",
+  "question": "Can teaching caregivers parenting techniques improve children's cognitive development in Uganda?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Yes—teaching caregivers parenting techniques can improve children’s cognitive development in Uganda, particularly when the techniques encourage responsive interaction and early learning. Caregivers can support skills such as language, memory, and problem-solving by talking, singing, playing, and sharing stories with children. Parenting programs work best when they offer practical demonstrations and opportunities to practice, using activities and materials that fit families’ daily lives. The size and persistence of the benefits depend on the program’s quality and participation, as well as children’s nutrition, health, and wider living conditions.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:19"
+ },
+ {
+  "id": "C6-04",
+  "category": "C6",
+  "domain": "C6",
+  "question": "What causes cognitive decline in cancer patients during treatment?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Cognitive decline during cancer treatment, often called “chemo brain” or cancer-related cognitive impairment, usually has several contributing causes. Chemotherapy and other treatments may affect brain cells, increase inflammation, or alter hormones, leading to difficulties with memory, attention, and processing speed. The cancer itself, particularly when it affects the brain, can also contribute, along with fatigue, poor sleep, pain, stress, depression, anemia, and some medications. Symptoms often improve after treatment, but they can persist, and new or worsening cognitive changes should be discussed with the cancer care team to identify treatable causes.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:19"
+ },
+ {
+  "id": "C6-05",
+  "category": "C6",
+  "domain": "C6",
+  "question": "How does a Charcot foot wound affect the risk of amputation in people with diabetes?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "An open wound or ulcer on a Charcot foot substantially increases the risk of amputation in someone with diabetes. Charcot-related bone and joint damage can deform the foot, creating pressure points that cause wounds, while nerve damage can make those wounds go unnoticed. Poor circulation can delay healing, and infection may spread into bone, sometimes making amputation necessary. [MedlinePlus](https://medlineplus.gov/ency/article/007748.htm) explains these complications, but amputation is not inevitable: prompt specialist care, pressure relief, wound treatment, and infection management can help preserve the foot. Any new wound on a Charcot foot needs urgent medical assessment, even if it does not hurt.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:20"
+ },
+ {
+  "id": "C6-06",
+  "category": "C6",
+  "domain": "C6",
+  "question": "Does body contouring surgery after massive weight loss improve quality of life?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Yes—body contouring surgery after massive weight loss generally improves quality of life by removing excess skin that can cause discomfort, skin irritation, hygiene difficulties, and problems with movement or exercise. Many patients also report better body image, greater confidence, and improved social and psychological well-being. However, much of the evidence comes from observational studies, and the degree and durability of improvement vary between individuals. Surgery also involves scars, recovery time, costs, and potential complications, so realistic expectations and an individualized assessment with a qualified plastic surgeon are important.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:20"
+ },
+ {
+  "id": "C6-07",
+  "category": "C6",
+  "domain": "C6",
+  "question": "Does teprotumumab work for thyroid eye disease?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Yes—teprotumumab (Tepezza) can reduce eye bulging, double vision, and inflammation caused by thyroid eye disease, although it does not work for everyone. In a major trial involving active disease, about 83% of treated patients had at least a 2 mm reduction in eye bulging after 24 weeks, compared with 10% receiving placebo. It can also help some people with longstanding disease, but symptoms may return after treatment. Treatment typically involves eight intravenous infusions given three weeks apart, and side effects include muscle spasms, elevated blood sugar, and hearing problems that can sometimes be permanent. An ophthalmologist experienced in thyroid eye disease can help determine whether its benefits outweigh its risks for you.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:20"
+ },
+ {
+  "id": "C6-08",
+  "category": "C6",
+  "domain": "C6",
+  "question": "Do statins reduce inflammation in people with HIV?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Yes—statins can reduce some markers of inflammation and immune activation in people with HIV, although effects vary by statin and marker, and studies have not shown consistent reductions across all measures. These effects may help address inflammation that persists despite effective antiretroviral therapy, but statins do not eliminate it. Their clearest proven benefit is cardiovascular protection: the REPRIEVE trial found that pitavastatin reduced major cardiovascular events by about 35%. ([NIH](https://clinicalinfo.hiv.gov/en/news/updates-hiv-clinical-guidelines-adult-and-adolescent-arv)) Statins are therefore prescribed primarily to reduce cardiovascular risk, rather than solely to treat HIV-related inflammation, with the choice and dose checked for interactions with HIV medications. ([NIH guidelines](https://clinicalinfo.hiv.gov/en/guidelines/hiv-clinical-guidelines-adult-and-adolescent-arv/statin-therapy-people-hiv))",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:20"
+ },
+ {
+  "id": "C6-09",
+  "category": "C6",
+  "domain": "C6",
+  "question": "What effects do bile acid sequestrants have on cholesterol and blood sugar?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Bile acid sequestrants lower LDL (“bad”) cholesterol by binding bile acids in the intestine and preventing their reabsorption. This causes the liver to use more cholesterol to make replacement bile acids and remove more LDL from the blood. They may modestly raise HDL (“good”) cholesterol, but they can also increase triglycerides. Some, particularly colesevelam, also modestly lower blood sugar and HbA1c in people with type 2 diabetes, although the mechanism is not fully understood. They generally do not cause low blood sugar when used alone.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:20"
+ },
+ {
+  "id": "C6-10",
+  "category": "C6",
+  "domain": "C6",
+  "question": "Is a vegan diet good for managing type 2 diabetes?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Yes—a well-planned vegan diet can help manage type 2 diabetes by improving blood sugar control and supporting weight management, though it is one of several effective eating patterns. [The American Diabetes Association](https://diabetes.org/food-nutrition/eating-for-diabetes-management) recognizes vegan diets as an option for diabetes management. Focus on vegetables, beans, tofu, whole grains, nuts, and seeds, while limiting sugary drinks and refined carbohydrates; vegan foods are not automatically healthy, and carbohydrate portions still matter. Plan for adequate protein and vitamin B12 through fortified foods or supplements, ideally with a registered dietitian’s guidance. If you take insulin or medicines that can cause low blood sugar, monitor glucose closely and work with your clinician on any medication adjustments as your eating habits change.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:21"
+ },
+ {
+  "id": "C6-11",
+  "category": "C6",
+  "domain": "C6",
+  "question": "Why does sepsis weaken the immune system?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Sepsis weakens the immune system because the body’s response to an infection becomes dysregulated, causing both excessive inflammation and suppression of immune defenses. Many immune cells, including infection-fighting T and B cells, die, while others become less effective at recognizing and attacking germs. The body also releases signals that dampen inflammation to limit tissue damage, but these signals can suppress protective immune responses too strongly or for too long. These changes make it harder to clear the original infection and increase vulnerability to new infections, sometimes even after the initial illness improves.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:21"
+ },
+ {
+  "id": "C6-12",
+  "category": "C6",
+  "domain": "C6",
+  "question": "Does exercise improve thinking skills in children who are obese?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Yes—regular exercise can improve some thinking skills in children with obesity, particularly executive functions such as planning, attention, and self-control. Studies of aerobic activities, such as running and active games, have found benefits, although results vary and not every thinking skill improves. Some research also suggests improvements in mathematics performance, but evidence for broader academic benefits is less consistent. These benefits can occur even without substantial weight loss, so enjoyable, age-appropriate physical activity can support both brain and physical health.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:21"
+ },
+ {
+  "id": "C6-13",
+  "category": "C6",
+  "domain": "C6",
+  "question": "Can a phone call from a dietitian get menopausal women to eat more soy?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Yes—a brief phone call from a dietitian can help menopausal women increase their soy intake, particularly when it includes practical advice tailored to their preferences and usual meals. Discussing foods such as tofu, edamame, and soy milk can make adding soy feel more manageable. However, a short-term increase does not necessarily mean women will maintain the change, and some may benefit from follow-up support. Eating more soy also does not guarantee relief from menopausal symptoms, since its effects vary among individuals.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:21"
+ },
+ {
+  "id": "C6-14",
+  "category": "C6",
+  "domain": "C6",
+  "question": "How do personalized nutrition studies give diet advice to participants?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Personalized nutrition studies give participants diet advice tailored to information such as their usual food intake, health goals, medical history, and body measurements. Some studies also use blood tests, genetic data, gut microbiome samples, or glucose monitoring to assess how participants respond to different foods. Researchers or dietitians use these findings to recommend changes in food choices, portion sizes, meal timing, or nutrient intake. Advice may be delivered through consultations, written reports, apps, or online platforms, with follow-up feedback to help participants make changes and track progress. The level of personalization and the strength of evidence behind the recommendations vary across studies.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:21"
+ },
+ {
+  "id": "C6-15",
+  "category": "C6",
+  "domain": "C6",
+  "question": "What is FGF21, and how is it linked to blood vessel health in dialysis patients?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "FGF21 (fibroblast growth factor 21) is a hormone produced mainly by the liver that helps regulate sugar and fat metabolism and the body’s response to stress. Its blood levels are often markedly elevated in dialysis patients, partly because failing kidneys clear it less effectively and metabolic stress may increase its production. In hemodialysis patients, higher FGF21 levels have been associated with poorer function of the blood vessel lining, reduced ability of arteries to widen, and greater arterial stiffness. ([Endothelial function study](https://pubmed.ncbi.nlm.nih.gov/27943169/), [arterial stiffness study](https://pmc.ncbi.nlm.nih.gov/articles/PMC8856816/)) These associations suggest that FGF21 could help indicate vascular risk, but they do not establish that it causes vessel damage; elevated levels may also reflect a protective response to existing injury.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:22"
+ },
+ {
+  "id": "C6-16",
+  "category": "C6",
+  "domain": "C6",
+  "question": "How have schools and families changed how they manage meals for children with special diets?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Schools and families have increasingly moved from informal meal adjustments to more coordinated plans for children with food allergies, intolerances, religious restrictions, or other dietary needs. Many schools now use clearer ingredient labels, staff training, individualized meal plans, and procedures to reduce cross-contact with allergens. Families often work with school staff and healthcare professionals to share dietary requirements, arrange suitable meals, and prepare emergency plans when needed. Online menus and communication tools can make planning easier, while a wider range of alternative foods gives children more options. However, access and resources vary, and some families still rely on packed lunches to meet their children’s needs.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:22"
+ },
+ {
+  "id": "C6-17",
+  "category": "C6",
+  "domain": "C6",
+  "question": "Do sugary drinks increase the risk of type 2 diabetes?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Yes. Regularly drinking sugar-sweetened beverages, such as soda, sweetened tea, and sports drinks, is associated with a higher risk of type 2 diabetes. These drinks can contribute to weight gain, a major risk factor, and research suggests the association also persists beyond their effects on body weight. They deliver large amounts of rapidly absorbed sugar without making you feel as full as solid foods typically do. Choosing water or unsweetened drinks more often can help lower your risk.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:22"
+ },
+ {
+  "id": "C6-18",
+  "category": "C6",
+  "domain": "C6",
+  "question": "Which older adults are most likely to be prescribed potentially inappropriate medications?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Older adults most likely to be prescribed potentially inappropriate medications are those taking many medicines, especially people with several chronic conditions and prescriptions from multiple clinicians. Adults with frailty, dementia, or reduced kidney function are particularly vulnerable because some medications may pose greater risks for them. Residents of nursing homes and people recently discharged from the hospital may also be at higher risk, particularly when medication lists are not carefully reviewed. Some studies find higher prescribing rates among women, although patterns vary by setting and the criteria used to define inappropriate prescribing. A medication’s appropriateness ultimately depends on the person’s conditions, treatment goals, dose, and available alternatives.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:22"
+ },
+ {
+  "id": "C6-19",
+  "category": "C6",
+  "domain": "C6",
+  "question": "Why do some children drink more sugary drinks than others?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Some children drink more sugary drinks than others because of differences in taste preferences, family habits, and what’s available at home or school. Children may be more likely to choose these drinks if their friends or family drink them, or if they see appealing advertisements. Cost, convenient access, and the availability of safe drinking water can also influence their choices. Some families may not realize how much added sugar is in drinks such as fruit drinks, sports drinks, or sweetened teas. These factors often work together, so the differences aren’t simply a matter of a child’s willpower or a parent’s choices.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:22"
+ },
+ {
+  "id": "C6-20",
+  "category": "C6",
+  "domain": "C6",
+  "question": "How should vitamin D levels be monitored in children receiving vitamin D injections?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Children receiving vitamin D injections should have blood levels of 25-hydroxyvitamin D checked before treatment and again afterward, with timing tailored to their age, injection dose, and underlying condition. Follow-up testing is commonly performed around one month in infants and three months in older children, although high-dose injections may require earlier safety checks. Calcium, phosphate, and alkaline phosphatase should also be monitored, with parathyroid hormone rechecked if initially elevated ([Royal Children’s Hospital guidance](https://www.rch.org.au/clinicalguide/guideline_index/Vitamin_D_deficiency/)). The prescribing clinician should review results before further injections and arrange ongoing testing when risk factors persist. Parents should promptly report vomiting, constipation, excessive thirst or urination, or unusual weakness, which may indicate high calcium levels.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:22"
+ },
+ {
+  "id": "C6-21",
+  "category": "C6",
+  "domain": "C6",
+  "question": "Do pain medications that work for diabetic nerve pain work for other kinds of nerve pain?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Yes—many medicines used for diabetic nerve pain also help with other kinds of nerve pain because they act on shared pain pathways. For example, gabapentin, pregabalin, duloxetine, and some antidepressants may help with pain from shingles or certain nerve injuries. However, effectiveness depends on the cause: these medicines may offer little benefit for sciatica, and trigeminal neuralgia usually responds better to different medicines. Treatment should be tailored to the diagnosis, other health conditions, and possible side effects, so ask a healthcare professional which option fits your situation.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:23"
+ },
+ {
+  "id": "C6-22",
+  "category": "C6",
+  "domain": "C6",
+  "question": "Do highly active women get enough B vitamins?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Highly active women can get enough B vitamins through a varied diet, but activity level alone doesn’t tell you whether their intake is adequate. B vitamins help the body release energy from food, make red blood cells, and support nerve function. Women who eat too little to meet their training needs, restrict food groups, or follow a vegan diet without reliable vitamin B12 sources may be at greater risk of deficiency. Whole grains, legumes, leafy greens, eggs, dairy, and fortified foods provide different B vitamins. Supplements generally won’t improve performance when intake is already adequate; persistent fatigue or concerns about deficiency are reasons to consult a healthcare professional.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:23"
+ },
+ {
+  "id": "C6-23",
+  "category": "C6",
+  "domain": "C6",
+  "question": "Do children keep the weight off after an obesity program ends?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Some children keep weight off after an obesity program ends, but results vary, and weight regain is common when ongoing support stops. For children who are still growing, success may mean maintaining their weight or gaining more slowly as they get taller, rather than losing weight. Family involvement, sustainable habits, and continued follow-up can help maintain improvements. Benefits such as better fitness, blood pressure, and quality of life may persist even if some weight returns. Childhood obesity often needs long-term support rather than a single short program.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:23"
+ },
+ {
+  "id": "C6-24",
+  "category": "C6",
+  "domain": "C6",
+  "question": "Do older patients usually get high-dose statins?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Older patients do not automatically receive high-dose statins; the choice depends on their cardiovascular risk, overall health, and ability to tolerate treatment. Older adults who have had a heart attack, stroke, or other cardiovascular disease may benefit from a high-intensity statin if they tolerate it well. For people over 75 without known cardiovascular disease, starting a statin—and choosing its intensity—is more individualized because evidence is less certain. Clinicians consider frailty, medication interactions, side effects, life expectancy, and the patient’s preferences, and may choose a moderate-intensity dose. Someone already doing well on a high-intensity statin may continue it rather than reduce the dose solely because of age.",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:23"
+ },
+ {
+  "id": "C6-25",
+  "category": "C6",
+  "domain": "C6",
+  "question": "What treatments are being studied for triple-negative breast cancer?\n\nAnswer in one paragraph of about 4-5 sentences.",
+  "text": "Researchers are studying several treatments for triple-negative breast cancer, including immunotherapy combinations that help the immune system attack cancer cells. Another major focus is antibody–drug conjugates, which deliver chemotherapy directly to cancer cells, including new drugs and expanded uses of existing ones. Trials also explore targeted treatments such as PARP inhibitors, particularly for cancers with BRCA-related DNA-repair defects, and ways to combine these medicines with other therapies. Some treatments in these categories are already approved for certain patients, while others remain experimental. An oncologist can help identify relevant trials based on cancer stage, previous treatment, and tumor testing. [National Cancer Institute](https://www.cancer.gov/types/breast/research)",
+  "provider": "codex_exec",
+  "model": "GPT-6.1-Sol (reasoning low), via codex exec 0.164.0",
+  "collected_at": "2026-10-27 01:23"
+ }
+]

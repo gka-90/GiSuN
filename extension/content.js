@@ -5,8 +5,10 @@
 // Only a "checking..." note is shown while the agents work. If they can't run (backend down,
 // pipeline error), the instant rule highlights from POST /verify are shown instead.
 
-// Old ChatGPT layout used data-message-author-role; the 2026 layout (chatgpt.com/uc/...) uses data-message-role
-const RESPONSE_SELECTOR = '[data-message-author-role="assistant"], [data-message-role="assistant"]';
+// Old ChatGPT layout used data-message-author-role; the 2026 layout (chatgpt.com/uc/...) uses data-message-role.
+// The Oct 2026 layout dropped both: an answer is a <div class="DilRenderer-… DilResponseRoot-HfQrEh …">.
+// The part after the dash is a build hash that changes, so match on the stable "DilResponseRoot" prefix.
+const RESPONSE_SELECTOR = '[data-message-author-role="assistant"], [data-message-role="assistant"], [class*="DilResponseRoot"]';
 // The user's messages, to send the question along with the answer
 const USER_SELECTOR = '[data-message-author-role="user"], [data-message-role="user"]';
 const MARKDOWN_SELECTOR = ".markdown, [data-assistant-markdown]";
@@ -50,19 +52,29 @@ function observe_dom_for_new_response() {
   const observer = new MutationObserver((mutations) => {
     for (const m of mutations) {
       const target = m.target.nodeType === Node.ELEMENT_NODE ? m.target : m.target.parentElement;
-      const response = target?.closest(RESPONSE_SELECTOR);
+      const response = outermostResponse(target);
       if (response) scheduleCheck(response);
 
       for (const node of m.addedNodes) {
         if (node.nodeType !== Node.ELEMENT_NODE) continue;
-        if (node.matches(RESPONSE_SELECTOR)) scheduleCheck(node);
-        node.querySelectorAll(RESPONSE_SELECTOR).forEach(scheduleCheck);
+        if (node.matches(RESPONSE_SELECTOR)) scheduleCheck(outermostResponse(node));
+        node.querySelectorAll(RESPONSE_SELECTOR).forEach((r) => scheduleCheck(outermostResponse(r)));
       }
     }
   });
   observer.observe(document.body, { childList: true, subtree: true, characterData: true });
   // Responses already on the page when the script loads never trigger a mutation
-  document.querySelectorAll(RESPONSE_SELECTOR).forEach(scheduleCheck);
+  document.querySelectorAll(RESPONSE_SELECTOR).forEach((r) => scheduleCheck(outermostResponse(r)));
+}
+
+// The answer container around el. If one matching container sits inside another (a renderer
+// nested in the answer), use the outer one, so an answer is checked once, as a whole.
+function outermostResponse(el) {
+  let response = el?.closest(RESPONSE_SELECTOR);
+  for (let outer = response?.parentElement?.closest(RESPONSE_SELECTOR); outer; outer = outer.parentElement?.closest(RESPONSE_SELECTOR)) {
+    response = outer;
+  }
+  return response;
 }
 
 // ChatGPT streams text in piece by piece, so wait until a response stops changing
@@ -173,8 +185,11 @@ function setStatus(response, state, message) {
 }
 
 function summaryMessage(flagged, result) {
-  // agent_share 0 = every model call failed (no model running), so the rules decided everything
-  const how = result.model && result.agent_share ? "" : " (decided by the rules: no model was reachable)";
+  // agent_share 0 = every model call failed (no model running), so the rules decided everything.
+  // agent_share null = the model was reached but its Plan agent ran no checks (it judged every
+  // criterion not to apply); that used to be reported as "no model was reachable" too.
+  const how = !result.model || result.agent_share === 0 ? " (decided by the rules: no model was reachable)"
+    : result.agent_share === null ? " (the AI planner found nothing that needed checking)" : "";
   if (!flagged.length) return `GiSuN checked this answer: no claims flagged${how}.`;
   const high = flagged.filter((c) => c.score.risk === "high").length;
   return `GiSuN: ${flagged.length} claim${flagged.length > 1 ? "s" : ""} worth checking` +

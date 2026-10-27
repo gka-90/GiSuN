@@ -1,0 +1,1012 @@
+{
+ "C1": [
+  {
+   "id": "C1-01",
+   "dataset": "Citation Reason",
+   "sentence": "Bound by Higginshaw to the north, Derker is the location of Derker railway station and, said to have terraced residencies \"unsuited to modern needs\", is currently being redeveloped as part of the Housing Market Renewal Initiative.",
+   "their_label": "statistic, citation removed",
+   "expected": "met",
+   "context": "Wikipedia: Oldham"
+  },
+  {
+   "id": "C1-02",
+   "dataset": "Citation Reason",
+   "sentence": "Emirates is the largest airline operator as of July 2017, and is the only customer to have operated all 777 variants produced, including the -200, -200ER, -200LR, -300, -300ER, and 777F.",
+   "their_label": "statistic, citation removed",
+   "expected": "met",
+   "context": "Wikipedia: Boeing_777"
+  },
+  {
+   "id": "C1-03",
+   "dataset": "Citation Reason",
+   "sentence": "The scoreboard, which has a 4,200 square foot (390 m2) high definition LED screen, is located in the middle of the concourse; visitors entering or leaving the park through the stadium's right-field entrance on Fifth Avenue pass under it.",
+   "their_label": "statistic, citation removed",
+   "expected": "met",
+   "context": "Wikipedia: First_Tennessee_Park"
+  },
+  {
+   "id": "C1-04",
+   "dataset": "Citation Reason",
+   "sentence": "The rest of the decade proved more successful for Norwich, with a club-record victory, 10–2, over Coventry City and promotion to the Second Division as champions in the 1933–34 season under the management of Tom Parker.",
+   "their_label": "statistic, citation removed",
+   "expected": "met",
+   "context": "Wikipedia: History_of_Norwich_City_F.C."
+  },
+  {
+   "id": "C1-05",
+   "dataset": "Citation Reason",
+   "sentence": "Single/Double Summer Time (SDST), a variant where clocks are one hour ahead of the sun in winter and two in summer, has been projected to reduce traffic fatalities by 3% to 4% in the UK, compared to ordinary DST.",
+   "their_label": "statistic, citation removed",
+   "expected": "met",
+   "context": "Wikipedia: Daylight_saving_time"
+  },
+  {
+   "id": "C1-06",
+   "dataset": "Citation Reason",
+   "sentence": "Endangering Turok's sales was its high price—$79.99 in the US, £70 in the UK, and $129.95 in Australia —and Entertainment Software Rating Board's \"mature\" rating, which suggested lower sales as parents would not buy the game for their children.",
+   "their_label": "statistic, citation removed",
+   "expected": "met",
+   "context": "Wikipedia: Turok:_Dinosaur_Hunter"
+  },
+  {
+   "id": "C1-07",
+   "dataset": "Citation Reason",
+   "sentence": "The committee continued to raise money as construction proceeded; when the project was complete in the autumn of 1809, costs totalled £6,856, but contributions had reached £7,138, providing the committee with a surplus of £282.",
+   "their_label": "statistic, citation removed",
+   "expected": "met",
+   "context": "Wikipedia: Nelson's_Pillar"
+  },
+  {
+   "id": "C1-08",
+   "dataset": "Citation Reason",
+   "sentence": "Hare coursing is popular in the Republic of Ireland, with the national meeting in Clonmel, County Tipperary, being the most important event in the coursing calendar, attracting 10,000 spectators, and claimed by its organisers to be worth up to €16 million for the local economy.",
+   "their_label": "statistic, citation removed",
+   "expected": "met",
+   "context": "Wikipedia: Hare_coursing"
+  },
+  {
+   "id": "C1-09",
+   "dataset": "Citation Reason",
+   "sentence": "The threat to yellow-billed is particularly acute on Hainan, where more than 70% of the woodland has been lost in the past 50 years due to shifting cultivation and the use of wood for fuel during Chinese government re-settlement programmes.",
+   "their_label": "statistic, citation removed",
+   "expected": "met",
+   "context": "Wikipedia: Nuthatch"
+  },
+  {
+   "id": "C1-10",
+   "dataset": "Citation Reason",
+   "sentence": "The regular sessions paid off at the 1955 Victorian Championships; Leech won the open 110- and 220-yard freestyle in times of 1 minute 7.2 seconds and 2 minutes 39.3 seconds, respectively, setting state records in both events.",
+   "their_label": "statistic, citation removed",
+   "expected": "met",
+   "context": "Wikipedia: Faith_Leech"
+  },
+  {
+   "id": "C1-11",
+   "dataset": "Citation Reason",
+   "sentence": "The event had an attendance of 4,800 and received about 90,000 pay-per-view buys, with 55,000 of them domestic buys—the lowest buyrate in WWE history until the introduction of the WWE Network in 2014.",
+   "their_label": "statistic, citation removed",
+   "expected": "met",
+   "context": "Wikipedia: December_to_Dismember_(2006)"
+  },
+  {
+   "id": "C1-12",
+   "dataset": "Citation Reason",
+   "sentence": "In 2001, SANDAG gave $138 million (about $184 million in 2016 dollars) to the expansion of SR 52 to SR 67, which was necessary for extending the freeway past Cuyamaca Street.",
+   "their_label": "statistic, citation removed",
+   "expected": "met",
+   "context": "Wikipedia: California_State_Route_52"
+  },
+  {
+   "id": "C1-13",
+   "dataset": "Citation Reason",
+   "sentence": "Both McGrady and Yao were voted to start in the 2005 NBA All-Star Game, and Yao broke the record previously held by Michael Jordan for most All-Star votes, with 2,558,278 total votes.",
+   "their_label": "statistic, citation removed",
+   "expected": "met",
+   "context": "Wikipedia: Yao_Ming"
+  },
+  {
+   "id": "C1-14",
+   "dataset": "Citation Reason",
+   "sentence": "The single largest DG is the Directorate-General for Translation, with a 2309-strong staff, while the largest group by nationality is Belgian (18.7%), probably due to a majority (17,664) of staff being based in the country (Source: Civil Service: Staff figures).",
+   "their_label": "statistic, citation written in",
+   "expected": "not_met",
+   "context": "Wikipedia: European_Commission"
+  },
+  {
+   "id": "C1-15",
+   "dataset": "Citation Reason",
+   "sentence": "Compiled mostly from reviews written decades after its original release, Manhunter has a metascore of 78 on Metacritic, based on ten reviews, and a 94% fresh rating on Rotten Tomatoes, from 33 reviews (Source: Manhunter).",
+   "their_label": "statistic, citation written in",
+   "expected": "not_met",
+   "context": "Wikipedia: Manhunter_(film)"
+  },
+  {
+   "id": "C1-16",
+   "dataset": "Citation Reason",
+   "sentence": "During the streak, although forty-one of the 59 scoreless innings came on the road away from traditionally pitcher-friendly Dodger Stadium, Hershiser lowered his ERA from 2.90 to 2.26 (Source: Ranking The Ballparks: The best hitters' and pitchers' parks based on five years of data).",
+   "their_label": "statistic, citation written in",
+   "expected": "not_met",
+   "context": "Wikipedia: Orel_Hershiser's_scoreless_innings_streak"
+  },
+  {
+   "id": "C1-17",
+   "dataset": "Citation Reason",
+   "sentence": "Laid out around 11 courtyards, the building included several residences with accommodation for about 200 people, and comprised a total of 1,180 rooms, 126 staircases and 2 miles (3.2 km) of corridors (Source: Jones 1983).",
+   "their_label": "statistic, citation written in",
+   "expected": "not_met",
+   "context": "Wikipedia: Burning_of_Parliament"
+  },
+  {
+   "id": "C1-18",
+   "dataset": "Citation Reason",
+   "sentence": "This stretch of the Rogue, featuring class I and II rapids, 11 access points for boats, 4 parks and campgrounds managed by Josephine County, ends at Grave Creek, where the Wild Rogue Wilderness begins (Source: Hellgate Recreation Area).",
+   "their_label": "statistic, citation written in",
+   "expected": "not_met",
+   "context": "Wikipedia: Rogue_River_(Oregon)"
+  },
+  {
+   "id": "C1-19",
+   "dataset": "Citation Reason",
+   "sentence": "Despite modest sales estimates—the band's record company, DGC Records, forecast sales of 50,000 copies —Nevermind became a huge commercial success, popularizing the Seattle grunge movement and alternative rock in general (Source: Cross).",
+   "their_label": "statistic, citation written in",
+   "expected": "not_met",
+   "context": "Wikipedia: In_Utero_(album)"
+  },
+  {
+   "id": "C1-20",
+   "dataset": "Citation Reason",
+   "sentence": "The park's 36 reptile species include desert tortoises, diamondback rattlesnakes (one of the more commonly seen snakes), coral snakes, Gila monsters, short-horned lizards, spiny lizards, and zebra-tailed lizards (Source: BioBlitz Count Update from the Saguaro NP BioBlitz 2011).",
+   "their_label": "statistic, citation written in",
+   "expected": "not_met",
+   "context": "Wikipedia: Saguaro_National_Park"
+  },
+  {
+   "id": "C1-21",
+   "dataset": "Citation Reason",
+   "sentence": "A sounding was taken, revealing a sea-depth of 1,131 fathoms (6,786 ft; 2,068 m), compared to the 2,500 fathoms (15,000 ft; 4,600 m) which had been the general measurement up to that date (Source: Rudmose Brown).",
+   "their_label": "statistic, citation written in",
+   "expected": "not_met",
+   "context": "Wikipedia: Scottish_National_Antarctic_Expedition"
+  },
+  {
+   "id": "C1-22",
+   "dataset": "Citation Reason",
+   "sentence": "A study published in 1982 suggested that standard rain gauges placed in open areas might be underestimating the contribution of fog drip to heavily forested parts of the watershed by up to 30 percent (Source: doi:10.1111/j.1752-1688.1982.tb00073.x).",
+   "their_label": "statistic, citation written in",
+   "expected": "not_met",
+   "context": "Wikipedia: Bull_Run_River_(Oregon)"
+  },
+  {
+   "id": "C1-23",
+   "dataset": "Citation Reason",
+   "sentence": "Collingwood's form for Durham in 2001 earned him a call-up to the England One Day International (ODI) squad, selected for the NatWest Series against Pakistan and Australia that summer, becoming the 162nd to play for England in ODI cricket (Source: NatWest Series 2001 squads).",
+   "their_label": "statistic, citation written in",
+   "expected": "not_met",
+   "context": "Wikipedia: Paul_Collingwood"
+  },
+  {
+   "id": "C1-24",
+   "dataset": "Citation Reason",
+   "sentence": "The construction cost was £34,050 (2009 = £2.7 million), plus £10,322 (£830,000) for the engines, and the final cost after all modifications was £51,000 (£4.1 m) (Source: Measuring Worth.).",
+   "their_label": "statistic, citation written in",
+   "expected": "not_met",
+   "context": "Wikipedia: Discovery_Expedition"
+  },
+  {
+   "id": "C1-25",
+   "dataset": "Citation Reason",
+   "sentence": "An estimated 60%–80% of autistic people have motor signs that include poor muscle tone, poor motor planning, and toe walking; deficits in motor coordination are pervasive across ASD and are greater in autism proper (Source: Advances in autism).",
+   "their_label": "statistic, citation written in",
+   "expected": "not_met",
+   "context": "Wikipedia: Autism"
+  }
+ ],
+ "C2": [
+  {
+   "id": "C2-01",
+   "dataset": "QuanTemp",
+   "sentence": "Raffy Tulfo has taken action against the K to 12 system and abolished it",
+   "their_label": "False (False.)",
+   "expected": "met",
+   "context": "https://verafiles.org/articles/vera-files-fact-check-posts-falsely-claim-tulfo-abolished-k-to-12-program"
+  },
+  {
+   "id": "C2-02",
+   "dataset": "QuanTemp",
+   "sentence": "The working tax cut created over 40,000 new jobs in just the last four years.",
+   "their_label": "False (pants-fire)",
+   "expected": "met",
+   "context": "https://www.politifact.com/factchecks/2013/apr/19/associated-industries-florida/associated-industries-florida-says-insurance-tax-c/"
+  },
+  {
+   "id": "C2-03",
+   "dataset": "QuanTemp",
+   "sentence": "In May 2023, Michigan Gov. Gretchen Whitmer was arrested and charged with treason.",
+   "their_label": "False (Labeled Satire)",
+   "expected": "met",
+   "context": "https://www.snopes.com/fact-check/gretchen-whitmer-arrested-for-treason/"
+  },
+  {
+   "id": "C2-04",
+   "dataset": "QuanTemp",
+   "sentence": "Following the Jan. 1, 2019, legalization of physician-assisted death in Hawaii, state leaders bought 30 “passing assistance pods.",
+   "their_label": "False (labeled satire)",
+   "expected": "met",
+   "context": "https://www.snopes.com/fact-check/hawaii-death-pods/"
+  },
+  {
+   "id": "C2-05",
+   "dataset": "QuanTemp",
+   "sentence": "Joe Biden said Democrats would cheat in 2022 by dumping ballots",
+   "their_label": "False (False)",
+   "expected": "met",
+   "context": "https://factcheck.afp.com/doc.afp.com.32N22RR-1"
+  },
+  {
+   "id": "C2-06",
+   "dataset": "QuanTemp",
+   "sentence": "In July 2010 the government said small businesses -- 60 percent -- will lose their health care, 45 percent of big business and a large percentage of individual health.",
+   "their_label": "False (false)",
+   "expected": "met",
+   "context": "https://www.politifact.com/factchecks/2013/nov/13/sean-hannity/hannity-says-government-predicted-massive-loss-hea/"
+  },
+  {
+   "id": "C2-07",
+   "dataset": "QuanTemp",
+   "sentence": "Former first daughter Malia Obama said white people will be 'blended out' of the population by the time she turns 30.",
+   "their_label": "False (False)",
+   "expected": "met",
+   "context": "https://www.snopes.com/fact-check/malia-obama-white-people-blended-out/"
+  },
+  {
+   "id": "C2-08",
+   "dataset": "QuanTemp",
+   "sentence": "A group of Somali teenagers used hammers to physically attack and injure several passersby at a train station in Minneapolis in May 2019.",
+   "their_label": "False (Mostly False)",
+   "expected": "met",
+   "context": "https://www.snopes.com/fact-check/somali-teens-hammers/"
+  },
+  {
+   "id": "C2-09",
+   "dataset": "QuanTemp",
+   "sentence": "Edward Snowden claimed that Russia fixed the 2016 general election so Donald Trump would win.",
+   "their_label": "False (False)",
+   "expected": "met",
+   "context": "https://www.snopes.com/fact-check/edward-snowden-said-russia-successfully-rigged-u-s-elections-in-favor-of-trump/"
+  },
+  {
+   "id": "C2-10",
+   "dataset": "QuanTemp",
+   "sentence": "After the recent election victory, Mamata Banerjee issued orders to shut down 125 RSS-affiliated schools in West Bengal",
+   "their_label": "False (MISLEADING)",
+   "expected": "met",
+   "context": "https://factly.in/old-news-of-west-bengal-government-banning-125-rss-affiliated-schools-for-not-having-noc-certificate-revived-again/"
+  },
+  {
+   "id": "C2-11",
+   "dataset": "QuanTemp",
+   "sentence": "UK PM Rishi Sunak made a donation of Rs 1 crore to build Ram Temple",
+   "their_label": "False (False)",
+   "expected": "met",
+   "context": "https://newsmobile.in/articles/2023/04/18/fact-check-did-rishi-sunak-donate-rs-1-crore-for-the-construction-of-ram-temple-heres-the-truth/"
+  },
+  {
+   "id": "C2-12",
+   "dataset": "QuanTemp",
+   "sentence": "On June 14, 2022, Donald Trump marked his birthday with a statement in which he attacked Liz Cheney, made a lewd remark about his wife Melania, and asked for donations.",
+   "their_label": "False (originated as satire)",
+   "expected": "met",
+   "context": "https://www.snopes.com/fact-check/trump-birthday-donations-cheney-statement/"
+  },
+  {
+   "id": "C2-13",
+   "dataset": "QuanTemp",
+   "sentence": "Vijay Mallya deposited a cheque of Rs 35 crore in BJP's fund before he fled to London.",
+   "their_label": "False (False)",
+   "expected": "met",
+   "context": "https://www.boomlive.in/fact-check/politics/fact-check-vijay-mallya-cheque-crores-donation-bharatiya-janata-party-14731"
+  },
+  {
+   "id": "C2-14",
+   "dataset": "QuanTemp",
+   "sentence": "In September 2021, the ride-sharing company Lyft expressed opposition to new abortion restrictions in Texas and announced a legal defense fund for affected drivers.",
+   "their_label": "True (True)",
+   "expected": "not_met",
+   "context": "https://www.snopes.com/fact-check/lyft-legal-aid-texas-abortion/"
+  },
+  {
+   "id": "C2-15",
+   "dataset": "QuanTemp",
+   "sentence": "57% of the jobs created in Austin from 2009 to 2013 do not pay families a living wage.",
+   "their_label": "True (mostly-true)",
+   "expected": "not_met",
+   "context": "https://www.politifact.com/factchecks/2014/sep/17/steve-adler/steve-adler-says-57-percent-jobs-added-2009-2013-d/"
+  },
+  {
+   "id": "C2-16",
+   "dataset": "QuanTemp",
+   "sentence": "Over 80 percent of the people want the shot to vote on whether to approve same-sex marriage, according to polls.",
+   "their_label": "True (mostly-true)",
+   "expected": "not_met",
+   "context": "https://www.politifact.com/factchecks/2010/dec/26/vincent-buddy-cianci/cianci-says-polls-support-idea-more-80-percent-rho/"
+  },
+  {
+   "id": "C2-17",
+   "dataset": "QuanTemp",
+   "sentence": "More than 700,000 people born in Northern Ireland have an Irish passport.",
+   "their_label": "True (ACCURATE)",
+   "expected": "not_met",
+   "context": "https://factcheckni.org/topics/europe/do-more-than-700000-born-in-northern-ireland-have-an-irish-passport/"
+  },
+  {
+   "id": "C2-18",
+   "dataset": "QuanTemp",
+   "sentence": "A girl named Laura Buxton released a balloon that ended up in the hands of another girl named Laura Buxton who lived 140 miles away.",
+   "their_label": "True (Mostly True)",
+   "expected": "not_met",
+   "context": "https://www.snopes.com/fact-check/whether-balloon/"
+  },
+  {
+   "id": "C2-19",
+   "dataset": "QuanTemp",
+   "sentence": "In March 2018, Kenya and Ghana were the first countries to not only sign but also ratify the landmark agreement creating the African Continental Free Trade Area.",
+   "their_label": "True (correct)",
+   "expected": "not_met",
+   "context": "https://africacheck.org/fact-checks/reports/fact-checked-kenya-presidents-2020-state-nation-address"
+  },
+  {
+   "id": "C2-20",
+   "dataset": "QuanTemp",
+   "sentence": "Of the topfive cities for staged automobile accidents, three are in Florida. We rank No. 1 in the country in staged auto accidents.",
+   "their_label": "True (mostly-true)",
+   "expected": "not_met",
+   "context": "https://www.politifact.com/factchecks/2011/jan/27/jeff-atwater/Florida-tops-staged-auto-accidents-Jeff-Atwater/"
+  },
+  {
+   "id": "C2-21",
+   "dataset": "QuanTemp",
+   "sentence": "Nearly 800 million opioid pills were shipped to WV, amounting to 433 pills for every man, woman, and child in the state.",
+   "their_label": "True (mostly-true)",
+   "expected": "not_met",
+   "context": "https://www.politifact.com/factchecks/2020/oct/15/david-mckinley/how-many-opioid-pills-were-shipped-west-virginia/"
+  },
+  {
+   "id": "C2-22",
+   "dataset": "QuanTemp",
+   "sentence": "In 2018, White House Press Secretary Sarah Huckabee Sanders was listed as one of the 10 most admired women in the United States.",
+   "their_label": "True (True)",
+   "expected": "not_met",
+   "context": "https://www.snopes.com/fact-check/sarah-huckabee-sanders-voted-among-admired-women-united-states/"
+  },
+  {
+   "id": "C2-23",
+   "dataset": "QuanTemp",
+   "sentence": "The CBO says that if you raise the minimum wage to $10.10 an hour, half a million people would lose their jobs.",
+   "their_label": "True (mostly-true)",
+   "expected": "not_met",
+   "context": "https://www.politifact.com/factchecks/2014/may/11/rick-santorum/rick-santorum-minimum-wage-increase-would-cost-500/"
+  },
+  {
+   "id": "C2-24",
+   "dataset": "QuanTemp",
+   "sentence": "Right now, America has $1.1 trillion of student debt. That’s more than credit card debt.",
+   "their_label": "True (true)",
+   "expected": "not_met",
+   "context": "https://www.politifact.com/factchecks/2014/jun/10/mark-warner/warner-says-us-student-debt-has-surpassed-credit-c/"
+  },
+  {
+   "id": "C2-25",
+   "dataset": "QuanTemp",
+   "sentence": "In 2021, a petition to rename Reagan National Airport after dancer and TikTok personality Jojo Siwa garnered tens of thousands of signatures.",
+   "their_label": "True (True)",
+   "expected": "not_met",
+   "context": "https://www.snopes.com/fact-check/jojo-siwa-petition-reagan-airport/"
+  }
+ ],
+ "C3": [
+  {
+   "id": "C3-01",
+   "dataset": "BABE",
+   "sentence": "Staten Island Ferry passengers are being endangered by rampant sexual harassment of employees on the boats, one skipper claims.",
+   "their_label": "biased",
+   "expected": "met",
+   "context": "New York Post"
+  },
+  {
+   "id": "C3-02",
+   "dataset": "BABE",
+   "sentence": "Healthcare “experts” are telling us the coronavirus is lethal if you want to go to work, school, or your grandmother’s funeral, but not so lethal if you are out en masse to support “approved” causes.",
+   "their_label": "biased",
+   "expected": "met",
+   "context": "Breitbart"
+  },
+  {
+   "id": "C3-03",
+   "dataset": "WNC",
+   "sentence": "The combination of a 903cc engine, dual overhead cams and raw horsepower combined with integral styling of tank and body pieces to create a motorcyle for the masses that had never been seen before.",
+   "their_label": "biased (before the Wikipedia edit)",
+   "expected": "met",
+   "context": ""
+  },
+  {
+   "id": "C3-04",
+   "dataset": "BABE",
+   "sentence": "Way back in 2012, then-Gov. Rick Scott made headlines with a weird new policy: Any claim for unemployment could no longer be done by phone or in person—it had to be filed online using his new website.",
+   "their_label": "biased",
+   "expected": "met",
+   "context": "Alternet"
+  },
+  {
+   "id": "C3-05",
+   "dataset": "BABE",
+   "sentence": "The once venerable Lancet medical journal has put forward Joe Biden as the best choice for Americans’ health, continuing the magazine’s unabashed left-wing activism.",
+   "their_label": "biased",
+   "expected": "met",
+   "context": "Breitbart"
+  },
+  {
+   "id": "C3-06",
+   "dataset": "BABE",
+   "sentence": "When the nation's highest civilian honor went to a right-wing media personality, it served as an oddly appropriate capstone to Trump's broader goals.",
+   "their_label": "biased",
+   "expected": "met",
+   "context": "MSNBC"
+  },
+  {
+   "id": "C3-07",
+   "dataset": "BABE",
+   "sentence": "Almost all of this is gibberish; Trump still can’t speak coherently about California’s wildfires; and no officials in the Golden State ever conceded that he was “right” about the subject, because he wasn’t.",
+   "their_label": "biased",
+   "expected": "met",
+   "context": "MSNBC"
+  },
+  {
+   "id": "C3-08",
+   "dataset": "BABE",
+   "sentence": "Frustrated Democrats slammed Republicans for what they see as a debacle that could leave millions of Americans without health care.",
+   "their_label": "biased",
+   "expected": "met",
+   "context": "Breitbart"
+  },
+  {
+   "id": "C3-09",
+   "dataset": "BABE",
+   "sentence": "We could turn our attention to the fact that Republicans spent much of the last decade falsely accusing Democrats of supporting Medicare cuts through the Affordable Care Act, only to have a GOP White House actually propose taking an ax to the social-insurance program.",
+   "their_label": "biased",
+   "expected": "met",
+   "context": "MSNBC"
+  },
+  {
+   "id": "C3-10",
+   "dataset": "WNC",
+   "sentence": "It was approved by wide margin, 66% favorable and only 34% against, in november 2004.",
+   "their_label": "biased (before the Wikipedia edit)",
+   "expected": "met",
+   "context": ""
+  },
+  {
+   "id": "C3-11",
+   "dataset": "BABE",
+   "sentence": "Trump, a businessman with an almost uncanny ability to get the better terms of a deal, must marvel at the licentiousness all around him in “the swamp.”",
+   "their_label": "biased",
+   "expected": "met",
+   "context": "Breitbart"
+  },
+  {
+   "id": "C3-12",
+   "dataset": "BABE",
+   "sentence": "While Omar is in no danger of being held accountable for her extremism, her ascent to rock-star status among Democrats and their media cheering section gives the lie to their claims to be standing up against hate and antisemitism.",
+   "their_label": "biased",
+   "expected": "met",
+   "context": "Federalist"
+  },
+  {
+   "id": "C3-13",
+   "dataset": "BABE",
+   "sentence": "In a press conference on Wednesday, Trump tried to justify all this by claiming we're witnessing \"a shocking explosion of shootings, killings, murders and heinous crimes of violence.\"",
+   "their_label": "biased",
+   "expected": "met",
+   "context": "Alternet"
+  },
+  {
+   "id": "C3-14",
+   "dataset": "BABE",
+   "sentence": "In an article posted by NBC News on Monday, the AP argues that even erstwhile allies, like tennis great and gay activist Martina Navratilova, can become resentful of transgender women dominating their sport.",
+   "their_label": "not biased",
+   "expected": "not_met",
+   "context": "Breitbart"
+  },
+  {
+   "id": "C3-15",
+   "dataset": "BABE",
+   "sentence": "Hawley then asked Shogan to defend multiple tweets in which she expressed political views on topics like gun control, COVID-19 mitigation efforts and former President Donald Trump.",
+   "their_label": "not biased",
+   "expected": "not_met",
+   "context": "Fox News"
+  },
+  {
+   "id": "C3-16",
+   "dataset": "WNC",
+   "sentence": "The village people were a disco band of the late 1970s.",
+   "their_label": "neutral (after the edit)",
+   "expected": "not_met",
+   "context": ""
+  },
+  {
+   "id": "C3-17",
+   "dataset": "BABE",
+   "sentence": "\"You are under oath before this committee, and I have to say, you have placed this issue squarely in record by repeatedly refusing to answer,\" Hawley said.",
+   "their_label": "not biased",
+   "expected": "not_met",
+   "context": "Fox News"
+  },
+  {
+   "id": "C3-18",
+   "dataset": "BABE",
+   "sentence": "When their first caretaker is not the biological mother, they register the difference and the stress of it has lasting effects.”",
+   "their_label": "not biased",
+   "expected": "not_met",
+   "context": "The Federalist"
+  },
+  {
+   "id": "C3-19",
+   "dataset": "BABE",
+   "sentence": "In the immediate aftermath of Parkland, Trump had initially expressed support for the type of strict gun legislation the National Rifle Association has long opposed, but abandoned those promises just a couple weeks later.",
+   "their_label": "not biased",
+   "expected": "not_met",
+   "context": "HuffPost"
+  },
+  {
+   "id": "C3-20",
+   "dataset": "BABE",
+   "sentence": "Trump pledged to ban the devices soon after a gunman used them to shoot and kill 58 people at a country music festival in Las Vegas in October 2017.",
+   "their_label": "not biased",
+   "expected": "not_met",
+   "context": "Reuters"
+  },
+  {
+   "id": "C3-21",
+   "dataset": "BABE",
+   "sentence": "Thousands of people across Australia attended Black Lives Matter protests on Saturday wearing masks and practising social distancing amid warnings from state leaders to call off the events on fears of a second wave of coronavirus infections.",
+   "their_label": "not biased",
+   "expected": "not_met",
+   "context": "Reuters"
+  },
+  {
+   "id": "C3-22",
+   "dataset": "BABE",
+   "sentence": "Background checks verify that buyers do not have a criminal record or another issue that might make them ineligible to buy a weapon, such as an arrest warrant or a documented drug addiction.",
+   "their_label": "not biased",
+   "expected": "not_met",
+   "context": "Reuters"
+  },
+  {
+   "id": "C3-23",
+   "dataset": "BABE",
+   "sentence": "Sunday marked the 22nd anniversary of the murder of James Byrd, Jr., a black man who was lynched by three white supremacists in Texas on June 7, 1998.",
+   "their_label": "not biased",
+   "expected": "not_met",
+   "context": "Breitbart"
+  },
+  {
+   "id": "C3-24",
+   "dataset": "WNC",
+   "sentence": "Justinian was born in a small village called tauresium in illyricum, near scupi , in the balkan peninsula, probably on may 11, 483 to vigilantia, the sister of the highly esteemed general justin, who rose from the ranks of the army to become emperor.",
+   "their_label": "neutral (after the edit)",
+   "expected": "not_met",
+   "context": ""
+  },
+  {
+   "id": "C3-25",
+   "dataset": "BABE",
+   "sentence": "But there’s also an intensifying global climate crisis, which carries life-changing risks for billions of people.",
+   "their_label": "not biased",
+   "expected": "not_met",
+   "context": "MSNBC"
+  }
+ ],
+ "C5": [
+  {
+   "id": "C5-01",
+   "dataset": "Szeged (CoNLL-2010 Wikipedia)",
+   "sentence": "Eugenicus’s murals are regarded as one of the best examples of the late Paleologian art.",
+   "their_label": "belief cue, no named source (our approximation)",
+   "expected": "met",
+   "context": ""
+  },
+  {
+   "id": "C5-02",
+   "dataset": "Szeged (CoNLL-2010 Wikipedia)",
+   "sentence": "While mosses are considered non-vascular plants, 'Polytrichum commune' shows clear differentiation of water conducting tissue.",
+   "their_label": "belief cue, no named source (our approximation)",
+   "expected": "met",
+   "context": ""
+  },
+  {
+   "id": "C5-03",
+   "dataset": "Szeged (CoNLL-2010 Wikipedia)",
+   "sentence": "Many musicians who create what is considered \"neo-soul\" prefer to disassociate themselves from the tag, due to the term's buzzword-like usage.",
+   "their_label": "belief cue, no named source (our approximation)",
+   "expected": "met",
+   "context": ""
+  },
+  {
+   "id": "C5-04",
+   "dataset": "Szeged (CoNLL-2010 Wikipedia)",
+   "sentence": "Neither, however, is located on the rail line for which the area is named and therefore they may be considered culturally rather than geographically on the Main Line.",
+   "their_label": "belief cue, no named source (our approximation)",
+   "expected": "met",
+   "context": ""
+  },
+  {
+   "id": "C5-05",
+   "dataset": "Szeged (CoNLL-2010 Wikipedia)",
+   "sentence": "(However, the choice of healing method is regarded as a matter for the individual, and the Christian Science Church exerts no pressure on members to avoid medical treatment if they wish to avail of it as an alternative to Christian Science healing.)",
+   "their_label": "belief cue, no named source (our approximation)",
+   "expected": "met",
+   "context": ""
+  },
+  {
+   "id": "C5-06",
+   "dataset": "Szeged (CoNLL-2010 Wikipedia)",
+   "sentence": "It is thought that tin was brought here from Dartmoor via the Plym and traded with the ancient Phoenicians.",
+   "their_label": "belief cue, no named source (our approximation)",
+   "expected": "met",
+   "context": ""
+  },
+  {
+   "id": "C5-07",
+   "dataset": "Szeged (CoNLL-2010 Wikipedia)",
+   "sentence": "The settlement's terms were not announced, but were believed to be in the CA$150,000 range.",
+   "their_label": "belief cue, no named source (our approximation)",
+   "expected": "met",
+   "context": ""
+  },
+  {
+   "id": "C5-08",
+   "dataset": "Szeged (CoNLL-2010 Wikipedia)",
+   "sentence": "Since its toxic effects are due to its activity as a cholinesterase inhibitor it is considered a neurotoxic pesticide.",
+   "their_label": "belief cue, no named source (our approximation)",
+   "expected": "met",
+   "context": ""
+  },
+  {
+   "id": "C5-09",
+   "dataset": "Szeged (CoNLL-2010 Wikipedia)",
+   "sentence": "In fact in the single year 1997, US military aid to Turkey was greater than in the entire period of 1950 to 1983 when there were allegedly Cold War issues.",
+   "their_label": "belief cue, no named source (our approximation)",
+   "expected": "met",
+   "context": ""
+  },
+  {
+   "id": "C5-10",
+   "dataset": "Szeged (CoNLL-2010 Wikipedia)",
+   "sentence": "It is thought that any emotions which the primary psychopath exhibits are the fruits of watching and mimicking other people's emotions.",
+   "their_label": "belief cue, no named source (our approximation)",
+   "expected": "met",
+   "context": ""
+  },
+  {
+   "id": "C5-11",
+   "dataset": "Szeged (CoNLL-2010 Wikipedia)",
+   "sentence": "At and (at the time), Cecil was considered too small to be a collegiate star and thus was not offered a scholarship out of high school.",
+   "their_label": "belief cue, no named source (our approximation)",
+   "expected": "met",
+   "context": ""
+  },
+  {
+   "id": "C5-12",
+   "dataset": "Szeged (CoNLL-2010 Wikipedia)",
+   "sentence": "In addition, a selection of texts were translated by Anglican Bishop Charles Venn Pilcher and published in a pamphlet entitled \"Thirty-One Meditations on Christ's Passion\"; this translation, although incomplete, is regarded as more true to the Lutheran theology of Hallgrímur Pétursson.",
+   "their_label": "belief cue, no named source (our approximation)",
+   "expected": "met",
+   "context": ""
+  },
+  {
+   "id": "C5-13",
+   "dataset": "Szeged (CoNLL-2010 Wikipedia)",
+   "sentence": "While it can be said that Lieberman invited support from the Jewish population, many believe it would not have made a difference if a Gentile was selected as Gore's running mate, as Jews historically have favored the Democrats.",
+   "their_label": "belief cue, no named source (our approximation)",
+   "expected": "met",
+   "context": ""
+  },
+  {
+   "id": "C5-14",
+   "dataset": "Szeged (CoNLL-2010 Wikipedia)",
+   "sentence": "Therefore it is possible to cross the current standard 2,000 ng/mL limit of detection, depending on seed potency and quantity ingested.",
+   "their_label": "no uncertainty cue",
+   "expected": "not_met",
+   "context": ""
+  },
+  {
+   "id": "C5-15",
+   "dataset": "Szeged (CoNLL-2010 Wikipedia)",
+   "sentence": "They did not make significant electoral gains in the Republic until after the IRA ceasefires and the Belfast Agreement of 1998.",
+   "their_label": "no uncertainty cue",
+   "expected": "not_met",
+   "context": ""
+  },
+  {
+   "id": "C5-16",
+   "dataset": "Szeged (CoNLL-2010 Wikipedia)",
+   "sentence": "Data developed by the WSC is used for water resource management purposes in various policy programs by federal, provincial and municipal governments.",
+   "their_label": "no uncertainty cue",
+   "expected": "not_met",
+   "context": ""
+  },
+  {
+   "id": "C5-17",
+   "dataset": "Szeged (CoNLL-2010 Wikipedia)",
+   "sentence": "His lamp experiment, where several different light sources are arranged across a large area, is the first successful projection of an entire image from outdoors onto a screen indoors with the 'camera obscura'.",
+   "their_label": "no uncertainty cue",
+   "expected": "not_met",
+   "context": ""
+  },
+  {
+   "id": "C5-18",
+   "dataset": "Szeged (CoNLL-2010 Wikipedia)",
+   "sentence": "The current leader is Kim Jong-il, the late president Kim Il-sung's son.",
+   "their_label": "no uncertainty cue",
+   "expected": "not_met",
+   "context": ""
+  },
+  {
+   "id": "C5-19",
+   "dataset": "Szeged (CoNLL-2010 Wikipedia)",
+   "sentence": "In the Wolfenstein-Boters reaction, benzene reacts with nitric acid and mercury nitrate to give picric acid.",
+   "their_label": "no uncertainty cue",
+   "expected": "not_met",
+   "context": ""
+  },
+  {
+   "id": "C5-20",
+   "dataset": "Szeged (CoNLL-2010 Wikipedia)",
+   "sentence": "Cutting a cake is zero- or constant-sum, because taking a larger piece reduces the amount of cake available for others.",
+   "their_label": "no uncertainty cue",
+   "expected": "not_met",
+   "context": ""
+  },
+  {
+   "id": "C5-21",
+   "dataset": "Szeged (CoNLL-2010 Wikipedia)",
+   "sentence": "Metallic pipes are commonly made from steel or iron; the metal chemistry and its finish are peculiar to the use fit and form.",
+   "their_label": "no uncertainty cue",
+   "expected": "not_met",
+   "context": ""
+  },
+  {
+   "id": "C5-22",
+   "dataset": "Szeged (CoNLL-2010 Wikipedia)",
+   "sentence": "Experiments on human subjects utilizing such agents goes back to at least World War I.",
+   "their_label": "no uncertainty cue",
+   "expected": "not_met",
+   "context": ""
+  },
+  {
+   "id": "C5-23",
+   "dataset": "Szeged (CoNLL-2010 Wikipedia)",
+   "sentence": "Bangladesh has 31 public universities instructing the bulk of higher studies students, especially from disadvantaged classes.",
+   "their_label": "no uncertainty cue",
+   "expected": "not_met",
+   "context": ""
+  },
+  {
+   "id": "C5-24",
+   "dataset": "Szeged (CoNLL-2010 Wikipedia)",
+   "sentence": "The 'Detroit Institute of Arts' ('DIA'), originally named the 'Detroit Museum of Art', has one of the largest, most significant art collections in the United States.",
+   "their_label": "no uncertainty cue",
+   "expected": "not_met",
+   "context": ""
+  },
+  {
+   "id": "C5-25",
+   "dataset": "Szeged (CoNLL-2010 Wikipedia)",
+   "sentence": "English easily accepts technical terms into common usage and imports new words and phrases that often come into common usage.",
+   "their_label": "no uncertainty cue",
+   "expected": "not_met",
+   "context": ""
+  }
+ ],
+ "C6": [
+  {
+   "id": "C6-01",
+   "dataset": "Yu et al. 2019 (PubMed)",
+   "sentence": "As PIP&Rofil implants showed shorter retention periods until rupture and ruptured implants can cause symptoms or health problems, PIP&Rofil implants should be regularly monitored and explanted if there is evidence of rupture.",
+   "their_label": "direct causal",
+   "expected": "met",
+   "context": ""
+  },
+  {
+   "id": "C6-02",
+   "dataset": "Yu et al. 2019 (PubMed)",
+   "sentence": "In six multinational trials evaluating bococizumab, antidrug antibodies developed in a large proportion of the patients and significantly attenuated the lowering of LDL cholesterol levels.",
+   "their_label": "direct causal",
+   "expected": "met",
+   "context": ""
+  },
+  {
+   "id": "C6-03",
+   "dataset": "Yu et al. 2019 (PubMed)",
+   "sentence": "MISC was effective in teaching Ugandan caregivers to enhance their childrens cognitive development through practical and sustainable techniques applied during daily interactions in the home.",
+   "their_label": "direct causal",
+   "expected": "met",
+   "context": ""
+  },
+  {
+   "id": "C6-04",
+   "dataset": "Yu et al. 2019 (PubMed)",
+   "sentence": "Thus, treatment-related factors such as fatigue had a greater impact on cognitive decline than psychological factors.",
+   "their_label": "direct causal",
+   "expected": "met",
+   "context": ""
+  },
+  {
+   "id": "C6-05",
+   "dataset": "Yu et al. 2019 (PubMed)",
+   "sentence": "The presence of a Charcot-related foot wound at presentation increased the likelihood of a major lower extremity amputation by a factor of 6.",
+   "their_label": "direct causal",
+   "expected": "met",
+   "context": ""
+  },
+  {
+   "id": "C6-06",
+   "dataset": "Yu et al. 2019 (PubMed)",
+   "sentence": "The quality of life of these patients, after massive weight loss, is also highly improved by these procedures.",
+   "their_label": "direct causal",
+   "expected": "met",
+   "context": ""
+  },
+  {
+   "id": "C6-07",
+   "dataset": "Yu et al. 2019 (PubMed)",
+   "sentence": "In patients with active ophthalmopathy, teprotumumab was more effective than placebo in reducing proptosis and the Clinical Activity Score.",
+   "their_label": "direct causal",
+   "expected": "met",
+   "context": ""
+  },
+  {
+   "id": "C6-08",
+   "dataset": "Yu et al. 2019 (PubMed)",
+   "sentence": "In virologically suppressed individuals with HIV infection, atorvastatin did not significantly decrease levels of soluble or cellular biomarkers of immune activation and inflammation but resulted in robust reductions in LDL cholesterol, oxLDL, and lipoprotein-associated phospholipase A2, biomarkers associated with cardiovascular risk.",
+   "their_label": "direct causal",
+   "expected": "met",
+   "context": ""
+  },
+  {
+   "id": "C6-09",
+   "dataset": "Yu et al. 2019 (PubMed)",
+   "sentence": "This meta-analysis suggests that therapy with BAS significantly improves HDL-C, LDL-C, and glycemic markers including fasting blood glucose, HbA1c levels, while deteriorating triglyceride levels.",
+   "their_label": "direct causal",
+   "expected": "met",
+   "context": ""
+  },
+  {
+   "id": "C6-10",
+   "dataset": "Yu et al. 2019 (PubMed)",
+   "sentence": "\"Both a low-fat vegan diet and a diet based on ADA guidelines improved glycemic and lipid control in type 2 diabetic patients.\"",
+   "their_label": "direct causal",
+   "expected": "met",
+   "context": ""
+  },
+  {
+   "id": "C6-11",
+   "dataset": "Yu et al. 2019 (PubMed)",
+   "sentence": "Depletion of the memory B-cell compartment contributes to the immunosuppression induced by sepsis.",
+   "their_label": "direct causal",
+   "expected": "met",
+   "context": ""
+  },
+  {
+   "id": "C6-12",
+   "dataset": "Yu et al. 2019 (PubMed)",
+   "sentence": "Furthermore, these findings reveal that the benefits of physical activity to improvements in cognitive function are particularly evident among children who are obese.",
+   "their_label": "direct causal",
+   "expected": "met",
+   "context": ""
+  },
+  {
+   "id": "C6-13",
+   "dataset": "Yu et al. 2019 (PubMed)",
+   "sentence": "A brief telephone-based intervention with a focused message delivered by a registered dietitian is a feasible approach for encouraging targeted dietary changes, such as an increase in soy intake among peri- and postmenopausal women.",
+   "their_label": "direct causal",
+   "expected": "met",
+   "context": ""
+  },
+  {
+   "id": "C6-14",
+   "dataset": "Yu et al. 2019 (PubMed)",
+   "sentence": "The dietary feedback system was used to deliver personalized dietary advice within a multi-country study.",
+   "their_label": "no relationship",
+   "expected": "not_met",
+   "context": ""
+  },
+  {
+   "id": "C6-15",
+   "dataset": "Yu et al. 2019 (PubMed)",
+   "sentence": "Endothelial dysfunction is associated with high FGF21 in HD patients.",
+   "their_label": "correlational",
+   "expected": "not_met",
+   "context": ""
+  },
+  {
+   "id": "C6-16",
+   "dataset": "Yu et al. 2019 (PubMed)",
+   "sentence": "An improvement can be observed: a transition from a suspicion about special diet management to an appropriate and responsible management of meals for children and young people suffering from this specific condition.\"",
+   "their_label": "correlational",
+   "expected": "not_met",
+   "context": ""
+  },
+  {
+   "id": "C6-17",
+   "dataset": "Yu et al. 2019 (PubMed)",
+   "sentence": "Habitual consumption of sugar sweetened beverages was associated with a greater incidence of type 2 diabetes, independently of adiposity.",
+   "their_label": "correlational",
+   "expected": "not_met",
+   "context": ""
+  },
+  {
+   "id": "C6-18",
+   "dataset": "Yu et al. 2019 (PubMed)",
+   "sentence": "Female gender, a poor functional status and polypharmacy, are the characteristics linked to their use.",
+   "their_label": "correlational",
+   "expected": "not_met",
+   "context": ""
+  },
+  {
+   "id": "C6-19",
+   "dataset": "Yu et al. 2019 (PubMed)",
+   "sentence": "Also, the relationships between these factors and the childs SSB intake differed for children with distinct ethnic backgrounds.",
+   "their_label": "correlational",
+   "expected": "not_met",
+   "context": ""
+  },
+  {
+   "id": "C6-20",
+   "dataset": "Yu et al. 2019 (PubMed)",
+   "sentence": "For regular monitoring, only ALP assay is recommended, provided one abstains from repeat injection of vitamin D based on high ALP levels.",
+   "their_label": "no relationship",
+   "expected": "not_met",
+   "context": ""
+  },
+  {
+   "id": "C6-21",
+   "dataset": "Yu et al. 2019 (PubMed)",
+   "sentence": "These data support the potential for extrapolating analgesic efficacy to other neuropathic pain conditions.",
+   "their_label": "no relationship",
+   "expected": "not_met",
+   "context": ""
+  },
+  {
+   "id": "C6-22",
+   "dataset": "Yu et al. 2019 (PubMed)",
+   "sentence": "This nutrition assessment documented good status for folate, vitamin B6, and vitamin B12 in the highly active women.",
+   "their_label": "no relationship",
+   "expected": "not_met",
+   "context": ""
+  },
+  {
+   "id": "C6-23",
+   "dataset": "Yu et al. 2019 (PubMed)",
+   "sentence": "Weight status of intervention participants did not rebound 6 months after programming.",
+   "their_label": "no relationship",
+   "expected": "not_met",
+   "context": ""
+  },
+  {
+   "id": "C6-24",
+   "dataset": "Yu et al. 2019 (PubMed)",
+   "sentence": "Statin therapy in this population rarely went beyond low-moderate doses.",
+   "their_label": "no relationship",
+   "expected": "not_met",
+   "context": ""
+  },
+  {
+   "id": "C6-25",
+   "dataset": "Yu et al. 2019 (PubMed)",
+   "sentence": "\"Further evaluation in a randomized trial enrolling TNBC patients is warranted.\"",
+   "their_label": "no relationship",
+   "expected": "not_met",
+   "context": ""
+  }
+ ]
+}

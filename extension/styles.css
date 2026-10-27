@@ -206,7 +206,30 @@ mark.gisun-key-high { background: rgba(229, 57, 53, 0.18); }
   gap: 8px;
   align-items: flex-start;
   margin: 6px 0;
+  padding: 6px 8px;
+  border: 1px solid transparent;
+  border-radius: 8px;
   cursor: pointer;
+}
+/* ChatGPT's page CSS hides native radio buttons (appearance: none, no border), so the
+   options looked unclickable. Force a visible radio circle back on. */
+.gisun-gate-options input[type="radio"] {
+  appearance: auto !important;
+  -webkit-appearance: radio !important;
+  display: inline-block !important;
+  opacity: 1 !important;
+  position: static !important;
+  width: 16px !important;
+  height: 16px !important;
+  margin: 2px 0 0 !important;
+  flex: none;
+  accent-color: #111;
+}
+/* Also outline the whole chosen option, so the choice is obvious even if a radio stays hidden */
+.gisun-gate-options label:has(input:checked) {
+  border-color: #111;
+  background: rgba(127, 127, 127, 0.12);
+  font-weight: 600;
 }
 .gisun-gate-error {
   margin: 0 0 12px;
