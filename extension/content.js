@@ -474,7 +474,10 @@ function renderDeepResult(panel, claim, result) {
   for (const [cid, d] of problems) {
     const item = makeEl("li", "", `${CRITERION_LABELS[cid] ?? cid}: ${d.reasoning}`);
     for (const e of d.evidence ?? []) {
-      if (e.source && e.source !== "response") item.appendChild(makeEl("div", "gisun-deep-source", `Source (${e.source}): "${e.quote}"`));
+      const o = e.official;  // a C2 figure: the record fetched from the statistics API
+      if (o) item.appendChild(makeEl("div", "gisun-deep-source",
+        `Source: ${o.source}, series ${o.series_id}: ${o.value_text} for ${o.period} (looked up ${o.query_date})`));
+      else if (e.source && e.source !== "response") item.appendChild(makeEl("div", "gisun-deep-source", `Source (${e.source}): "${e.quote}"`));
     }
     if (d.by === "rules" && result.agent_share) {
       item.appendChild(makeEl("div", "gisun-deep-meta", "Decided by the rules (the agent didn't finish)."));

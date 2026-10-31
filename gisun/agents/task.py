@@ -7,12 +7,18 @@ from gisun.agents.check import check_decision
 from gisun.agents.loop import Tool, run_tool_loop
 from gisun.agents.toolbox import build_tools
 from gisun.criteria import CRITERIA, DECISIONS, STRENGTHS
+from gisun.tools.numbers import HEDGES
+
+C2_FIELDS_SCHEMA = {"type": "object", "description": "C2 step 1: the number pinned down from the text",
+                    "properties": {"value": {"type": "string"}, "measure": {"type": "string"},
+                                   "place": {"type": "string"}, "period": {"type": "string"},
+                                   "unit": {"type": "string"}, "hedge": {"type": "string", "enum": list(HEDGES)}}}
 
 SYSTEM = """You check one claim from a chatbot answer against one criterion, for a student learning to read critically.
 Use the tools to gather evidence, then call submit_decision.
 - decision "met" means the problem IS present; "not_met" means it is not; "undetermined" if the evidence can't settle it.
 - strength: how sure the evidence makes you (strong / moderate / supporting).
-- evidence: exact quotes. source = "response" for words from the answer, or the source_id you opened.
+- evidence: exact quotes. source = "response" for words from the answer, or the record_id of an official figure.
 - Never invent quotes or sources. Respond in English."""
 
 
@@ -25,12 +31,14 @@ def run_task(ctx, claim: dict, cid: str, feedback: list[str] | None = None, max_
                       "strength": {"type": "string", "enum": list(STRENGTHS)},
                       "reasoning": {"type": "string"},
                       "evidence": {"type": "array", "items": {"type": "object", "properties": {
-                          "quote": {"type": "string"}, "source": {"type": "string"}}}}}},
+                          "quote": {"type": "string"}, "source": {"type": "string"}}}},
+                      **({"claim_fields": C2_FIELDS_SCHEMA} if cid == "C2" else {})}},
                   lambda **_: None)
     flags = [{"text": f["matched_value"], "type": f["type"], **({"category": f["category"]} if "category" in f else {})}
              for f in claim["flags"]]
     task = (f"Criterion {cid} ({crit['name']}): {crit['question']}\nGuidance: {crit['guidance']}\n\n"
             f"Claim: {claim['sentence']}\nPrevious sentences: {claim['context_before']}\n"
+            + (f"User's question: {ctx.question}\n" if cid == "C2" and ctx.question else "") +
             f"Detector flags: {json.dumps(flags, ensure_ascii=False)}")
     if feedback:
         task += "\n\nA reviewer rejected your previous decision:\n- " + "\n- ".join(feedback) + \

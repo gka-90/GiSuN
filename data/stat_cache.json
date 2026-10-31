@@ -1,0 +1,1206 @@
+{
+ "responses": {
+  "worldbank https://api.worldbank.org/v2/country?format=json&per_page=400": {
+   "query_date": "2026-10-31",
+   "response": [
+    {
+     "page": 1,
+     "pages": 1,
+     "per_page": "400",
+     "total": 296
+    },
+    [
+     {
+      "id": "ABW",
+      "name": "Aruba"
+     },
+     {
+      "id": "AFE",
+      "name": "Africa Eastern and Southern"
+     },
+     {
+      "id": "AFG",
+      "name": "Afghanistan"
+     },
+     {
+      "id": "AFR",
+      "name": "Africa"
+     },
+     {
+      "id": "AFW",
+      "name": "Africa Western and Central"
+     },
+     {
+      "id": "AGO",
+      "name": "Angola"
+     },
+     {
+      "id": "ALB",
+      "name": "Albania"
+     },
+     {
+      "id": "AND",
+      "name": "Andorra"
+     },
+     {
+      "id": "ARB",
+      "name": "Arab World"
+     },
+     {
+      "id": "ARE",
+      "name": "United Arab Emirates"
+     },
+     {
+      "id": "ARG",
+      "name": "Argentina"
+     },
+     {
+      "id": "ARM",
+      "name": "Armenia"
+     },
+     {
+      "id": "ASM",
+      "name": "American Samoa"
+     },
+     {
+      "id": "ATG",
+      "name": "Antigua and Barbuda"
+     },
+     {
+      "id": "AUS",
+      "name": "Australia"
+     },
+     {
+      "id": "AUT",
+      "name": "Austria"
+     },
+     {
+      "id": "AZE",
+      "name": "Azerbaijan"
+     },
+     {
+      "id": "BDI",
+      "name": "Burundi"
+     },
+     {
+      "id": "BEA",
+      "name": "East Asia & Pacific (IBRD-only countries)"
+     },
+     {
+      "id": "BEC",
+      "name": "Europe & Central Asia (IBRD-only countries)"
+     },
+     {
+      "id": "BEL",
+      "name": "Belgium"
+     },
+     {
+      "id": "BEN",
+      "name": "Benin"
+     },
+     {
+      "id": "BFA",
+      "name": "Burkina Faso"
+     },
+     {
+      "id": "BGD",
+      "name": "Bangladesh"
+     },
+     {
+      "id": "BGR",
+      "name": "Bulgaria"
+     },
+     {
+      "id": "BHI",
+      "name": "IBRD countries classified as high income"
+     },
+     {
+      "id": "BHR",
+      "name": "Bahrain"
+     },
+     {
+      "id": "BHS",
+      "name": "Bahamas, The"
+     },
+     {
+      "id": "BIH",
+      "name": "Bosnia and Herzegovina"
+     },
+     {
+      "id": "BLA",
+      "name": "Latin America & the Caribbean (IBRD-only countries)"
+     },
+     {
+      "id": "BLR",
+      "name": "Belarus"
+     },
+     {
+      "id": "BLZ",
+      "name": "Belize"
+     },
+     {
+      "id": "BMN",
+      "name": "Middle East, North Africa, Afghanistan & Pakistan (IBRD only)"
+     },
+     {
+      "id": "BMU",
+      "name": "Bermuda"
+     },
+     {
+      "id": "BOL",
+      "name": "Bolivia"
+     },
+     {
+      "id": "BRA",
+      "name": "Brazil"
+     },
+     {
+      "id": "BRB",
+      "name": "Barbados"
+     },
+     {
+      "id": "BRN",
+      "name": "Brunei Darussalam"
+     },
+     {
+      "id": "BSS",
+      "name": "Sub-Saharan Africa (IBRD-only countries)"
+     },
+     {
+      "id": "BTN",
+      "name": "Bhutan"
+     },
+     {
+      "id": "BWA",
+      "name": "Botswana"
+     },
+     {
+      "id": "CAA",
+      "name": "Sub-Saharan Africa (IFC classification)"
+     },
+     {
+      "id": "CAF",
+      "name": "Central African Republic"
+     },
+     {
+      "id": "CAN",
+      "name": "Canada"
+     },
+     {
+      "id": "CEA",
+      "name": "East Asia and the Pacific (IFC classification)"
+     },
+     {
+      "id": "CEB",
+      "name": "Central Europe and the Baltics"
+     },
+     {
+      "id": "CEU",
+      "name": "Europe and Central Asia (IFC classification)"
+     },
+     {
+      "id": "CHE",
+      "name": "Switzerland"
+     },
+     {
+      "id": "CHI",
+      "name": "Channel Islands"
+     },
+     {
+      "id": "CHL",
+      "name": "Chile"
+     },
+     {
+      "id": "CHN",
+      "name": "China"
+     },
+     {
+      "id": "CIV",
+      "name": "Cote d'Ivoire"
+     },
+     {
+      "id": "CLA",
+      "name": "Latin America and the Caribbean (IFC classification)"
+     },
+     {
+      "id": "CME",
+      "name": "Middle East and North Africa (IFC classification)"
+     },
+     {
+      "id": "CMR",
+      "name": "Cameroon"
+     },
+     {
+      "id": "COD",
+      "name": "Congo, Dem. Rep."
+     },
+     {
+      "id": "COG",
+      "name": "Congo, Rep."
+     },
+     {
+      "id": "COL",
+      "name": "Colombia"
+     },
+     {
+      "id": "COM",
+      "name": "Comoros"
+     },
+     {
+      "id": "CPV",
+      "name": "Cabo Verde"
+     },
+     {
+      "id": "CRI",
+      "name": "Costa Rica"
+     },
+     {
+      "id": "CSA",
+      "name": "South Asia (IFC classification)"
+     },
+     {
+      "id": "CSS",
+      "name": "Caribbean small states"
+     },
+     {
+      "id": "CUB",
+      "name": "Cuba"
+     },
+     {
+      "id": "CUW",
+      "name": "Curacao"
+     },
+     {
+      "id": "CYM",
+      "name": "Cayman Islands"
+     },
+     {
+      "id": "CYP",
+      "name": "Cyprus"
+     },
+     {
+      "id": "CZE",
+      "name": "Czechia"
+     },
+     {
+      "id": "DEA",
+      "name": "East Asia & Pacific (IDA-eligible countries)"
+     },
+     {
+      "id": "DEC",
+      "name": "Europe & Central Asia (IDA-eligible countries)"
+     },
+     {
+      "id": "DEU",
+      "name": "Germany"
+     },
+     {
+      "id": "DJI",
+      "name": "Djibouti"
+     },
+     {
+      "id": "DLA",
+      "name": "Latin America & the Caribbean (IDA-eligible countries)"
+     },
+     {
+      "id": "DMA",
+      "name": "Dominica"
+     },
+     {
+      "id": "DMN",
+      "name": "Middle East, North Africa, Afghanistan & Pakistan (IDA total)"
+     },
+     {
+      "id": "DNK",
+      "name": "Denmark"
+     },
+     {
+      "id": "DNS",
+      "name": "IDA countries in Sub-Saharan Africa not classified as fragile situations "
+     },
+     {
+      "id": "DOM",
+      "name": "Dominican Republic"
+     },
+     {
+      "id": "DSA",
+      "name": "South Asia (IDA-eligible countries)"
+     },
+     {
+      "id": "DSF",
+      "name": "IDA countries in Sub-Saharan Africa classified as fragile situations "
+     },
+     {
+      "id": "DSS",
+      "name": "Sub-Saharan Africa (IDA-eligible countries)"
+     },
+     {
+      "id": "DZA",
+      "name": "Algeria"
+     },
+     {
+      "id": "EAP",
+      "name": "East Asia & Pacific (excluding high income)"
+     },
+     {
+      "id": "EAR",
+      "name": "Early-demographic dividend"
+     },
+     {
+      "id": "EAS",
+      "name": "East Asia & Pacific"
+     },
+     {
+      "id": "ECA",
+      "name": "Europe & Central Asia (excluding high income)"
+     },
+     {
+      "id": "ECS",
+      "name": "Europe & Central Asia"
+     },
+     {
+      "id": "ECU",
+      "name": "Ecuador"
+     },
+     {
+      "id": "EGY",
+      "name": "Egypt, Arab Rep."
+     },
+     {
+      "id": "EMU",
+      "name": "Euro area"
+     },
+     {
+      "id": "ERI",
+      "name": "Eritrea"
+     },
+     {
+      "id": "ESP",
+      "name": "Spain"
+     },
+     {
+      "id": "EST",
+      "name": "Estonia"
+     },
+     {
+      "id": "ETH",
+      "name": "Ethiopia"
+     },
+     {
+      "id": "EUU",
+      "name": "European Union"
+     },
+     {
+      "id": "FCV",
+      "name": "Fragility, Conflict, and Violence (FCV) situations"
+     },
+     {
+      "id": "FIN",
+      "name": "Finland"
+     },
+     {
+      "id": "FJI",
+      "name": "Fiji"
+     },
+     {
+      "id": "FRA",
+      "name": "France"
+     },
+     {
+      "id": "FRO",
+      "name": "Faroe Islands"
+     },
+     {
+      "id": "FSM",
+      "name": "Micronesia, Fed. Sts."
+     },
+     {
+      "id": "FXS",
+      "name": "IDA countries classified as fragile situations, excluding Sub-Saharan Africa"
+     },
+     {
+      "id": "GAB",
+      "name": "Gabon"
+     },
+     {
+      "id": "GBR",
+      "name": "United Kingdom"
+     },
+     {
+      "id": "GEO",
+      "name": "Georgia"
+     },
+     {
+      "id": "GHA",
+      "name": "Ghana"
+     },
+     {
+      "id": "GIB",
+      "name": "Gibraltar"
+     },
+     {
+      "id": "GIN",
+      "name": "Guinea"
+     },
+     {
+      "id": "GMB",
+      "name": "Gambia, The"
+     },
+     {
+      "id": "GNB",
+      "name": "Guinea-Bissau"
+     },
+     {
+      "id": "GNQ",
+      "name": "Equatorial Guinea"
+     },
+     {
+      "id": "GRC",
+      "name": "Greece"
+     },
+     {
+      "id": "GRD",
+      "name": "Grenada"
+     },
+     {
+      "id": "GRL",
+      "name": "Greenland"
+     },
+     {
+      "id": "GTM",
+      "name": "Guatemala"
+     },
+     {
+      "id": "GUM",
+      "name": "Guam"
+     },
+     {
+      "id": "GUY",
+      "name": "Guyana"
+     },
+     {
+      "id": "HIC",
+      "name": "High income"
+     },
+     {
+      "id": "HKG",
+      "name": "Hong Kong SAR, China"
+     },
+     {
+      "id": "HND",
+      "name": "Honduras"
+     },
+     {
+      "id": "HPC",
+      "name": "Heavily indebted poor countries (HIPC)"
+     },
+     {
+      "id": "HRV",
+      "name": "Croatia"
+     },
+     {
+      "id": "HTI",
+      "name": "Haiti"
+     },
+     {
+      "id": "HUN",
+      "name": "Hungary"
+     },
+     {
+      "id": "IBB",
+      "name": "IBRD, including blend"
+     },
+     {
+      "id": "IBD",
+      "name": "IBRD only"
+     },
+     {
+      "id": "IBT",
+      "name": "IDA & IBRD total"
+     },
+     {
+      "id": "IDA",
+      "name": "IDA total"
+     },
+     {
+      "id": "IDB",
+      "name": "IDA blend"
+     },
+     {
+      "id": "IDN",
+      "name": "Indonesia"
+     },
+     {
+      "id": "IDX",
+      "name": "IDA only"
+     },
+     {
+      "id": "IMN",
+      "name": "Isle of Man"
+     },
+     {
+      "id": "IND",
+      "name": "India"
+     },
+     {
+      "id": "INX",
+      "name": "Not classified"
+     },
+     {
+      "id": "IRL",
+      "name": "Ireland"
+     },
+     {
+      "id": "IRN",
+      "name": "Iran, Islamic Rep."
+     },
+     {
+      "id": "IRQ",
+      "name": "Iraq"
+     },
+     {
+      "id": "ISL",
+      "name": "Iceland"
+     },
+     {
+      "id": "ISR",
+      "name": "Israel"
+     },
+     {
+      "id": "ITA",
+      "name": "Italy"
+     },
+     {
+      "id": "JAM",
+      "name": "Jamaica"
+     },
+     {
+      "id": "JOR",
+      "name": "Jordan"
+     },
+     {
+      "id": "JPN",
+      "name": "Japan"
+     },
+     {
+      "id": "KAZ",
+      "name": "Kazakhstan"
+     },
+     {
+      "id": "KEN",
+      "name": "Kenya"
+     },
+     {
+      "id": "KGZ",
+      "name": "Kyrgyz Republic"
+     },
+     {
+      "id": "KHM",
+      "name": "Cambodia"
+     },
+     {
+      "id": "KIR",
+      "name": "Kiribati"
+     },
+     {
+      "id": "KNA",
+      "name": "St. Kitts and Nevis"
+     },
+     {
+      "id": "KOR",
+      "name": "Korea, Rep."
+     },
+     {
+      "id": "KWT",
+      "name": "Kuwait"
+     },
+     {
+      "id": "LAC",
+      "name": "Latin America & Caribbean (excluding high income)"
+     },
+     {
+      "id": "LAO",
+      "name": "Lao PDR"
+     },
+     {
+      "id": "LBN",
+      "name": "Lebanon"
+     },
+     {
+      "id": "LBR",
+      "name": "Liberia"
+     },
+     {
+      "id": "LBY",
+      "name": "Libya"
+     },
+     {
+      "id": "LCA",
+      "name": "St. Lucia"
+     },
+     {
+      "id": "LCN",
+      "name": "Latin America & Caribbean "
+     },
+     {
+      "id": "LDC",
+      "name": "Least developed countries: UN classification"
+     },
+     {
+      "id": "LIC",
+      "name": "Low income"
+     },
+     {
+      "id": "LIE",
+      "name": "Liechtenstein"
+     },
+     {
+      "id": "LKA",
+      "name": "Sri Lanka"
+     },
+     {
+      "id": "LMC",
+      "name": "Lower middle income"
+     },
+     {
+      "id": "LMY",
+      "name": "Low & middle income"
+     },
+     {
+      "id": "LSO",
+      "name": "Lesotho"
+     },
+     {
+      "id": "LTE",
+      "name": "Late-demographic dividend"
+     },
+     {
+      "id": "LTU",
+      "name": "Lithuania"
+     },
+     {
+      "id": "LUX",
+      "name": "Luxembourg"
+     },
+     {
+      "id": "LVA",
+      "name": "Latvia"
+     },
+     {
+      "id": "MAC",
+      "name": "Macao SAR, China"
+     },
+     {
+      "id": "MAF",
+      "name": "St. Martin (French part)"
+     },
+     {
+      "id": "MAR",
+      "name": "Morocco"
+     },
+     {
+      "id": "MCO",
+      "name": "Monaco"
+     },
+     {
+      "id": "MDA",
+      "name": "Moldova"
+     },
+     {
+      "id": "MDE",
+      "name": "Middle East (developing only)"
+     },
+     {
+      "id": "MDG",
+      "name": "Madagascar"
+     },
+     {
+      "id": "MDV",
+      "name": "Maldives"
+     },
+     {
+      "id": "MEA",
+      "name": "Middle East, North Africa, Afghanistan & Pakistan"
+     },
+     {
+      "id": "MEX",
+      "name": "Mexico"
+     },
+     {
+      "id": "MHL",
+      "name": "Marshall Islands"
+     },
+     {
+      "id": "MIC",
+      "name": "Middle income"
+     },
+     {
+      "id": "MKD",
+      "name": "North Macedonia"
+     },
+     {
+      "id": "MLI",
+      "name": "Mali"
+     },
+     {
+      "id": "MLT",
+      "name": "Malta"
+     },
+     {
+      "id": "MMR",
+      "name": "Myanmar"
+     },
+     {
+      "id": "MNA",
+      "name": "Middle East, North Africa, Afghanistan & Pakistan (excluding high income)"
+     },
+     {
+      "id": "MNE",
+      "name": "Montenegro"
+     },
+     {
+      "id": "MNG",
+      "name": "Mongolia"
+     },
+     {
+      "id": "MNP",
+      "name": "Northern Mariana Islands"
+     },
+     {
+      "id": "MOZ",
+      "name": "Mozambique"
+     },
+     {
+      "id": "MRT",
+      "name": "Mauritania"
+     },
+     {
+      "id": "MUS",
+      "name": "Mauritius"
+     },
+     {
+      "id": "MWI",
+      "name": "Malawi"
+     },
+     {
+      "id": "MYS",
+      "name": "Malaysia"
+     },
+     {
+      "id": "NAC",
+      "name": "North America"
+     },
+     {
+      "id": "NAF",
+      "name": "North Africa"
+     },
+     {
+      "id": "NAM",
+      "name": "Namibia"
+     },
+     {
+      "id": "NCL",
+      "name": "New Caledonia"
+     },
+     {
+      "id": "NER",
+      "name": "Niger"
+     },
+     {
+      "id": "NGA",
+      "name": "Nigeria"
+     },
+     {
+      "id": "NIC",
+      "name": "Nicaragua"
+     },
+     {
+      "id": "NLD",
+      "name": "Netherlands"
+     },
+     {
+      "id": "NOR",
+      "name": "Norway"
+     },
+     {
+      "id": "NPL",
+      "name": "Nepal"
+     },
+     {
+      "id": "NRS",
+      "name": "Non-resource rich Sub-Saharan Africa countries"
+     },
+     {
+      "id": "NRU",
+      "name": "Naoero"
+     },
+     {
+      "id": "NXS",
+      "name": "IDA countries not classified as fragile situations, excluding Sub-Saharan Africa"
+     },
+     {
+      "id": "NZL",
+      "name": "New Zealand"
+     },
+     {
+      "id": "OED",
+      "name": "OECD members"
+     },
+     {
+      "id": "OMN",
+      "name": "Oman"
+     },
+     {
+      "id": "OSS",
+      "name": "Other small states"
+     },
+     {
+      "id": "PAK",
+      "name": "Pakistan"
+     },
+     {
+      "id": "PAN",
+      "name": "Panama"
+     },
+     {
+      "id": "PER",
+      "name": "Peru"
+     },
+     {
+      "id": "PHL",
+      "name": "Philippines"
+     },
+     {
+      "id": "PLW",
+      "name": "Palau"
+     },
+     {
+      "id": "PNG",
+      "name": "Papua New Guinea"
+     },
+     {
+      "id": "POL",
+      "name": "Poland"
+     },
+     {
+      "id": "PRE",
+      "name": "Pre-demographic dividend"
+     },
+     {
+      "id": "PRI",
+      "name": "Puerto Rico (US)"
+     },
+     {
+      "id": "PRK",
+      "name": "Korea, Dem. People's Rep."
+     },
+     {
+      "id": "PRT",
+      "name": "Portugal"
+     },
+     {
+      "id": "PRY",
+      "name": "Paraguay"
+     },
+     {
+      "id": "PSE",
+      "name": "West Bank and Gaza"
+     },
+     {
+      "id": "PSS",
+      "name": "Pacific island small states"
+     },
+     {
+      "id": "PST",
+      "name": "Post-demographic dividend"
+     },
+     {
+      "id": "PYF",
+      "name": "French Polynesia"
+     },
+     {
+      "id": "QAT",
+      "name": "Qatar"
+     },
+     {
+      "id": "ROU",
+      "name": "Romania"
+     },
+     {
+      "id": "RRS",
+      "name": "Resource rich Sub-Saharan Africa countries"
+     },
+     {
+      "id": "RUS",
+      "name": "Russian Federation"
+     },
+     {
+      "id": "RWA",
+      "name": "Rwanda"
+     },
+     {
+      "id": "SAS",
+      "name": "South Asia"
+     },
+     {
+      "id": "SAU",
+      "name": "Saudi Arabia"
+     },
+     {
+      "id": "SDN",
+      "name": "Sudan"
+     },
+     {
+      "id": "SEN",
+      "name": "Senegal"
+     },
+     {
+      "id": "SGP",
+      "name": "Singapore"
+     },
+     {
+      "id": "SLB",
+      "name": "Solomon Islands"
+     },
+     {
+      "id": "SLE",
+      "name": "Sierra Leone"
+     },
+     {
+      "id": "SLV",
+      "name": "El Salvador"
+     },
+     {
+      "id": "SMR",
+      "name": "San Marino"
+     },
+     {
+      "id": "SOM",
+      "name": "Somalia, Fed. Rep."
+     },
+     {
+      "id": "SRB",
+      "name": "Serbia"
+     },
+     {
+      "id": "SSA",
+      "name": "Sub-Saharan Africa (excluding high income)"
+     },
+     {
+      "id": "SSD",
+      "name": "South Sudan"
+     },
+     {
+      "id": "SSF",
+      "name": "Sub-Saharan Africa "
+     },
+     {
+      "id": "SST",
+      "name": "Small states"
+     },
+     {
+      "id": "STP",
+      "name": "Sao Tome and Principe"
+     },
+     {
+      "id": "SUR",
+      "name": "Suriname"
+     },
+     {
+      "id": "SVK",
+      "name": "Slovak Republic"
+     },
+     {
+      "id": "SVN",
+      "name": "Slovenia"
+     },
+     {
+      "id": "SWE",
+      "name": "Sweden"
+     },
+     {
+      "id": "SWZ",
+      "name": "Eswatini"
+     },
+     {
+      "id": "SXM",
+      "name": "Sint Maarten (Dutch part)"
+     },
+     {
+      "id": "SXZ",
+      "name": "Sub-Saharan Africa excluding South Africa"
+     },
+     {
+      "id": "SYC",
+      "name": "Seychelles"
+     },
+     {
+      "id": "SYR",
+      "name": "Syrian Arab Republic"
+     },
+     {
+      "id": "TCA",
+      "name": "Turks and Caicos Islands"
+     },
+     {
+      "id": "TCD",
+      "name": "Chad"
+     },
+     {
+      "id": "TEA",
+      "name": "East Asia & Pacific (IDA & IBRD countries)"
+     },
+     {
+      "id": "TEC",
+      "name": "Europe & Central Asia (IDA & IBRD countries)"
+     },
+     {
+      "id": "TGO",
+      "name": "Togo"
+     },
+     {
+      "id": "THA",
+      "name": "Thailand"
+     },
+     {
+      "id": "TJK",
+      "name": "Tajikistan"
+     },
+     {
+      "id": "TKM",
+      "name": "Turkmenistan"
+     },
+     {
+      "id": "TLA",
+      "name": "Latin America & the Caribbean (IDA & IBRD countries)"
+     },
+     {
+      "id": "TLS",
+      "name": "Timor-Leste"
+     },
+     {
+      "id": "TMN",
+      "name": "Middle East, North Africa, Afghanistan & Pakistan (IDA & IBRD)"
+     },
+     {
+      "id": "TON",
+      "name": "Tonga"
+     },
+     {
+      "id": "TSA",
+      "name": "South Asia (IDA & IBRD)"
+     },
+     {
+      "id": "TSS",
+      "name": "Sub-Saharan Africa (IDA & IBRD countries)"
+     },
+     {
+      "id": "TTO",
+      "name": "Trinidad and Tobago"
+     },
+     {
+      "id": "TUN",
+      "name": "Tunisia"
+     },
+     {
+      "id": "TUR",
+      "name": "Turkiye"
+     },
+     {
+      "id": "TUV",
+      "name": "Tuvalu"
+     },
+     {
+      "id": "TZA",
+      "name": "Tanzania"
+     },
+     {
+      "id": "UGA",
+      "name": "Uganda"
+     },
+     {
+      "id": "UKR",
+      "name": "Ukraine"
+     },
+     {
+      "id": "UMC",
+      "name": "Upper middle income"
+     },
+     {
+      "id": "URY",
+      "name": "Uruguay"
+     },
+     {
+      "id": "USA",
+      "name": "United States"
+     },
+     {
+      "id": "UZB",
+      "name": "Uzbekistan"
+     },
+     {
+      "id": "VCT",
+      "name": "St. Vincent and the Grenadines"
+     },
+     {
+      "id": "VEN",
+      "name": "Venezuela, RB"
+     },
+     {
+      "id": "VGB",
+      "name": "British Virgin Islands"
+     },
+     {
+      "id": "VIR",
+      "name": "Virgin Islands (U.S.)"
+     },
+     {
+      "id": "VNM",
+      "name": "Viet Nam"
+     },
+     {
+      "id": "VUT",
+      "name": "Vanuatu"
+     },
+     {
+      "id": "WLD",
+      "name": "World"
+     },
+     {
+      "id": "WSM",
+      "name": "Samoa"
+     },
+     {
+      "id": "XKX",
+      "name": "Kosovo"
+     },
+     {
+      "id": "XZN",
+      "name": "Sub-Saharan Africa excluding South Africa and Nigeria"
+     },
+     {
+      "id": "YEM",
+      "name": "Yemen, Rep."
+     },
+     {
+      "id": "ZAF",
+      "name": "South Africa"
+     },
+     {
+      "id": "ZMB",
+      "name": "Zambia"
+     },
+     {
+      "id": "ZWE",
+      "name": "Zimbabwe"
+     }
+    ]
+   ]
+  }
+ },
+ "usage": {
+  "worldbank": {
+   "2026-10-31": 1
+  }
+ }
+}

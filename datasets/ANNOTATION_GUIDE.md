@@ -54,11 +54,19 @@ the previous two sentences. A specific source = a named organisation, publicatio
 link. "Experts", "studies", "data shows" are **not** specific. Dates and years alone are not
 statistics.
 
-**C2 statistic contradicted.** Look the number up in a reliable source (statistics office,
-official record, peer-reviewed paper). Only compare the **same measure, place, year and unit**.
-`met` = a reliable source gives a clearly different figure; `not_met` = it matches (allow
-rounding); `undetermined` = no matching figure found. **Write the source URL and its figure in
-the item's notes** for every C2 decision that isn't `undetermined`.
+**C2 statistic contradicted.** Does a reliable source give a different figure? First pin the
+number down: measure, place, time (year or month), unit and any hedge word ("about", "over",
+"under"). If the measure, place or time isn't stated in the sentence, the two before it or the
+user's question, it's `undetermined`. Then look it up in an official source (BLS, Census, World Bank, a national
+statistics office) for the **same measure, place, period and unit** ("unemployment rate" means
+U-3; an annual average doesn't answer a monthly claim). Match rules: no hedge = after rounding the
+official figure to the claim's precision, at most one unit off in the last digit (14.7% matches
+14.7 and 14.8: revisions and rounding); "about" / "roughly" / "around" = within 10%; "over" / "at
+least" = the official figure is at or above it, "under" / "less than" the other way; a range =
+the figure is inside it. `met` = it doesn't match; `not_met` = it matches; `undetermined` = no
+exact figure, or two official sources disagree. **Write the source, series ID, figure with unit
+and period, and the date you looked it up in the item's notes** for every C2 decision that
+isn't `undetermined`.
 
 **C3 loaded language.** Slanted or emotional wording where a neutral word would do
 ("disastrous policy", "job-killing", "regime"). Negated, quoted or merely mentioned terms don't
@@ -75,6 +83,19 @@ is `not_met` (missing sources are C1's job). If a specific source is named too, 
 **C6 unsupported causal claim.** Says A causes B ("leads to", "because", "due to",
 "results in") without evidence or a source, especially correlation presented as cause.
 Well-established, uncontroversial mechanisms ("smoking causes lung cancer") are `not_met`.
+
+## Limitations
+
+**C2, US household income: ACS vs CPS ASEC.** The Census Bureau publishes two median household
+income figures from two surveys. The headline national figure (the "Income in the United States"
+report) comes from the CPS ASEC; the American Community Survey (ACS) gives a different figure for
+the same year, usually a few hundred to a couple of thousand dollars off, because the surveys ask
+about income differently, cover different periods (CPS ASEC: the previous calendar year, asked in
+February-April; ACS: the 12 months before each interview, all year) and have different samples.
+They are different measures, so GiSuN only compares an income claim with ACS when the claim says
+it is ACS; any other US median household income claim is `undetermined` for now (CPS ASEC is not
+in the catalog). Label it the same way: compare only with the survey the claim is about, and if
+you can't tell which, `undetermined`.
 
 ## Merge and adjudicate
 

@@ -132,7 +132,7 @@ Every detector returns flags in the same shape, and `/verify` returns them sorte
 - [x] #3 Funnel: only the `GISUN_C2_MAX_CLAIMS` most check-worthy claims get the C2 source check; drops are logged in `plan.notes`. Bare years aren't highlighted.
 - [x] #4 (part) `/verify` skips loaded words that are negated, quoted or only mentioned.
 - [x] #5 C1 + C5 add at most 2 points together.
-- [x] #7 C2 only compares against a source figure for the same year; a "contradicted" verdict needs a same-year source quote (rule and Check agent).
+- [x] #7 C2 only compares against an official figure for the same measure, place, period and unit, looked up in the BLS / Census / World Bank / Data Commons APIs (cached), with hedge-aware tolerances; the Check agent enforces it (see PIPELINE.md).
 - [x] #10 (tool) `evaluation/agreement.py`: Cohen's kappa between two label files. Evaluation reports `not_run` pairs.
 - [x] #11 `GISUN_JUDGE_MODEL`: the Judge can use a different model; the Slurm script can serve both.
 - [x] #14 Highlight labels are worded as warnings, not verdicts.
@@ -147,7 +147,7 @@ Every detector returns flags in the same shape, and `/verify` returns them sorte
 - [x] C1 also covers quantitative claims with no number ("the highest ever", "skyrocketed", "outpaced inflation") in model modes. C2 only compares values it can look up (not rankings or p-values).
 
 ### TODO
-- [ ] Data, labels and a decision (the highest-priority items): 50+ real answers labeled by both of us with guidelines (#9, #10), real reference data for 2-3 C2 domains (#6), and the product promise (#14). See "Not done yet" in PIPELINE.md.
+- [ ] Data, labels and a decision (the highest-priority items): 50+ real answers labeled by both of us with guidelines (#9, #10), API keys and a filled statistics cache for C2 (#6), and the product promise (#14). See "Not done yet" in PIPELINE.md.
 - [ ] Speed: an answer takes roughly 10-40 s on the HPC model (one model conversation per claim and criterion). Ideas: one call per sentence for C3-C6, `task_only` in the extension, more parallel requests, showing claims as they finish.
 - [ ] Suggestions for unsourced numbers (where to look), instead of only "no source".
 - [ ] Popup/options page to switch between citation and in-your-face mode and pick the deep-check mode (right now both live only in `chrome.storage.sync`: `mode`, default `citation`; `deepMode`, default `full`).
@@ -249,11 +249,12 @@ After editing anything in `extension/`, click the ↻ reload button on the GiSuN
 │   ├── scoring.py               # Claim / response risk from criterion decisions
 │   ├── llm.py, config.py        # Model backend (Ollama / OpenAI-compatible) and settings
 │   ├── agents/                  # plan, task, debug, judge, check, loop, toolbox
-│   └── tools/                   # attribution, language (context cues), numbers, retrieval
+│   └── tools/                   # attribution, language (context cues), numbers (C2 tolerances), retrieval (statistics APIs)
 ├── baseline/zero_tool.py        # One-call, no-tools baseline
 ├── evaluation/                  # evaluate.py (RQ1/RQ2), run_ablation.py (RQ3), agreement.py (Cohen's kappa)
 ├── datasets/gold_example.json   # 4 hand-made labeled items (to be replaced by 50+ real answers)
-├── data/reference_corpus.json   # Sample reference corpus for C2 retrieval
+├── data/stat_series.json       # Which official series (BLS, Census, World Bank, Data Commons) answers which C2 measure
+├── data/stat_cache.json        # Cached API responses with their query dates (created on first lookup)
 ├── hpc/run_eval.slurm           # Hamilton HPC (vLLM) evaluation job, see PIPELINE.md
 ├── logs/                        # Slurm job logs (folder must exist before sbatch)
 ├── agent/                       # Quiz only (the pipeline doesn't do quizzes yet)

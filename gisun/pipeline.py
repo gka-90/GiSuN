@@ -51,7 +51,7 @@ MODES = {
 
 
 def _rule(ctx, claim, cid, why: str) -> dict:
-    out = normalize(cid, CRITERIA[cid]["rule"](claim, ctx))
+    out = normalize(cid, CRITERIA[cid]["rule"](claim, ctx), ctx)
     out.update(by="rules", note=why)
     return out
 
@@ -77,7 +77,7 @@ def _run_one(ctx, claim: dict, cid: str, mode: dict) -> dict:
         return {**_rule(ctx, claim, cid, "agent failed; rule fallback"), "debug": debug_log,
                 "seconds": round(time.time() - t0, 1), "trace": []}
 
-    decision, trace, judge_log = normalize(cid, res.answer), list(res.trace), []
+    decision, trace, judge_log = normalize(cid, res.answer, ctx), list(res.trace), []
     if mode["judge"]:
         for _ in range(config.JUDGE_MAX_REVISIONS + 1):
             review = judge(ctx, claim, cid, decision, res.tool_log)
@@ -87,7 +87,7 @@ def _run_one(ctx, claim: dict, cid: str, mode: dict) -> dict:
             revised = run_task(ctx, claim, cid, feedback=review["problems"])
             if revised.answer is None:
                 break
-            res, decision = revised, normalize(cid, revised.answer)
+            res, decision = revised, normalize(cid, revised.answer, ctx)
             trace += [{"kind": "revision"}] + revised.trace
         if judge_log and judge_log[-1]["verdict"] == "revise":
             decision["judge_disputed"] = True  # kept, but flagged for the evaluation / UI

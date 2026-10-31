@@ -29,7 +29,7 @@ scoring.py         claim risk (low/medium/high, +unverified) and response level 
 | id | name | question ("met" = problem present) | tools | open |
 |---|---|---|---|---|
 | C1 | unsourced_statistic | statistic or other quantitative claim with no specific source nearby? | find_attribution, context_window | numberless records / trends / comparisons |
-| C2 | statistic_contradicted | does a reliable source contradict the number? | search, read_source, compare_numbers | |
+| C2 | statistic_contradicted | does a reliable source give a different figure? | lookup_statistic, compare_numbers | |
 | C3 | loaded_language | slanted wording where neutral would do? | context_cues, wordlist_lookup | yes |
 | C4 | overgeneralization | sweeping absolute claim? | context_cues | yes |
 | C5 | vague_attribution | "experts say" instead of a source? | find_attribution, context_window | yes |
@@ -46,11 +46,40 @@ output), because the agents can only catch what the rules miss if they see those
 `rules_only` keeps the gates (the rules have nothing to say about unflagged sentences), so it
 stays the same baseline. Turn this off with `GISUN_OPEN_CRITERIA=0`.
 
-**C2 compares like with like.** A source figure only counts if it is about the same year as
-the claim: the rule reads only source sentences that mention the claim's year, and the Check
-agent rejects a "contradicted" verdict unless its source quote comes from such a sentence. A
-claim with no year can't be contradicted (it's "undetermined"). The guidance also asks the
-agent to match measure (U-3 vs U-6), place and unit (percent vs percentage points).
+**C2: does a reliable source give a different figure?** Four steps (related work: Vlachos &
+Riedel 2015 check country statistics against a knowledge base; DataGemma 2024 grounds an LLM's
+numbers in Data Commons; FEVER's SUPPORTED / REFUTED / NOTENOUGHINFO = our not_met / met /
+undetermined).
+1. *Pin the number down.* The Task agent submits `claim_fields`: value, measure, place, period
+   (`2020` or `2020-04`) and hedge (`none` / `approx` / `at_least` / `at_most`). Each may come
+   from the claim, the two sentences before it, or the user's question (the claim's own words
+   win). If the measure, place or time isn't stated in any of them: `undetermined`.
+   Plain "unemployment rate" means U-3.
+2. *Look it up* (`gisun/tools/retrieval.py`, `lookup_statistic`): BLS for US jobs and inflation,
+   Census for US population and income, World Bank for countries, Data Commons for the rest.
+   `data/stat_series.json` says which series answers which measure (a few fixed legal values,
+   like the federal minimum wage, are *static entries* with a valid-from date and no API call);
+   a measure with no entry
+   gets no figure, so C2 never compares against a close-enough series (U-6 for "unemployment",
+   an annual average for a monthly claim). Cache first (`data/stat_cache.json`, with the query
+   date), then the API.
+3. *Compare* (`compare_numbers`): no hedge = after rounding the official figure to the claim's
+   precision, at most one unit off in the claim's last digit ("14.7%" matches 14.7 and 14.8, not
+   14.9). The one unit is for official revisions and rounding: BLS first published April 2020
+   unemployment as 14.7% and later revised it to 14.8%, so an answer quoting the first release
+   is not wrong, and a figure rounded twice (by the source, then by the writer) can land one
+   unit away. About / roughly / around / nearly = within 10%; over / more than / at
+   least = official at or above, under / less than the other way; a range = official inside it.
+   All official figures match -> `not_met`, none -> `met`, official sources disagree with each
+   other -> `undetermined`, with every figure listed.
+4. *Evidence for a human.* Each C2 evidence item cites a `record_id` the lookup returned; the
+   saved decision carries the fetched record (source, series ID, value with unit and period,
+   query date). The Check agent rejects a decision whose fields aren't in the text, whose hedge
+   isn't the sentence's, that cites a figure not fetched in this run, leaves out a figure the
+   lookup returned, skips compare_numbers, or disagrees with the tolerance rules.
+
+The rule (`rules_only`) does the same steps with no model: measure from the catalog aliases,
+place and period from the text, one of each or `undetermined`.
 
 **Quantitative claims without numbers.** "The highest ever", "a record low", "skyrocketed",
 "outpaced inflation" (the statistic-formats reference's "claims without explicit numbers") make a
@@ -68,7 +97,7 @@ most 2 points ("Studies show 40%" is one attribution problem, not two).
 | Task | agents/task.py | one criterion for one claim; chooses its own tools | yes |
 | Debug | agents/debug.py | retries technical failures / step-budget overruns | no |
 | Judge | agents/judge.py | approves or sends back with concrete problems (max 1 revision); can be a different model (`GISUN_JUDGE_MODEL`) | yes |
-| Check | agents/check.py | schema; every quote must be in the response or a source **opened in this run**; C2 needs compare_numbers, must agree with it, and a contradiction must come from a same-year source sentence | no |
+| Check | agents/check.py | schema; every quote must be in the response or an official figure **fetched in this run**; C2: fields stated in the text, all fetched figures cited, compare_numbers used, decision = the tolerance rules' | no |
 
 Every criterion the Plan agent or the funnel drops is logged in the result's `plan.notes`.
 
@@ -87,6 +116,9 @@ python -m gisun.pipeline --text "..." --mode rules_only
 | `GISUN_JUDGE_MODEL` / `GISUN_JUDGE_BASE_URL` | same as above | a different model for the Judge |
 | `GISUN_OPEN_CRITERIA` | 1 | run C3-C6 on unflagged sentences in model modes |
 | `GISUN_C2_MAX_CLAIMS` | 5 | how many claims get the C2 source check |
+| `GISUN_BLS_KEY` | (none) | BLS key: monthly figures work without it, annual averages need it (500 queries/day vs 25) |
+| `GISUN_CENSUS_KEY` / `GISUN_DATACOMMONS_KEY` | (none) | needed for Census / Data Commons; World Bank needs no key |
+| `GISUN_STAT_CACHE` / `GISUN_STAT_OFFLINE` | data/stat_cache.json / 0 | API response cache; 1 = cache only (HPC nodes with no internet) |
 
 ### On the Hamilton CS HPC (vLLM)
 One-time setup on the login node (`ssh <name>@150.209.91.65`), everything under `/hpc/<name>`
@@ -132,7 +164,7 @@ Qwen's `generation_config.json` adds `top_k=20, top_p=0.8, repetition_penalty=1.
 | RQ1 | evaluation/evaluate.py | criterion-level accuracy / P / R / F1 |
 | RQ2 | evaluation/evaluate.py | claim risk agreement |
 | RQ3 | evaluation/run_ablation.py | full / no_judge / no_debug / task_only / **rules_only** |
-| RQ4 | (todo) | C2 retrieval: was the right source found (Recall@k) |
+| RQ4 | (todo) | C2 on a validation set: step 1 (measure / place / period / hedge) accuracy, then the decision |
 | agreement | evaluation/agreement.py | Cohen's kappa between two people's labels, per criterion |
 | baseline | baseline/zero_tool.py | one call, no tools |
 
@@ -177,18 +209,20 @@ adjudication steps: **[datasets/ANNOTATION_GUIDE.md](datasets/ANNOTATION_GUIDE.m
 ## Unit tests (no model)
 `python -m unittest discover tests`: a scripted fake model checks the full flow,
 rejection of an invented quote, judge revisions, rule fallback when the backend is down,
-open criteria on unflagged sentences, the same-year C2 rules, the C1+C5 cap and the C2 funnel.
+open criteria on unflagged sentences, the C1+C5 cap and the C2 funnel. `tests/test_c2.py`: the
+C2 tolerances, API routing, cache, offline mode and the Check agent's C2 rules, with the APIs
+answered by `tests/fake_stats.py`.
 
 ## Not done yet
 Full list with priorities: *GiSuN: open problems and proposed solutions* (Fall 2026).
-- `data/reference_corpus.json` is 3 SAMPLE entries: replace with real snapshots for 2-3 domains
-  (BLS, Census, World Bank) or run SearXNG on the HPC (`GISUN_SEARCH=searxng`). (#6)
+- C2: get the free BLS, Census and Data Commons keys; fill `data/stat_cache.json` on a machine
+  with internet before HPC runs. The Data Commons calls are written from its v2 docs but not yet
+  tried with a key. The headline US median household income (CPS ASEC) is not in the catalog. (#6)
 - Label the 65 collected real ChatGPT answers (`datasets/annotation/`, see the guide), both
   of you with written guidelines; check agreement with `evaluation/agreement.py`. (#9, #10)
-- RQ4: label the right source per C2 claim and measure Recall@k. (#8)
+- RQ4: a C2 validation set: label measure / place / period / hedge and the decision per claim;
+  step 1 is the hardest part, so measure it first. (#8)
 - The Plan agent ranks nothing yet: the C2 funnel uses extract_claims' rule score. (#3)
 - Loaded language: merge a larger lexicon (e.g. Recasens et al. 2013) into bias_wordlist.json. (#4)
-- C2 fields (what/where/when/unit) are only partly enforced: the year is checked in code; measure,
-  place and unit are in the guidance only. (#7)
 - Extension: let the user overrule a decision and recompute with scoring.py.
 - Quiz: use a C2-contradicted claim as the "lie". (#19)

@@ -35,19 +35,21 @@ def _drop_nested(flags):
 
 @dataclass
 class RunContext:
-    """Shared state for one run. Agents record what they read so judges can check grounding."""
+    """Shared state for one run. Agents record the official figures they fetched so the checks can verify them."""
     text: str
     question: str
     sentences: list[str]
     claims: list[dict]
     numeric_flags: list[dict]
     bias_flags: list[dict]
-    read_sources: dict = field(default_factory=dict)  # source_id -> text the agent actually saw
+    # record_id -> official figure a lookup returned in this run, so the Check agent can tell a
+    # cited figure was really fetched (C2)
+    official_records: dict = field(default_factory=dict)
     _lock: threading.Lock = field(default_factory=threading.Lock, repr=False)
 
-    def record_read(self, source_id: str, text: str):
+    def record_official(self, records: list[dict]):
         with self._lock:
-            self.read_sources[source_id] = text
+            self.official_records.update({r["record_id"]: r for r in records})
 
     def claim(self, claim_id) -> dict:
         for c in self.claims:

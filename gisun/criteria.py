@@ -21,11 +21,12 @@ treat all criteria the same way.
                         error path, but with an answer instead of a gap)
 """
 
+import re
+
 from extract_claims import CUES
-from gisun.preprocess import split_sentences
 from gisun.tools.language import context_cues
-from gisun.tools.numbers import NUMBER, compare_numbers, parse_value, years_in
-from gisun.tools.retrieval import read_source, search
+from gisun.tools.numbers import compare_numbers, hedge_of, parse_value
+from gisun.tools.retrieval import lookup_statistic, matching_series, periods_in, places_in
 
 DECISIONS = ("met", "not_met", "undetermined")
 STRENGTHS = ("strong", "moderate", "supporting")
@@ -65,35 +66,61 @@ def rule_c1(claim, ctx):
                      [{"quote": v, "source": "response"} for v in quoted])
 
 
-def claim_years(claim) -> list[str]:
-    """Years in the claim or the sentences before it ("In 2020, ... It rose to 12%.")."""
-    return years_in(" ".join([*claim["context_before"], claim["sentence"]]))
+def c2_outcome(value: str, hedge: str, records: list[dict]) -> tuple[str, list[dict]]:
+    """The C2 decision the official figures give, by compare_numbers' tolerance rules:
+    all match -> not_met, none match -> met, sources disagree or nothing comparable -> undetermined."""
+    cmps = [{"record_id": r["record_id"], **compare_numbers(value, r["value_text"], hedge)} for r in records]
+    matches = {c["match"] for c in cmps if c.get("comparable")}
+    if matches == {True}:
+        return "not_met", cmps
+    if matches == {False}:
+        return "met", cmps
+    return "undetermined", cmps
+
+
+def _measure_in(text: str) -> str | None:
+    """The longest catalog alias named in the text."""
+    return max((a for e in matching_series(text) for a in e["aliases"]
+                if re.search(r"(?<![a-z])" + re.escape(a) + r"s?(?![a-z])", text.lower())), key=len, default=None)
+
+
+def c2_fields_from_text(claim, question: str = "") -> dict | None:
+    """The rules' version of step 1: measure, place, period and hedge. Each comes from the claim
+    first, then the two sentences before it, then the user's question. None if any can't be pinned down."""
+    texts = [claim["sentence"], " ".join(claim["context_before"]), question or ""]
+    measure = next((m for t in texts if (m := _measure_in(t))), None)
+    places = next((p for t in texts if (p := places_in(t))), [])
+    periods = next((p for t in texts if (p := periods_in(t))), [])
+    if not measure or len(places) != 1 or len(periods) != 1 or not claim["checkable_values"]:
+        return None
+    value = claim["checkable_values"][0]
+    return {"value": value, "measure": measure, "place": places[0]["name"], "period": periods[0],
+            "hedge": hedge_of(claim["sentence"], value)}
 
 
 def rule_c2(claim, ctx):
-    """Only a source sentence about the same year can confirm the number (open problem #7):
-    the 2019 rate printed next to the 2020 one must not count as a match. A claim with no
-    year can't be pinned to one figure, so the rules leave it undetermined."""
-    years = claim_years(claim)
-    if not years:
-        return _decision("undetermined", "supporting", "The claim gives no year, so the rules can't pick the right figure.")
-    hits = search(claim["sentence"], k=3)
-    for hit in hits:
-        doc = read_source(hit["source_id"])
-        ctx.record_read(hit["source_id"], doc["text"])
-        for sentence in split_sentences(doc["text"]):
-            if not any(y in sentence for y in years):
-                continue
-            for value in claim["checkable_values"]:  # not rankings or p-values: nothing to compare
-                for m in NUMBER.finditer(sentence):
-                    if m.group(0).strip() in years:
-                        continue  # the year itself is not the figure
-                    cmp = compare_numbers(value, m.group(0))
-                    if cmp.get("comparable") and cmp["match"]:
-                        return _decision("not_met", "supporting",
-                                         f"{value} matches {m.group(0).strip()} for {'/'.join(years)} in {hit['title']}.",
-                                         [{"quote": m.group(0).strip(), "source": hit["source_id"]}])
-    return _decision("undetermined", "supporting", "Rules could not match the number to a retrieved source for the same year.")
+    """The C2 steps without a model: pin the claim down, look up the official figure, compare."""
+    fields = c2_fields_from_text(claim, ctx.question)
+    if not fields:
+        return _decision("undetermined", "supporting",
+                         "The rules can't tell the measure, place and time of this number from the text.")
+    try:
+        found = lookup_statistic(fields["measure"], fields["place"], fields["period"])
+    except Exception as e:
+        return {**_decision("undetermined", "supporting", f"The statistics lookup failed ({e})."), "claim_fields": fields}
+    records = found["records"]
+    ctx.record_official(records)
+    outcome, cmps = c2_outcome(fields["value"], fields["hedge"], records)
+    if not records:
+        why = found.get("note") or "No official figure was found."
+    elif outcome == "undetermined" and len({c.get("match") for c in cmps if c.get("comparable")}) > 1:
+        why = "Official sources disagree: " + "; ".join(f"{r['source']} {r['value_text']}" for r in records) + "."
+    else:
+        r = records[0]
+        why = (f"{fields['value']} ({fields['hedge']}) vs {r['source']} {r['series_id']}: {r['value_text']} for "
+               f"{r['period']}; {cmps[0].get('rule', cmps[0].get('reason'))}.")
+    return {**_decision(outcome, "supporting", why, [{"quote": r["value_text"], "source": r["record_id"]}
+                                                     for r in records]), "claim_fields": fields}
 
 
 def rule_terms(cats, label):
@@ -205,18 +232,25 @@ CRITERIA = {
     },
     "C2": {
         "name": "statistic_contradicted",
-        "question": "Does a reliable source contradict the number in the claim?",
-        "guidance": "Search for the statistic, open the most reliable result (government statistics office, "
-                    "peer-reviewed or primary source first), find the matching figure, and ALWAYS use "
-                    "compare_numbers before deciding. 'met' = contradicted, 'not_met' = a reliable source "
-                    "matches, 'undetermined' = no reliable figure found after reasonable searching. Before "
-                    "comparing, pin down what is measured, where, when (year) and in what unit. Only compare "
-                    "against a source figure for the SAME measure, place and year: the 2019 rate is not evidence "
-                    "about a 2020 claim, U-6 is not U-3, a monthly peak is not an annual average, percent is not "
-                    "percentage points. If no source figure matches on all four, decide 'undetermined', never "
-                    "'met'.",
+        "question": "Does a reliable source give a different figure?",
+        "guidance": "1. Pin the number down. From the claim (or the two sentences before it, or the user's "
+                    "question) take: value (the "
+                    "number as written, e.g. '14.7%'), measure (e.g. 'unemployment rate'), place (e.g. 'United "
+                    "States'), period (a year '2020' or a month '2020-04') and hedge: 'approx' for about / "
+                    "roughly / around / nearly, 'at_least' for over / more than / at least, 'at_most' for under / "
+                    "less than / fewer than, else 'none'. If the measure, place or time is not stated in any of these, stop "
+                    "and decide 'undetermined'. Plain 'unemployment rate' means U-3, not U-6. "
+                    "2. Call lookup_statistic(measure, place, period); it picks the official API and only returns "
+                    "figures for exactly that measure, place, period and unit. A monthly figure does not answer an "
+                    "annual claim, and an annual average does not answer a monthly one. If it returns no record, "
+                    "decide 'undetermined': never compare with a close-enough figure. "
+                    "3. Call compare_numbers(claim_value, official_value=value_text, hedge) for EVERY record. "
+                    "'not_met' = every official figure matches, 'met' = none does, 'undetermined' = official "
+                    "sources disagree with each other (cite all of them) or nothing comparable was found. "
+                    "4. Submit claim_fields, and one evidence item per record: quote = its value_text, source = "
+                    "its record_id.",
         "phase": 2, "depends_on": {"C1": ["met", "not_met", "undetermined"]},
-        "tools": ["search", "read_source", "compare_numbers"],
+        "tools": ["lookup_statistic", "compare_numbers"],
         "severity": {"strong": 3, "moderate": 3, "supporting": 2},
         # only values compare_numbers can read ("most Americans" needs a source, but can't be checked)
         "applies": lambda c: any(parse_value(v) is not None for v in c["checkable_values"]),
