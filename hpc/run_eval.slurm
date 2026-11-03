@@ -9,7 +9,7 @@
 #SBATCH --job-name=gisun-eval
 #SBATCH --gres=gpu:nvidia_rtx_pro_6000_blackwell_server_edition:1
 #SBATCH --mem=32G
-#SBATCH --time=04:00:00
+#SBATCH --time=12:00:00
 #SBATCH --output=logs/%x_%j.out
 
 MODEL=${MODEL:-Qwen/Qwen2.5-32B-Instruct-AWQ}
@@ -46,6 +46,6 @@ else
 fi
 
 export GISUN_BACKEND=openai_compat GISUN_BASE_URL=http://localhost:8001/v1 GISUN_MODEL="$MODEL" GISUN_PARALLEL=8
-python -m evaluation.run_ablation --gold "$GOLD"
-python -m evaluation.zero_tool --dataset "$GOLD"
+python -m evaluation.run_ablation --gold "$GOLD" ${MODES:+--modes $MODES}   # MODES="full rules_only" for a subset
+[ "${ZERO:-1}" = "1" ] && python -m evaluation.zero_tool --dataset "$GOLD"   # ZERO=0 to skip the no-tools baseline
 kill $PIDS
