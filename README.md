@@ -210,8 +210,10 @@ After editing anything in `extension/`, click the ↻ reload button on the GiSuN
 │   ├── datasets/                #   build test sets: collect, external_testset, own_insertion_set, c4_testset
 │   └── labeling/                #   annotate, worksheets (make_worksheet, make_agent_worksheet, split_worksheet),
 │                                #   agreement (Cohen's kappa), finalize_labels
-├── datasets/                    # Inputs to evaluation/: gold_example.json, collected answers, own insertion set,
-│                                #   c4/ test set, annotation/ label files, candidates
+├── datasets/                    # Only what runs need: gold_example.json (tests, run_all) and
+│                                #   collected/claude_2026-10-12.json (the 50 answers the HPC run checks).
+│                                #   Everything else (labels, C4 and insertion sets, candidates) was moved out
+│                                #   of the repo on 11/3/2026; it is in git history before that date.
 ├── tests/                       # Unit tests, no model (python -m unittest discover tests)
 ├── hpc/                         # Hamilton HPC Slurm jobs (vLLM), see docs/PIPELINE.md
 │
@@ -224,7 +226,8 @@ After editing anything in `extension/`, click the ↻ reload button on the GiSuN
 └── .env                         # API keys (git-ignored, create it yourself; see gisun/config.py)
 
 Run results go to evaluation/outputs/ (git-ignored). Raw downloads (HC3, WildChat) go to datasets/raw/
-(git-ignored); evaluation/datasets/collect.py re-downloads them if needed.
+(git-ignored); evaluation/datasets/collect.py re-downloads them if needed. Scripts in evaluation/datasets/ and
+evaluation/labeling/ read files that are no longer in datasets/: copy them back before running those.
 ```
 
 ## Team
