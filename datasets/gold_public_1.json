@@ -1,0 +1,4039 @@
+[
+ {
+  "id": "pub-C1-185",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The 2011 census reported that the religion in India with the largest number of followers was Hinduism (79.80% of the population), followed by Islam (14.23%); the remaining were Christianity (2.30%), Sikhism (1.72%), Buddhism (0.70%), Jainism (0.36%) and others (0.9%).",
+  "labels": {
+   "The 2011 census reported that the religion in India with": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-188",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Triangulum Australe contains several cepheid variables, all of which are too faint to be seen with the naked eye: R Trianguli Australis ranges from apparent magnitude 6.4 to 6.9 over a period of 3.389 days, S Trianguli Australis varies from magnitude 6.1 to 6.8 over 6.323 days, and U Trianguli Australis' brightness changes from 7.5 to 8.3 over 2.568 days (Source: ↑ Klepešta & Rükl 1974).",
+  "labels": {
+   "Triangulum Australe contains several cepheid variables, all": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-191",
+  "source": "Public dataset",
+  "question": "",
+  "text": "These sixteen nations are distinct and equal legal entities – the United Kingdom, Australia, Canada, New Zealand, Antigua and Barbuda, The Bahamas, Barbados, Belize, Grenada, Jamaica, Papua New Guinea, Saint Kitts and Nevis, Saint Lucia, Saint Vincent and the Grenadines, Solomon Islands and Tuvalu.",
+  "labels": {
+   "These sixteen nations are distinct and equal legal entities": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-194",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Lead's close-packed face-centered cubic structure and high atomic weight result in a density of 11.34 g/cm3, which is greater than that of common metals such as iron (7.87 g/cm3), copper (8.93 g/cm3), and zinc (7.14 g/cm3) (Source: 1 2 Thornton).",
+  "labels": {
+   "Lead's close-packed face-centered cubic structure and high": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-197",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Weather conditions during summer months are warm, with high temperatures during July averaging 22 °C (72 °F), and daily low temperatures averaging 7 °C (45 °F), leading to a large diurnal range owing to the relative dryness of the air.",
+  "labels": {
+   "Weather conditions during summer months are warm, with high": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-200",
+  "source": "Public dataset",
+  "question": "",
+  "text": "On runs between Kings Cross and Potters Bar with the LNER's dynamometer car, No. A890 was recorded at a top speed of 83 miles per hour (134 km/h) and A803 at 79 miles per hour (127 km/h), with no problems in riding (Source: 1 2 3 Holcroft (1965)).",
+  "labels": {
+   "On runs between Kings Cross and Potters Bar with the LNER's": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-203",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Waddesdon Road was the first station out from the Quainton Road junction station, in open countryside immediately north of Akeman Street (the A41 road after 1919), about 1.1 miles (1.8 km) southeast of Quainton Road, 1 mile (1.6 km) northwest of the town of Waddesdon, and 1,300 yards (1,200 m) from Waddesdon Manor.",
+  "labels": {
+   "Waddesdon Road was the first station out from the Quainton": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-206",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Despite the presence of retailers such as Tesco, Sainsbury's and Marks & Spencer in the town, a new Asda superstore in Broadheath, and redevelopment schemes costing over £100 million, Altrincham's 15.5 per cent level of employment in retail is below the national average of 16.9 per cent (Source: 1 2 Bamford (1991)).",
+  "labels": {
+   "Despite the presence of retailers such as Tesco,": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-209",
+  "source": "Public dataset",
+  "question": "",
+  "text": "In the early 1990s and again in 2000, the Federal Emergency Management Agency honored Tulsa as leading the nation in flood plain management.Triple-digit temperatures (≥38 °C) are observed on average 11 days per year, sometimes exceeding 100 °F (38 °C) from July to early September, usually accompanied by high humidity brought in by southerly winds; The highest recorded temperature recorded was 115 °F (46 °C) on August 10, 1936.",
+  "labels": {
+   "In the early 1990s and again in 2000, the Federal Emergency": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-212",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The club then had a total of 30 points docked from its 2008–09 record by the Football Association and the Football League for financial irregularities dating back several years (Source: Luton Town 2006–2007).",
+  "labels": {
+   "The club then had a total of 30 points docked from its": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-215",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The most successful head coach in school history was George Howard \"Jerry\" Phipps, who led the Knights to a record of 133–27, four Maryland Scholastic Association (MSA) championships, and a streak of forty straight games without a loss spanning two seasons between 1960–1968.",
+  "labels": {
+   "The most successful head coach in school history was George": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-218",
+  "source": "Public dataset",
+  "question": "",
+  "text": "However, due to continued high demand, capacity has been increased multiple times, to 38,500 for the 2012 season and to 39,115 for 2015 season (Source: Qwest seating increased for hot-selling Sounders).",
+  "labels": {
+   "However, due to continued high demand, capacity has been": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-221",
+  "source": "Public dataset",
+  "question": "",
+  "text": "(In comparison, Zhang's 2002 film Hero would earn ¥270 million three years later.) Nevertheless, Not One Less was the highest-grossing domestic film of 1999, and Laikwan Pang has called it a \"box office success\".",
+  "labels": {
+   "(In comparison, Zhang's 2002 film Hero would earn ¥270": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-224",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Likewise, in a recent (2010) web-based questionnaire study designed to investigate user perceptions of the benefits and harms of hallucinogenic drug use, 60% of the 503 psilocybin users reported that their use of psilocybin had a long-term positive impact on their sense of well-being (Source: Harm potential of magic mushroom use: a review).",
+  "labels": {
+   "Likewise, in a recent (2010) web-based questionnaire study": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-227",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The active tertiary sector includes some large retail chains such as those detailed by geographer Roger Brunet: BUT (240 staff), Carrefour (150 staff), E.Leclerc (150 staff), Leroy Merlin (130 staff), and Galeries Lafayette (120 employees).",
+  "labels": {
+   "The active tertiary sector includes some large retail": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-230",
+  "source": "Public dataset",
+  "question": "",
+  "text": "In 1999, the annual \"Top 2000\" poll commenced to find the best songs ever made, and \"Bohemian Rhapsody\" has been ranked number one in all but four years (2005, 2010, 2014 and 2015 when it was number two) (Source: ↑ Top 2000 Lijst radio2.nl. Retrieved 18 January 2015).",
+  "labels": {
+   "In 1999, the annual \"Top 2000\" poll commenced to find the": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-233",
+  "source": "Public dataset",
+  "question": "",
+  "text": "El Hatillo's population is significantly lower than that of its sister municipalities; viewing 2003 crime data relative to 2001 census data, El Hatillo had an annual rate of 7.7 crimes for every one thousand citizens, while the average of the five Caracas municipalities was 19.4 for every one thousand citizens.",
+  "labels": {
+   "El Hatillo's population is significantly lower than that of": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-236",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Moreover, transporting the division without an escort would have violated the long-standing policy of assigning at least one capital ship to protect troop convoys in this region, and would not have been accepted by the Australian government (Source: 1 2 3 Roskill (1956)).",
+  "labels": {
+   "Moreover, transporting the division without an escort would": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-239",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The panel issued over 500 recommendations, including limiting the growth of the Banff townsite, capping the town's population at 10,000, placing quotas for popular hiking trails, and curtailing development in the park.",
+  "labels": {
+   "The panel issued over 500 recommendations, including": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-242",
+  "source": "Public dataset",
+  "question": "",
+  "text": "In 2011, the department's traffic surveys showed that on average, 185,700 vehicles used the freeway daily east of I-75 and 38,100 vehicles did so each day in part of the Mixing Bowl, the highest and lowest counts along the highway, respectively (Source: Traffic Monitoring Information System).",
+  "labels": {
+   "In 2011, the department's traffic surveys showed that on": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-245",
+  "source": "Public dataset",
+  "question": "",
+  "text": "They secured their top division status a year later to become founder members of the new Premier League, but were relegated after two seasons despite reaching that year's FA Cup semi-finals.",
+  "labels": {
+   "They secured their top division status a year later to": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-248",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The 1843 Musidora was bought directly from Etty by City of London merchant George Knott for 70 guineas (about £6,300 in today's terms ) who sold it on two years later for 225 guineas (about £20,000 today ) (Source: The Annual RPI and Average Earnings for Britain).",
+  "labels": {
+   "The 1843 Musidora was bought directly from Etty by City of": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-251",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Excursion trains from as far away as Buffalo, New York, and Pittsburgh would come just to cross the Kinzua Bridge, which held the height record until the Garabit viaduct, 401 feet (122 m) tall, was completed in France in 1884.",
+  "labels": {
+   "Excursion trains from as far away as Buffalo, New York, and": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-254",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The 1961–62 season was Craig's last at first-class level; he accumulated 629 runs at 37.00, with seven fifties but he was unable to convert any of these into a century (Source: Australian First-Class Season 1960/61: Batting – Most Runs).",
+  "labels": {
+   "The 1961–62 season was Craig's last at first-class level;": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-257",
+  "source": "Public dataset",
+  "question": "",
+  "text": "TEFRA was the \"largest peacetime tax increase in American history.\" Gross domestic product (GDP) growth recovered strongly after the early 1980s recession ended in 1982, and grew during his eight years in office at an annual rate of 7.9% per year, with a high of 12.2% growth in 1981.",
+  "labels": {
+   "TEFRA was the \"largest peacetime tax increase in American": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-260",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The boiler pressure was set at 280 psi (1,900 kPa) and each was fitted with four thermic siphons within the firebox, both to increase the rate of evaporation and improve water circulation (Source: 1 2 Robertson (2007).",
+  "labels": {
+   "The boiler pressure was set at 280 psi (1,900 kPa) and each": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-263",
+  "source": "Public dataset",
+  "question": "",
+  "text": "While his rival Chamberlain had a record-breaking season of 50.4 points per game and a 100-point game, the Celtics became the first team to win 60 games in a season, and Russell was voted as the NBA's Most Valuable Player.",
+  "labels": {
+   "While his rival Chamberlain had a record-breaking season of": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-266",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Over the full distance of the lap Brasier's Baras was the quickest; his lap time of 52 minutes and 25.4 seconds (52:25.4) moved him up to third position on the road and into the lead overall (Source: The first Grand Prix).",
+  "labels": {
+   "Over the full distance of the lap Brasier's Baras was the": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-269",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Upon release it won several awards from gaming publications, including multiple \"Game of the Year\" titles, and became the first Nintendo title to win the British Academy Games Award for Best Game.",
+  "labels": {
+   "Upon release it won several awards from gaming": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-272",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Over 20 percent of its sales were from outside of the US, despite the lack of any marketing or non-English description and despite the game being banned from sale in Germany due to its inclusion of Nazi symbols (Source: 1 2 3 4 5 6 7 Masters of Doom).",
+  "labels": {
+   "Over 20 percent of its sales were from outside of the US,": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-275",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Among other evidence, witnesses recalled that the Franks displayed typhus symptoms by 7 February, and Dutch health authorities reported that most untreated typhus victims died within 12 days of their first symptoms.",
+  "labels": {
+   "Among other evidence, witnesses recalled that the Franks": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-278",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The portion south of Otay Valley Road cost $15 million (equivalent to $53.3 million in 2016 ), and the portion between Telegraph Canyon Road and Sweetwater Road cost $12 million (equivalent to $42.6 million in 2016 ) (Source: What Was the U.S. GDP Then?).",
+  "labels": {
+   "The portion south of Otay Valley Road cost $15 million": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-281",
+  "source": "Public dataset",
+  "question": "",
+  "text": "In an article published in 2008, the researchers estimate that, under the current regime, a job in a new aluminum smelter or an expansion project costs the province between C$255,357 and C$729,653 a year, when taking into consideration the money that could be made by selling the excess electricity on the New York market.",
+  "labels": {
+   "In an article published in 2008, the researchers estimate": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-284",
+  "source": "Public dataset",
+  "question": "",
+  "text": "In this census, the ethnic proportions in these territories combined were 37 per cent Hungarian, 19 per cent Volksdeutsche, 18 per cent Croats and 16 per cent Serbs, and the population of Prekmurje was 102,867 (Source: 1 2 Ungváry 2011).",
+  "labels": {
+   "In this census, the ethnic proportions in these territories": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-287",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Rock Steady was certified double platinum by the Recording Industry Association of America (RIAA) on October 11, 2002, and by July 2012, it had sold 2,842,000 copies in the United States.",
+  "labels": {
+   "Rock Steady was certified double platinum by the Recording": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-290",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Formal decommissioning of the site, including a $4 million cleanup (equivalent to $4.7 million in 2016 dollars), began in April 2006, amid student protests over the contractor hired for the work (Source: Step into the UW's former nuclear reactor).",
+  "labels": {
+   "Formal decommissioning of the site, including a $4 million": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-293",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Considered one of the foremost research universities in the United States, Michigan is classified as one of 115 Doctoral Universities with Very High Research by the Carnegie Classification of Institutions of Higher Education.",
+  "labels": {
+   "Considered one of the foremost research universities in the": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-296",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The game also includes five competitive multiplayer modes, which all can be customized, for between two and 16 players; up to four players may play split-screen on one Xbox, and further players can join using a \"System Link\" feature that allows up to four Xbox consoles to be connected together into a local area network (Source: Frequently Asked Questions about Halo: Gameplay).",
+  "labels": {
+   "The game also includes five competitive multiplayer modes,": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-299",
+  "source": "Public dataset",
+  "question": "",
+  "text": "(This was substantially larger than the V-2, which measured 14 metres (46 ft) long and 3.55 metres (11.6 ft) wide.) Two witnesses interviewed by the Sanders team reported \"an intention of firing a projectile 18 metres long\".",
+  "labels": {
+   "(This was substantially larger than the V-2, which measured": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-302",
+  "source": "Public dataset",
+  "question": "",
+  "text": "It is estimated that throughout Florida, the storm damaged 101,241 homes and destroyed approximately 63,000 others – the vast majority in Dade County – with about 175,000 people rendered homeless (Source: Hurricane Andrew).",
+  "labels": {
+   "It is estimated that throughout Florida, the storm damaged": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-305",
+  "source": "Public dataset",
+  "question": "",
+  "text": "This rate of energy release is equivalent to 70 times the world energy consumption of humans and 200 times the worldwide electrical generating capacity, or to exploding a 10-megaton nuclear bomb every 20 minutes.",
+  "labels": {
+   "This rate of energy release is equivalent to 70 times the": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-308",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Amidst the best offensive season of his career, McDonald scored a hat trick against Pittsburgh to give him 47 goals at the mid-season break for the 1983 All-Star Game, a total that tied his career high (Source: Holidaying Flames leave it to Lanny).",
+  "labels": {
+   "Amidst the best offensive season of his career, McDonald": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-311",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Often renowned as one of the greatest singers in pop music, McCartney was ranked the 11th greatest singer of all time by Rolling Stone, voted the 8th greatest singer ever by NME readers and number 10 by Music Radar readers in the list of \"the 30 greatest lead singers of all time\".",
+  "labels": {
+   "Often renowned as one of the greatest singers in pop music,": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-314",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The Canadian National Vimy Memorial and Beaumont-Hamel Newfoundland Memorial sites comprise close to 80 percent of conserved First World War battlefields in existence and between them receive over one million visitors each year (Source: Canadian Battlefield Memorials Restoration Project).",
+  "labels": {
+   "The Canadian National Vimy Memorial and Beaumont-Hamel": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-317",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The system consists of five grades and it assigns one point for the presence or absence of each of five factors: age greater than 50; Hunt and Hess grade 4 or 5; Fisher scale 3 or 4; aneurysm size greater than 10 mm; and posterior circulation aneurysm 25 mm or more.",
+  "labels": {
+   "The system consists of five grades and it assigns one point": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-320",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Despite all the transformations in the industry, by 1961 the average production cost of an American feature film was still only $2 million—after adjusting for inflation, less than 10 percent more than it had been in 1950 (Source: 1 2 3 4 Finler (2003)).",
+  "labels": {
+   "Despite all the transformations in the industry, by 1961": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-323",
+  "source": "Public dataset",
+  "question": "",
+  "text": "In front of nearly 80,000 spectators, Selwood amassed 22 disposals, five marks, five clearances, six inside 50s, five tackles, and five score assists, helping Geelong to a club finals record 106 point victory.",
+  "labels": {
+   "In front of nearly 80,000 spectators, Selwood amassed 22": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-326",
+  "source": "Public dataset",
+  "question": "",
+  "text": "By 1913 the Welsh collieries were extracting 56.8 million long tons of coal (63.6 million short tons) a year, up from 8.5 million long tons (9.5 million short tons) in 1854; collieries in the region mined a fifth of all coal produced in the UK, and employed a fifth of its miners in the mid-nineteenth century (Source: 1 2 Duckham & Duckham 1973).",
+  "labels": {
+   "By 1913 the Welsh collieries were extracting 56.8 million": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-329",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The park is open year-round and between 60 and 85 nights each year have ideal conditions, when the apparent magnitudes of the faintest stars visible can range from 7.1 to 7.5.",
+  "labels": {
+   "The park is open year-round and between 60 and 85 nights": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-332",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Liverpool also has the highest average league finishing position (3.3) for the 50-year period to 2015 and second-highest average league finishing position for the period 1900–1999 after Arsenal, with an average league placing of 8.7 (Source: Liverpool lead Manchester United).",
+  "labels": {
+   "Liverpool also has the highest average league finishing": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-335",
+  "source": "Public dataset",
+  "question": "",
+  "text": "This made Marco the smallest tropical cyclone ever recorded, surpassing the previous record set on December 24, 1974 by Cyclone Tracy, whose tropical storm-force winds extended 30 miles (48 km).",
+  "labels": {
+   "This made Marco the smallest tropical cyclone ever": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-338",
+  "source": "Public dataset",
+  "question": "",
+  "text": "According to a 2013 survey conducted by the International Association of Public Transport, in terms of a public transport system, Kolkata ranks among the top of the six Indian cities surveyed (Source: Kolkata tops Indian cities in public transport: Study).",
+  "labels": {
+   "According to a 2013 survey conducted by the International": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-341",
+  "source": "Public dataset",
+  "question": "",
+  "text": "A tropical wave exited western Africa on October 22 and continued westward into the Pacific on November 2, spawning a tropical depression on November 8 about 440 mi (710 km) south of Manzanillo, Colima.",
+  "labels": {
+   "A tropical wave exited western Africa on October 22 and": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-344",
+  "source": "Public dataset",
+  "question": "",
+  "text": "As a mark of esteem, the Prince Regent made a special grant to allow the heraldic supporters that would have been incorporated into his coat of arms if he had lived, to be incorporated into the arms of Brock's father's descendants, and on monuments raised in Brock's memory (Source: No. 16696).",
+  "labels": {
+   "As a mark of esteem, the Prince Regent made a special grant": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-347",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Trescothick's apparent inability to make major scores was again apparent in the 2001–02 One Day International series in Zimbabwe, where he only passed 50 on one occasion despite scoring consistently.",
+  "labels": {
+   "Trescothick's apparent inability to make major scores was": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-350",
+  "source": "Public dataset",
+  "question": "",
+  "text": "A crew of 12 people stayed in a hurricane-proof bunker on Johnston Atoll during the hurricane's passage; the crew estimated winds reached over 100 mph (160 km/h), which damaged trees on the island but did not impact the island's bird population (Source: Overview of the 2006 Central North Pacific Tropical Cyclone Season).",
+  "labels": {
+   "A crew of 12 people stayed in a hurricane-proof bunker on": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-353",
+  "source": "Public dataset",
+  "question": "",
+  "text": "By late on July 12, the storm developed banding features, and early on July 13 Carlotta attained hurricane status about 430 mi (700 km) south of the southern tip of the Baja California peninsula.",
+  "labels": {
+   "By late on July 12, the storm developed banding features,": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-356",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Ashton-under-Lyne's 18,347 households included 33.2% one-person, 33.0% married couples living together, 8.9% were co-habiting couples, and 12.4% single parents with their children; these figures were similar to those of Tameside, however both Tameside and Ashton have higher rates of single parents than England (9.5%) (Source: KS20 Household composition: Census 2001).",
+  "labels": {
+   "Ashton-under-Lyne's 18,347 households included 33.2%": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-359",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Mont-Blanc's forward 90 mm gun, its barrel melted away, landed approximately 5.6 kilometres (3.5 mi) north of the explosion site near Albro Lake in Dartmouth, and the shank of her anchor, weighing half a ton, landed 3.2 kilometres (2.0 mi) south at Armdale.",
+  "labels": {
+   "Mont-Blanc's forward 90 mm gun, its barrel melted away,": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-362",
+  "source": "Public dataset",
+  "question": "",
+  "text": "A post-storm assessment by the Mississippi Emergency Management Agency revealed over 900 businesses in Jackson County sustained damage, contributing to a total of nearly 1,500 in the state's three coastal counties (Source: Food Short In Mississippi Counties).",
+  "labels": {
+   "A post-storm assessment by the Mississippi Emergency": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-365",
+  "source": "Public dataset",
+  "question": "",
+  "text": "It caused enormous disruption to Chinese society: the census of 754 recorded 52.9 million people, but ten years later, the census counted just 16.9 million, the remainder having been displaced or killed.",
+  "labels": {
+   "It caused enormous disruption to Chinese society: the": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-368",
+  "source": "Public dataset",
+  "question": "",
+  "text": "In 1929-30 Morenz finished seventh in the league for scoring with 50 points, including scoring 40 goals for the first time; this included a game against the New York Americans on March 18, 1930, in which he scored five goals (Source: ↑ Hughes et al. 2003).",
+  "labels": {
+   "In 1929-30 Morenz finished seventh in the league for": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-371",
+  "source": "Public dataset",
+  "question": "",
+  "text": "On May 7, 1949, Billboard revealed that ABC had proposed an investment of $6.25 million, of which it would spend $2.5 million to convert 20 acres (80,937 m2) of land in Hollywood into what would become The Prospect Studios, and construct a transmitter on Mount Wilson, in anticipation of the launch of KECA-TV, which was scheduled to begin operations on August 1 (but would not actually sign on until September 16).",
+  "labels": {
+   "On May 7, 1949, Billboard revealed that ABC had proposed an": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-374",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Boston's subway system, the Massachusetts Bay Transportation Authority (MBTA—known as the \"T\") operates the oldest underground rapid transit system in the Americas, and is the fourth-busiest rapid transit system in the country, with 65.5 miles (105 km) of track on four lines (Source: 1 2 Hull 2011).",
+  "labels": {
+   "Boston's subway system, the Massachusetts Bay": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-377",
+  "source": "Public dataset",
+  "question": "",
+  "text": "His job approval rating of 22% in the Gallup Poll of February 1952 was lower than Richard Nixon's 24% in August 1974, the month Nixon resigned, but matched by Nixon's all-time low in January 1974.",
+  "labels": {
+   "His job approval rating of 22% in the Gallup Poll of": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-380",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Over the course of twelve months and with a budget of $1 million, Resident Evil 2 was ported to the console by a team lead by nine full-time and one part-time personnel from Angel Studios (Source: Postmortem: Angel Studios' Resident Evil 2 (N64 Version)).",
+  "labels": {
+   "Over the course of twelve months and with a budget of $1": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-383",
+  "source": "Public dataset",
+  "question": "",
+  "text": "In 2009, Clash placed Fantasy Black Channel at number 40 in its list of the 50 Greatest Albums, 2004–2009, while FACT included it at number 99 in its editorial staff list of the 100 Best: Albums of the Decade.",
+  "labels": {
+   "In 2009, Clash placed Fantasy Black Channel at number 40 in": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-386",
+  "source": "Public dataset",
+  "question": "",
+  "text": "According to a WHO report, the novel Coronavirus stays on cabbage for 30 hours. Therefore, people are advised to stay away from cabbage.",
+  "labels": {
+   "According to a WHO report, the novel Coronavirus stays on": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-389",
+  "source": "Public dataset",
+  "question": "",
+  "text": "In late July 2021, Twitter announced it was testing a “downvote” option for tweets made on the platform.",
+  "labels": {
+   "In late July 2021, Twitter announced it was testing a": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-392",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Screenshot claiming deaths from COVID-19 vaccines are higher than all vaccines combined since 1990 is not from VAERS website",
+  "labels": {
+   "Screenshot claiming deaths from COVID-19 vaccines are": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-395",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Gov. Rick Perry broke his promise that he would not accept a $40,000 pay increase.",
+  "labels": {
+   "Gov. Rick Perry broke his promise that he would not accept": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-398",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Says Andrew Gillum \"wants to increase Florida taxes by a billion dollars.",
+  "labels": {
+   "Says Andrew Gillum \"wants to increase Florida taxes by a": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-401",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Retirement home raided by the FBI for running elderly fight club, 7 arrests",
+  "labels": {
+   "Retirement home raided by the FBI for running elderly fight": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-404",
+  "source": "Public dataset",
+  "question": "",
+  "text": "A bill delaying the start of classes until Labor Day would permit school districts \"to shave 5 full weeks off the school year.",
+  "labels": {
+   "A bill delaying the start of classes until Labor Day would": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-407",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Maxine Waters attended only ten percent of Congressional meetings in more than three decades holding office.",
+  "labels": {
+   "Maxine Waters attended only ten percent of Congressional": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-410",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Unprecedented climate change has caused sea level at Sydney Harbour to rise approximately 0.0 cm over the past 140 years.",
+  "labels": {
+   "Unprecedented climate change has caused sea level at Sydney": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-413",
+  "source": "Public dataset",
+  "question": "",
+  "text": "A new virus named Hantavirus has emerged in China in March 2020.",
+  "labels": {
+   "A new virus named Hantavirus has emerged in China in March": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-416",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Says he was the only statewide elected official to speak in favor of a federal guest worker plan at the 2012 Republican Party of Texas convention.",
+  "labels": {
+   "Says he was the only statewide elected official to speak in": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-419",
+  "source": "Public dataset",
+  "question": "",
+  "text": "UPA government approved the construction of the new parliament building that costs ₹3,000 crores.",
+  "labels": {
+   "UPA government approved the construction of the new": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-422",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Room rates at Donald Trump's Washington, D.C., hotel spiked dramatically for March 4, 2021 — the date on which some conspiracy theorists believe he will be inaugurated again.",
+  "labels": {
+   "Room rates at Donald Trump's Washington, D.C., hotel spiked": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-425",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Rhode Island spends less than 10 percent of what the average state spends promoting tourism.",
+  "labels": {
+   "Rhode Island spends less than 10 percent of what the": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-428",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Says Dan Patrick \"supported giving a $5,000 taxpayer-funded voucher to every family to buy a car.",
+  "labels": {
+   "Says Dan Patrick \"supported giving a $5,000 taxpayer-funded": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-431",
+  "source": "Public dataset",
+  "question": "",
+  "text": "meat and dairy products will be banned by 2030. Issue #46",
+  "labels": {
+   "meat and dairy products will be banned by 2030. Issue #46": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-434",
+  "source": "Public dataset",
+  "question": "",
+  "text": "We have flown a Boeing 737 across the Atlantic Ocean on biofuels. We have flown F-18s.",
+  "labels": {
+   "We have flown a Boeing 737 across the Atlantic Ocean on": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-437",
+  "source": "Public dataset",
+  "question": "",
+  "text": "If a 10-year-old became pregnant as a result of rape and it was threatening her life, then that’s not an abortion.",
+  "labels": {
+   "If a 10-year-old became pregnant as a result of rape and it": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-440",
+  "source": "Public dataset",
+  "question": "",
+  "text": "There are 321,092 public school teachers in Texas. And there are 313,850 non-teachers in our public schools.",
+  "labels": {
+   "There are 321,092 public school teachers in Texas. And": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-443",
+  "source": "Public dataset",
+  "question": "",
+  "text": "In May 2023, the outline of a giant penis was created in a lawn in Bath, England, where residents' parties and gatherings were scheduled to be held to mark the coronation of King Charles.",
+  "labels": {
+   "In May 2023, the outline of a giant penis was created in a": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-446",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Says 21 million people \"still suffer slavery today.",
+  "labels": {
+   "Says 21 million people \"still suffer slavery today.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-449",
+  "source": "Public dataset",
+  "question": "",
+  "text": "60% of patients admitted to the hospital in the UK have been fully vaccinated",
+  "labels": {
+   "% of patients admitted to the hospital in the UK have been": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-452",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The Tata group is giving away a brand new car to the winning participant of their 150th-anniversary contest.",
+  "labels": {
+   "The Tata group is giving away a brand new car to the": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-455",
+  "source": "Public dataset",
+  "question": "",
+  "text": "JetBlue Airline is celebrating their 20th birthday by providing 2 free tickets to all",
+  "labels": {
+   "JetBlue Airline is celebrating their 20th birthday by": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-458",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Pakistani fan breaking TV set after their team lost to India in the recent Cricket World Cup 2019 match.",
+  "labels": {
+   "Pakistani fan breaking TV set after their team lost to": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-461",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The NRA Is Releasing A Commemorative Line Of AR-15 Rifles To Raise Money For The Victims In Parkland",
+  "labels": {
+   "The NRA Is Releasing A Commemorative Line Of AR-15 Rifles": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-464",
+  "source": "Public dataset",
+  "question": "",
+  "text": "SP president Akhilesh Yadav said 2000 will be build in western UP",
+  "labels": {
+   "SP president Akhilesh Yadav said 2000 will be build in": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-467",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Over 73% of all donations raised (from the ALS Ice Bucket Challenge) are going to fundraising, overhead, executive salaries, and external donations.",
+  "labels": {
+   "Over 73% of all donations raised (from the ALS Ice Bucket": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-470",
+  "source": "Public dataset",
+  "question": "",
+  "text": "36-year-old woman sues parents for $2.3M for naming her Herpesia",
+  "labels": {
+   "year-old woman sues parents for $2.3M for naming her": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-473",
+  "source": "Public dataset",
+  "question": "",
+  "text": "A temporary memorial at the U.S. Capitol displays a pair of empty shoes to illustrate the 7,000 children killed by guns since the December 2012 Sandy Hook Elementary School shooting.",
+  "labels": {
+   "A temporary memorial at the U.S. Capitol displays a pair of": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-476",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Says there have been 50 million abortions since Roe v. Wade was decided.",
+  "labels": {
+   "Says there have been 50 million abortions since Roe v. Wade": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-479",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Susie Lee and her husband \"own 17 homes across the country and use their private jet to take vacations,\" and invest in \"companies like Walmart, Halliburton and GEO Group.",
+  "labels": {
+   "Susie Lee and her husband \"own 17 homes across the country": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-482",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Irish midget accused of posing as a leprechaun to extort sex from 26 women in exchange for pot of gold",
+  "labels": {
+   "Irish midget accused of posing as a leprechaun to extort": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-485",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Pope Francis forgave 4,444 \"pedophile priests\" in Australia and participated in a coverup of their crimes.",
+  "labels": {
+   "Pope Francis forgave 4,444 \"pedophile priests\" in Australia": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-488",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Says Travis County’s sheriff refuses to enforce 8 USC 1373.",
+  "labels": {
+   "Says Travis County’s sheriff refuses to enforce 8 USC 1373.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-491",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Now remember, property taxes went up 70 percent in the 10 years before I became governor.",
+  "labels": {
+   "Now remember, property taxes went up 70 percent in the 10": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-494",
+  "source": "Public dataset",
+  "question": "",
+  "text": "North Korea has a \"substantial standing army, one of the largest, certainly the largest per capita, in the world.",
+  "labels": {
+   "North Korea has a \"substantial standing army, one of the": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-497",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Says a man opted out of Obamacare after the marketplace launched on Oct. 1, 2013, and was informed he owed a $4,000 fine.",
+  "labels": {
+   "Says a man opted out of Obamacare after the marketplace": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-500",
+  "source": "Public dataset",
+  "question": "",
+  "text": "In England, “COVID-19 vaccinated children are 4,423% more likely to die of any cause and 13,633% more likely to die of COVID-19 than unvaccinated children.",
+  "labels": {
+   "In England, “COVID-19 vaccinated children are 4,423% more": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-503",
+  "source": "Public dataset",
+  "question": "",
+  "text": "An Oxford University study finds fully vaccinated healthcare workers carry 251 times viral load compared to the unvaccinated proving that COVID-19 vaccines make you worse",
+  "labels": {
+   "An Oxford University study finds fully vaccinated": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-506",
+  "source": "Public dataset",
+  "question": "",
+  "text": "[Multiple Facebook posts shared hundreds of times in Myanmar claim that Donald Trump “fought back” to win the US presidential election in 2020.]",
+  "labels": {
+   "[Multiple Facebook posts shared hundreds of times in": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-509",
+  "source": "Public dataset",
+  "question": "",
+  "text": "A video that went viral in August 2023 authentically depicted a giant carpet python crawling from a house roof to trees in an Australian yard.",
+  "labels": {
+   "A video that went viral in August 2023 authentically": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-512",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Guidelines published by the IRS ahead of the 2022 tax year explained how taxpayers can claim items they have stolen, or earnings from illegal activities.",
+  "labels": {
+   "Guidelines published by the IRS ahead of the 2022 tax year": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-515",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Says Rep. Paul Ryan’s budget \"roadmap … doesn't balance the budget until the 2060s and … adds an unthinkable $62 trillion to the national debt between now and then.",
+  "labels": {
+   "Says Rep. Paul Ryan’s budget \"roadmap … doesn't balance the": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-518",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Says George Floyd’s criminal history includes “23 arrests,” “3 car thefts” and many violent crimes.",
+  "labels": {
+   "Says George Floyd’s criminal history includes “23 arrests,”": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-521",
+  "source": "Public dataset",
+  "question": "",
+  "text": "40% of Americans know someone who has been killed by a gun.",
+  "labels": {
+   "% of Americans know someone who has been killed by a gun.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-524",
+  "source": "Public dataset",
+  "question": "",
+  "text": "A book being sold on Amazon about the Omicron variant has a copyright date of 2020, a year before the variant was first reported.",
+  "labels": {
+   "A book being sold on Amazon about the Omicron variant has a": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-527",
+  "source": "Public dataset",
+  "question": "",
+  "text": "In Texas, there are 668 Democratic Hispanic elected officials to the 60 in the Republican Party.",
+  "labels": {
+   "In Texas, there are 668 Democratic Hispanic elected": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-530",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Says 3,000 Americans \"died of gunfire\" between the time of the Ebola scare in Dallas and the midterm elections.",
+  "labels": {
+   "Says 3,000 Americans \"died of gunfire\" between the time of": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-533",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Says most of Austin’s biggest parks have recycling though as \"many as 293 out of 300\" Austin city \"parks have no recycling, including almost every neighborhood park.",
+  "labels": {
+   "Says most of Austin’s biggest parks have recycling though": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-536",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Video footage shows Alaska during a July 2023 earthquake, tsunami warning",
+  "labels": {
+   "Video footage shows Alaska during a July 2023 earthquake,": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-539",
+  "source": "Public dataset",
+  "question": "",
+  "text": "A study of where teachers apply to work found that \"less than 5 percent wanted to work in rural Wisconsin.",
+  "labels": {
+   "A study of where teachers apply to work found that \"less": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-542",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Because of #TaxReform, 4 million American workers have received raises and bonuses, and 90% of Americans are seeing bigger paychecks this month.",
+  "labels": {
+   "Because of #TaxReform, 4 million American workers have": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-545",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Season 9 of The Walking Dead to be filmed in Burnley Asda",
+  "labels": {
+   "Season 9 of The Walking Dead to be filmed in Burnley Asda": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-548",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Says \"David Schweikert took over $120,000 from the drug industry and voted against legislation to lower prescription drug prices.",
+  "labels": {
+   "Says \"David Schweikert took over $120,000 from the drug": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-551",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Says Jan. 6 Capitol riot “didn’t seem like an armed insurrection.",
+  "labels": {
+   "Says Jan. 6 Capitol riot “didn’t seem like an armed": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-554",
+  "source": "Public dataset",
+  "question": "",
+  "text": "By the end of 2015, more than 1,300 people will have died on Georgia roads. One of out evey four fatalities resulted from drunken driving.",
+  "labels": {
+   "By the end of 2015, more than 1,300 people will have died": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-557",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Dyson is canceling their contract with Walmart and selling off Dyson Supersonic” hair dryers “only for $1!",
+  "labels": {
+   "Dyson is canceling their contract with Walmart and selling": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-560",
+  "source": "Public dataset",
+  "question": "",
+  "text": "80 percent of the (individual mandate) tax falls on those who make $50,000 a year or less.",
+  "labels": {
+   "percent of the (individual mandate) tax falls on those who": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-563",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Says his state budget will \"provide an increase in state funding for the 2011-12 school year.",
+  "labels": {
+   "Says his state budget will \"provide an increase in state": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-566",
+  "source": "Public dataset",
+  "question": "",
+  "text": "In 2010 alone, 1,270 infants were reported to have died following attempted abortions and notably that is only one year.",
+  "labels": {
+   "In 2010 alone, 1,270 infants were reported to have died": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-569",
+  "source": "Public dataset",
+  "question": "",
+  "text": "AOC Proposes $10.5B Cut to Social Security: ‘We Need to Sock It to the Boomers’",
+  "labels": {
+   "AOC Proposes $10.5B Cut to Social Security: ‘We Need to": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-572",
+  "source": "Public dataset",
+  "question": "",
+  "text": "On his deathbed, Ferdinand Marcos mentioned that 3% of his wealth would go to his family while the remaining 97% would go to the Filipino people.",
+  "labels": {
+   "On his deathbed, Ferdinand Marcos mentioned that 3% of his": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-575",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The expanded public works program has since 2014 created more than 2 million work opportunities towards the attainment of the target of 6 million work opportunities by the end of March 2019.",
+  "labels": {
+   "The expanded public works program has since 2014 created": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-578",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Dell Hospital will donate 15 cents towards the care of Maria, a raped child, every time a particular text message is forwarded.",
+  "labels": {
+   "Dell Hospital will donate 15 cents towards the care of": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-581",
+  "source": "Public dataset",
+  "question": "",
+  "text": "So far, each of the 47 counties has met the two-thirds threshold on the appointment of the county executive committee members, with three counties of Kilifi, Nyeri and Kericho attaining a 50-50 representation.",
+  "labels": {
+   "So far, each of the 47 counties has met the two-thirds": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C2-584",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Says she was the first in her family to go to a four-year college.",
+  "labels": {
+   "Says she was the first in her family to go to a four-year": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-587",
+  "source": "Public dataset",
+  "question": "",
+  "text": "after a long development process, the first itanium was released in 2001, and progressively more powerful itanium processors have been released periodically since then.",
+  "labels": {
+   "after a long development process, the first itanium was": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-590",
+  "source": "Public dataset",
+  "question": "",
+  "text": "it is, however, unclear how widely the persians were supported within babylonia, as accounts of the invasion and nabonidus's rule are coloured by cyrus's subsequent victory .",
+  "labels": {
+   "it is, however, unclear how widely the persians were": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-593",
+  "source": "Public dataset",
+  "question": "",
+  "text": "file:donna york.jpg|a barge hauls coal in the louisville and portland canal, the only man-made portion of the ohio river.",
+  "labels": {
+   "file:donna york.jpg|a barge hauls coal in the louisville": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-596",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Samoa on Thursday closed all non-essential public and private services for two days to combat a measles epidemic that has killed more than 60 people, mostly babies and children, in a battle complicated by a vocal anti-vaccination movement.",
+  "labels": {
+   "Samoa on Thursday closed all non-essential public and": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-599",
+  "source": "Public dataset",
+  "question": "",
+  "text": "One of three officers involved in the shooting death of Breonna Taylor, a Black woman killed in a hail of gunfire when drug investigators burst into her home in Louisville, Kentucky, three months ago was dismissed from the police department on Tuesday.",
+  "labels": {
+   "One of three officers involved in the shooting death of": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-602",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Five United States military sites were chosen to participate in the third phase of the COVID-19 vaccine trials, the Pentagon announced in a statement provided to Fox News Thursday.",
+  "labels": {
+   "Five United States military sites were chosen to": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-605",
+  "source": "Public dataset",
+  "question": "",
+  "text": "in particular, a large number of islamic scientists in many disciplines, including mathematics, were persians.",
+  "labels": {
+   "in particular, a large number of islamic scientists in many": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-608",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Two Louisville police officers were shot and wounded during demonstrations on Wednesday night.",
+  "labels": {
+   "Two Louisville police officers were shot and wounded during": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-611",
+  "source": "Public dataset",
+  "question": "",
+  "text": "For Democrats, this wave or new regulation, censorship, and civic pressure will free the less-than-one-percent of people who say they are transgender from the oppressive, outdated rules of male-dominated supremacy.",
+  "labels": {
+   "For Democrats, this wave or new regulation, censorship, and": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-614",
+  "source": "Public dataset",
+  "question": "",
+  "text": "the city administration is futilely pursuing a policy of reducing the number of venues.",
+  "labels": {
+   "the city administration is futilely pursuing a policy of": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-617",
+  "source": "Public dataset",
+  "question": "",
+  "text": "note: azeris are, due to historical ties with various ancient iranians and their cultural ties with persians , also included as an iranian people by a number of sources, although the modern azerbaijani language is a turkic language and the issue remains debated.",
+  "labels": {
+   "note: azeris are, due to historical ties with various": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-620",
+  "source": "Public dataset",
+  "question": "",
+  "text": "during the race he managed to pass championship contender and old rival michael schumacher on the track and was leading, well ahead of the eventual 1997 world champion villeneuve, late in the race when a hydraulic problem slowed the arrows drastically.",
+  "labels": {
+   "during the race he managed to pass championship contender": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-623",
+  "source": "Public dataset",
+  "question": "",
+  "text": "damian taylor is a grammy-nominated music producer.",
+  "labels": {
+   "damian taylor is a grammy-nominated music producer.": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-626",
+  "source": "Public dataset",
+  "question": "",
+  "text": "a space elevator would present a navigational hazard, both to aircraft and spacecraft.",
+  "labels": {
+   "a space elevator would present a navigational hazard, both": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-629",
+  "source": "Public dataset",
+  "question": "",
+  "text": "eli hagen (born at dombs in norway) is the wife and secretary of the norwegian politician carl i. hagen, leader of the right-wing party fremskrittspartiet (\"the progress party\").",
+  "labels": {
+   "eli hagen (born at dombs in norway) is the wife and": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-632",
+  "source": "Public dataset",
+  "question": "",
+  "text": "in that election year for the league, it scored 29.3 in veneto, 25.5% in lombardy, 23.2% in friuli-venezia giulia, 18.2% in piedmont, 13.2 in trentino-alto adige/sdtirol, 10.2% in liguria, 7.2% in emilia-romagna, 1.8% in tuscany, 1.5% in the marche and 1.0% in umbria.",
+  "labels": {
+   "in that election year for the league, it scored 29.3 in": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-635",
+  "source": "Public dataset",
+  "question": "",
+  "text": "this is a list of turkish diplomats killed by armenian militant organisations.",
+  "labels": {
+   "this is a list of turkish diplomats killed by armenian": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-638",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Tosh is one of a growing number of wealthy conservative Americans who say Trump is a threat to democracy and the long-term health of the Republican Party.",
+  "labels": {
+   "Tosh is one of a growing number of wealthy conservative": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-641",
+  "source": "Public dataset",
+  "question": "",
+  "text": "the goal of coal mining is to remove coal from the ground.",
+  "labels": {
+   "the goal of coal mining is to remove coal from the ground.": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-644",
+  "source": "Public dataset",
+  "question": "",
+  "text": "fort manuel de cochim, as it was christened , was the first portuguese fort in asia.",
+  "labels": {
+   "fort manuel de cochim, as it was christened , was the first": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-647",
+  "source": "Public dataset",
+  "question": "",
+  "text": "israel's victory in the six day war brought about a sense of security within israel; the captured territory added strategic depth to the country's defense.",
+  "labels": {
+   "israel's victory in the six day war brought about a sense": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-650",
+  "source": "Public dataset",
+  "question": "",
+  "text": "he is accused of insulting islam and muhammad and was sentenced to four years in jail by an azerbaijani court for instigating religious hostility.",
+  "labels": {
+   "he is accused of insulting islam and muhammad and was": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-653",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Senator Tim Scott, the only Black Republican in the Senate and author of a Republican reform bill that Democrats blocked last week, said he will meet in coming days with lawmakers who crafted sweeping Democratic legislation that passed the House of Representatives last Thursday.",
+  "labels": {
+   "Senator Tim Scott, the only Black Republican in the Senate": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-656",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The world’s economy has suffered a sharp contraction this year as measures to contain the spread of the virus have curbed transport, trade, and demand across the planet.",
+  "labels": {
+   "The world’s economy has suffered a sharp contraction this": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-659",
+  "source": "Public dataset",
+  "question": "",
+  "text": "From wildfires in Australia and California to hurricanes and flooding in Florida, a variety of extreme events will become more severe and more common as climate change accelerates.",
+  "labels": {
+   "From wildfires in Australia and California to hurricanes": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-662",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Donald Trump announced at the time that the Environmental Protection Agency would be led, at least temporarily, by Andrew Wheeler – a former lobbyist for, among others, Murray Energy, one of the nation’s largest coal companies and former chief counsel for Sen. James Inhofe (R-Okla.), one of the nation’s preeminent climate deniers.",
+  "labels": {
+   "Donald Trump announced at the time that the Environmental": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-665",
+  "source": "Public dataset",
+  "question": "",
+  "text": "there were 1,266,264 immigrants who were granted legal residence in 2006, up from 601,516 in 1987, 849,807 in 2000, and 1,122,373 in 2005. the top twelve sending countries in 2006, by country of birth, were mexico (173,753), people's republic of china (87,345), philippines (74,607), india (61,369), cuba (45,614), colombia (43,151), dominican republic (38,069), el salvador (31,783), vietnam (30,695), jamaica (24,976), south korea (24,386), guatemala (24,146), other countries - 606,370. in fiscal year 2006, just 202 refugees from iraq were allowed to resettle in the united states.",
+  "labels": {
+   "there were 1,266,264 immigrants who were granted legal": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-668",
+  "source": "Public dataset",
+  "question": "",
+  "text": "in colloquial use this is often replaced with se, as hän is perceived as overly formal.",
+  "labels": {
+   "in colloquial use this is often replaced with se, as hän is": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-671",
+  "source": "Public dataset",
+  "question": "",
+  "text": "bronze medalist chi shu-ju, hadi saei and pascal gentil complained to the media about what they perceived as biased refereeing which made them lose their possible gold medal.",
+  "labels": {
+   "bronze medalist chi shu-ju, hadi saei and pascal gentil": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-674",
+  "source": "Public dataset",
+  "question": "",
+  "text": "he was elected the general president of the indian history congress and also became the vice president of the international commission set up by the unesco for the history of mankind .",
+  "labels": {
+   "he was elected the general president of the indian history": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-677",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Jerry Falwell Jr., the shamelessly greedy president of Liberty University, has spent weeks downplaying the coronavirus threat, accusing the media of wildly exaggerating it to \"destroy the American economy\" and of course to damage Donald Trump.",
+  "labels": {
+   "Jerry Falwell Jr., the shamelessly greedy president of": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-680",
+  "source": "Public dataset",
+  "question": "",
+  "text": "But even those who take steps to better their financial situation often end up stunting their opportunities in the long run thanks to the high cost of financial services. College offers a prime example.",
+  "labels": {
+   "But even those who take steps to better their financial": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-683",
+  "source": "Public dataset",
+  "question": "",
+  "text": "sauvignon blanc is enjoyed slightly chilled, with fish or cheese, particularly chevre.",
+  "labels": {
+   "sauvignon blanc is enjoyed slightly chilled, with fish or": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-686",
+  "source": "Public dataset",
+  "question": "",
+  "text": "for a lawyer, an mba for a businessperson or an m.d.",
+  "labels": {
+   "for a lawyer, an mba for a businessperson or an m.d.": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-689",
+  "source": "Public dataset",
+  "question": "",
+  "text": "this issue with identifying attacks as suicide bombings is not such a problem in places like israel, gaza and the west bank, where suicide bombing is an overt islamist and anti- israel strategy against the israelis that has won the backing of both hamas and fatah.",
+  "labels": {
+   "this issue with identifying attacks as suicide bombings is": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-692",
+  "source": "Public dataset",
+  "question": "",
+  "text": "the forest is artificially decorated and offers some breathtaking views.",
+  "labels": {
+   "the forest is artificially decorated and offers some": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-695",
+  "source": "Public dataset",
+  "question": "",
+  "text": "therefore copper is denoted as semi-noble metal.",
+  "labels": {
+   "therefore copper is denoted as semi-noble metal.": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-698",
+  "source": "Public dataset",
+  "question": "",
+  "text": "the roman catholic princes of monaco and liechtenstein have not been awarded the title, the other european monarchs (of denmark, of the netherlands, of norway, of sweden, and of the united kingdom and other commonwealth countries) are protestant , and the remaining world monarchs are not christian, apart from the catholic king letsie iii of lesotho, who has also not been awarded the title, and the protestant king george tupou v of tonga.",
+  "labels": {
+   "the roman catholic princes of monaco and liechtenstein have": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-701",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Polls show the transgender ideology is deeply unpopular, especially among women and parents.",
+  "labels": {
+   "Polls show the transgender ideology is deeply unpopular,": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-704",
+  "source": "Public dataset",
+  "question": "",
+  "text": "in the process of preparing for the concert, kane bought his guitar back from a pawn shop with money borrowed from fellow mormons, reconciled with johansen, and put together a stage outfit in homage to joseph smith, jr. whiteley's footage resulted in the 2005 sundance featured documentary entitled new york doll.",
+  "labels": {
+   "in the process of preparing for the concert, kane bought": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-707",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Soleimani was rumored to have been injured in battle in Syria in 2015 and made a public appearance in Aleppo in 2016.",
+  "labels": {
+   "Soleimani was rumored to have been injured in battle in": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-710",
+  "source": "Public dataset",
+  "question": "",
+  "text": "she stayed in cairo as an nurse, and through her energy and dedication she organized the hospitals and gained grant's appreciation.",
+  "labels": {
+   "she stayed in cairo as an nurse, and through her energy and": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-713",
+  "source": "Public dataset",
+  "question": "",
+  "text": "brendan meyer (october 2, 1994) is a canadian teen actor, best known for his role as nelson ort in the television program dinosapien.",
+  "labels": {
+   "brendan meyer (october 2, 1994) is a canadian teen actor,": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-716",
+  "source": "Public dataset",
+  "question": "",
+  "text": "5 november, 1988, in guwahati, assam) is a bowler.",
+  "labels": {
+   "november, 1988, in guwahati, assam) is a bowler.": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-719",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Most are fleeing endemic poverty and increasing rates of gang violence.",
+  "labels": {
+   "Most are fleeing endemic poverty and increasing rates of": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-722",
+  "source": "Public dataset",
+  "question": "",
+  "text": "especially as the cost to refurbish and modify a used vintage lenco turntable is small in comparison with the cost of buying a new turntable (provided that one has invested in the tools needed to tackle such a projectchief among these a table-saw and router).",
+  "labels": {
+   "especially as the cost to refurbish and modify a used": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-725",
+  "source": "Public dataset",
+  "question": "",
+  "text": "lightfoot's song sundown was written about his one time girlfriend cathy smith (who had worked for a time as a bus driver on his tours).",
+  "labels": {
+   "lightfoot's song sundown was written about his one time": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-728",
+  "source": "Public dataset",
+  "question": "",
+  "text": "paul richardson was a decent ball playing midfielder who started his career at nottingham forest and went on to play in 248 games for forest before joining chester.",
+  "labels": {
+   "paul richardson was a decent ball playing midfielder who": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-731",
+  "source": "Public dataset",
+  "question": "",
+  "text": "further, in keeping with the indications of the memorandum, the chronicle editorial page remained a vocal public advocate of the metrorail referendum in late 2003 and repeatedly endorsed its adoption.",
+  "labels": {
+   "further, in keeping with the indications of the memorandum,": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-734",
+  "source": "Public dataset",
+  "question": "",
+  "text": "detox is the planned , but currently unreleased \"final\" album by dr. dre.",
+  "labels": {
+   "detox is the planned , but currently unreleased \"final\"": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-737",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Some of the liberal opposition is often grounded in the mistaken belief that Warren’s plan would do more to reduce the racial wealth gap than Warren’s. The opposite is true: full cancellation would reduce the racial wealth gap more than Warren’s plan would.",
+  "labels": {
+   "Some of the liberal opposition is often grounded in the": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-740",
+  "source": "Public dataset",
+  "question": "",
+  "text": "We’re just a few weeks away from the start of the Olympic torch relay in Greece, which begins with the flame lighting ceremony in Olympia on March 12th – but the outbreak of the novel coronavirus, which continues to spread around the world, has left many wondering whether the 2020 Tokyo Games could be at risk of a postponement or cancellation.",
+  "labels": {
+   "We’re just a few weeks away from the start of the Olympic": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-743",
+  "source": "Public dataset",
+  "question": "",
+  "text": "christy nicole turlington (born january 2, 1969) is an american model best known for representing calvin klein fragrances since 1987. she has also worked on various campaigns for maybelline cosmetic and giorgio armani, has appeared in several films about the fashion industry and was a co-founder of the now defunct fashion caf.",
+  "labels": {
+   "christy nicole turlington (born january 2, 1969) is an": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-746",
+  "source": "Public dataset",
+  "question": "",
+  "text": "the glass palace / amitav ghosh, london: harpercollins ,2001 (a novel which has a large section on the burma front which describes the motivations of those indian officers who joined the ina and those who did not)",
+  "labels": {
+   "the glass palace / amitav ghosh, london: harpercollins": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-749",
+  "source": "Public dataset",
+  "question": "",
+  "text": "on her death in 1931, ida b. wells was interred in the oak woods cemetery, chicago.",
+  "labels": {
+   "on her death in 1931, ida b. wells was interred in the oak": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-752",
+  "source": "Public dataset",
+  "question": "",
+  "text": "according to an ad in the paperback edition of that book: zero population growth inc. is an organization which has been formed to bring the crucial issue of over-population to the attention of the general public, and more specifically, to the attention of our legislators (both state and federal): the ultimate goal of zpg being to form a lobby group to press for legislation to implement far-reaching birth control programs, repeal of archaic legislation that runs counter to these objectives, and to press for allocation of funds for more research into population problems and research for better methods of contraception.",
+  "labels": {
+   "according to an ad in the paperback edition of that book:": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-755",
+  "source": "Public dataset",
+  "question": "",
+  "text": "holycross led by two points at the interval and eventually won the game by 013 to 010, giving doyle a tipperary senior hurling championship medal.",
+  "labels": {
+   "holycross led by two points at the interval and eventually": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-758",
+  "source": "Public dataset",
+  "question": "",
+  "text": "kravis began his education at the eaglebrook school, ('60) followed by high school at the loomis chaffee school.",
+  "labels": {
+   "kravis began his education at the eaglebrook school, ('60)": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-761",
+  "source": "Public dataset",
+  "question": "",
+  "text": "greer's ideas have created controversy ever since her ground-breaking the female eunuch became an international best-seller in 1970, turning her overnight into a household name and bringing her both adulation and opposition.",
+  "labels": {
+   "greer's ideas have created controversy ever since her": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-764",
+  "source": "Public dataset",
+  "question": "",
+  "text": "one elderly jewish man, the wheelchair -using leon klinghoffer, was murdered by the hijackers and thrown overboard.",
+  "labels": {
+   "one elderly jewish man, the wheelchair -using leon": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-767",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Former Vice President Joe Biden continues to make false claims about President Donald Trump’s massive tax cut, saying Thursday it had not helped average Americans.",
+  "labels": {
+   "Former Vice President Joe Biden continues to make false": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-770",
+  "source": "Public dataset",
+  "question": "",
+  "text": "mohammed abdel rahman abdel raouf arafat al-qudwa al-husseini (august 24, 1929 november 11, 2004), popularly known as yasser arafat, was a palestinian leader.",
+  "labels": {
+   "mohammed abdel rahman abdel raouf arafat al-qudwa": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-773",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Backed by Trump & Co., that's the brilliant health care priority being pushed by top Republican officials in 18 states.",
+  "labels": {
+   "Backed by Trump & Co., that's the brilliant health care": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-776",
+  "source": "Public dataset",
+  "question": "",
+  "text": "nas' response was \"ether,\" a scathing battle record featuring a sample of 2pac sayng \"f%k jay-z.\"",
+  "labels": {
+   "nas' response was \"ether,\" a scathing battle record": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-779",
+  "source": "Public dataset",
+  "question": "",
+  "text": "numbered accounts also have more mundane uses such as hiding funds from wives , family members, and others who would potentially try to take funds away from the owner.",
+  "labels": {
+   "numbered accounts also have more mundane uses such as": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-782",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Some 81% of Americans say they favor requiring background checks for gun buyers as part of an effort to stop mass shootings. Just 8% are opposed. A 59% majority say they favor banning “assault weapons,” with only about 23% opposed.",
+  "labels": {
+   "Some 81% of Americans say they favor requiring background": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-785",
+  "source": "Public dataset",
+  "question": "",
+  "text": "guru nanak's preachings were directed with equal force to all indians .",
+  "labels": {
+   "guru nanak's preachings were directed with equal force to": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-788",
+  "source": "Public dataset",
+  "question": "",
+  "text": "the modern images compliment and provide comparisons with the early photographs of edinburgh, as well as providing a valuable record of the changes occurring in the city.",
+  "labels": {
+   "the modern images compliment and provide comparisons with": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-791",
+  "source": "Public dataset",
+  "question": "",
+  "text": "the movie precious, released in november 2009, produced by oprah winfrey and tyler perry, starring mariah carey and comedian mo'nique, features jean carn's disco single \"was that all it was.\"",
+  "labels": {
+   "the movie precious, released in november 2009, produced by": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-794",
+  "source": "Public dataset",
+  "question": "",
+  "text": "the flag has become a powerful symbol of americanism, and is flown on many occasions, with giant outdoor flags used by retail outlets to draw customers.",
+  "labels": {
+   "the flag has become a powerful symbol of americanism, and": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-797",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Alarmingly, the Trump administration wants to take the reins off payday lenders.",
+  "labels": {
+   "Alarmingly, the Trump administration wants to take the": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-800",
+  "source": "Public dataset",
+  "question": "",
+  "text": "christians have frequently suffered from persecution.",
+  "labels": {
+   "christians have frequently suffered from persecution.": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-803",
+  "source": "Public dataset",
+  "question": "",
+  "text": "official measurements of noise near airports take an average sound level, measured in decibels (db), over a 16 hour day, and are expressed as an laeq figure.",
+  "labels": {
+   "official measurements of noise near airports take an": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-806",
+  "source": "Public dataset",
+  "question": "",
+  "text": "chronic illness of the spouse ), a medical doctor should be consulted to clarify whether the urine of the chronically ill or medicated person may be consumed without endangering one's health, or not.",
+  "labels": {
+   "chronic illness of the spouse ), a medical doctor should be": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-809",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Although Islamic extremism gets disproportionate attention, in the United States right-wing extremists were responsible for more than 76% of terrorist attacks and plots in the U.S. in 2019 and 90% in the first half of 2020.",
+  "labels": {
+   "Although Islamic extremism gets disproportionate attention,": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-812",
+  "source": "Public dataset",
+  "question": "",
+  "text": "If your “rights” mean taking everyone else’s rights away, that is not “peaceful protest.” And to compare mob behavior to the civil rights movement is to dishonor its legacy.",
+  "labels": {
+   "If your “rights” mean taking everyone else’s rights away,": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-815",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Unfortunately for Britain, their oversized sense of political correctness and so-called religious sensitivity toward Islam make vigilance virtually impossible.",
+  "labels": {
+   "Unfortunately for Britain, their oversized sense of": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-818",
+  "source": "Public dataset",
+  "question": "",
+  "text": "brent smith is the lead vocalist of the successful band shinedown.",
+  "labels": {
+   "brent smith is the lead vocalist of the successful band": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-821",
+  "source": "Public dataset",
+  "question": "",
+  "text": "sep smith, 94, leicester city footballer, and oldest living england international player.",
+  "labels": {
+   "sep smith, 94, leicester city footballer, and oldest living": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-824",
+  "source": "Public dataset",
+  "question": "",
+  "text": "he is particularly well-known for his interpretations of the piano concerti of brahms and beethoven, which he recorded memorably with george szell and the cleveland orchestra.",
+  "labels": {
+   "he is particularly well-known for his interpretations of": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-827",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Gendron had streamed live video of the attack on social media after posting a racist screed online detailing his inspiration from other racially motivated mass killings, authorities said.",
+  "labels": {
+   "Gendron had streamed live video of the attack on social": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-830",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Trump, whose job approval ratings have dropped as many Americans believe he has handled the virus badly, sought for the second week to look in command after setting aside his hands-off approach.",
+  "labels": {
+   "Trump, whose job approval ratings have dropped as many": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-833",
+  "source": "Public dataset",
+  "question": "",
+  "text": "elliott h. lieb (born july 31, 1932 in boston) is an eminent american mathematical physicist and professor of mathematics and physics at princeton university who specializes in statistical mechanics, condensed matter theory, and functional analysis.",
+  "labels": {
+   "elliott h. lieb (born july 31, 1932 in boston) is an": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-836",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Procter and Gamble, a major sponsor of the US Women’s National Soccer team, has backed the players in their fight for equal pay, with a public donation of $529,000.",
+  "labels": {
+   "Procter and Gamble, a major sponsor of the US Women’s": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-839",
+  "source": "Public dataset",
+  "question": "",
+  "text": "pell vehemently denied all the accusations and was subsequently exonerated by an inquiry chaired by justice alec southwell.",
+  "labels": {
+   "pell vehemently denied all the accusations and was": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-842",
+  "source": "Public dataset",
+  "question": "",
+  "text": "pallywood, a portmanteau of \"palestinian\" and \"hollywood\", is a controversial neologism that pro-israel media-watchdog advocates have used to refer to the muhammad al-durrah incident, and to a lesser extent other palestinian videos, as examples of \"media manipulation, distortion and outright fraud by the palestinians ... designed to win the public relations war against israel.\"",
+  "labels": {
+   "pallywood, a portmanteau of \"palestinian\" and \"hollywood\",": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-845",
+  "source": "Public dataset",
+  "question": "",
+  "text": "dave matthews band (also known by the acronym dmb) is a american rock band, originally formed in charlottesville, virginia in 1991 by singer and guitarist dave matthews, saxophonist leroi moore, bassist stefan lessard, violin player boyd tinsley, drummer carter beauford, and keyboardist peter griesar (who left the band in 1993).",
+  "labels": {
+   "dave matthews band (also known by the acronym dmb) is a": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-848",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Wealthy American corporations are using their money to signal they support the protests taking place across the country in the wake of a black man’s death at the hands of police in Minneapolis on Memorial Day.",
+  "labels": {
+   "Wealthy American corporations are using their money to": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-851",
+  "source": "Public dataset",
+  "question": "",
+  "text": "shortly after the incident, blogger markos moulitsas stated \"i feel nothing over the death of merceneries sic.",
+  "labels": {
+   "shortly after the incident, blogger markos moulitsas stated": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-854",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Gendron faces 27 federal charges.",
+  "labels": {
+   "Gendron faces 27 federal charges.": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-857",
+  "source": "Public dataset",
+  "question": "",
+  "text": "breggin made that statement in 1994 after eli lilly, maker of the antidepressive drug, prozac, tried, according to breggin, to discredit him and his whistleblowing book, talking back to prozac, by improperly linking him to the church of scientology and labeling his views as \"neo-scientology.\"",
+  "labels": {
+   "breggin made that statement in 1994 after eli lilly, maker": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-860",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Former GOP strategist Steve Schmidt on Monday rebuked President Donald Trump’s fumbling response to the coronavirus pandemic, suggesting the United States would not be facing “catastrophe” if former President Barack Obama were still in office",
+  "labels": {
+   "Former GOP strategist Steve Schmidt on Monday rebuked": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-863",
+  "source": "Public dataset",
+  "question": "",
+  "text": "as these incidents suggest, criticism of bush the candidate and bush the president center less around policy than on the perception that he was not intelligent.",
+  "labels": {
+   "as these incidents suggest, criticism of bush the candidate": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-866",
+  "source": "Public dataset",
+  "question": "",
+  "text": "he was a contender for the fifa world footballer of the year 2001 but received only one point in the voting.",
+  "labels": {
+   "he was a contender for the fifa world footballer of the": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-869",
+  "source": "Public dataset",
+  "question": "",
+  "text": "his output includes a lament for henry frederick, prince of wales, who was on good terms with fanshawe.",
+  "labels": {
+   "his output includes a lament for henry frederick, prince of": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-872",
+  "source": "Public dataset",
+  "question": "",
+  "text": "consequently, spam is a unique part of the history and effects of u.s. influence in the pacific.",
+  "labels": {
+   "consequently, spam is a unique part of the history and": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-875",
+  "source": "Public dataset",
+  "question": "",
+  "text": "ibn taymiyyah has been influential on subsequent and fundamentalist currents of thought in islam, such as wahhabism, salafism, and the muslim brotherhood.",
+  "labels": {
+   "ibn taymiyyah has been influential on subsequent and": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-878",
+  "source": "Public dataset",
+  "question": "",
+  "text": "another infamous period of colonisation in ancient times was from the romans.",
+  "labels": {
+   "another infamous period of colonisation in ancient times": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-881",
+  "source": "Public dataset",
+  "question": "",
+  "text": "during his student years he was active in student politics as a radical christian, and for a time was a member of the youth wing of the australian labor party, but after graduating he rapidly became more conservative, while retaining liberal views on some social issues.",
+  "labels": {
+   "during his student years he was active in student politics": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C3-884",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The Doctor Who franchise has tested this notion to destruction – losing audiences hand over fist and squeezing every last bit of life out of its own brand by turning every episode into a politically correct lecture.",
+  "labels": {
+   "The Doctor Who franchise has tested this notion to": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-887",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Languages using either an auxiliary verb or clitic often drop the pronoun as it is not necessary to indicate person.",
+  "labels": {
+   "Languages using either an auxiliary verb or clitic often": {
+    "C5": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-890",
+  "source": "Public dataset",
+  "question": "",
+  "text": "By 1880 the area was producing a million bushels of barley a year.",
+  "labels": {
+   "By 1880 the area was producing a million bushels of barley": {
+    "C5": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-893",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Shea Fahy is regarded as one of the heroes of the Cork senior football team that was most successful between 1987 and 1995.",
+  "labels": {
+   "Shea Fahy is regarded as one of the heroes of the Cork": {
+    "C5": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-896",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Anything contrary to this which may have appeared in the Press in the past or may appear in the future should not be given credence at all and should be considered just a canard.\"",
+  "labels": {
+   "Anything contrary to this which may have appeared in the": {
+    "C5": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-899",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Destination Artek was considered to be an honorable award for Soviet children as well as internationally.",
+  "labels": {
+   "Destination Artek was considered to be an honorable award": {
+    "C5": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-902",
+  "source": "Public dataset",
+  "question": "",
+  "text": "On May 28 1974 the square was the location of a terrorist bombing.",
+  "labels": {
+   "On May 28 1974 the square was the location of a terrorist": {
+    "C5": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-905",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Enfield is also home base of the New England Lightning girls AAU basketball program.",
+  "labels": {
+   "Enfield is also home base of the New England Lightning": {
+    "C5": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-908",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Rover’s Morning Glory left WCKG in August of 2006 and moved their home base back to WKRK-FM Cleveland while continuing syndication.",
+  "labels": {
+   "Rover’s Morning Glory left WCKG in August of 2006 and moved": {
+    "C5": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-911",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The back and sides of the fish are bright yellow, with the lower sides and underside of head fading to white.",
+  "labels": {
+   "The back and sides of the fish are bright yellow, with the": {
+    "C5": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-914",
+  "source": "Public dataset",
+  "question": "",
+  "text": "It is believed that it was not renewed for a number of reasons.",
+  "labels": {
+   "It is believed that it was not renewed for a number of": {
+    "C5": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-917",
+  "source": "Public dataset",
+  "question": "",
+  "text": "A common password length recommendation is eight or more randomly chosen characters combining letters, numbers, and special characters (punctuation, etc).",
+  "labels": {
+   "A common password length recommendation is eight or more": {
+    "C5": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-920",
+  "source": "Public dataset",
+  "question": "",
+  "text": "It is widely considered one of his finest works.",
+  "labels": {
+   "It is widely considered one of his finest works.": {
+    "C5": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-923",
+  "source": "Public dataset",
+  "question": "",
+  "text": "A statue of Saint Pio in Messina, Sicily attracted attention in 2002 when it allegedly wept tears of blood.",
+  "labels": {
+   "A statue of Saint Pio in Messina, Sicily attracted": {
+    "C5": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-926",
+  "source": "Public dataset",
+  "question": "",
+  "text": "He criticized the British during World War II, saying that while Britain was allegedly fighting for the freedom of the European nations under Nazi control, it would not grant independence to its own colonies, including India.",
+  "labels": {
+   "He criticized the British during World War II, saying that": {
+    "C5": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-929",
+  "source": "Public dataset",
+  "question": "",
+  "text": "In 'Child's Play 2', Andy has been sent to a foster home while his mother, who was considered mentally unstable, has been undergoing psychiatric testing, Mike Norris is also absent from the film as he, according to a comic based on the series, under the threat of being fired, has been forced to abandon the \"chucky is alive\" case and hench leave Andy to his fate (though he did help Mrs Barclay be put in a mental institute and not a Prison (she was believed to be responsible for the murders of the first film)).",
+  "labels": {
+   "In 'Child's Play 2', Andy has been sent to a foster home": {
+    "C5": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-932",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Although a university qualified coach and master practitioner in NLP himself, he is believed to rarely coach or train NLP since the success of his other business interests.",
+  "labels": {
+   "Although a university qualified coach and master": {
+    "C5": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-935",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Further establishing his role as the antagonist is Stine's careful development of his greed and personal dissatifaction.",
+  "labels": {
+   "Further establishing his role as the antagonist is Stine's": {
+    "C5": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-938",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The Romantics had a minor hit with \"What I Like About You\" in early 1980, but, by then, power pop was seen as a passing fad by many critics.",
+  "labels": {
+   "The Romantics had a minor hit with \"What I Like About You\"": {
+    "C5": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-941",
+  "source": "Public dataset",
+  "question": "",
+  "text": "A 'bogie' (, ) is a wheeled wagon or trolley.",
+  "labels": {
+   "A 'bogie' (, ) is a wheeled wagon or trolley.": {
+    "C5": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-944",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Williamstown is generally considered a safe seat for the ALP, and Bracks' predecessor in the seat, Joan Kirner, was also a former Premier.",
+  "labels": {
+   "Williamstown is generally considered a safe seat for the": {
+    "C5": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-947",
+  "source": "Public dataset",
+  "question": "",
+  "text": "He was pastor of the Congregational Church in Terre Haute, Indiana, in 1860-1865, and of the New England Church in New York City in 1865-1869.",
+  "labels": {
+   "He was pastor of the Congregational Church in Terre Haute,": {
+    "C5": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-950",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The study of 'politics' is considered necessary because it acquaints students with the authoritative structures that govern society and help solve collective action problems.",
+  "labels": {
+   "The study of 'politics' is considered necessary because it": {
+    "C5": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-953",
+  "source": "Public dataset",
+  "question": "",
+  "text": "If a party represents more than 4 states then such parties are considered as national parties.",
+  "labels": {
+   "If a party represents more than 4 states then such parties": {
+    "C5": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-956",
+  "source": "Public dataset",
+  "question": "",
+  "text": "It is believed that the sweat that poured forth from Lord Shiva’s body after the battle formed the Bhimarathi River.",
+  "labels": {
+   "It is believed that the sweat that poured forth from Lord": {
+    "C5": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-959",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Besides Echo Park itself, adjacent communiies such as Angelino Heights, Colton Hill, Edendale, Elysian Heights, Temple-Beaudry, Sunset Heights, and some would argue, Mayberry, are often considered part of the neighborhood.",
+  "labels": {
+   "Besides Echo Park itself, adjacent communiies such as": {
+    "C5": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-962",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The Perlodidae are generally lotic and lentic erosional.",
+  "labels": {
+   "The Perlodidae are generally lotic and lentic erosional.": {
+    "C5": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-965",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The thin muscle-banded wings are wrapped around the small body to just leave the wolf-like head with glowing eyes.",
+  "labels": {
+   "The thin muscle-banded wings are wrapped around the small": {
+    "C5": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-968",
+  "source": "Public dataset",
+  "question": "",
+  "text": "He was considered precocious, docile and obedient, but was always crying and nothing seemed to please him.",
+  "labels": {
+   "He was considered precocious, docile and obedient, but was": {
+    "C5": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-971",
+  "source": "Public dataset",
+  "question": "",
+  "text": "During his infancy, Paul was taken from the care of his mother by the Empress Elizabeth, whose ill-judged fondness allegedly injured his health.",
+  "labels": {
+   "During his infancy, Paul was taken from the care of his": {
+    "C5": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-974",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The album was produced by Ian Broudie of The Lightning Seeds.",
+  "labels": {
+   "The album was produced by Ian Broudie of The Lightning": {
+    "C5": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-977",
+  "source": "Public dataset",
+  "question": "",
+  "text": "While the result is undeniably unique, critical reaction came in the form of withering attacks.",
+  "labels": {
+   "While the result is undeniably unique, critical reaction": {
+    "C5": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-980",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Religious mockery, or open disbelief in Christianity, is not as culturally taboo in the British media as it could be considered to be in the other nations.",
+  "labels": {
+   "Religious mockery, or open disbelief in Christianity, is": {
+    "C5": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-983",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The expansion of the EU has been seen as a means for promoting and reinforcing peace and democracy on the European continent following the Second World War and later after the decline of the Soviet Union.",
+  "labels": {
+   "The expansion of the EU has been seen as a means for": {
+    "C5": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-986",
+  "source": "Public dataset",
+  "question": "",
+  "text": "V(A \\lor B,1) \\Leftrightarrow V(A,1) \\ or \\ V(B,1)",
+  "labels": {
+   "V(A \\lor B,1) \\Leftrightarrow V(A,1) \\ or \\ V(B,1)": {
+    "C5": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-989",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Historically Chancery judges were loathe to call juries, but the right existed for them to do so anyway.",
+  "labels": {
+   "Historically Chancery judges were loathe to call juries,": {
+    "C5": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-992",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The album was poorly promoted and commercially unsuccessful yet is considered by many to be his most mature performance yet, containing rockier numbers and experimentation with more electronic sounds.",
+  "labels": {
+   "The album was poorly promoted and commercially unsuccessful": {
+    "C5": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-995",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Second, it is relatively economical, assessing most of the constructs that are widely considered important in clinical personality assessment with 344 items.",
+  "labels": {
+   "Second, it is relatively economical, assessing most of the": {
+    "C5": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-998",
+  "source": "Public dataset",
+  "question": "",
+  "text": "A one-shot episode of 'The Bloodhound Gang', entitled \"The Case of the Dead Man's Pigeon\", had the deceased Mr. Fowler allegedly cutting off his living relative and leaving his fortune to a society dedicated to preserving the American Passenger Pigeon, according to a revised will of his.",
+  "labels": {
+   "A one-shot episode of 'The Bloodhound Gang', entitled \"The": {
+    "C5": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-1001",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Absentee voting is also barred, so soldiers who come from Iowa, but must serve in the military lose their vote.",
+  "labels": {
+   "Absentee voting is also barred, so soldiers who come from": {
+    "C5": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-1004",
+  "source": "Public dataset",
+  "question": "",
+  "text": "In 2005 Jam & Lewis open their brand new recording studios in Santa Monica California renaming it Flyte Tyme West.",
+  "labels": {
+   "In 2005 Jam & Lewis open their brand new recording studios": {
+    "C5": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-1007",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The rock group P.O.D.'s single \"Youth of the Nation\" includes some lyrics that are widely believed to be based on Columbine.",
+  "labels": {
+   "The rock group P.O.D.'s single \"Youth of the Nation\"": {
+    "C5": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-1010",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Philosophy is distinguished from other ways of addressing these questions (such as mysticism or mythology) by its critical, generally systematic approach and its reliance on reasoned argument.",
+  "labels": {
+   "Philosophy is distinguished from other ways of addressing": {
+    "C5": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-1013",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The family car, for instance, can be seen as a symbol of decadence and excess.",
+  "labels": {
+   "The family car, for instance, can be seen as a symbol of": {
+    "C5": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-1016",
+  "source": "Public dataset",
+  "question": "",
+  "text": "All of these poets at one time or another passed through Naropa.",
+  "labels": {
+   "All of these poets at one time or another passed through": {
+    "C5": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-1019",
+  "source": "Public dataset",
+  "question": "",
+  "text": "A version of this lithograph was planned as a cover for New Masses that was never published.",
+  "labels": {
+   "A version of this lithograph was planned as a cover for New": {
+    "C5": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-1022",
+  "source": "Public dataset",
+  "question": "",
+  "text": "It is argued between the characters whether these \"shadows\" even exist before they're imagined by a member of the royal family of Amber, or if the \"shadows'\" existence can be seen as an act of godlike creation.",
+  "labels": {
+   "It is argued between the characters whether these \"shadows\"": {
+    "C5": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-1025",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The Standard Model has been found to agree with almost all the experimental tests conducted to date.",
+  "labels": {
+   "The Standard Model has been found to agree with almost all": {
+    "C5": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-1028",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The memorable antagonist of 'Say Cheese and Die', \"Spidey\" can be seen as a symbol of perverted, creepy men everywhere.",
+  "labels": {
+   "The memorable antagonist of 'Say Cheese and Die', \"Spidey\"": {
+    "C5": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-1031",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The mildest of these symptoms is production loss, but the most detrimental is 'potato tuber necrotic ringspot disease' (PTNRD).",
+  "labels": {
+   "The mildest of these symptoms is production loss, but the": {
+    "C5": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-1034",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The last work, completed as he was dying, is considered by many to be Farquhar's best.",
+  "labels": {
+   "The last work, completed as he was dying, is considered by": {
+    "C5": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-1037",
+  "source": "Public dataset",
+  "question": "",
+  "text": "In one day matches, he took 11 wickets at 27.72.",
+  "labels": {
+   "In one day matches, he took 11 wickets at 27.72.": {
+    "C5": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-1040",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Coutts himself claimed that he thought his accidental death explanation would not be believed, and he would be convicted of murder regardless.",
+  "labels": {
+   "Coutts himself claimed that he thought his accidental death": {
+    "C5": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-1043",
+  "source": "Public dataset",
+  "question": "",
+  "text": "This level of quality is considered to be a direct result of the fact that it was not only sponsored by Chuck Yeager, but he actually served as an advisor during development of the game.",
+  "labels": {
+   "This level of quality is considered to be a direct result": {
+    "C5": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-1046",
+  "source": "Public dataset",
+  "question": "",
+  "text": "A good rule of thumb is to purposely misspell at least one or preferably a few words in the passphrase, mix words up from different languages, and/or add symbols to the words.",
+  "labels": {
+   "A good rule of thumb is to purposely misspell at least one": {
+    "C5": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-1049",
+  "source": "Public dataset",
+  "question": "",
+  "text": "It has a yearly fete and is generally considered a safe place to live.",
+  "labels": {
+   "It has a yearly fete and is generally considered a safe": {
+    "C5": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-1052",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Phrozen Crew was one of the first warez groups use the Oscar format to release thousands of license keys at once.",
+  "labels": {
+   "Phrozen Crew was one of the first warez groups use the": {
+    "C5": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-1055",
+  "source": "Public dataset",
+  "question": "",
+  "text": "An example is the rendering of the response \"'Et cum spiritu tuo'\" (literally, \"And with your spirit\") as \"And also with you\".",
+  "labels": {
+   "An example is the rendering of the response \"'Et cum": {
+    "C5": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-1058",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The inference he [Helvidius] drew from it was, that Mary remained a virgin no longer than till her first birth, and that afterwards she had other children by her husband .",
+  "labels": {
+   "The inference he [Helvidius] drew from it was, that Mary": {
+    "C5": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-1061",
+  "source": "Public dataset",
+  "question": "",
+  "text": "It is frequently found in isolates of community-acquired 'S. aureus' infections.",
+  "labels": {
+   "It is frequently found in isolates of community-acquired": {
+    "C5": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-1064",
+  "source": "Public dataset",
+  "question": "",
+  "text": "He also reportedly abused and killed neighborhood pets, which is widely considered an early sign of antisocial personality disorder.",
+  "labels": {
+   "He also reportedly abused and killed neighborhood pets,": {
+    "C5": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-1067",
+  "source": "Public dataset",
+  "question": "",
+  "text": "In American English, the term pantyhose refers to a garment traditionally worn by women, at least since their introduction in 1959.",
+  "labels": {
+   "In American English, the term pantyhose refers to a garment": {
+    "C5": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-1070",
+  "source": "Public dataset",
+  "question": "",
+  "text": "'Erik von Markovik' (born 'Erik James Horvat-Markovic' on September 24 1971), better known by the stage name 'Mystery', is an innovator in the seduction community, a main character in the non-fiction book 'The Game: Penetrating the Secret Society of Pickup Artists' by Neil Strauss, is featured in the VH1 reality television series 'The Pick-up Artist' and is considered to be the most successful pickup artist in the world.",
+  "labels": {
+   "'Erik von Markovik' (born 'Erik James Horvat-Markovic' on": {
+    "C5": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-1073",
+  "source": "Public dataset",
+  "question": "",
+  "text": "1974-1980 is considered the Golden Age era of the band when it achieved top popularity in the USSR, in Eastern Europe and in other countries.",
+  "labels": {
+   "is considered the Golden Age era of the band when it": {
+    "C5": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-1076",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Many non-pornographic magazines have some glamour photography and as long as women are in something more than a swimsuit, it is considered a non-pornographic photograph.",
+  "labels": {
+   "Many non-pornographic magazines have some glamour": {
+    "C5": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-1079",
+  "source": "Public dataset",
+  "question": "",
+  "text": "These so called pan-green radio stations are mostly based in central and southern Taiwan with most listeners being hard-core pan-green supporters who despise Kuomingtang rule and the potential for reunification with China.",
+  "labels": {
+   "These so called pan-green radio stations are mostly based": {
+    "C5": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C5-1082",
+  "source": "Public dataset",
+  "question": "",
+  "text": "PUD reserves require additional capital investment (drilling new wells, installing gas compression, etc.) to bring the oil and gas to the surface.",
+  "labels": {
+   "PUD reserves require additional capital investment": {
+    "C5": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1085",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The findings of this study substantiate the need for physical exercise to reduce signs and symptoms associated with CVD risk, even among a young, healthy, generally active population.",
+  "labels": {
+   "The findings of this study substantiate the need for": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1088",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Our composite antenatal lifestyle intervention did not significantly reduce the risk of obesity in offspring up until age five.",
+  "labels": {
+   "Our composite antenatal lifestyle intervention did not": {
+    "C6": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1091",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The identification of prognostic factors of abatacept retention could support individualised biologic treatment strategies in patients with moderate-to-severe RA.",
+  "labels": {
+   "The identification of prognostic factors of abatacept": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1094",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Thus, in this population, BMI changes should be regularly assessed.",
+  "labels": {
+   "Thus, in this population, BMI changes should be regularly": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1097",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Our investigation suggests that the ST14CC-PBP3IIb/A clonal group is associated with increased clinical virulence, resistance to several antimicrobial agents, and is persistent over time.",
+  "labels": {
+   "Our investigation suggests that the ST14CC-PBP3IIb/A clonal": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1100",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Further longitudinal study is needed to determine how WC and BMI compare in predicting outcomes, particularly for children with CKD identified as having obesity by 1 measure but not the other.",
+  "labels": {
+   "Further longitudinal study is needed to determine how WC": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1103",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Thus, subclinical glucose intolerance may be associated with an increased risk of RPL.",
+  "labels": {
+   "Thus, subclinical glucose intolerance may be associated": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1106",
+  "source": "Public dataset",
+  "question": "",
+  "text": "CLINICAL RELEVANCE: Healthcare professionals should screen for nocturia and poor sleep and offer appropriate nonpharmacological lifestyle management, behavioral interventions, or pharmacotherapy for women with diabetes.\"",
+  "labels": {
+   "CLINICAL RELEVANCE: Healthcare professionals should screen": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1109",
+  "source": "Public dataset",
+  "question": "",
+  "text": "These results support that family-based cohorts can be an efficient way to examine gene-environment interactions.",
+  "labels": {
+   "These results support that family-based cohorts can be an": {
+    "C6": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1112",
+  "source": "Public dataset",
+  "question": "",
+  "text": "ERM was associated with a worsened visual and anatomic response, and VMA with an improved anatomical response particularly when spontaneous VMA release occurred during treatment.",
+  "labels": {
+   "ERM was associated with a worsened visual and anatomic": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1115",
+  "source": "Public dataset",
+  "question": "",
+  "text": "This study showed that since ADM introduction to our centre, more breast reconstructions have been of the implant-only type with consequent reductions in the more complex and expensive autologous techniques.",
+  "labels": {
+   "This study showed that since ADM introduction to our": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1118",
+  "source": "Public dataset",
+  "question": "",
+  "text": "ESG delays gastric emptying, induces early satiation, and significantly reduces body weight.",
+  "labels": {
+   "ESG delays gastric emptying, induces early satiation, and": {
+    "C6": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1121",
+  "source": "Public dataset",
+  "question": "",
+  "text": "In patients with OHS, a 3-month comprehensive rehabilitation programme, in addition to NIV, resulted in improved weight loss, exercise capacity and QOL at the end of the rehabilitation period, but these effects were not demonstrated at 12 months, in part, due to the limited retention of patients at 12 months.",
+  "labels": {
+   "In patients with OHS, a 3-month comprehensive": {
+    "C6": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1124",
+  "source": "Public dataset",
+  "question": "",
+  "text": "In patients with HIV, pitavastatin 4\\\\u200amg/dl lowered both RLP-C and established apolipoprotein and lipid risk ratios more so than pravastatin 40\\\\u200amg/dl.",
+  "labels": {
+   "In patients with HIV, pitavastatin 4\\\\u200amg/dl lowered": {
+    "C6": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1127",
+  "source": "Public dataset",
+  "question": "",
+  "text": "In a country with free access to health care, the socioeconomic factors such as middle age, low education, and low income were associated with nonattainment of goals for diabetes care.",
+  "labels": {
+   "In a country with free access to health care, the": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1130",
+  "source": "Public dataset",
+  "question": "",
+  "text": "In the UK, the complication rate associated with surgical removal of a renal oncocytoma was not negligible.",
+  "labels": {
+   "In the UK, the complication rate associated with surgical": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1133",
+  "source": "Public dataset",
+  "question": "",
+  "text": "\"In contrast, the proportion of whole-grain rye to whole-grain wheat intake, indicated by the plasma C17:0-to-C21:0 ratio, was inversely associated with T2D.\"",
+  "labels": {
+   "\"In contrast, the proportion of whole-grain rye to": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1136",
+  "source": "Public dataset",
+  "question": "",
+  "text": "A higher NSBB dose and dose titration were protective; yet most patients did not have the NSBB dose titrated to the recommended levels.",
+  "labels": {
+   "A higher NSBB dose and dose titration were protective; yet": {
+    "C6": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1139",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The result shows metformin use is a protective agent against TB infection in diabetics.",
+  "labels": {
+   "The result shows metformin use is a protective agent": {
+    "C6": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1142",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Our study demonstrated how tested SNPs make differential contributions to obesity and overweight risk.",
+  "labels": {
+   "Our study demonstrated how tested SNPs make differential": {
+    "C6": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1145",
+  "source": "Public dataset",
+  "question": "",
+  "text": "\"T3 levels were relatively high or normal, both before and during GH treatment, indicating that PWS children have increased T4 to T3 conversion.\"",
+  "labels": {
+   "\"T3 levels were relatively high or normal, both before and": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1148",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Future studies must focus on systems for predicting the appearance and severity of postoperative complications classified according to the Clavien-Dindo system, and not only on mortality.",
+  "labels": {
+   "Future studies must focus on systems for predicting the": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1151",
+  "source": "Public dataset",
+  "question": "",
+  "text": "This first-ever pediatric HoFH statin trial demonstrated safe and effective LDL-C reduction with rosuvastatin 20\\\\xa0mg alone or added to ezetimibe and/or apheresis.",
+  "labels": {
+   "This first-ever pediatric HoFH statin trial demonstrated": {
+    "C6": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1154",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The qualitative findings outlined in this paper offer important insights into why the intervention was not effective.",
+  "labels": {
+   "The qualitative findings outlined in this paper offer": {
+    "C6": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1157",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Our data demonstrates that the prevalence of sarcopenia is associated with older age, malnutrition and comorbidities.",
+  "labels": {
+   "Our data demonstrates that the prevalence of sarcopenia is": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1160",
+  "source": "Public dataset",
+  "question": "",
+  "text": "APBI with interstitial multi-catheter brachytherapy was associated with good outcomes, low relapse and toxicity rates.",
+  "labels": {
+   "APBI with interstitial multi-catheter brachytherapy was": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1163",
+  "source": "Public dataset",
+  "question": "",
+  "text": "CEC is independently associated with carotid plaque in patients with RA.",
+  "labels": {
+   "CEC is independently associated with carotid plaque in": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1166",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Hypergastrinemia was not present after SG, but a tendency of enhanced gastrin secretion was observed.",
+  "labels": {
+   "Hypergastrinemia was not present after SG, but a tendency": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1169",
+  "source": "Public dataset",
+  "question": "",
+  "text": "\"We have identified common variants in SLCO1B1 that are strongly associated with an increased risk of statin-induced myopathy.\"",
+  "labels": {
+   "\"We have identified common variants in SLCO1B1 that are": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1172",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The association of resistin with PA was stronger than the association of HDL cholesterol with PA, making resistin a potentially useful biomarker of PA.",
+  "labels": {
+   "The association of resistin with PA was stronger than the": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1175",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Both general and central adiposity have causal effects on CHD and type 2 diabetes mellitus.",
+  "labels": {
+   "Both general and central adiposity have causal effects on": {
+    "C6": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1178",
+  "source": "Public dataset",
+  "question": "",
+  "text": "\" There is a nominal increased death risk in secondary breast angiosarcoma due to advanced clinicopathological features.",
+  "labels": {
+   "\" There is a nominal increased death risk in secondary": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1181",
+  "source": "Public dataset",
+  "question": "",
+  "text": "SNP +45 and SNP +276 genotype is not associated with changes in serum total cholesterol or triglyceride levels after ART initiation.",
+  "labels": {
+   "SNP +45 and SNP +276 genotype is not associated with": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1184",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Vitamin deficiencies are common in patients with tuberculosis.",
+  "labels": {
+   "Vitamin deficiencies are common in patients with": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1187",
+  "source": "Public dataset",
+  "question": "",
+  "text": "We think that nutritional interventions can be inexpensive, safe, easy to administer and generally acceptable to patients with postadolescent acne.",
+  "labels": {
+   "We think that nutritional interventions can be inexpensive,": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1190",
+  "source": "Public dataset",
+  "question": "",
+  "text": "These findings show that patients with atherosclerotic cardiovascular disease benefit from lowering of LDL cholesterol levels below current targets.",
+  "labels": {
+   "These findings show that patients with atherosclerotic": {
+    "C6": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1193",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Improving use of preconception care among publicly insured women with diabetes is critical to reducing disparities in outcomes.",
+  "labels": {
+   "Improving use of preconception care among publicly insured": {
+    "C6": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1196",
+  "source": "Public dataset",
+  "question": "",
+  "text": "\" We confirmed the robust association of MTNR1B rs10830963/G variant with GDM binary and glycemic traits in this Caucasian case-control study.",
+  "labels": {
+   "\" We confirmed the robust association of MTNR1B": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1199",
+  "source": "Public dataset",
+  "question": "",
+  "text": "With shifts in policy focus, the utility of POC devices for patient engagement in CVD preventive care may be demonstrated if fully integrated into the clinical setting.",
+  "labels": {
+   "With shifts in policy focus, the utility of POC devices for": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1202",
+  "source": "Public dataset",
+  "question": "",
+  "text": "These results are limited by the 32% response rate and potential for bias towards selection of those most careful with their health.",
+  "labels": {
+   "These results are limited by the 32% response rate and": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1205",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Clozapine is of benefit in reducing the clinical severity of ASPD.",
+  "labels": {
+   "Clozapine is of benefit in reducing the clinical severity": {
+    "C6": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1208",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Mucous fistula refeeding is safe and can decrease risk of anastomotic complication and parental nutrition related cholestasis.",
+  "labels": {
+   "Mucous fistula refeeding is safe and can decrease risk of": {
+    "C6": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1211",
+  "source": "Public dataset",
+  "question": "",
+  "text": "A significant difference in effect was found between patients with weight loss failure and weight regain.",
+  "labels": {
+   "A significant difference in effect was found between": {
+    "C6": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1214",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The total CBI-BA and the FACT-BA scales have adequate internal consistency reliability estimates.",
+  "labels": {
+   "The total CBI-BA and the FACT-BA scales have adequate": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1217",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Treatment of type 2 diabetic patients with tesamorelin for 12 weeks did not alter insulin response or glycemic control.",
+  "labels": {
+   "Treatment of type 2 diabetic patients with tesamorelin for": {
+    "C6": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1220",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Younger patients have better overall adherence likely secondary to increased parental supervision.",
+  "labels": {
+   "Younger patients have better overall adherence likely": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1223",
+  "source": "Public dataset",
+  "question": "",
+  "text": "A higher BMI and a greater prevalence of comorbidities had driven patients to seek a more radical solution for their obesity, i.e., surgery.",
+  "labels": {
+   "A higher BMI and a greater prevalence of comorbidities had": {
+    "C6": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1226",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Metformin use does not increase the risk of RAAA among individuals with diabetes.",
+  "labels": {
+   "Metformin use does not increase the risk of RAAA among": {
+    "C6": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1229",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Dietary diversity score is a valid indicator to evaluate micronutrient inadequacy in Chinese children, though there is still room for improvement of the method.",
+  "labels": {
+   "Dietary diversity score is a valid indicator to evaluate": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1232",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Both functional and anatomical effects were observed in the first 3 months after injection.",
+  "labels": {
+   "Both functional and anatomical effects were observed in the": {
+    "C6": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1235",
+  "source": "Public dataset",
+  "question": "",
+  "text": "A larger trial is needed to confirm the effectiveness of the intervention in the clinical setting.",
+  "labels": {
+   "A larger trial is needed to confirm the effectiveness of": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1238",
+  "source": "Public dataset",
+  "question": "",
+  "text": "TRIAL REGISTRATION NUMBER: ISRCTN42072606.",
+  "labels": {
+   "TRIAL REGISTRATION NUMBER: ISRCTN42072606.": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1241",
+  "source": "Public dataset",
+  "question": "",
+  "text": "A similar proportion of eyes demonstrated suboptimal (<5-letter) and robust (â‰¥10-letter) early response to treatment at 3\\\\xa0months.",
+  "labels": {
+   "A similar proportion of eyes demonstrated suboptimal": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1244",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Patients with pre-neoadjuvant therapy proven axillary disease may be a candidate for SLNB as opposed to planned ALND with good multidisciplinary review of their response and localization of previously positive lymph nodes.",
+  "labels": {
+   "Patients with pre-neoadjuvant therapy proven axillary": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1247",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Some of the opportunities may be related to differences in hospital coding practice.",
+  "labels": {
+   "Some of the opportunities may be related to differences in": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1250",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Thus, the clinical impact of the findings is most likely limited.",
+  "labels": {
+   "Thus, the clinical impact of the findings is most likely": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1253",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Clinicaltrials.gov ID: NCT02002091.",
+  "labels": {
+   "Clinicaltrials.gov ID: NCT02002091.": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1256",
+  "source": "Public dataset",
+  "question": "",
+  "text": "\"Diabetes is associated with an increased risk of hearing loss, and this difference is manifest particularly in adults <50 years old.\"",
+  "labels": {
+   "\"Diabetes is associated with an increased risk of hearing": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1259",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The results of this study showed a favourable effect of locoregional treatment in patients with PMBC.",
+  "labels": {
+   "The results of this study showed a favourable effect of": {
+    "C6": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1262",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Length of residence (â‰¥15\\\\xa0years) was positively associated with prevalence of overweight, among adult immigrant population.",
+  "labels": {
+   "Length of residence (â‰¥15\\\\xa0years) was positively": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1265",
+  "source": "Public dataset",
+  "question": "",
+  "text": "\" Sexual function and satisfaction were affected to a greater extent than body image.",
+  "labels": {
+   "\" Sexual function and satisfaction were affected to a": {
+    "C6": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1268",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Preconception supplementation with MM or IFA resulted in modest increases in maternal and infant iron stores but did not impact anemia.",
+  "labels": {
+   "Preconception supplementation with MM or IFA resulted in": {
+    "C6": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1271",
+  "source": "Public dataset",
+  "question": "",
+  "text": "CLINICAL RELEVANCE: Aromatherapy massage is a well-tolerated, feasible, and safe nonpharmacological method that can be readily integrated into clinical settings by nursing staff.",
+  "labels": {
+   "CLINICAL RELEVANCE: Aromatherapy massage is a": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1274",
+  "source": "Public dataset",
+  "question": "",
+  "text": "The consumption of unhydrolyzed milk proteins (56 g/d) for 8 wk improved vascular reactivity, biomarkers of endothelial function, and lipid risk factors.",
+  "labels": {
+   "The consumption of unhydrolyzed milk proteins (56 g/d) for": {
+    "C6": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1277",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Copyright © 2016 John Wiley & Sons, Ltd.",
+  "labels": {
+   "Copyright © 2016 John Wiley & Sons, Ltd.": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1280",
+  "source": "Public dataset",
+  "question": "",
+  "text": "H. pylori infection associated significantly with low serum levels of HDL in the IL-6 -174 CC genotype patients but not in the other genotypes.",
+  "labels": {
+   "H. pylori infection associated significantly with low serum": {
+    "C6": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C6-1283",
+  "source": "Public dataset",
+  "question": "",
+  "text": "Home nutritional advice during the first year of life decreases caries incidence and severity at four years of age in a low income community.",
+  "labels": {
+   "Home nutritional advice during the first year of life": {
+    "C6": "met"
+   }
+  }
+ }
+]
