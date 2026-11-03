@@ -26,7 +26,8 @@ import re
 from extract_claims import CUES
 from gisun.tools.language import context_cues
 from gisun.tools.numbers import compare_numbers, hedge_of, parse_value
-from gisun.tools.retrieval import lookup_statistic, matching_series, periods_in, places_in
+from gisun.tools.retrieval import (implied_period, implied_places, lookup_statistic, matching_series,
+                                   periods_in, places_in)
 
 DECISIONS = ("met", "not_met", "undetermined")
 STRENGTHS = ("strong", "moderate", "supporting")
@@ -89,8 +90,11 @@ def c2_fields_from_text(claim, question: str = "") -> dict | None:
     first, then the two sentences before it, then the user's question. None if any can't be pinned down."""
     texts = [claim["sentence"], " ".join(claim["context_before"]), question or ""]
     measure = next((m for t in texts if (m := _measure_in(t))), None)
-    places = next((p for t in texts if (p := places_in(t))), [])
+    places = next((p for t in texts if (p := places_in(t))), []) or next(
+        (p for t in texts if (p := implied_places(t))), [])
     periods = next((p for t in texts if (p := periods_in(t))), [])
+    if not periods and (latest := implied_period(claim["sentence"])):
+        periods = [latest]  # present tense, no time stated: the latest full year
     if not measure or len(places) != 1 or len(periods) != 1 or not claim["checkable_values"]:
         return None
     value = claim["checkable_values"][0]
@@ -239,7 +243,7 @@ CRITERIA = {
                     "States'), period (a year '2020' or a month '2020-04') and hedge: 'approx' for about / "
                     "roughly / around / nearly, 'at_least' for over / more than / at least, 'at_most' for under / "
                     "less than / fewer than, else 'none'. If the measure, place or time is not stated in any of these, stop "
-                    "and decide 'undetermined'. Plain 'unemployment rate' means U-3, not U-6. "
+                    "and decide 'undetermined'. Plain 'unemployment rate' means U-3, not U-6. 'Federal' (e.g. federal minimum wage) means the United States. A present-tense claim with no time ('the minimum wage is $9.50') is about now: use the latest full year as the period. "
                     "2. Call lookup_statistic(measure, place, period); it picks the official API and only returns "
                     "figures for exactly that measure, place, period and unit. A monthly figure does not answer an "
                     "annual claim, and an annual average does not answer a monthly one. If it returns no record, "

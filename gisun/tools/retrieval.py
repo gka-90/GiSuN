@@ -161,6 +161,26 @@ def periods_in(text: str) -> list[str]:
     return sorted(set(out))
 
 
+PRESENT_TENSE = re.compile(r"\b(is|are|stands at|remains|currently|now|today)\b", re.I)
+
+
+def implied_period(sentence: str, today=None) -> str | None:
+    """A present-tense claim with no stated time ('The federal minimum wage is $9.50') is about now:
+    compare it with the latest full year. None if the sentence isn't in the present tense."""
+    import datetime
+    if periods_in(sentence) or not PRESENT_TENSE.search(sentence or ""):
+        return None
+    return str((today or datetime.date.today()).year - 1)
+
+
+def implied_places(text: str) -> list[dict]:
+    """'federal' (federal minimum wage, the federal poverty line) means the United States, when no
+    other place is named."""
+    if re.search(r"\bfederal\b", text or "", re.I):
+        return [resolve_place("united states")]
+    return []
+
+
 def period_in_text(period: str, text: str) -> bool:
     """Is the period stated in the text (the year, and for a month the month name too)?"""
     year, t = period[:4], (text or "").lower()

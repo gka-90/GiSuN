@@ -2,7 +2,7 @@
   {"id": "ex1", "question": "How bad was unemployment in 2020?",
    "text": "Unemployment hit 14.8% in April 2020, according to the Bureau of Labor Statistics. Experts say the recovery was a disaster for small businesses. Remote work always increases productivity.",
    "labels": {
-     "Unemployment hit 14.8%": {"C1": "not_met", "C2": "not_met"},
+     "Unemployment hit 14.8%": {"C1": "not_met", "C2": "undetermined"},
      "Experts say the recovery": {"C3": "met", "C5": "met"},
      "Remote work always": {"C4": "met"}}},
   {"id": "ex2", "question": "What was the US unemployment rate in 2020?",

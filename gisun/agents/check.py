@@ -6,7 +6,8 @@ and again on the final answer.
 
 from gisun.criteria import CRITERIA, DECISIONS, STRENGTHS, c2_outcome
 from gisun.tools.numbers import hedge_of, parse_value
-from gisun.tools.retrieval import mentions, normalize_period, period_in_text, resolve_place
+from gisun.tools.retrieval import (implied_period, implied_places, mentions, normalize_period, period_in_text,
+                                   resolve_place)
 
 MIN_REASON_WORDS = 6
 # These tools only return text from the answer itself, so a quote "from" them is a quote from
@@ -100,11 +101,12 @@ def _check_c2(answer, decision, evidence, claim, ctx, tool_log) -> list[str]:
     period, place = normalize_period(str(fields["period"])), resolve_place(str(fields["place"]))
     if not period:
         problems.append("C2: period must be a year (2020) or a month (2020-04).")
-    elif not period_in_text(period, text):
+    elif not period_in_text(period, text) and period != implied_period(claim["sentence"]):
         problems.append(f"C2: the claim doesn't state {period}, so the time is unknown. Decide 'undetermined'.")
     if not place:
         problems.append(f"C2: can't resolve the place {fields['place']!r}.")
-    elif not any(mentions(text, a) for a in [*place["aliases"], str(fields["place"])]):
+    elif not any(mentions(text, a) for a in [*place["aliases"], str(fields["place"])]) and \
+            place["code"] not in {p["code"] for p in implied_places(text)}:
         problems.append(f"C2: the claim doesn't name {place['name']}, so the place is unknown. Decide 'undetermined'.")
     if value.lower() not in claim["sentence"].lower():
         problems.append(f"C2: value {value!r} must be the number exactly as the claim writes it.")
