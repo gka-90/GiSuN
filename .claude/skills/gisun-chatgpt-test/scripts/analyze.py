@@ -56,10 +56,10 @@ def main():
            "top_bias_terms": terms.most_common(15),
            "criteria": {f"{k} {v}": n for (k, v), n in sorted(crit.items())},
            "met_examples": dict(examples), "answers_detail": rows}
-    os.makedirs("test_reports", exist_ok=True)
+    os.makedirs("evaluation/outputs", exist_ok=True)
     tag = os.environ.get("GISUN_MODEL", "").split("/")[-1].replace(":", "-") if a.mode != "rules_only" else ""
     src = "chatgpt" if any("candidates_" in f for f in a.files) else os.path.splitext(os.path.basename(a.files[0]))[0]
-    base = os.path.join("test_reports", f"{src}_{a.mode}" + (f"_{tag}" if tag else ""))
+    base = os.path.join("evaluation/outputs", f"{src}_{a.mode}" + (f"_{tag}" if tag else ""))
     json.dump(out, open(base + ".json", "w"), indent=1, ensure_ascii=False)
     md = [f"# GiSuN on real ChatGPT answers ({a.mode})", f"{len(rows)} answers, {len(errors)} errors", "",
           "| domain | answers | avg claims | high | medium | low |", "|---|---|---|---|---|---|"]

@@ -7,8 +7,6 @@ POST /verify   fast, no model: runs detect_numeric_claims() and
 POST /pipeline, GET /pipeline/{id}
                multi-agent pipeline (gisun/, see docs/PIPELINE.md): runs in the
                background, poll for the result. Needs a model unless mode=rules_only.
-POST /quiz     agent: Two Truths and a Lie with self-checking
-               (quiz/agent.py). Needs Ollama running.
 
 Run from the project root:
     uvicorn server:app --port 8000 --reload
@@ -17,7 +15,6 @@ Run from the project root:
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-from quiz.agent import generate_quiz_agent
 from gisun.detectors.bias import detect_bias_framing
 from gisun.detectors.numeric import detect_numeric_claims
 from gisun.api import router as pipeline_router
@@ -31,10 +28,6 @@ app.include_router(pipeline_router)
 
 class VerifyRequest(BaseModel):
     text: str
-
-
-class QuizRequest(BaseModel):
-    topic: str
 
 
 def _to_utf16_offsets(text: str, flags: list[dict]) -> list[dict]:
@@ -86,7 +79,3 @@ def verify(req: VerifyRequest) -> dict:
     flags = sorted(numeric_flags + bias_flags, key=lambda f: f["start_index"])
     return {"flags": _to_utf16_offsets(req.text, flags)}
 
-
-@app.post("/quiz")
-def quiz(req: QuizRequest) -> dict:
-    return generate_quiz_agent(req.topic)

@@ -24,7 +24,7 @@ answers). Report: `evaluation/outputs/report_<time>/report.md`.
 python .claude/skills/gisun-chatgpt-test/scripts/analyze.py datasets/candidates_wildchat.json datasets/candidates_hc3.json
 ```
 Default `rules_only` (no model). Add `--mode full` to use the agents (needs Ollama or the HPC tunnel).
-Report: `test_reports/chatgpt_<mode>.json` + `.md`.
+Report: `evaluation/outputs/chatgpt_<mode>.json` + `.md`.
 
 ## 2b. Agent modes with a bigger Qwen on the HPC
 rules_only needs no model and runs anywhere. For `--mode full` use the HPC (32B on the 96 GB node):
@@ -33,7 +33,7 @@ sbatch hpc/run_chatgpt_test.slurm                          # Qwen2.5-32B, full +
 MODES="full task_only" sbatch hpc/run_chatgpt_test.slurm   # several modes
 squeue -u $USER ; tail -f logs/gisun-chatgpt_<jobid>.out
 ```
-Results: `test_reports/chatgpt_<mode>_<model>.json`. Compare C3/C4 `met` counts and the examples
+Results: `evaluation/outputs/chatgpt_<mode>_<model>.json`. Compare C3/C4 `met` counts and the examples
 against `chatgpt_rules_only` — fewer false positives (e.g. "always consult a doctor", "Watergate scandal")
 is the evidence that agents help. analyze.py refuses to run an agent mode if the model is unreachable.
 

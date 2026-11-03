@@ -225,4 +225,3 @@ Full list with priorities: *GiSuN: open problems and proposed solutions* (Fall 2
 - The Plan agent ranks nothing yet: the C2 funnel uses extract_claims' rule score. (#3)
 - Loaded language: merge a larger lexicon (e.g. Recasens et al. 2013) into data/bias_wordlist.json. (#4)
 - Extension: let the user overrule a decision and recompute with scoring.py.
-- Quiz: use a C2-contradicted claim as the "lie". (#19)

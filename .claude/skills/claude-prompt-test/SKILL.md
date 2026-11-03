@@ -42,7 +42,7 @@ The user may give other prompts: add them to a copy of prompts.json with the sam
    This is the quick rules_only pass (no model). The agent pass (Plan/Task/Judge with Qwen 32B) runs on
    the HPC: commit and push the json, then on the HPC login node
    `git pull && DATA=datasets/collected/claude_<date>.json sbatch hpc/run_chatgpt_test.slurm`.
-   Tell the user these two commands; the agent report lands in `test_reports/claude_<date>_full_<model>.md`.
+   Tell the user these two commands; the agent report lands in `evaluation/outputs/claude_<date>_full_<model>.md`.
 5. Report to the user: answers recorded; per category the average claims and high/medium/low counts;
    suspicious cases with the sentence quoted — any flag on a `control` answer (likely false positive),
    `statistics` answers with no C1 decision (likely miss), and the most-flagged terms.

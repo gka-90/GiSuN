@@ -18,7 +18,6 @@ evaluation/outputs/
 logs/*
 !logs/.gitkeep
 datasets/raw/
-test_reports/
 
 # Downloaded public datasets (large; see datasets/external/README.md)
 datasets/external/

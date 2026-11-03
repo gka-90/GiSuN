@@ -2,7 +2,7 @@
 fastapi>=0.141,<1
 uvicorn>=0.54,<1
 
-# Two Truths and a Lie quiz (quiz/generator.py)
+# Local model client for the agents (gisun/llm.py)
 ollama>=0.6,<1
 
 # Gold-set collection from WildChat (evaluation/datasets/collect.py)
