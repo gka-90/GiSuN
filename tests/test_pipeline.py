@@ -56,7 +56,7 @@ class FakeModel:
                 return submit(decision="met", strength="strong", reasoning="BLS gives a different annual average.",
                               claim_fields=fields, evidence=[{"quote": "9 percent", "source": "bls:made-up"}])
             return submit(decision="met", strength="strong", reasoning="BLS reports an 8.1 percent annual average, not 12%.",
-                          claim_fields=fields, evidence=[{"quote": "8.1 percent", "source": "bls:LNS14000000:USA:2020"}])
+                          claim_fields=fields, evidence=[{"quote": "8.1 percent", "source": "bls:LNU04000000:USA:2020"}])
         if crit == "C3" and "not a crisis" in claim:
             if not done:
                 return call("context_cues", term="crisis")
@@ -90,7 +90,7 @@ class PipelineTest(unittest.TestCase):
         self.assertEqual(fake.c2_tries, 2, "the made-up figure must be rejected once")
         official = stat["criteria"]["C2"]["evidence"][0]["official"]
         self.assertEqual((official["series_id"], official["value_text"], official["period"]),
-                         ("LNS14000000", "8.1 percent", "2020"))
+                         ("LNU04000000", "8.1 percent", "2020"))
         self.assertIn("query_date", official)
         self.assertEqual(stat["score"]["risk"], "high")
         self.assertEqual(find("Officials")["criteria"]["C3"]["decision"], "not_met")
@@ -171,7 +171,7 @@ class PipelineTest(unittest.TestCase):
 
     def test_check_rejects_contradiction_without_year(self):
         ctx = preprocess("The U.S. unemployment rate is 12%.")
-        ctx.record_official([{"record_id": "bls:LNS14000000:USA:2020", "source": "BLS", "series_id": "LNS14000000",
+        ctx.record_official([{"record_id": "bls:LNU04000000:USA:2020", "source": "BLS", "series_id": "LNU04000000",
                               "place": "United States", "place_code": "USA", "period": "2020", "value": 8.1,
                               "unit": "percent", "value_text": "8.1 percent", "query_date": "2026-10-31"}])
         log = [{"tool": "compare_numbers", "args": {}, "output": compare_numbers("12%", "8.1 percent")}]
@@ -179,7 +179,7 @@ class PipelineTest(unittest.TestCase):
                                          "reasoning": "BLS reports a different unemployment rate.",
                                          "claim_fields": {"value": "12%", "measure": "unemployment rate",
                                                           "place": "United States", "period": "2020", "hedge": "none"},
-                                         "evidence": [{"quote": "8.1 percent", "source": "bls:LNS14000000:USA:2020"}]},
+                                         "evidence": [{"quote": "8.1 percent", "source": "bls:LNU04000000:USA:2020"}]},
                                   ctx.claims[0], ctx, log)
         self.assertTrue(any("doesn't state 2020" in p for p in problems))
 

@@ -12,8 +12,10 @@ from gisun.tools import retrieval
 
 COUNTRIES = [{"id": "USA", "name": "United States"}, {"id": "DEU", "name": "Germany"},
              {"id": "KOR", "name": "Korea, Rep."}]
-# BLS series -> {(year, period): value}; M13 = annual average (only sent with a key)
-BLS = {"LNS14000000": {(2020, "M04"): "14.8", (2020, "M13"): "8.1", (2019, "M13"): "3.7", (2020, "M01"): "3.5"},
+# BLS series -> {(year, period): value}; M13 = annual average (only sent with a key). As in the real
+# API, the seasonally adjusted LNS14000000 has no M13: annual averages are on LNU04000000.
+BLS = {"LNS14000000": {(2020, "M04"): "14.8", (2020, "M01"): "3.5"},
+       "LNU04000000": {(2020, "M04"): "14.4", (2020, "M13"): "8.1", (2019, "M13"): "3.7"},
        "CUUR0000SA0": {(2022, "M06"): "296.311", (2021, "M06"): "271.696",
                        (2022, "M13"): "292.655", (2021, "M13"): "270.970"}}
 # World Bank (indicator, ISO3, year) -> value

@@ -16,11 +16,28 @@ variables so the same code runs on a laptop (Ollama) and on the HPC (vLLM).
     GISUN_OPEN_CRITERIA  1 (default) = in model modes, run C3-C6 on every factual sentence,
                     not only on sentences the detectors flagged (open problem #1). 0 = old behaviour.
     GISUN_C2_MAX_CLAIMS  only the N most check-worthy claims get the slow C2 source check (#3)
+
+Any of these can also go in a .env file at the repo root (KEY=value per line; git-ignored, so
+API keys stay out of the repo). A variable already set in the shell wins over .env.
 """
 
 import os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
+def _load_dotenv(path: str) -> None:
+    if not os.path.exists(path):
+        return
+    with open(path, encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if line and not line.startswith("#") and "=" in line:
+                key, value = line.removeprefix("export ").split("=", 1)
+                os.environ.setdefault(key.strip(), value.strip().strip("'\""))
+
+
+_load_dotenv(os.path.join(ROOT, ".env"))
 
 BACKEND = os.environ.get("GISUN_BACKEND", "ollama")
 MODEL = os.environ.get("GISUN_MODEL", "qwen2.5:3b")

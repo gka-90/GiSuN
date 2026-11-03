@@ -137,7 +137,7 @@ class Lookup(unittest.TestCase):
         self.assertEqual(resolve_place("California")["code"], "06")
 
 
-def record(value, rid="bls:LNS14000000:USA:2020", period="2020", source="BLS"):
+def record(value, rid="bls:LNU04000000:USA:2020", period="2020", source="BLS"):
     return {"record_id": rid, "source": source, "series_id": rid.split(":")[1], "place": "United States",
             "place_code": "USA", "period": period, "value": value, "unit": "percent",
             "value_text": f"{value} percent", "query_date": "2026-10-31"}
@@ -202,9 +202,9 @@ class CheckAgent(unittest.TestCase):
     def test_saved_evidence_carries_the_fetched_record(self):
         self.ctx.record_official([record(8.1)])
         out = normalize("C2", {"decision": "met", "strength": "strong", "reasoning": "x", "claim_fields": self.FIELDS,
-                               "evidence": [{"quote": "8.1 percent", "source": "bls:LNS14000000:USA:2020"}]}, self.ctx)
+                               "evidence": [{"quote": "8.1 percent", "source": "bls:LNU04000000:USA:2020"}]}, self.ctx)
         self.assertEqual({k: out["evidence"][0]["official"][k] for k in ("source", "series_id", "period", "query_date")},
-                         {"source": "BLS", "series_id": "LNS14000000", "period": "2020", "query_date": "2026-10-31"})
+                         {"source": "BLS", "series_id": "LNU04000000", "period": "2020", "query_date": "2026-10-31"})
 
 
 class RulesStepOne(unittest.TestCase):

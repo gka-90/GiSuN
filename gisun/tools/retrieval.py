@@ -278,12 +278,20 @@ def _get(provider: str, url: str, payload: dict | None = None, secret: dict | No
 
 # ---- providers: each returns a list of {value, note?} for one entry, place and period ------
 
+def series_id_for(entry: dict, period: str) -> str | None:
+    """BLS publishes annual averages only on the not seasonally adjusted series, so an entry
+    whose monthly series is seasonally adjusted names that one as annual_series_id."""
+    if len(period) == 4 and entry.get("annual_series_id"):
+        return entry["annual_series_id"]
+    return entry.get("series_id")
+
+
 def _bls(entry: dict, place: dict, period: str) -> tuple[list[dict], str]:
     year, monthly = int(period[:4]), len(period) > 4
     if not monthly and not config.BLS_KEY:
         raise LookupError("BLS annual averages need GISUN_BLS_KEY (free registration)")
     pct = entry.get("calc") == "pct_change_12m"
-    payload = {"seriesid": [entry["series_id"]], "startyear": str(year - 1 if pct else year), "endyear": str(year)}
+    payload = {"seriesid": [series_id_for(entry, period)], "startyear": str(year - 1 if pct else year), "endyear": str(year)}
     if config.BLS_KEY:
         payload["annualaverage"] = True
     data, qdate = _get("bls", "https://api.bls.gov/publicAPI/v2/timeseries/data/", payload,
@@ -431,7 +439,7 @@ def lookup_statistic(measure: str, place: str, period: str) -> dict:
             skipped.append({"series": e["id"], "reason": f"{type(ex).__name__}: {ex}"})
             continue
         for f in found:
-            sid = e.get("series_id") or e.get("variable") or f"{e['dataset']}/{e['variable']}"
+            sid = series_id_for(e, p) or e.get("variable") or f"{e['dataset']}/{e['variable']}"
             if e["provider"] == "census":
                 sid = f"{p[:4]}/{e['dataset']}/{e['variable']}"
             records.append({
