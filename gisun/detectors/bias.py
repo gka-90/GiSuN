@@ -2,11 +2,11 @@
 detect_bias_framing() -- flags loaded phrases, controversial terms, or
 contested framing in AI response text using a curated word list.
 
-Matches the same shared flag format as detect_numeric_claims() so both
+Matches the same shared flag format as detect_numeric_claims() (numeric.py) so both
 feed the same frontend renderer:
 {sentence, matched_value, start_index, end_index, type}
 
-Word list lives in bias_wordlist.json, organized into categories
+Word list lives in data/bias_wordlist.json, organized into categories
 (political framing, emotionally charged language, event framing,
 absolutist claims, identity/group terms) so it's easy to review, edit,
 and extend without touching this code.
@@ -17,10 +17,11 @@ import re
 import os
 from functools import lru_cache
 
-from sentences import find_sentence_span
+from gisun import config
+from gisun.detectors.sentences import find_sentence_span
 
 
-def _load_wordlist(path: str = "bias_wordlist.json") -> dict:
+def _load_wordlist(path: str = config.WORDLIST_PATH) -> dict:
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
@@ -37,7 +38,7 @@ def _find_sentence_span(text: str, match_start: int, match_end: int):
     return find_sentence_span(text, match_start, match_end)[0]
 
 
-def detect_bias_framing(text: str, wordlist_path: str = "bias_wordlist.json") -> list[dict]:
+def detect_bias_framing(text: str, wordlist_path: str = config.WORDLIST_PATH) -> list[dict]:
     """
     Scan `text` for loaded phrases / contested framing from the curated
     word list. Case-insensitive, whole-phrase matching (so "crisis" won't
@@ -111,7 +112,7 @@ if __name__ == "__main__":
     for label, text in test_cases.items():
         all_results[label] = {
             "input_text": text,
-            "flags": detect_bias_framing(text, wordlist_path="bias_wordlist.json"),
+            "flags": detect_bias_framing(text),
         }
 
     save_results_to_json(all_results, "bias_framing_results.json")

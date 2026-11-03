@@ -7,7 +7,7 @@ person labeled is listed as "unmatched", not scored. Human agreement per criteri
 ceiling to read the model's scores against: if you two only reach kappa 0.4 on C3, a model
 F1 on C3 can't mean much more than that.
 
-    python -m evaluation.agreement --a datasets/labels_gideon.json --b datasets/labels_partner.json
+    python -m evaluation.labeling.agreement --a datasets/labels_gideon.json --b datasets/labels_partner.json
 """
 
 import argparse
@@ -18,7 +18,7 @@ from collections import Counter, defaultdict
 def _pairs(path: str) -> dict[tuple, str]:
     with open(path, encoding="utf-8") as f:
         items = json.load(f)
-    return {(item["id"], key, cid): decision  # null = not labeled yet (evaluation/annotate.py sheets)
+    return {(item["id"], key, cid): decision  # null = not labeled yet (evaluation/labeling/annotate.py sheets)
             for item in items for key, crits in item["labels"].items() for cid, decision in crits.items()
             if decision is not None}
 

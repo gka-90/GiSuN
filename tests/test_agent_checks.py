@@ -12,7 +12,8 @@ from unittest import mock
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from agent import core, quiz_agent  # noqa: E402
+from quiz import agent as quiz_agent  # noqa: E402
+from quiz import agent_loop as core  # noqa: E402
 
 QUIZ = {
     "statements": ["Plants release oxygen during photosynthesis.",

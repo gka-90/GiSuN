@@ -67,7 +67,7 @@ const NUMERIC_PATTERNS = {
 
 const TEST_BIAS_TERMS = {
   emotionally_charged_terms: ["crisis", "catastrophe", "unprecedented", "shocking"],
-  absolutist_or_overgeneralizing_terms: ["everyone knows", "always", "never"], // same name as bias_wordlist.json
+  absolutist_or_overgeneralizing_terms: ["everyone knows", "always", "never"], // same name as data/bias_wordlist.json
   loaded_political_terms: ["radical left", "radical right", "regime"],
 };
 

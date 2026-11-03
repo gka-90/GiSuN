@@ -2,7 +2,7 @@
 Clean combined label sheet after the Gideon/Suning adjudication meeting (2026-10-27): one final label
 per row, how it was decided, the agent's correctness, and a summary computed by formulas.
 
-    python -m evaluation.finalize_labels --csv "<resolved combined CSV>" --out test_reports/GiSuN_labels_final.xlsx
+    python -m evaluation.labeling.finalize_labels --csv "<resolved combined CSV>" --out test_reports/GiSuN_labels_final.xlsx
 
 Input: the combined sheet exported as CSV, with "Combined label" filled for every row and the meeting
 notes in "Suning and Gideon notes". Reviewers see the sentence and the 2 before it, not the full answer.

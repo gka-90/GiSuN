@@ -5,27 +5,25 @@ POST /verify   fast, no model: runs detect_numeric_claims() and
                detect_bias_framing() and returns the combined flags in the
                shared format that extension/content.js renders.
 POST /pipeline, GET /pipeline/{id}
-               multi-agent pipeline (gisun/, see PIPELINE.md): runs in the
+               multi-agent pipeline (gisun/, see docs/PIPELINE.md): runs in the
                background, poll for the result. Needs a model unless mode=rules_only.
 POST /quiz     agent: Two Truths and a Lie with self-checking
-               (agent/quiz_agent.py). Needs Ollama running.
+               (quiz/agent.py). Needs Ollama running.
 
 Run from the project root:
     uvicorn server:app --port 8000 --reload
 """
 
-import os
-
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-from agent.quiz_agent import generate_quiz_agent
-from detect_bias_framing import detect_bias_framing
-from detect_numeric_claims import detect_numeric_claims
+from quiz.agent import generate_quiz_agent
+from gisun.detectors.bias import detect_bias_framing
+from gisun.detectors.numeric import detect_numeric_claims
 from gisun.api import router as pipeline_router
+from gisun.config import WORDLIST_PATH
 from gisun.tools.language import context_cues
 
-WORDLIST_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "bias_wordlist.json")
 
 app = FastAPI(title="GiSuN backend")
 app.include_router(pipeline_router)

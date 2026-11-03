@@ -11,7 +11,7 @@ import unittest
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from detect_numeric_claims import detect_numeric_claims  # noqa: E402
+from gisun.detectors.numeric import detect_numeric_claims  # noqa: E402
 from gisun.tools.attribution import find_attribution  # noqa: E402
 
 
@@ -60,7 +60,7 @@ class TestNumericDetection(unittest.TestCase):
         "temperature": ("Water boils at 100°C.", []),
         "pounds as weight": ("Add 5 pounds of flour.", []),
         "covid-19": ("COVID-19 spread fast.", []),
-        # original cases from detect_numeric_claims.py
+        # original cases from gisun/detectors/numeric.py
         "basic": ("Unemployment reportedly hit 8.5% in 2020, according to several reports.",
                   [("8.5%", "percentage"), ("2020", "year")]),
         "between years": ("Between 2019 and 2023, revenue grew from $10M to $50M, a 400% increase.",

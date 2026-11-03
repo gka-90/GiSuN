@@ -7,10 +7,10 @@ every agent needs (neighbouring sentences, attribution, flag details).
 import threading
 from dataclasses import dataclass, field
 
-from detect_bias_framing import detect_bias_framing
-from detect_numeric_claims import detect_numeric_claims
-from extract_claims import extract_claims
-from sentences import _boundaries
+from gisun.detectors.bias import detect_bias_framing
+from gisun.detectors.numeric import detect_numeric_claims
+from gisun.detectors.claims import extract_claims
+from gisun.detectors.sentences import _boundaries
 from gisun import config
 from gisun.tools.attribution import find_attribution
 

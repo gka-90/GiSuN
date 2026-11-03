@@ -1,7 +1,7 @@
 """
 Split agent-worksheet labeling between two annotators, with a shared overlap for agreement.
 
-    python -m evaluation.split_worksheet --agent <agent.json> --rules <rules.json> --answers <answers.json> \
+    python -m evaluation.labeling.split_worksheet --agent <agent.json> --rules <rules.json> --answers <answers.json> \
         --prefix test_reports/claude_agent_worksheet
 
 Plan (P1 = agent met, P2 = agent undetermined):
@@ -17,7 +17,7 @@ import random
 import subprocess
 import sys
 
-from evaluation.make_agent_worksheet import load
+from evaluation.labeling.make_agent_worksheet import load
 
 
 def main():
@@ -56,7 +56,7 @@ def main():
     for name, keys in ((a.names[0], A), (a.names[1], B)):
         kf = f"{a.prefix}_{name}_keys.json"
         json.dump([[k[0], k[1], k[2], k in shared] for k in sorted(keys)], open(kf, "w"), ensure_ascii=False)
-        subprocess.run([sys.executable, "-m", "evaluation.make_agent_worksheet", "--agent", a.agent, "--rules", a.rules,
+        subprocess.run([sys.executable, "-m", "evaluation.labeling.make_agent_worksheet", "--agent", a.agent, "--rules", a.rules,
                         "--answers", *a.answers, "--keys", kf, "--out", f"{a.prefix}_{name}.xlsx"], check=True)
     print(f"{a.names[0]}: {len(A)} rows, {a.names[1]}: {len(B)} rows, shared: {len(shared)}")
 

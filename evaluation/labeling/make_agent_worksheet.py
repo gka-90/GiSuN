@@ -1,7 +1,7 @@
 """
 Label the agent's decisions to find what to fix in the agent.
 
-    python -m evaluation.make_agent_worksheet \
+    python -m evaluation.labeling.make_agent_worksheet \
         --agent test_reports/chatgpt_full_Qwen2.5-32B-Instruct-AWQ.json \
         --answers datasets/candidates_wildchat.json datasets/candidates_hc3.json \
         [--rules test_reports/chatgpt_rules_only.json] \

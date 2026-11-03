@@ -1,8 +1,8 @@
 """
-Annotation workflow for the gold set (open problems #9, #10). Guidelines: datasets/ANNOTATION_GUIDE.md.
+Annotation workflow for the gold set (open problems #9, #10). Guidelines: docs/annotation_guide.md.
 
 1. sheet   one blank labeling file per annotator, from the collected candidates
-           (evaluation/collect.py). Every factual sentence the pipeline would judge gets the
+           (evaluation/datasets/collect.py). Every factual sentence the pipeline would judge gets the
            criteria to decide, all set to null: no machine suggestions, so the labels are not
            anchored on what the rules or the model already say.
 2. (both annotators fill in their own file independently: "met" / "not_met" / "undetermined")
@@ -11,9 +11,9 @@ Annotation workflow for the gold set (open problems #9, #10). Guidelines: datase
            into the gold set, the rest go to an adjudication file. Fill in "final" there
            together, run merge again, and the adjudicated pairs join the gold set.
 
-    python -m evaluation.annotate sheet --candidates datasets/candidates_wildchat.json datasets/candidates_hc3.json --annotators gideon partner
-    python -m evaluation.annotate status
-    python -m evaluation.annotate merge --a datasets/annotation/labels_gideon.json --b datasets/annotation/labels_partner.json
+    python -m evaluation.labeling.annotate sheet --candidates datasets/candidates_wildchat.json datasets/candidates_hc3.json --annotators gideon partner
+    python -m evaluation.labeling.annotate status
+    python -m evaluation.labeling.annotate merge --a datasets/annotation/labels_gideon.json --b datasets/annotation/labels_partner.json
 
 Output gold format = datasets/gold_example.json (labels: {sentence: {criterion: decision}}),
 plus "domain" and "source" per item, so evaluation/evaluate.py reads it unchanged.
@@ -24,7 +24,7 @@ import glob
 import json
 import os
 
-from evaluation.agreement import agreement
+from evaluation.labeling.agreement import agreement
 from gisun.criteria import DECISIONS
 from gisun.preprocess import preprocess
 

@@ -2,7 +2,7 @@
 # Serve the model on a GPU node so a laptop can use it through an SSH tunnel
 # (the backend and pipeline keep running on the laptop). Submit from the repo root:
 #     sbatch hpc/serve_model.slurm
-# then on the laptop (see PIPELINE.md, "Use the HPC model from a laptop"):
+# then on the laptop (see docs/PIPELINE.md, "Use the HPC model from a laptop"):
 #     ssh -N -L 8011:<node>:8011 <name>@150.209.91.65
 # The GPU is shared: the job ends after --time; `scancel <job>` when you're done.
 #SBATCH --job-name=gisun-serve

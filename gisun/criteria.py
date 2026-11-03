@@ -23,7 +23,7 @@ treat all criteria the same way.
 
 import re
 
-from extract_claims import CUES
+from gisun.detectors.claims import CUES
 from gisun.tools.language import context_cues
 from gisun.tools.numbers import compare_numbers, hedge_of, parse_value
 from gisun.tools.retrieval import (implied_period, implied_places, lookup_statistic, matching_series,

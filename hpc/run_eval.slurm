@@ -47,5 +47,5 @@ fi
 
 export GISUN_BACKEND=openai_compat GISUN_BASE_URL=http://localhost:8001/v1 GISUN_MODEL="$MODEL" GISUN_PARALLEL=8
 python -m evaluation.run_ablation --gold "$GOLD"
-python -m baseline.zero_tool --dataset "$GOLD"
+python -m evaluation.zero_tool --dataset "$GOLD"
 kill $PIDS

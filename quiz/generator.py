@@ -19,10 +19,7 @@ import re
 import random
 import ollama
 
-try:
-    from two_truths_one_lie.quiz_static import FALLBACK_QUIZZES  # one curated bank, shared with quiz_static
-except ImportError:  # run as a script from inside two_truths_one_lie/
-    from quiz_static import FALLBACK_QUIZZES
+from quiz.static import FALLBACK_QUIZZES  # one curated bank, shared with quiz.static
 
 MODEL = "qwen2.5:1.5b"
 MAX_RETRIES = 2
@@ -142,7 +139,7 @@ if __name__ == "__main__":
         print(json.dumps(quiz, indent=2, ensure_ascii=False))
         all_results.append(quiz)
 
-    with open("output/all_quiz_results.json", "w", encoding="utf-8") as f:
+    with open("outputs/all_quiz_results.json", "w", encoding="utf-8") as f:
         json.dump(all_results, f, indent=2, ensure_ascii=False)
 
-    print(f"\nSaved {len(all_results)} results to output/all_quiz_results.json")
+    print(f"\nSaved {len(all_results)} results to outputs/all_quiz_results.json")

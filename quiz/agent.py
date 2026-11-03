@@ -1,7 +1,7 @@
 """
 Two Truths and a Lie, as an agent with self-checking.
 
-two_truths_one_lie/quiz_generator.py retries blindly: a bad generation is
+quiz/generator.py retries blindly: a bad generation is
 thrown away and the same prompt is sent again. Here the model submits its
 quiz through a `submit_quiz` tool and every submission is checked:
 
@@ -23,10 +23,10 @@ import json
 import re
 from collections import Counter
 
-from agent import core
-from agent.core import MODEL, Tool, run_agent
-from two_truths_one_lie.quiz_generator import PLACEHOLDER_PATTERNS, _clean_json_text
-from two_truths_one_lie.quiz_static import get_quiz
+from quiz import agent_loop as core
+from quiz.agent_loop import MODEL, Tool, run_agent
+from quiz.generator import PLACEHOLDER_PATTERNS, _clean_json_text
+from quiz.static import get_quiz
 
 MAX_STEPS = 5
 # Blind-solve temperatures: the first try is deterministic, the others vary so

@@ -159,8 +159,8 @@ def extract_claims(numeric_flags: list[dict], bias_flags: list[dict],
 
 
 if __name__ == "__main__":
-    from detect_numeric_claims import detect_numeric_claims, save_results_to_json
-    from detect_bias_framing import detect_bias_framing
+    from gisun.detectors.numeric import detect_numeric_claims, save_results_to_json
+    from gisun.detectors.bias import detect_bias_framing
 
     test_cases = {
         "chatbot_response": (
@@ -177,7 +177,7 @@ if __name__ == "__main__":
     all_results = {}
     for label, text in test_cases.items():
         numeric = detect_numeric_claims(text)
-        bias = detect_bias_framing(text, wordlist_path="bias_wordlist.json")
+        bias = detect_bias_framing(text)
         all_results[label] = {
             "input_text": text,
             "claims": extract_claims(numeric, bias),

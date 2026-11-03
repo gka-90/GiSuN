@@ -9,7 +9,7 @@ renderer can treat numeric flags and bias flags the same way:
 
 import re
 
-from sentences import find_sentence_span
+from gisun.detectors.sentences import find_sentence_span
 
 # A number, longest grouping style first (formats from "Statistic Formats for Claim Detection"):
 #   Indian "10,00,000" | US "40,000" / "1,200.5" | European "1.000.000,50" (2+ groups, so "1.000"
@@ -245,7 +245,7 @@ def detect_numeric_claims(text: str) -> list[dict]:
     return _drop_overlaps(flags)
 
 
-def save_results_to_json(results, filename: str, output_dir: str = "output"):
+def save_results_to_json(results, filename: str, output_dir: str = "outputs"):
     """
     Save detection results to a JSON file inside `output_dir`
     (created automatically if it doesn't exist yet).

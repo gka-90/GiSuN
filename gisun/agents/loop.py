@@ -1,5 +1,5 @@
 """
-Tool-calling loop shared by the task agents (kept from agent/core.py, trimmed).
+Tool-calling loop shared by the task agents (kept from quiz/agent_loop.py, trimmed).
 
 The model calls tools until it calls `submit`. The submit arguments go through
 `validate`; problems are returned to the model as the tool result so it can fix

@@ -41,7 +41,7 @@ DATACOMMONS_KEY = os.environ.get("GISUN_DATACOMMONS_KEY", "")
 STAT_SERIES_PATH = os.path.join(ROOT, "data", "stat_series.json")
 STAT_CACHE_PATH = os.environ.get("GISUN_STAT_CACHE", os.path.join(ROOT, "data", "stat_cache.json"))
 STAT_OFFLINE = os.environ.get("GISUN_STAT_OFFLINE", "0") == "1"
-WORDLIST_PATH = os.path.join(ROOT, "bias_wordlist.json")
+WORDLIST_PATH = os.path.join(ROOT, "data", "bias_wordlist.json")
 
 # Agent budgets
 TASK_MAX_STEPS = int(os.environ.get("GISUN_TASK_STEPS", "8"))

@@ -84,7 +84,7 @@ place and period from the text, one of each or `undetermined`.
 **Quantitative claims without numbers.** "The highest ever", "a record low", "skyrocketed",
 "outpaced inflation" (the statistic-formats reference's "claims without explicit numbers") make a
 claim quantitative with no digits. In model modes C1 also runs on those (the `quantitative` cue in
-extract_claims.py); `rules_only` keeps its narrower gate. C2 only runs on values it can compare
+gisun/detectors/claims.py); `rules_only` keeps its narrower gate. C2 only runs on values it can compare
 (percentages, amounts, counts, ratios), not on scores, rankings or research statistics.
 
 **Scoring.** C1 and C5 usually describe the same missing source, so together they add at
@@ -165,8 +165,8 @@ Qwen's `generation_config.json` adds `top_k=20, top_p=0.8, repetition_penalty=1.
 | RQ2 | evaluation/evaluate.py | claim risk agreement |
 | RQ3 | evaluation/run_ablation.py | full / no_judge / no_debug / task_only / **rules_only** |
 | RQ4 | (todo) | C2 on a validation set: step 1 (measure / place / period / hedge) accuracy, then the decision |
-| agreement | evaluation/agreement.py | Cohen's kappa between two people's labels, per criterion |
-| baseline | baseline/zero_tool.py | one call, no tools |
+| agreement | evaluation/labeling/agreement.py | Cohen's kappa between two people's labels, per criterion |
+| baseline | evaluation/zero_tool.py | one call, no tools |
 
 A gold pair a mode never ran (the Plan agent or funnel dropped the criterion) counts as a
 miss and is reported as `not_run`. Read F1 next to it: a mode can lose points by skipping
@@ -202,9 +202,9 @@ rules_only drops below 0.8 (a guard for detector changes). `--skip_eval` = tests
 ## Gold set from real ChatGPT answers
 65 real ChatGPT answers are collected (`datasets/candidates_*.json`: 50 from WildChat-1M, 15
 from HC3) with blank labeling files in `datasets/annotation/`. Labeling rules, the merge and
-adjudication steps: **[datasets/ANNOTATION_GUIDE.md](datasets/ANNOTATION_GUIDE.md)**. Tools:
-`evaluation/collect.py` (download + filter + sample, `pip install pyarrow` for WildChat) and
-`evaluation/annotate.py` (`sheet` / `status` / `merge`).
+adjudication steps: **[annotation_guide.md](annotation_guide.md)**. Tools:
+`evaluation/datasets/collect.py` (download + filter + sample, `pip install pyarrow` for WildChat) and
+`evaluation/labeling/annotate.py` (`sheet` / `status` / `merge`).
 
 ## Unit tests (no model)
 `python -m unittest discover tests`: a scripted fake model checks the full flow,
@@ -219,10 +219,10 @@ Full list with priorities: *GiSuN: open problems and proposed solutions* (Fall 2
   with internet before HPC runs. The Data Commons calls are written from its v2 docs but not yet
   tried with a key. The headline US median household income (CPS ASEC) is not in the catalog. (#6)
 - Label the 65 collected real ChatGPT answers (`datasets/annotation/`, see the guide), both
-  of you with written guidelines; check agreement with `evaluation/agreement.py`. (#9, #10)
+  of you with written guidelines; check agreement with `evaluation/labeling/agreement.py`. (#9, #10)
 - RQ4: a C2 validation set: label measure / place / period / hedge and the decision per claim;
   step 1 is the hardest part, so measure it first. (#8)
 - The Plan agent ranks nothing yet: the C2 funnel uses extract_claims' rule score. (#3)
-- Loaded language: merge a larger lexicon (e.g. Recasens et al. 2013) into bias_wordlist.json. (#4)
+- Loaded language: merge a larger lexicon (e.g. Recasens et al. 2013) into data/bias_wordlist.json. (#4)
 - Extension: let the user overrule a decision and recompute with scoring.py.
 - Quiz: use a C2-contradicted claim as the "lie". (#19)

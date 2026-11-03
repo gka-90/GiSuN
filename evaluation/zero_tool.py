@@ -3,7 +3,7 @@ Zero-tool baseline: one model call reads the whole answer and decides every
 criterion for every claim, with no tools, plan, judge or checks. Output has
 the same shape as the pipeline, so evaluation/evaluate.py scores it directly.
 
-    python -m baseline.zero_tool --dataset datasets/gold_example.json
+    python -m evaluation.zero_tool --dataset datasets/gold_example.json
 """
 
 import argparse

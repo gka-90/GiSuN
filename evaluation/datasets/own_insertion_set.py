@@ -19,7 +19,8 @@ import re
 import sys
 
 sys.path.insert(0, os.getcwd())
-from evaluation import external_testset as T
+from evaluation.datasets import external_testset as T
+from gisun import config
 from gisun.preprocess import split_sentences
 
 import pyarrow.parquet as pq
@@ -155,7 +156,7 @@ COLS = ["#", "ID", "Question asked", "Previous 2 sentences", "Relevant sentence 
         "Agent decision", "Correct?", "Notes"]
 WIDTHS = [5, 8, 34, 44, 50, 18, 50, 22, 10, 16, 16, 12, 9, 24]
 
-_WORDS = json.load(open("bias_wordlist.json", encoding="utf-8"))
+_WORDS = json.load(open(config.WORDLIST_PATH, encoding="utf-8"))
 _CUES = {  # what makes a sentence relevant to each error type
     "C3": [w for k in ("loaded_political_terms", "emotionally_charged_terms", "loaded_framing_of_events",
                        "loaded_identity_or_group_terms") for w in _WORDS[k]],

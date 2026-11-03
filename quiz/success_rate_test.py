@@ -13,7 +13,7 @@ import json
 import time
 from collections import Counter
 
-from two_truths_one_lie.quiz_generator import generate_quiz, _try_generate_once, MAX_RETRIES, TOPICS
+from quiz.generator import generate_quiz, _try_generate_once, MAX_RETRIES, TOPICS
 
 
 def run_success_rate_test(runs_per_topic: int = 5):
@@ -52,7 +52,7 @@ def run_success_rate_test(runs_per_topic: int = 5):
             if final_result is None:
                 # matches generate_quiz()'s fallback behavior
                 import random
-                from two_truths_one_lie.quiz_generator import FALLBACK_QUIZZES
+                from quiz.generator import FALLBACK_QUIZZES
                 fallback = random.choice(FALLBACK_QUIZZES).copy()
                 fallback["source"] = "fallback"
                 fallback["topic"] = topic
@@ -114,6 +114,6 @@ if __name__ == "__main__":
 
     import os
     os.makedirs("output", exist_ok=True)
-    with open("output/success_rate_results.json", "w", encoding="utf-8") as f:
+    with open("outputs/success_rate_results.json", "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
-    print("Full results saved to output/success_rate_results.json")
+    print("Full results saved to outputs/success_rate_results.json")

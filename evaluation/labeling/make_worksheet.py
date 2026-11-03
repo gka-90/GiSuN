@@ -2,7 +2,7 @@
 Build an Excel worksheet that puts the rules_only and agent decisions side by side for every
 (answer, sentence, criterion) and leaves a column for a human label.
 
-    python -m evaluation.make_worksheet \
+    python -m evaluation.labeling.make_worksheet \
         --rules test_reports/chatgpt_rules_only.json \
         --agent test_reports/chatgpt_full_Qwen2.5-32B-Instruct-AWQ.json \
         --answers datasets/candidates_wildchat.json datasets/candidates_hc3.json \

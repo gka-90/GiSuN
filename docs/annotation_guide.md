@@ -5,15 +5,17 @@ The gold set is what every GiSuN number is measured against, so two people label
 
 ## Data
 
+All files below are in `datasets/`.
+
 | file | what |
 |---|---|
 | `candidates_wildchat.json` | 50 real ChatGPT answers (gpt-3.5-turbo / gpt-4, Dec 2023 - Apr 2024) from [WildChat-1M](https://huggingface.co/datasets/allenai/WildChat-1M), ODC-BY |
 | `candidates_hc3.json` | 15 ChatGPT answers (Dec 2022) from [HC3](https://huggingface.co/datasets/Hello-SimpleAI/HC3), CC-BY-SA |
 | `excluded.json` | conversations read and rejected by hand (off-topic, personal advice, duplicates), with the reason |
 | `annotation/labels_<name>.json` | one labeling file per person |
-| `gold.json` | the merged gold set (made by `evaluation.annotate merge`) |
+| `gold.json` | the merged gold set (made by `evaluation.labeling.annotate merge`) |
 
-Selection (`evaluation/collect.py`): single-turn English conversations, the question asks for
+Selection (`evaluation/datasets/collect.py`): single-turn English conversations, the question asks for
 information about economy / health / politics / history / environment / society, no coding,
 writing or role-play, answer 400-3000 characters, at least one claim the detectors find
 (two for HC3), then a random sample balanced across domains. Each item keeps its source
@@ -38,7 +40,7 @@ named one or two sentences earlier counts.
 - Don't delete sentences. If a "sentence" is not a claim (a heading, a list fragment), mark all its criteria `not_met`.
 - You may add a criterion to a sentence if it clearly applies, e.g. `"C1"` for a numberless trend claim.
 - Put anything worth discussing in the item's `"notes"`.
-- Check progress with `python -m evaluation.annotate status`.
+- Check progress with `python -m evaluation.labeling.annotate status`.
 
 Labeling everything takes several hours: about 2,600 decisions each. Do a **pilot first**:
 both label the same 10 items, merge, look at kappa and the disagreements, sharpen these rules,
@@ -100,7 +102,7 @@ you can't tell which, `undetermined`.
 ## Merge and adjudicate
 
 ```bash
-python -m evaluation.annotate merge --a datasets/annotation/labels_suning.json --b datasets/annotation/labels_partner.json
+python -m evaluation.labeling.annotate merge --a datasets/annotation/labels_suning.json --b datasets/annotation/labels_partner.json
 ```
 
 This prints Cohen's kappa per criterion, writes the pairs you agree on to `datasets/gold.json`
