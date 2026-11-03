@@ -1,10 +1,11 @@
 """
-test.py -- runs the "Two Truths and a Lie" feature using ONLY the
-curated fallback word bank (no live model call). Use this to demo
-or test the reliable, production-quality version of the quiz.
+quiz/static.py -- the curated fallback quizzes (FALLBACK_QUIZZES) and
+get_quiz(), which serves one with no live model call. quiz/generator.py and
+quiz/agent.py fall back to this bank; run it directly for a reliable demo:
+    python -m quiz.static
 
-To test the experimental live-generation path instead, use
-quiz_generator.generate_quiz(topic) directly.
+To test the live-generation path instead, use quiz.generator.generate_quiz(topic)
+or quiz.agent.generate_quiz_agent(topic).
 """
 
 import json

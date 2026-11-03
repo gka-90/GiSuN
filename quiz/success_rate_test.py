@@ -1,12 +1,11 @@
 """
-success_rate_test.py -- runs generate_quiz() many times across all topics
+quiz/success_rate_test.py -- runs generate_quiz() many times across all topics
 and reports how often it succeeds via the model vs. falls back to the
-word bank, plus how often each retry attempt was needed.
+word bank, plus how often each retry attempt was needed. Needs Ollama.
+    python -m quiz.success_rate_test      # -> outputs/success_rate_results.json
 
-Import note: this expects quiz_generator.py to be in the same folder,
-with its internal functions exposed the way they currently are
-(_try_generate_once, MAX_RETRIES, TOPICS). If quiz_generator.py changes
-its internal structure, this script needs matching updates.
+It uses quiz/generator.py's internals (_try_generate_once, MAX_RETRIES, TOPICS);
+if those change, this script needs matching updates.
 """
 
 import json
@@ -113,7 +112,7 @@ if __name__ == "__main__":
     print(f"\nTotal time: {elapsed:.1f}s")
 
     import os
-    os.makedirs("output", exist_ok=True)
+    os.makedirs("outputs", exist_ok=True)
     with open("outputs/success_rate_results.json", "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
     print("Full results saved to outputs/success_rate_results.json")

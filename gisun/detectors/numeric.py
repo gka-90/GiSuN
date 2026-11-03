@@ -4,7 +4,7 @@ containing numbers, percentages, or years for fact-checking.
 
 Matches the format used across all detection functions so the frontend
 renderer can treat numeric flags and bias flags the same way:
-{sentence, matched_value, start_index, end_index}
+{sentence, matched_value, start_index, end_index, type}
 """
 
 import re

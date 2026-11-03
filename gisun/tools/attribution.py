@@ -1,5 +1,6 @@
 """Does a sentence (or the sentences right before it) name a specific source?
-Moved from agent/analyzer.py so every agent and the rules share one definition."""
+One definition shared by the preprocess step, the agents' tools and the rules
+(it started in the removed agent/analyzer.py)."""
 
 import re
 

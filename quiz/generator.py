@@ -15,6 +15,7 @@ Findings from testing (see Qwen_Local_Model_Test_Log.md and follow-up rounds):
 """
 
 import json
+import os
 import re
 import random
 import ollama
@@ -139,6 +140,7 @@ if __name__ == "__main__":
         print(json.dumps(quiz, indent=2, ensure_ascii=False))
         all_results.append(quiz)
 
+    os.makedirs("outputs", exist_ok=True)
     with open("outputs/all_quiz_results.json", "w", encoding="utf-8") as f:
         json.dump(all_results, f, indent=2, ensure_ascii=False)
 
