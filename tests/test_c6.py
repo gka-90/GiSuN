@@ -104,6 +104,13 @@ class PreFilter(unittest.TestCase):
         ctx = preprocess(STUDIES)
         self.assertEqual(rule_c6(ctx.claims[0], ctx)["decision"], "met")
 
+    def test_a_capitalized_preposition_is_not_a_source(self):
+        s = ("- **Evidence from bans:** After states like California (in 1996) and Michigan (in 2006) banned "
+             "affirmative action, enrollment of Black and Hispanic students dropped at their most selective universities.")
+        self.assertIsNone(c6_prefilter(preprocess(s, all_sentences=True).claims[0]))
+        named = preprocess("According to the Federal Reserve, low rates caused the housing boom.", all_sentences=True).claims[0]
+        self.assertIn("attributed to a source", c6_prefilter(named))
+
 
 class AgentSide(unittest.TestCase):
     def setUp(self):

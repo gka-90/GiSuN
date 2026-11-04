@@ -186,6 +186,12 @@ def rule_c5(claim, ctx):
     return _decision("not_met", "supporting", "No vague attribution ('experts say', 'studies show') in the sentence.")
 
 
+# find_attribution reads "After states like California ... banned" as a source "After" that "states";
+# a capitalized preposition or conjunction is never a source name
+NOT_A_SOURCE = re.compile(r"(?i)(?:after|before|when|while|if|since|because|as|in|on|at|by|for|from|during|with|"
+                          r"without|although|though|once|until|unlike|like|but|and|so|yet)\b")
+
+
 def c6_prefilter(claim) -> str | None:
     """Labeling rules 2 and 3: headings, questions and fragments, and viewpoints reported as someone
     else's ('Critics argue ...', 'X says ...'), are never an unsupported causal claim of the answer's own."""
@@ -193,8 +199,9 @@ def c6_prefilter(claim) -> str | None:
         return f"The sentence is {why}, not a claim (headings and fragments are never 'met')."
     if who := reported_viewpoint(claim["sentence"]):
         return f"The sentence reports a viewpoint ({who!r}), not the answer's own causal claim."
-    if claim["attribution"]["names_specific_source"]:
-        return f"The causal claim is attributed to a source ({claim['attribution']['source_text']!r})."
+    src = claim["attribution"]["source_text"] or ""
+    if claim["attribution"]["names_specific_source"] and not NOT_A_SOURCE.match(src):
+        return f"The causal claim is attributed to a source ({src!r})."
     return None
 
 
