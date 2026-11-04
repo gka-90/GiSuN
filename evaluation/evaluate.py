@@ -13,11 +13,18 @@ criterion, not because a decision was wrong, so report that count next to F1.
 import argparse
 import json
 import os
+import re
 from collections import Counter, defaultdict
 
 
+def _norm(s: str) -> str:
+    """Markdown emphasis is stripped on both sides: gold keys from spreadsheets have none, claim
+    sentences keep the answer's ** and _ (list items like "- **Cost:** ..." never matched before)."""
+    return re.sub(r"[*_`]", "", s).lower()
+
+
 def _match_claim(result: dict, key: str):
-    return next((c for c in result["claims"] if key.lower() in c["sentence"].lower()), None)
+    return next((c for c in result["claims"] if _norm(key) in _norm(c["sentence"])), None)
 
 
 def evaluate(gold_path: str, batch_dir: str) -> dict:
