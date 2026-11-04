@@ -181,3 +181,20 @@ def compare_numbers(claim_value: str, official_value: str, hedge: str = "none") 
     off = abs(_round_to(official, step) - _round_to(claim, step))
     return {**out, "rule": f"rounded to the claim's precision ({step:g}), at most one unit off",
             "match": off <= 1}
+
+
+# ---- "is there a number at all?" (Plan agent: keep C1 whenever a number is present) ---------
+# The numeric detector only flags statistic formats; "a density of 11.34 g/cm3", "averaging 22 °C" or
+# "629 runs at 37.00" have numbers it doesn't flag, and the 32B Plan agent never got C1 for them.
+_MONTH = (r"(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|June?|July?|Aug(?:ust)?|"
+          r"Sep(?:t(?:ember)?)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\.?")
+_NOT_A_QUANTITY = re.compile(  # calendar days and years (also "1961-62", "the 1980s"): dates, not statistics
+    rf"\b{_MONTH}\s+\d{{1,2}}(?:st|nd|rd|th)?\b|\b\d{{1,2}}(?:st|nd|rd|th)?\s+(?:of\s+)?{_MONTH}(?![a-z])"
+    r"|(?<![\d$.,])(?:1[5-9]|20)\d{2}(?:\s*[-–—/]\s*(?:(?:1[5-9]|20)\d{2}|\d{2}))?s?(?![\d%]|,\d|\.\d|\s*(?:percent|per cent))")
+_DIGITS = re.compile(r"(?<![\w.,\-/:])\d[\d,]*(?:[.:]\d+)?(?:st|nd|rd|th)?(?![A-Za-z\d])")
+
+
+def numbers_in(sentence: str) -> list[str]:
+    """Numbers in the sentence other than years and calendar days ('11.34', '22', '40', '11th').
+    Codes glued to letters ('NCT02002091', 'A890', 'COVID-19') don't count."""
+    return [m.group(0) for m in _DIGITS.finditer(_NOT_A_QUANTITY.sub(" ", sentence))]

@@ -16,23 +16,26 @@ from gisun.pipeline import run, run_dataset
 from tests import fake_stats
 from tests.test_pipeline import FakeModel
 
-TEXT = ("Shea Fahy is regarded as one of the heroes of the Cork football team. "
+# No number and no agentless cue in the first sentence, so plan.must_keep() doesn't put C1/C5 back
+TEXT = ("Shea Fahy was one of the heroes of the Cork football team. "
         "The new tax caused hundreds of small shops to close within a year.")
-LABELS = {"Shea Fahy is regarded": {"C5": "met", "C1": "not_met"},
+LABELS = {"Shea Fahy was one": {"C5": "met", "C1": "not_met"},
           "The new tax caused": {"C6": "met"}}
 
 
 class DroppingPlan(FakeModel):
-    """Like FakeModel, but its Plan agent drops C5 and C6 everywhere (with a reason), as the 32B
-    model did for 'is regarded as' on the public set."""
+    """Like FakeModel, but its Plan agent drops some criteria everywhere (with a reason), as the 32B
+    model did on the public set."""
+
+    DROP = ("C5", "C6")
 
     def __call__(self, messages, tools):
         if "plan a critical-reading" in messages[0]["content"]:
             claims = json.loads(messages[1]["content"].split("Claims:\n", 1)[1])
             keep = [{"claim_id": c["claim_id"], "criterion": k, "reason": "fits"}
-                    for c in claims for k in c["candidates"] if k not in ("C5", "C6")]
+                    for c in claims for k in c["candidates"] if k not in self.DROP]
             drop = [{"claim_id": c["claim_id"], "criterion": k, "reason": "does not credit unnamed authorities"}
-                    for c in claims for k in c["candidates"] if k in ("C5", "C6")]
+                    for c in claims for k in c["candidates"] if k in self.DROP]
             return {"content": json.dumps({"tasks": keep, "dropped": drop}), "tool_calls": []}
         return super().__call__(messages, tools)
 

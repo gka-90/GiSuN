@@ -53,7 +53,7 @@ def _miss_cause(result: dict | None, claim: dict | None, cid: str) -> str:
         if isinstance(n, dict) and n.get("claim_id") == claim["claim_id"] and n.get("criterion") == cid:
             if n.get("by") == "funnel":
                 return "funnel"
-            if n.get("by") != "forced":  # Plan-agent drops carry no "by"
+            if n.get("by") in (None, "agent"):  # Plan-agent drops ("by" is missing in older outputs)
                 return "plan_dropped"
     return "not_candidate"
 

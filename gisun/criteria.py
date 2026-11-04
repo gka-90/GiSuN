@@ -31,7 +31,7 @@ import re
 
 from gisun.detectors.claims import CUES
 from gisun.tools.language import context_cues, heading_or_fragment, reported_viewpoint
-from gisun.tools.numbers import compare_numbers, hedge_of, parse_value
+from gisun.tools.numbers import compare_numbers, hedge_of, numbers_in, parse_value
 from gisun.tools.retrieval import (implied_period, implied_places, lookup_statistic, matching_series,
                                    periods_in, places_in)
 
@@ -82,7 +82,8 @@ def _used_terms(claim, cats):
 def rule_c1(claim, ctx):
     src = claim["attribution"]["source_text"] or claim["attribution_nearby"]["source_text"]
     # The numbers, or for a claim with no number the record/trend/comparison words ("the highest ever")
-    quoted = claim["stat_values"] or [m.group(0) for m in CUES["quantitative"].finditer(claim["sentence"])]
+    quoted = claim["stat_values"] or [m.group(0) for m in CUES["quantitative"].finditer(claim["sentence"])] \
+        or numbers_in(claim["sentence"])
     values = ", ".join(quoted)
     if src:
         return _decision("not_met", "moderate", f"{values} is attributed to {src}.",
@@ -224,9 +225,10 @@ CRITERIA = {
         "tools": ["find_attribution", "context_window"],
         "severity": {"strong": 2, "moderate": 2, "supporting": 1},
         "applies": lambda c: bool(c["stat_values"]),
-        # In model modes also a claim with no number but a record/trend/comparison cue; the rules-only
-        # baseline keeps the narrower gate, so its numbers stay comparable with earlier runs
-        "open": lambda c: "quantitative" in c["signals"],
+        # In model modes also a claim with no flagged statistic but a record/trend/comparison cue, or any
+        # number the detector doesn't flag ("a density of 11.34 g/cm3"); the rules-only baseline keeps the
+        # narrower gate, so its numbers stay comparable with earlier runs
+        "open": lambda c: "quantitative" in c["signals"] or bool(numbers_in(c["sentence"])),
         "rule": rule_c1,
     },
     "C3": {
