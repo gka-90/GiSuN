@@ -1,0 +1,1202 @@
+[
+ {
+  "id": "logic-fg-001",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "Science fiction books are not worth the time it takes to read them.",
+  "labels": {
+   "Science fiction books are not worth the time it takes to read them.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-002",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "If we allow a housing development to be built on Sunny Lake, a resort will come next, and soon we won’t have any wilderness left!",
+  "labels": {
+   "If we allow a housing development to be built on Sunny Lake, a resort will come next, and soon we won’t have any wilderness left!": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-003",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "My first time walking the dog went terribly, so my dog is a terrible one.",
+  "labels": {
+   "My first time walking the dog went terribly, so my dog is a terrible one.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-004",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "Since many of the students at St. Cloud State University get A's, St. Cloud State must be a top-rated school.",
+  "labels": {
+   "Since many of the students at St. Cloud State University get A's, St. Cloud State must be a top-rated school.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-005",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "If we ban cell phones because they are bad for teenagers next the government will ban all iPods and eventually all video games as well.",
+  "labels": {
+   "If we ban cell phones because they are bad for teenagers next the government will ban all iPods and eventually all video games as well.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-006",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "The more things change, the more they remain the same.",
+  "labels": {
+   "The more things change, the more they remain the same.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-007",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "All robin have red breasts",
+  "labels": {
+   "All robin have red breasts": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-008",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "President Obama’s decision to arm Syrian rebels, however meagerly, has all but doomed us to an Iraq-style debacle",
+  "labels": {
+   "President Obama’s decision to arm Syrian rebels, however meagerly, has all but doomed us to an Iraq-style debacle": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-009",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "Major in English in college, start reading poetry, and next thing you know, you will become an unemployed pot-smoking loser.",
+  "labels": {
+   "Major in English in college, start reading poetry, and next thing you know, you will become an unemployed pot-smoking loser.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-010",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "Using the second amendment as justification to allow civilians to own nuclear submarines.",
+  "labels": {
+   "Using the second amendment as justification to allow civilians to own nuclear submarines.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-011",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "If we control Covid-19 with measures that are too draconian, we could wind up with a government that regularly clamps down on its citizens, with bar codes on wrists and cameras in your houses that watch you all the time.",
+  "labels": {
+   "If we control Covid-19 with measures that are too draconian, we could wind up with a government that regularly clamps down on its citizens, with bar codes on wrists and cameras in your houses that watch you all the time.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-012",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "A person hanging out in a bar will be an alcoholic",
+  "labels": {
+   "A person hanging out in a bar will be an alcoholic": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-013",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "My dog got sprayed by a skunk this morning on the trail; therefore, trail running is dangerous.",
+  "labels": {
+   "My dog got sprayed by a skunk this morning on the trail; therefore, trail running is dangerous.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-014",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "Within every man's heart is the desire to be free.",
+  "labels": {
+   "Within every man's heart is the desire to be free.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-015",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "Trying to finish a marathon is impossible, I know because I tried it once.",
+  "labels": {
+   "Trying to finish a marathon is impossible, I know because I tried it once.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-016",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "My neighbor's cat attacked me, therefore all cats are evil.",
+  "labels": {
+   "My neighbor's cat attacked me, therefore all cats are evil.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-017",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "Some tall people recently vandalized the park, tall people are irresponsible.",
+  "labels": {
+   "Some tall people recently vandalized the park, tall people are irresponsible.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-018",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "Religion may have been wrong about a few things, but science has been wrong about many more things!",
+  "labels": {
+   "Religion may have been wrong about a few things, but science has been wrong about many more things!": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-019",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "That type of car is poorly made; a friend of mine has one, and it continually gives him trouble.",
+  "labels": {
+   "That type of car is poorly made; a friend of mine has one, and it continually gives him trouble.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-020",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "All engineers are introverts who would rather relate to computers than people.",
+  "labels": {
+   "All engineers are introverts who would rather relate to computers than people.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-021",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "If I make an exception for you then I'll have to make an exception for everyone",
+  "labels": {
+   "If I make an exception for you then I'll have to make an exception for everyone": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-022",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "All football players are dumb jocks.",
+  "labels": {
+   "All football players are dumb jocks.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-023",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "If you allow the students to redo this test, they are going to want to redo every assignment for the rest of the year.",
+  "labels": {
+   "If you allow the students to redo this test, they are going to want to redo every assignment for the rest of the year.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-024",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "You can tell that guy's Mexican - he's wearing a sombrero.",
+  "labels": {
+   "You can tell that guy's Mexican - he's wearing a sombrero.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-025",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "It is warmer this year in Las Vegas as compared to last year; therefore, global warming is rapidly accelerating.",
+  "labels": {
+   "It is warmer this year in Las Vegas as compared to last year; therefore, global warming is rapidly accelerating.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-026",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "All tall people are good basketball players.",
+  "labels": {
+   "All tall people are good basketball players.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-027",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "Miller Lite is cheap beer, so the Guinness will be cheap, too",
+  "labels": {
+   "Miller Lite is cheap beer, so the Guinness will be cheap, too": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-028",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "Three kids in one class failed the Jane Eyre quiz, I guess,all the other classes will all fail it, too.",
+  "labels": {
+   "Three kids in one class failed the Jane Eyre quiz, I guess,all the other classes will all fail it, too.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-029",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "Yesterday you were 5 minutes late, today 10, and tomorrow you won't even show up!",
+  "labels": {
+   "Yesterday you were 5 minutes late, today 10, and tomorrow you won't even show up!": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-030",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "Democrats are gay and Republicans are rich.",
+  "labels": {
+   "Democrats are gay and Republicans are rich.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-031",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "We should go inside; the last time the clouds were that dark, there was a tornado.",
+  "labels": {
+   "We should go inside; the last time the clouds were that dark, there was a tornado.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-032",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "All people who live in England have bad teeth.",
+  "labels": {
+   "All people who live in England have bad teeth.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-033",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "I know three redheads who have terrible tempers, and since Annabel has red hair, I’ll bet she has a terrible temper too.",
+  "labels": {
+   "I know three redheads who have terrible tempers, and since Annabel has red hair, I’ll bet she has a terrible temper too.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-034",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "Pain-Away worked for me, so it’s sure to work for you, too.",
+  "labels": {
+   "Pain-Away worked for me, so it’s sure to work for you, too.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-035",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "Most of my testimony about the defendant was the opposite of what I actually believe but I'll bet there's no expert witness who has always told the truth from the time they were old enough to talk, so I'm no less honest than they are.",
+  "labels": {
+   "Most of my testimony about the defendant was the opposite of what I actually believe but I'll bet there's no expert witness who has always told the truth from the time they were old enough to talk, so I'm no less honest than they are.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-036",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "There are no good restaurants in New York; I tried two in Times Square, and they were awful.",
+  "labels": {
+   "There are no good restaurants in New York; I tried two in Times Square, and they were awful.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-037",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "Asians make lousy athletes, but do well at the Math Olympiad.",
+  "labels": {
+   "Asians make lousy athletes, but do well at the Math Olympiad.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-038",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "Annie must like Starbucks because all white girls like Starbucks.",
+  "labels": {
+   "Annie must like Starbucks because all white girls like Starbucks.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-039",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "If you eat that cookie tonight, you'll eat ten tomorrow, and by this time next year, you'll be eating 1 million cookies a day.",
+  "labels": {
+   "If you eat that cookie tonight, you'll eat ten tomorrow, and by this time next year, you'll be eating 1 million cookies a day.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-040",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "My mother always told me that if I went outside right after bathing, during winter, I would catch pneumonia.",
+  "labels": {
+   "My mother always told me that if I went outside right after bathing, during winter, I would catch pneumonia.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-041",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "If indoor smoking laws are passed for bars, the bars will go out of business since people who drink, smoke while they drink.",
+  "labels": {
+   "If indoor smoking laws are passed for bars, the bars will go out of business since people who drink, smoke while they drink.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-042",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "All dogs go to heaven.",
+  "labels": {
+   "All dogs go to heaven.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-043",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "If we keep kids from enjoying recess, eventually they will never want to preserve nature.",
+  "labels": {
+   "If we keep kids from enjoying recess, eventually they will never want to preserve nature.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-044",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "My first day of basketball practice was easy, so it will always be easy.",
+  "labels": {
+   "My first day of basketball practice was easy, so it will always be easy.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-045",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "If I eat this donut today, I'll probably do it again tomorrow and the next day, and then I'll never be able to eat healthy again.",
+  "labels": {
+   "If I eat this donut today, I'll probably do it again tomorrow and the next day, and then I'll never be able to eat healthy again.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-046",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "1 = a number; 2 = a number; therefore 1 = 2.",
+  "labels": {
+   "1 = a number; 2 = a number; therefore 1 = 2.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-047",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "We can’t legalize marijuana; if we do, then the next thing you know people will be strung out on heroin.",
+  "labels": {
+   "We can’t legalize marijuana; if we do, then the next thing you know people will be strung out on heroin.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-048",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "Besides charities, comfort, community cohesion, rehabilitation, and helping children learn values, religion poisons everything.",
+  "labels": {
+   "Besides charities, comfort, community cohesion, rehabilitation, and helping children learn values, religion poisons everything.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-049",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "All chess players are geniuses.",
+  "labels": {
+   "All chess players are geniuses.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-fg-050",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "faulty generalization",
+  "question": "",
+  "text": "All Greek food causes illness; when I traveled through Greece, I got food poisoning.",
+  "labels": {
+   "All Greek food causes illness; when I traveled through Greece, I got food poisoning.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-001",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "ad populum",
+  "question": "",
+  "text": "Over one million students have purchased Brain Power.",
+  "labels": {
+   "Over one million students have purchased Brain Power.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-002",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "appeal to emotion",
+  "question": "",
+  "text": "Without this additional insurance, you could find yourself broke and homeless.",
+  "labels": {
+   "Without this additional insurance, you could find yourself broke and homeless.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-003",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "false dilemma",
+  "question": "",
+  "text": "You either support Hillary Clinton for President or you don’t believe in women’s rights.",
+  "labels": {
+   "You either support Hillary Clinton for President or you don’t believe in women’s rights.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-004",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "ad populum",
+  "question": "",
+  "text": "It must be cool because everyone is doing it…\" said Kinza",
+  "labels": {
+   "It must be cool because everyone is doing it…\" said Kinza": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-005",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "false causality",
+  "question": "",
+  "text": "The Church used to claim that giving 10% of your income to the Church will free a child’s soul from Limbo into Heaven, so clearly giving money to the Church is a scam!",
+  "labels": {
+   "The Church used to claim that giving 10% of your income to the Church will free a child’s soul from Limbo into Heaven, so clearly giving money to the Church is a scam!": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-006",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "circular reasoning",
+  "question": "",
+  "text": "Paranormal activity is real because I have experienced what can only be described as paranormal activity.",
+  "labels": {
+   "Paranormal activity is real because I have experienced what can only be described as paranormal activity.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-007",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "fallacy of logic",
+  "question": "",
+  "text": "If we can send a woman into outerspace and communicate with them while they are there, then surely we can learn to communicate with one another in our state.",
+  "labels": {
+   "If we can send a woman into outerspace and communicate with them while they are there, then surely we can learn to communicate with one another in our state.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-008",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "false causality",
+  "question": "",
+  "text": "Believing that the cause of the Reformation was simply Martin Luther posting his theses",
+  "labels": {
+   "Believing that the cause of the Reformation was simply Martin Luther posting his theses": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-009",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "appeal to emotion",
+  "question": "",
+  "text": "By rejecting God, you are rejecting goodness, kindness, and love itself.",
+  "labels": {
+   "By rejecting God, you are rejecting goodness, kindness, and love itself.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-010",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "fallacy of credibility",
+  "question": "",
+  "text": "The purpose of the Cadet Program is to prepare youth for Air Force Basic Military Training.” REPLY: “This is true because I heard it from the Wing Commander.",
+  "labels": {
+   "The purpose of the Cadet Program is to prepare youth for Air Force Basic Military Training.” REPLY: “This is true because I heard it from the Wing Commander.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-011",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "false causality",
+  "question": "",
+  "text": "Explaining that the U.S. Civil War was fought only because of the institution of slavery",
+  "labels": {
+   "Explaining that the U.S. Civil War was fought only because of the institution of slavery": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-012",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "intentional",
+  "question": "",
+  "text": "Bill: \"I think that some people have psychic powers.\" Jill: \"What is your proof?\" Bill: \"No one has been able to prove that people do not have psychic powers.",
+  "labels": {
+   "Bill: \"I think that some people have psychic powers.\" Jill: \"What is your proof?\" Bill: \"No one has been able to prove that people do not have psychic powers.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-013",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "appeal to emotion",
+  "question": "",
+  "text": "One pill is good, two will be better",
+  "labels": {
+   "One pill is good, two will be better": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-014",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "circular reasoning",
+  "question": "",
+  "text": "No one can deny that [my theoretical orientation] is the only valid theoretical orientation",
+  "labels": {
+   "No one can deny that [my theoretical orientation] is the only valid theoretical orientation": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-015",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "fallacy of credibility",
+  "question": "",
+  "text": "Professor X holds that the use of non-invasive ventilation has no place in the management of ARDS; this, therefore, is the approach we should adopt.",
+  "labels": {
+   "Professor X holds that the use of non-invasive ventilation has no place in the management of ARDS; this, therefore, is the approach we should adopt.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-016",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "intentional",
+  "question": "",
+  "text": "The makers of Sugarette Candy Drinks point to research showing that of the five countries where Sugarette drinks sell the most units, three of them are in the top ten healthiest countries on Earth, therefore Sugarette drinks are healthy.",
+  "labels": {
+   "The makers of Sugarette Candy Drinks point to research showing that of the five countries where Sugarette drinks sell the most units, three of them are in the top ten healthiest countries on Earth, therefore Sugarette drinks are healthy.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-017",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "fallacy of credibility",
+  "question": "",
+  "text": "Despite the fact that our Q4 numbers are much lower than usual, we should push forward using the same strategy because our CEO Barbara says this is the best approach.",
+  "labels": {
+   "Despite the fact that our Q4 numbers are much lower than usual, we should push forward using the same strategy because our CEO Barbara says this is the best approach.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-018",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "circular reasoning",
+  "question": "",
+  "text": "You should always do what you are being told because following the rules is important.",
+  "labels": {
+   "You should always do what you are being told because following the rules is important.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-019",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "fallacy of logic",
+  "question": "",
+  "text": "If I say that a surgeon should be allowed to use a guidebook to carry out surgery like a student can use open notes on a test, I have made a",
+  "labels": {
+   "If I say that a surgeon should be allowed to use a guidebook to carry out surgery like a student can use open notes on a test, I have made a": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-020",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "appeal to emotion",
+  "question": "",
+  "text": "Thousands of pets are left homeless and hungry because lousy people turn them out on the streets instead of taking care of them.",
+  "labels": {
+   "Thousands of pets are left homeless and hungry because lousy people turn them out on the streets instead of taking care of them.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-021",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "circular reasoning",
+  "question": "",
+  "text": "Plagiarism is deceitful because it is dishonest.",
+  "labels": {
+   "Plagiarism is deceitful because it is dishonest.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-022",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "false dilemma",
+  "question": "",
+  "text": "Either you pass this test, or you fail it.\" Laughed Sr Malak",
+  "labels": {
+   "Either you pass this test, or you fail it.\" Laughed Sr Malak": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-023",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "false causality",
+  "question": "",
+  "text": "Billy murdered all those people because I spanked him when he was a child.",
+  "labels": {
+   "Billy murdered all those people because I spanked him when he was a child.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-024",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "circular reasoning",
+  "question": "",
+  "text": "George Bush is a good communicator because he speaks effectively.",
+  "labels": {
+   "George Bush is a good communicator because he speaks effectively.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-025",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "fallacy of relevance",
+  "question": "",
+  "text": "Distracting your audience from the original issue by introducing an irrelevant topic.",
+  "labels": {
+   "Distracting your audience from the original issue by introducing an irrelevant topic.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-026",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "fallacy of logic",
+  "question": "",
+  "text": "Asking students to sit in the same class for 2 hours is like asking them to wander the desert alone, with no water, for a week.",
+  "labels": {
+   "Asking students to sit in the same class for 2 hours is like asking them to wander the desert alone, with no water, for a week.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-027",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "ad populum",
+  "question": "",
+  "text": "SM 2: book being popular because it has been on the best-seller list for months",
+  "labels": {
+   "SM 2: book being popular because it has been on the best-seller list for months": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-028",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "fallacy of logic",
+  "question": "",
+  "text": "Bill lives in a large building, so his apartment must be large.",
+  "labels": {
+   "Bill lives in a large building, so his apartment must be large.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-029",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "false causality",
+  "question": "",
+  "text": "Every time I wash my car, it rains",
+  "labels": {
+   "Every time I wash my car, it rains": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-030",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "circular reasoning",
+  "question": "",
+  "text": "The Philippines is in poverty because of poor people.",
+  "labels": {
+   "The Philippines is in poverty because of poor people.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-031",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "fallacy of extension",
+  "question": "",
+  "text": "You support capital punishment just because you want an “eye for an eye,” but I have several good reasons to believe that capital punishment is fundamentally wrong.",
+  "labels": {
+   "You support capital punishment just because you want an “eye for an eye,” but I have several good reasons to believe that capital punishment is fundamentally wrong.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-032",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "ad populum",
+  "question": "",
+  "text": "Tries to persuade the reader to do, think or buy something because it is popular or because \"everyone\" is doing it.",
+  "labels": {
+   "Tries to persuade the reader to do, think or buy something because it is popular or because \"everyone\" is doing it.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-033",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "ad populum",
+  "question": "",
+  "text": "An increasing number of people are keeping ferrets as pets, so they must make wonderful companion animals.",
+  "labels": {
+   "An increasing number of people are keeping ferrets as pets, so they must make wonderful companion animals.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-034",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "fallacy of logic",
+  "question": "",
+  "text": "Person A: \"What's the weather like?\" Person B: \"It's 2:00",
+  "labels": {
+   "Person A: \"What's the weather like?\" Person B: \"It's 2:00": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-035",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "ad hominem",
+  "question": "",
+  "text": "Do not listen to Luisa, she will only tell you lies about the recent activities given in our EAPP class.",
+  "labels": {
+   "Do not listen to Luisa, she will only tell you lies about the recent activities given in our EAPP class.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-036",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "fallacy of logic",
+  "question": "",
+  "text": "We live in paradise, but we don't know it.",
+  "labels": {
+   "We live in paradise, but we don't know it.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-037",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "ad populum",
+  "question": "",
+  "text": "McDonald's Hamburgers: over 99 billion served.",
+  "labels": {
+   "McDonald's Hamburgers: over 99 billion served.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-038",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "ad hominem",
+  "question": "",
+  "text": "Having come from the same political party, he is sure to communicate biased and untrue claims about his party-mates",
+  "labels": {
+   "Having come from the same political party, he is sure to communicate biased and untrue claims about his party-mates": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-039",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "ad populum",
+  "question": "",
+  "text": "Most people think the world is flat, therefore it is flat.",
+  "labels": {
+   "Most people think the world is flat, therefore it is flat.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-040",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "fallacy of extension",
+  "question": "",
+  "text": "The Senator thinks we can solve all our ecological problems by driving a Prius Quite the contrary, the Senator thinks the environment is such a wreck that no one’s car choice or driving habits would make the slightest difference",
+  "labels": {
+   "The Senator thinks we can solve all our ecological problems by driving a Prius Quite the contrary, the Senator thinks the environment is such a wreck that no one’s car choice or driving habits would make the slightest difference": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-041",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "circular reasoning",
+  "question": "",
+  "text": "You would think that taxes should be lowered because you are a Republican [and therefore your argument about taxes should be rejected].",
+  "labels": {
+   "You would think that taxes should be lowered because you are a Republican [and therefore your argument about taxes should be rejected].": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-042",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "appeal to emotion",
+  "question": "",
+  "text": "Jews are lice; They cause typhus (Painful/deadly disease).",
+  "labels": {
+   "Jews are lice; They cause typhus (Painful/deadly disease).": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-043",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "ad hominem",
+  "question": "",
+  "text": "I'm hardly prepared to listen to the arguments of an ignorant moron like you.",
+  "labels": {
+   "I'm hardly prepared to listen to the arguments of an ignorant moron like you.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-044",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "false dilemma",
+  "question": "",
+  "text": "In the United States, one can vote for either Democrats or Republicans.",
+  "labels": {
+   "In the United States, one can vote for either Democrats or Republicans.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-045",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "false dilemma",
+  "question": "",
+  "text": "We can have Sally as our soldier or we can have Brittany be the queen of the kingdom.",
+  "labels": {
+   "We can have Sally as our soldier or we can have Brittany be the queen of the kingdom.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-046",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "circular reasoning",
+  "question": "",
+  "text": "Smoking pot is against the law because it is wrong; I know it is wrong because it is against the law",
+  "labels": {
+   "Smoking pot is against the law because it is wrong; I know it is wrong because it is against the law": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-047",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "ad hominem",
+  "question": "",
+  "text": "Billy - \"An apple is a vegetable.\" Bobby - \"Don't listen to Billy; he failed Spanish class last year.",
+  "labels": {
+   "Billy - \"An apple is a vegetable.\" Bobby - \"Don't listen to Billy; he failed Spanish class last year.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-048",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "fallacy of credibility",
+  "question": "",
+  "text": "SM 10: Local talk show host saying we are on the verge of a nuclear war leading to sitting in a basement for months.",
+  "labels": {
+   "SM 10: Local talk show host saying we are on the verge of a nuclear war leading to sitting in a basement for months.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-049",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "false causality",
+  "question": "",
+  "text": "Since your parents named you ‘Harvest,’ they must be farmers.",
+  "labels": {
+   "Since your parents named you ‘Harvest,’ they must be farmers.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "logic-other-050",
+  "source": "LOGIC (Jin et al. 2022), edu_all.csv @ bb5750c",
+  "logic_label": "false causality",
+  "question": "",
+  "text": "When sales of hot chocolate go up, street crime drops.",
+  "labels": {
+   "When sales of hot chocolate go up, street crime drops.": {
+    "C4": "not_met"
+   }
+  }
+ }
+]
