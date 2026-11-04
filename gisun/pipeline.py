@@ -60,6 +60,9 @@ def _run_one(ctx, claim: dict, cid: str, mode: dict) -> dict:
     t0 = time.time()
     if not mode["task"]:
         return {**_rule(ctx, claim, cid, "rules_only mode"), "seconds": 0.0, "trace": []}
+    prefilter = CRITERIA[cid].get("prefilter")
+    if prefilter and (why := prefilter(claim)):  # decided without a model: never sent to the agent
+        return {**_rule(ctx, claim, cid, f"pre-filter: {why}"), "seconds": 0.0, "trace": []}
 
     attempt = lambda fb: run_task(ctx, claim, cid, feedback=fb)
     if mode["debug"]:

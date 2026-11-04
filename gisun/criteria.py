@@ -19,12 +19,18 @@ treat all criteria the same way.
     rule(claim, ctx)    deterministic decision: used in rules_only mode and as the
                         fallback when the agent fails (like the variant pipeline's
                         error path, but with an answer instead of a gap)
+    prefilter(claim)    optional: a reason string when the sentence can be decided "not_met"
+                        without a model (a heading, a reported viewpoint); the pipeline then
+                        uses the rule and never sends the claim to the task agent
+
+The guidance follows docs/labeling_rules.md (same wording and examples), so the agents and
+the human labelers apply the same rules.
 """
 
 import re
 
 from gisun.detectors.claims import CUES
-from gisun.tools.language import context_cues
+from gisun.tools.language import context_cues, heading_or_fragment, reported_viewpoint
 from gisun.tools.numbers import compare_numbers, hedge_of, parse_value
 from gisun.tools.retrieval import (implied_period, implied_places, lookup_statistic, matching_series,
                                    periods_in, places_in)
@@ -152,7 +158,21 @@ def rule_c5(claim, ctx):
     return _decision("not_met", "supporting", "No vague attribution ('experts say', 'studies show') in the sentence.")
 
 
+def c6_prefilter(claim) -> str | None:
+    """Labeling rules 2 and 3: headings, questions and fragments, and viewpoints reported as someone
+    else's ('Critics argue ...', 'X says ...'), are never an unsupported causal claim of the answer's own."""
+    if why := heading_or_fragment(claim["sentence"]):
+        return f"The sentence is {why}, not a claim (headings and fragments are never 'met')."
+    if who := reported_viewpoint(claim["sentence"]):
+        return f"The sentence reports a viewpoint ({who!r}), not the answer's own causal claim."
+    if claim["attribution"]["names_specific_source"]:
+        return f"The causal claim is attributed to a source ({claim['attribution']['source_text']!r})."
+    return None
+
+
 def rule_c6(claim, ctx):
+    if why := c6_prefilter(claim):
+        return _decision("not_met", "moderate", why)
     # Open criteria send every sentence here; without cause-effect wording there is nothing to check
     if "causal" not in claim["signals"]:
         return _decision("not_met", "supporting", "The sentence has no cause-effect wording.")
@@ -225,14 +245,30 @@ CRITERIA = {
     "C6": {
         "name": "unsupported_causal_claim",
         "question": "Does the claim state that one thing causes another without evidence or a source?",
-        "guidance": "Look for causal wording (causes, leads to, because, due to). Correlation presented as cause "
-                    "is the main problem.",
+        "guidance": "'met' only if the answer states a specific cause -> effect as its own fact, and the link is "
+                    "not common knowledge, not explained in the previous two sentences, not hedged, and not "
+                    "attributed to someone. Correlation presented as cause is the main problem: 'Pilates and "
+                    "walking positively impact quality of life, depression and anxiety' is 'met' (a specific "
+                    "causal claim stated as fact). Decide 'not_met' for: "
+                    "(1) reported viewpoints attributed to someone ('Critics argue that higher labor costs lead "
+                    "employers to hire fewer workers', 'Some economists argue ...', 'X says ...', 'Opponents "
+                    "claimed ...'): they describe a debate, unless the answer itself endorses the claim; "
+                    "(2) common-knowledge mechanisms a typical college student would accept without a source "
+                    "('When housing prices fell, losses spread rapidly', 'EVs produce no exhaust while driving, "
+                    "which improves local air quality', 'EVs are heavier, which can increase tire wear'); "
+                    "(3) hedged wording: can, may, might, could, tends to, may contribute, and correlation stated "
+                    "as correlation ('is associated with'); "
+                    "(4) a cause already explained in the two previous sentences (use context_window); "
+                    "(5) headings, questions and fragments ('Possible reasons for the 2020 increase', 'Why it "
+                    "changes each year'). A sentence with no cause-effect link at all is 'not_met' too. When in "
+                    "doubt, decide 'not_met'.",
         "phase": 1, "depends_on": {},
         "tools": ["find_attribution", "context_window"],
         "severity": {"strong": 1, "moderate": 1, "supporting": 0},
         "applies": lambda c: "causal" in c["signals"],
         "open": True,
         "rule": rule_c6,
+        "prefilter": c6_prefilter,
     },
     "C2": {
         "name": "statistic_contradicted",

@@ -13,7 +13,8 @@ from gisun.criteria import CRITERIA
 SYSTEM = """You review another agent's decision in a critical-reading checker. Be strict but fair.
 Approve if the evidence supports the decision and the strength fits. Ask for revision only for a concrete
 error (evidence contradicts the decision, a negated/quoted term treated as loaded use, a source in the
-context ignored, a number misread, strength clearly too high).
+context ignored, a number misread, strength clearly too high, or "met" for a case the guidance lists as
+"not_met", such as a reported viewpoint, common knowledge, hedged wording, or a heading or fragment).
 Return ONLY JSON: {"verdict": "approve" | "revise", "problems": ["..."]}"""
 
 
