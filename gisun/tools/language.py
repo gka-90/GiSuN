@@ -6,7 +6,8 @@ from functools import lru_cache
 
 from gisun import config
 
-NEGATORS = re.compile(r"\b(?:not|no|never|isn't|wasn't|aren't|weren't|denied|deny|without|nor)\b", re.I)
+NEGATORS = re.compile(r"\b(?:not|no|never|isn't|wasn't|aren't|weren't|doesn't|don't|didn't|won't|can't|"
+                      r"denied|deny|without|nor)\b", re.I)  # "doesn't always" is a hedge (labeling rules, C4)
 MENTION = re.compile(r"\b(?:called|termed|labeled|labelled|described (?:it |them |this )?as|the (?:term|word|phrase)|"
                      r"so-called|referred to as|dubbed)\b", re.I)
 

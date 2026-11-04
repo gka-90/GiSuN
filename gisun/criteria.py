@@ -49,6 +49,24 @@ def _terms(claim, cats):
     return [b for b in claim["bias_terms"] if b["category"] in cats]
 
 
+# docs/labeling_rules.md, "Rules for every criterion", for the criteria that judge wording (C3-C5)
+SHARED_RULES = ("Rules for every criterion: judge only this criterion (a different problem is 'not_met' here); "
+                "headings, questions and fragments are never 'met'; reported viewpoints ('Critics argue ...', "
+                "'Supporters say ...', 'Opponents claimed ...') describe a debate and are not the answer's own "
+                "claim unless the answer itself endorses it; common knowledge a typical college student would "
+                "accept without a source counts as support; a source or an explanation in the two previous "
+                "sentences covers this sentence. When in doubt, decide 'not_met'.")
+
+
+def _not_own_claim(claim) -> str | None:
+    """Rules 2 and 3 for the wording criteria: a heading or a reported viewpoint is never 'met'."""
+    if why := heading_or_fragment(claim["sentence"]):
+        return f"The sentence is {why}, not a claim."
+    if who := reported_viewpoint(claim["sentence"]):
+        return f"The sentence reports a viewpoint ({who!r}), not the answer's own claim."
+    return None
+
+
 def _used_terms(claim, cats):
     """Terms from these categories that are not negated / quoted / merely mentioned."""
     used = []
@@ -136,6 +154,8 @@ def rule_c2(claim, ctx):
 def rule_terms(cats, label):
     def rule(claim, ctx):
         terms = _terms(claim, cats)
+        if terms and (why := _not_own_claim(claim)):
+            return _decision("not_met", "supporting", why)
         used = _used_terms(claim, cats)
         if used:
             return _decision("met", "moderate", f"Uses {', '.join(repr(t) for t in used)} ({label.lower()}), "
@@ -150,6 +170,13 @@ def rule_terms(cats, label):
 
 def rule_c5(claim, ctx):
     vague = [b["term"] for b in _terms(claim, {"vague_or_unsourced_attribution"})]
+    # "critics argue", "some people say": naming who holds an opinion, not evidence for a fact
+    opinion = [t for t in vague if reported_viewpoint(t)]
+    if vague and (why := heading_or_fragment(claim["sentence"])):
+        return _decision("not_met", "supporting", f"The sentence is {why}, not a claim.")
+    if vague and len(opinion) == len(vague):
+        return _decision("not_met", "supporting", f"{', '.join(opinion)} names who holds an opinion in a debate; "
+                                                  "it is not used as evidence for a fact.")
     if vague and not claim["attribution"]["names_specific_source"]:
         return _decision("met", "moderate", f"Credits unnamed sources: {', '.join(vague)}.",
                          [{"quote": t, "source": "response"} for t in vague])
@@ -205,10 +232,17 @@ CRITERIA = {
     "C3": {
         "name": "loaded_language",
         "question": "Does the claim use slanted or emotionally loaded wording where a neutral word would do?",
-        "guidance": "Check each flagged term with context_cues. A term that is negated ('not a crisis'), quoted, or "
-                    "only mentioned ('the term \"illegal alien\"') is NOT loaded use. You may also report loaded "
-                    "wording the word list missed; quote it exactly. If nothing was flagged, judge the sentence's "
-                    "own wording: most sentences are neutral, so 'not_met' is the usual answer.",
+        "guidance": "'met' only if the answer itself uses a word that carries a judgment where a neutral word "
+                    "would say the same thing ('Mark Oaten is a disgraced Liberal Democrat politician': "
+                    "'disgraced' adds a judgment). 'not_met' for: quoted or reported wording ('Opponents argued "
+                    "that race-conscious admissions disadvantaged Asian American applicants' is a reported view); "
+                    "strong but accurate words for documented facts ('devastated' for the Dust Bowl); words that "
+                    "are the topic being explained, or only mentioned ('the term \"illegal alien\" is "
+                    "controversial'); negated terms ('not a crisis'); neutral lists ('Concerns include "
+                    "cyberbullying, body image issues, sleep disruption'). Check each flagged term with "
+                    "context_cues. You may also report loaded wording the word list missed; quote it exactly. If "
+                    "nothing was flagged, judge the sentence's own wording: most sentences are neutral, so "
+                    "'not_met' is the usual answer. " + SHARED_RULES,
         "phase": 1, "depends_on": {},
         "tools": ["context_cues", "wordlist_lookup"],
         "severity": {"strong": 2, "moderate": 1, "supporting": 1},
@@ -219,8 +253,16 @@ CRITERIA = {
     "C4": {
         "name": "overgeneralization",
         "question": "Does the claim make an absolute or sweeping statement (always, never, everyone ...) that the evidence can't support?",
-        "guidance": "Absolute words are fine when literally true ('water always boils at a lower temperature at "
-                    "altitude' is a physical law). Flag them when they turn a tendency into a rule.",
+        "guidance": "'met' only if the sentence makes an unqualified universal claim about people, groups or "
+                    "outcomes ('always', 'never', 'everyone', or a claim about a whole group) that has obvious "
+                    "exceptions ('Everyone concentrates better after a good breakfast'): a tendency turned into a "
+                    "rule. 'not_met' for: literally true absolutes ('water always boils at a lower temperature at "
+                    "altitude' is a physical law); rules and laws ('Only a member of Congress can formally "
+                    "introduce a bill'); definitions; closed groups ('all 12 patients'); hedged sentences ('More "
+                    "time doesn't always mean better results' is a hedge, not a generalization; so are often, "
+                    "usually, most, can, may, tends to); comparisons backed by the previous sentence ('Republicans "
+                    "have especially low trust' right after a Gallup figure). Use context_cues on the absolute "
+                    "word: a negated 'always' is a hedge. " + SHARED_RULES,
         "phase": 1, "depends_on": {},
         "tools": ["context_cues"],
         "severity": {"strong": 2, "moderate": 1, "supporting": 1},
@@ -231,10 +273,15 @@ CRITERIA = {
     "C5": {
         "name": "vague_attribution",
         "question": "Does the claim credit unnamed authorities (experts say, studies show) instead of a specific source?",
-        "guidance": "'met' only if the sentence credits someone it doesn't name: experts, studies, research, "
-                    "reports, scientists, many people, it is widely believed. A sentence that credits no one at "
-                    "all is NOT vague attribution (a missing source is C1's job), so it is 'not_met'. If a "
-                    "specific source is also named, it is 'not_met' too. Use find_attribution.",
+        "guidance": "'met' only if a factual claim rests on an unnamed authority ('studies show', 'experts say', "
+                    "'research suggests', 'it is believed', 'is widely considered') and no specific source is in "
+                    "the sentence or the two before it ('Studies show it lowers the risk of hospitalization and "
+                    "death' is a fact resting on 'studies'). Test question: is the vague group used as evidence "
+                    "for a fact, or does it only name who believes something? 'not_met' for: naming who holds an "
+                    "opinion in a debate ('Critics argue these costs fall hardest on working-class people', "
+                    "'supporters say'); a sentence that credits no one at all (a missing source is C1's job); a "
+                    "specific source named in the sentence, or in the two before it if it covers this claim ('The CDC recommends an annual "
+                    "flu vaccine'). Use find_attribution with where='sentence' and where='previous'. " + SHARED_RULES,
         "phase": 1, "depends_on": {},
         "tools": ["find_attribution", "context_window"],
         "severity": {"strong": 2, "moderate": 1, "supporting": 1},
