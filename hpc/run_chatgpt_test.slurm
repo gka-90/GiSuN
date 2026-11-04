@@ -16,6 +16,7 @@
 #SBATCH --mem=32G
 #SBATCH --time=06:00:00
 #SBATCH --output=logs/%x_%j.out
+#SBATCH --dependency=singleton   # one job of this name at a time: they share the node and its GPU
 
 MODEL=${MODEL:-Qwen/Qwen2.5-32B-Instruct-AWQ}
 JUDGE_MODEL=${JUDGE_MODEL:-}
@@ -47,15 +48,16 @@ serve() {  # serve <model> <port> <share of GPU memory>
     PIDS="$PIDS $pid"
 }
 
+PORT=$((8100 + SLURM_JOB_ID % 800 * 2))   # per-job port: a fixed 8001 let a second job talk to the first job's server
 if [ -n "$JUDGE_MODEL" ]; then
-    serve "$MODEL" 8001 0.55      # two servers share the GPU: start one, then the other
-    serve "$JUDGE_MODEL" 8002 0.35
-    export GISUN_JUDGE_MODEL="$JUDGE_MODEL" GISUN_JUDGE_BASE_URL=http://localhost:8002/v1
+    serve "$MODEL" $PORT 0.55      # two servers share the GPU: start one, then the other
+    serve "$JUDGE_MODEL" $((PORT + 1)) 0.35
+    export GISUN_JUDGE_MODEL="$JUDGE_MODEL" GISUN_JUDGE_BASE_URL=http://localhost:$((PORT + 1))/v1
 else
-    serve "$MODEL" 8001 0.90
+    serve "$MODEL" $PORT 0.90
 fi
 
-export GISUN_BACKEND=openai_compat GISUN_BASE_URL=http://localhost:8001/v1 GISUN_MODEL="$MODEL" GISUN_PARALLEL=8
+export GISUN_BACKEND=openai_compat GISUN_BASE_URL=http://localhost:$PORT/v1 GISUN_MODEL="$MODEL" GISUN_PARALLEL=8
 for MODE in ${MODES:-full}; do
     python .claude/skills/gisun-chatgpt-test/scripts/analyze.py $DATA --mode "$MODE"
 done
