@@ -92,6 +92,8 @@ Done so far (details in git history and docs/PIPELINE.md):
 - Multi-agent pipeline (Plan / Task / Check / Debug / Judge) on C1-C6 with deterministic scoring, served by `/pipeline`; runs on the Hamilton HPC (Qwen2.5-32B-Instruct-AWQ, vLLM).
 - C2 checks numbers against official statistics (BLS, Census, World Bank, Data Commons), cached, with hedge-aware tolerances. API keys go in `.env` (git-ignored).
 - Evaluation: 184 agent decisions on 50 Claude answers labeled by both of us (disagreements settled 10/27); public test sets for C1, C2, C3, C5, C6; our own insertion set including C4.
+- First full gold runs (11/3/2026, Qwen2.5-32B, full mode): on our 184 labeled rows precision 0.59 (C6 worst: 28 of 34 flags wrong); on public part 1 precision 0.71 but recall 0.17, because the Plan agent dropped 261 of 367 gold pairs. Details in docs/PIPELINE.md, "First full gold runs".
+- Fixes after that run (11/4/2026): the C3-C6 guidance now follows docs/labeling_rules.md word for word; a C6 pre-filter decides headings, fragments and reported viewpoints ("Critics argue...") without the agent; the Plan agent can no longer drop C1 for a sentence with a number or C5 for "is believed / is regarded as / allegedly / studies show"; `GISUN_FORCE_CRITERIA=1` makes every labeled criterion run, and the evaluation reports routed vs forced numbers and how many gold pairs the Plan agent dropped per criterion; new test sets `datasets/gold_c4_logic.json` (LOGIC, 50 faulty generalizations vs 50 other fallacies) and `datasets/gold_c2_us.json` (QuanTemp claims the series catalog can look up: none).
 - Two Truths and a Lie was built as a separate agent and removed on 11/3/2026 (it was never connected to the extension); see git history before that date.
 
 ### TODO
@@ -101,6 +103,10 @@ Done so far (details in git history and docs/PIPELINE.md):
 - [ ] Replace the placeholder gate question (`GATE_QUESTION` / `GATE_OPTIONS` / `GATE_CORRECT_INDEX` / `GATE_WRONG_MESSAGE` at the top of `extension/gate.js`).
 - [ ] Prebunk: classify the question with the model instead of keywords (TODO in `extension/prebunk.js`).
 - [ ] Re-run the 50 answers on the HPC with the C2 API keys and label the C2 decisions.
+- [ ] Rerun after the 11/4 changes: `gold_answers.json` (normal routing), `gold_public_1.json` with `FORCE=1`, `gold_c4_logic.json` (commands in docs/PIPELINE.md, "On the Hamilton CS HPC"). Then parts 2 and 3.
+- [ ] C2 test set from the catalog's own measures: QuanTemp has no claim the catalog can check (0 of 200), so it can't measure C2.
+- [ ] Settle three labels that contradict docs/labeling_rules.md (two C4 rows, one C6 fragment; listed in docs/PIPELINE.md, "Not done yet"), and add the agentless C5 cues ("is considered", "is regarded as", "allegedly") to the C5 rules.
+- [ ] Spot-check the LOGIC C4 labels: about 10 of the 50 "faulty generalization" items are slippery-slope arguments.
 - [ ] `/verify` still returns raw flags; only the pipeline uses `extract_claims()` (`gisun/preprocess.py`).
 
 ### Known limitations (documented, not bugs)
@@ -142,7 +148,7 @@ ollama pull qwen2.5:3b     # 16GB RAM machines
 ```bash
 python -m unittest discover tests
 ```
-Covers numeric detection edge cases, sentence splitting, source detection (`gisun/tools/attribution.py`), C2 lookups and comparisons, and the pipeline flow with a scripted fake model (`tests/test_pipeline.py`). Run it after touching any regex.
+Covers numeric detection edge cases, sentence splitting, source detection (`gisun/tools/attribution.py`), C2 lookups and comparisons, the pipeline flow with a scripted fake model (`tests/test_pipeline.py`), the C6 pre-filter and guidance (`tests/test_c6.py`), guidance vs the labeling rules (`tests/test_labeling_rules.py`), forced criteria (`tests/test_forced.py`), the Plan agent's keep rule (`tests/test_plan_keep.py`) and the two test-set scripts (offline). Run it after touching any regex. `python -m pytest -q` runs the same tests.
 
 ### 4. Chrome extension
 1. Go to `chrome://extensions`
@@ -207,11 +213,14 @@ After editing anything in `extension/`, click the ↻ reload button on the GiSuN
 │   ├── run_ablation.py          #   RQ3: full / no_judge / no_debug / task_only / rules_only
 │   ├── run_all.py               #   tests + gold-file checks + RQ1-RQ3 in one go
 │   ├── zero_tool.py             #   one-call, no-tools baseline
-│   ├── datasets/                #   build test sets: collect, external_testset, own_insertion_set, c4_testset
+│   ├── datasets/                #   build test sets: collect, external_testset, own_insertion_set, c4_testset,
+│   │                            #   c4_logic_testset (LOGIC -> gold_c4_logic.json), c2_us_testset (-> gold_c2_us.json)
 │   └── labeling/                #   annotate, worksheets (make_worksheet, make_agent_worksheet, split_worksheet),
 │                                #   agreement (Cohen's kappa), finalize_labels
-├── datasets/                    # Only what runs need: gold_example.json (tests, run_all) and
-│                                #   collected/claude_2026-10-12.json (the 50 answers the HPC run checks).
+├── datasets/                    # Only what runs need: gold_example.json (tests, run_all),
+│                                #   collected/claude_2026-10-12.json (the 50 answers the HPC run checks),
+│                                #   gold_answers.json, gold_labels_combined.json, gold_public_{1,2,3}.json,
+│                                #   gold_combined.json, gold_c4_logic.json, gold_c2_us.json (HPC gold sets).
 │                                #   Everything else (labels, C4 and insertion sets, candidates) was moved out
 │                                #   of the repo on 11/3/2026; it is in git history before that date.
 ├── tests/                       # Unit tests, no model (python -m unittest discover tests)

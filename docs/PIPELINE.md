@@ -38,13 +38,35 @@ scoring.py         claim risk (low/medium/high, +unverified) and response level 
 Each criterion also has a deterministic `rule`, used in `rules_only` mode and as the
 fallback when an agent fails (`by: "rules"` in the output).
 
+**Guidance = labeling rules.** The `guidance` the Task and Judge agents see for C3-C6 uses the
+wording and examples of [labeling_rules.md](labeling_rules.md), so the agent and the labelers
+judge the same way (`tests/test_labeling_rules.py` checks every example is in both). C3-C5 also
+get the "rules for every criterion" (`SHARED_RULES`: headings and fragments are never met,
+reported viewpoints aren't the answer's claim, common knowledge counts as support, the two
+previous sentences count, when in doubt not_met). The Judge treats `met` on a case the guidance
+lists as not_met as a concrete error. The rules follow too: `rule_c5` doesn't flag opinion
+holders from the word list ("critics argue", "some people say"), the C3/C4 term rule and
+`rule_c5` say not_met for headings and reported viewpoints, and "doesn't always" is a hedge.
+
+**C6 pre-filter.** A criterion may have a `prefilter(claim)`: a reason when the sentence can be
+decided `not_met` without a model. C6 has one (`c6_prefilter`): headings, questions and
+fragments (`heading_or_fragment`: a bold or `#` line with no sentence ending, a question, a
+colon lead-in, an unpunctuated line under 8 words), reported viewpoints (`reported_viewpoint`:
+"Critics argue", "Some economists, like Larry Summers, argued", "Jonathan Haidt ... argues";
+not "studies show", which is still a claim), and a named source in the sentence. Those get the
+rule's `not_met` (`by: "rules"`, `note: "pre-filter: ..."`) and never reach the C6 agent. On
+`gold_answers.json` it decides 20 not_met C6 rows and 1 met row (a fragment, against rule 2), on
+the public sets 2 not_met and no met row.
+
 **Which claims get which criteria.** `applies(claim)` is the rule gate: C1 for a statistic,
 C3/C4/C5 for a word-list hit, C6 for causal wording, C2 for a number `compare_numbers` can
 read (not "most Americans"). In model modes, the **open** criteria (C3-C6) also run on every
 other factual sentence, including ones no detector flagged (`detector_hit: false` in the
 output), because the agents can only catch what the rules miss if they see those sentences.
 `rules_only` keeps the gates (the rules have nothing to say about unflagged sentences), so it
-stays the same baseline. Turn this off with `GISUN_OPEN_CRITERIA=0`.
+stays the same baseline. Turn this off with `GISUN_OPEN_CRITERIA=0`. In model modes C1 is also
+offered for any number the detector doesn't flag ("a density of 11.34 g/cm3", "averaging 22 °C";
+`numbers_in` skips years and calendar days).
 
 **C2: does a reliable source give a different figure?** Four steps (related work: Vlachos &
 Riedel 2015 check country statistics against a knowledge base; DataGemma 2024 grounds an LLM's
@@ -93,7 +115,7 @@ most 2 points ("Studies show 40%" is one attribution problem, not two).
 ## Agents
 | agent | file | decides | model? |
 |---|---|---|---|
-| Plan | agents/plan.py | criteria per claim; may drop (with reason) or add; then the C2 funnel | yes, falls back to rules |
+| Plan | agents/plan.py | criteria per claim; may drop (with reason) or add, but never C1 for a sentence with a number or C5 for an agentless cue ("is believed", "is regarded as", "allegedly", "studies show"): `must_keep` puts those back with a `keep_rule` note; then the C2 funnel | yes, falls back to rules |
 | Task | agents/task.py | one criterion for one claim; chooses its own tools | yes |
 | Debug | agents/debug.py | retries technical failures / step-budget overruns | no |
 | Judge | agents/judge.py | approves or sends back with concrete problems (max 1 revision); can be a different model (`GISUN_JUDGE_MODEL`) | yes |
@@ -149,6 +171,19 @@ Each run: `cd /hpc/<name>/GiSuN && git pull && sbatch hpc/run_eval.slurm`, then
 - **Offline model.** `HF_HUB_OFFLINE=1` loads the downloaded copy; download on the login node first.
 - **`logs/` must exist** before `sbatch` (it's in the repo).
 
+Settings go in front of `sbatch` (it passes the environment on): `GOLD=` the gold file,
+`MODES=` a subset of modes, `ZERO=0` skips the no-tools baseline, `FORCE=1` runs every labeled
+criterion (`GISUN_FORCE_CRITERIA`). Jobs share one name, so Slurm runs them one at a time
+(`--dependency=singleton`), each with its own vLLM port, within the 4-hour limit:
+```bash
+GOLD=datasets/gold_answers.json  MODES=full ZERO=0         sbatch hpc/run_eval.slurm   # routing as normal
+GOLD=datasets/gold_public_1.json MODES=full ZERO=0 FORCE=1 sbatch hpc/run_eval.slurm   # forced: routed + forced numbers
+GOLD=datasets/gold_c4_logic.json MODES=full ZERO=0         sbatch hpc/run_eval.slurm   # LOGIC C4 set
+```
+Results: `evaluation/outputs/ablation_<model>_<time>[_forced]/summary.json` (`routed_*`,
+`routing_missed` and `plan_dropped` next to the plain numbers). `datasets/gold_c2_us.json` is
+empty (QuanTemp has no claim the catalog can check), so there is nothing to run for it yet.
+
 **Use the HPC model from a laptop** (agent highlights in the extension, speed tests):
 `sbatch hpc/serve_model.slurm` on the server; once its log says `Application startup complete`,
 open a tunnel on the laptop with `ssh -N -L 8011:cs-hpc-node-6:8011 <name>@150.209.91.65` and
@@ -168,6 +203,8 @@ Qwen's `generation_config.json` adds `top_k=20, top_p=0.8, repetition_penalty=1.
 | RQ4 | (todo) | C2 on a validation set: step 1 (measure / place / period / hedge) accuracy, then the decision |
 | agreement | evaluation/labeling/agreement.py | Cohen's kappa between two people's labels, per criterion |
 | baseline | evaluation/zero_tool.py | one call, no tools |
+| C2 set | evaluation/datasets/c2_us_testset.py | QuanTemp claims (C2 rows of `gold_public_*.json`) the series catalog can look up -> `datasets/gold_c2_us.json` (no API call) |
+| C4 set | evaluation/datasets/c4_logic_testset.py | LOGIC (Jin et al. 2022): 50 faulty generalizations (met) vs 50 other fallacies (not_met) -> `datasets/gold_c4_logic.json` |
 
 A gold pair a mode never ran (the Plan agent or funnel dropped the criterion) counts as a
 miss and is reported as `not_run`. Read F1 next to it: a mode can lose points by skipping
@@ -193,6 +230,23 @@ and a batch folder can't be resumed with a different setting.
 
 Run RQ3 once per model on the HPC for the model-size curve, including the size the extension
 actually runs on a laptop.
+
+### First full gold runs (Nov 3, 2026; Qwen2.5-32B-Instruct-AWQ, full mode)
+- **Our 184 labeled rows** (`gold_labels_combined.json`, inside `gold_answers.json`): precision
+  0.59, recall 0.66. C6 was the worst: 34 flags, 28 wrong, mostly reported viewpoints, common-
+  knowledge mechanisms, hedged sentences and headings. -> C6 guidance from the labeling rules and
+  the C6 pre-filter; same check for C3-C5.
+- **Public part 1** (`gold_public_1.json`, single sentences): precision 0.71, recall 0.17,
+  because 261 of 367 gold pairs never ran: the Plan agent dropped C3 (66), C5 (56), C6 (45), C2
+  (13), C1 (6), and the rules never offered C1 (31) or C2 (35). All 56 C5 drops said "does not
+  credit unnamed authorities", including 25 met sentences with "is regarded as", "is believed",
+  "allegedly". -> forced-criteria evaluation and the Plan agent's `must_keep`; on those outputs it
+  would have routed all 25 dropped met C5 pairs (none of the 31 not_met) and 33 of 37 missed C1 pairs.
+- **C2** made no flag on the 67 QuanTemp claims: none of the 200 QuanTemp claims is about a
+  measure, place and period the catalog covers (`c2_us_testset.py`: 118 have no comparable number,
+  67 a measure outside the catalog). A C2 test set has to come from the catalog's own measures.
+- **C4** has 4 met of 447 pairs in our data -> the LOGIC set (rules_only on it: P 0.71, R 0.10).
+  LOGIC's "faulty generalization" also holds slippery-slope and one-case inferences (about 10 of 50).
 
 ### Results so far (4-item example set, 15 gold pairs: a smoke test, not evidence)
 `rules_only`: F1 0.84, but **C2 F1 0.0** (rules can't verify numbers) and C1 misses "The 2020
@@ -230,10 +284,26 @@ adjudication steps: **[annotation_guide.md](annotation_guide.md)**. Tools:
 rejection of an invented quote, judge revisions, rule fallback when the backend is down,
 open criteria on unflagged sentences, the C1+C5 cap and the C2 funnel. `tests/test_c2.py`: the
 C2 tolerances, API routing, cache, offline mode and the Check agent's C2 rules, with the APIs
-answered by `tests/fake_stats.py`.
+answered by `tests/fake_stats.py`. `tests/test_c6.py`: the C6 pre-filter and guidance with the
+sentences GiSuN got wrong; `tests/test_labeling_rules.py`: guidance and rules vs labeling_rules.md;
+`tests/test_forced.py`: forced criteria and the routed / forced report; `tests/test_plan_keep.py`:
+the Plan agent's must_keep; `tests/test_c2_us_testset.py`, `tests/test_c4_logic_testset.py`: the
+two test-set scripts, offline.
 
 ## Not done yet
 Full list with priorities: *GiSuN: open problems and proposed solutions* (Fall 2026).
+- Rerun on the HPC after the Nov 4 changes: `gold_answers.json` (normal routing),
+  `gold_public_1.json` forced, `gold_c4_logic.json` (commands in the README).
+- C2 test set: QuanTemp gives 0 claims the catalog can check; build one from the catalog's
+  measures (BLS / Census / World Bank figures with known values, some changed on purpose).
+- Labels vs labeling_rules.md: `gold_labels_combined.json` labels "...more time doesn't always mean
+  better results" and "Republicans have especially low trust" C4 met, the doc's examples say
+  not_met; "- Recovery of normal routines, schools, and jobs" (a fragment) is C6 met. Settle and
+  fix one or the other. The C5 rules list only "it is believed"; the agent also treats "is
+  considered / regarded as / allegedly" as agentless (the public labels do too): add them to the doc.
+- Spot-check the LOGIC C4 labels (slippery-slope items labeled faulty generalization).
+- Sentence splitting: 9 gold pairs on public part 1 never became a claim ("Jan. 6", "Ida B. Wells",
+  "H. pylori" split mid-sentence).
 - C2: get the free BLS, Census and Data Commons keys; fill `data/stat_cache.json` on a machine
   with internet before HPC runs. The Data Commons calls are written from its v2 docs but not yet
   tried with a key. The headline US median household income (CPS ASEC) is not in the catalog. (#6)
