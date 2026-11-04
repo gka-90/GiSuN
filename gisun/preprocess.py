@@ -4,6 +4,7 @@ run the Tier 1 detectors, group flags into claims, and attach the context
 every agent needs (neighbouring sentences, attribution, flag details).
 """
 
+import re
 import threading
 from dataclasses import dataclass, field
 
@@ -56,6 +57,18 @@ class RunContext:
             if c["claim_id"] == int(claim_id):
                 return c
         raise ValueError(f"no claim {claim_id!r}")
+
+
+def label_key(s: str) -> str:
+    """How a gold label's sentence key is matched to a claim (evaluation, and forced criteria).
+    Markdown emphasis is stripped on both sides: gold keys from spreadsheets have none, claim
+    sentences keep the answer's ** and _ (list items like "- **Cost:** ..." never matched before)."""
+    return re.sub(r"[*_`]", "", s).lower()
+
+
+def match_claim(claims: list[dict], key: str) -> dict | None:
+    """The first claim whose sentence contains the gold key."""
+    return next((c for c in claims if label_key(key) in label_key(c["sentence"])), None)
 
 
 def _context_before(sentences: list[str], sentence: str, n: int = 2) -> list[str]:

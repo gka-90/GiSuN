@@ -19,6 +19,12 @@ Modes (for the ablation study, RQ3):
 
 A task that fails in any mode falls back to the criterion's rule, marked by="rules".
 
+Forced criteria (evaluation only, GISUN_FORCE_CRITERIA=1 or run(..., force=labels)): every
+criterion a gold label asks about runs on its sentence, even if the rules didn't offer it or the
+Plan agent dropped it. plan["routed"] keeps what the routing chose and each added decision has
+"forced": true, so one run gives both numbers: routing misses vs judgment misses. Without gold
+labels (the extension, server.py) nothing is forced.
+
 CLI:
     python -m gisun.pipeline --text "..." [--mode full]
     python -m gisun.pipeline --dataset datasets/gold.json --mode full
@@ -38,7 +44,7 @@ from gisun.agents.judge import judge
 from gisun.agents.plan import plan
 from gisun.agents.task import run_task
 from gisun.criteria import CRITERIA, PHASES
-from gisun.preprocess import preprocess
+from gisun.preprocess import match_claim, preprocess
 from gisun.scoring import score_claim, score_response
 
 MODES = {
@@ -103,7 +109,28 @@ def _run_one(ctx, claim: dict, cid: str, mode: dict) -> dict:
             "seconds": round(time.time() - t0, 1), "trace": trace}
 
 
-def run(text: str, question: str = "", mode: str = "full", keep_trace: bool = True) -> dict:
+def force_criteria(ctx, the_plan: dict, labels: dict[str, dict]) -> None:
+    """Add every criterion the gold labels ask about (and its dependencies: C2 needs C1) to the
+    plan of the claim the label's sentence matches. Each addition is logged in the plan notes."""
+    for key, crits in labels.items():
+        claim = match_claim(ctx.claims, key)
+        if claim is None:
+            continue  # the sentence never became a claim (sentence splitting): reported as no_claim
+        tasks = the_plan["tasks"].setdefault(claim["claim_id"], [])
+        for cid in crits:
+            if cid not in CRITERIA:
+                continue
+            for c in [*CRITERIA[cid]["depends_on"], cid]:
+                if c not in tasks:
+                    tasks.append(c)
+                    the_plan["notes"].append({"claim_id": claim["claim_id"], "criterion": c, "by": "forced",
+                                              "reason": "gold label" if c == cid else f"needed by {cid}"})
+        tasks.sort(key=lambda c: (CRITERIA[c]["phase"], c))
+
+
+def run(text: str, question: str = "", mode: str = "full", keep_trace: bool = True,
+        force: dict[str, dict] | None = None) -> dict:
+    """force: gold labels {sentence: {criterion: decision}} whose criteria must all run (evaluation)."""
     if mode not in MODES:
         raise ValueError(f"mode must be one of {list(MODES)}")
     m = dict(MODES[mode])
@@ -113,8 +140,11 @@ def run(text: str, question: str = "", mode: str = "full", keep_trace: bool = Tr
     t0 = time.time()
     # Model modes also look at sentences the detectors missed (open problem #1); rules_only can't use them
     open_criteria = m["task"] and config.OPEN_CRITERIA
-    ctx = preprocess(text, question, all_sentences=open_criteria)
+    ctx = preprocess(text, question, all_sentences=open_criteria or bool(force))
     the_plan = plan(ctx, use_model=m["plan"], open_criteria=open_criteria)
+    routed = {k: list(v) for k, v in the_plan["tasks"].items()}
+    if force:
+        force_criteria(ctx, the_plan, force)
     results: dict[int, dict[str, dict]] = {c["claim_id"]: {} for c in ctx.claims}
 
     with ThreadPoolExecutor(max_workers=config.MAX_PARALLEL_TASKS) as pool:
@@ -134,9 +164,11 @@ def run(text: str, question: str = "", mode: str = "full", keep_trace: bool = Tr
     claims_out = []
     for claim in ctx.claims:
         decisions = results[claim["claim_id"]]
-        if not keep_trace:
-            for d in decisions.values():
+        for cid, d in decisions.items():
+            if not keep_trace:
                 d.pop("trace", None)
+            if force:
+                d["forced"] = cid not in routed.get(claim["claim_id"], [])
         # detector_hit False = no rule flagged this sentence; only the agents (open criteria) judged it
         claims_out.append({"claim_id": claim["claim_id"], "sentence": claim["sentence"], "detector_hit": claim["detector_hit"],
                            "flags": [f["matched_value"] for f in claim["flags"]],
@@ -146,8 +178,10 @@ def run(text: str, question: str = "", mode: str = "full", keep_trace: bool = Tr
         "mode": mode, "model": config.MODEL if m["task"] else None, "backend": config.BACKEND if m["task"] else None,
         "judge_model": config.JUDGE_MODEL if m["judge"] else None, "open_criteria": open_criteria,
         "question": question, "text": text,
+        "forced_criteria": bool(force),
         "plan": {"by": the_plan["by"], "notes": the_plan["notes"],
-                 "tasks": {str(k): v for k, v in the_plan["tasks"].items()}},
+                 "tasks": {str(k): v for k, v in the_plan["tasks"].items()},
+                 **({"routed": {str(k): v for k, v in routed.items()}} if force else {})},
         "claims": claims_out,
         "response": score_response([c["score"] for c in claims_out]),
         "agent_share": round(by.count("agent") / len(by), 2) if by else None,
@@ -163,18 +197,25 @@ def _save(obj, path):
     return path
 
 
-def run_dataset(path: str, mode: str, out_dir: str) -> str:
-    """Batch run; writes one file per item and a summary written incrementally (resumable)."""
+def run_dataset(path: str, mode: str, out_dir: str, force: bool | None = None) -> str:
+    """Batch run; writes one file per item and a summary written incrementally (resumable).
+    force (default config.FORCE_CRITERIA): run every criterion the item's gold labels ask about."""
+    force = config.FORCE_CRITERIA if force is None else force
     with open(path, encoding="utf-8") as f:
         items = json.load(f)
     os.makedirs(out_dir, exist_ok=True)
     summary_path = os.path.join(out_dir, "batch_summary.json")
-    summary = json.load(open(summary_path)) if os.path.exists(summary_path) else {"mode": mode, "items": {}}
+    summary = json.load(open(summary_path)) if os.path.exists(summary_path) else \
+        {"mode": mode, "forced_criteria": force, "items": {}}
+    if summary.get("forced_criteria", False) != force:
+        raise ValueError(f"{out_dir} was run with forced_criteria={summary.get('forced_criteria', False)}; "
+                         "resume it the same way or use a new folder")
     for item in items:
         if item["id"] in summary["items"]:
             continue  # resume
         try:
-            result = run(item["text"], item.get("question", ""), mode=mode)
+            result = run(item["text"], item.get("question", ""), mode=mode,
+                         force=item.get("labels") if force else None)
             _save(result, os.path.join(out_dir, f"{item['id']}.json"))
             summary["items"][item["id"]] = {"ok": True, "seconds": result["seconds"],
                                             "level": result["response"]["level"]}

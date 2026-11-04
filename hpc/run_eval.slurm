@@ -3,6 +3,7 @@
 #     sbatch hpc/run_eval.slurm
 #     MODEL=Qwen/Qwen2.5-14B-Instruct-AWQ sbatch --gres=gpu:1 hpc/run_eval.slurm   # 16 GB RTX 5070 Ti nodes
 #     JUDGE_MODEL=Qwen/Qwen2.5-7B-Instruct-AWQ sbatch hpc/run_eval.slurm           # separate Judge model (#11)
+#     FORCE=1 GOLD=datasets/gold_public_1.json MODES=full ZERO=0 sbatch hpc/run_eval.slurm   # every labeled criterion runs
 # Download models first on the login node (the GPU nodes may have no internet):
 #     hf download Qwen/Qwen2.5-32B-Instruct-AWQ
 # Default GPU: one RTX PRO 6000 Blackwell (96 GB) on cs-hpc-node-6; nodes 1-5 have 16 GB, too small for 32B.
@@ -48,6 +49,7 @@ else
 fi
 
 export GISUN_BACKEND=openai_compat GISUN_BASE_URL=http://localhost:$PORT/v1 GISUN_MODEL="$MODEL" GISUN_PARALLEL=8
+export GISUN_FORCE_CRITERIA=${FORCE:-0}   # 1 = run every criterion the gold labels ask about (routed vs forced numbers)
 python -m evaluation.run_ablation --gold "$GOLD" ${MODES:+--modes $MODES}   # MODES="full rules_only" for a subset
 [ "${ZERO:-1}" = "1" ] && python -m evaluation.zero_tool --dataset "$GOLD"   # ZERO=0 to skip the no-tools baseline
 kill $PIDS

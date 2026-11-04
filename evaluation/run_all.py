@@ -86,9 +86,18 @@ def to_markdown(report: dict) -> str:
         if not g.get("modes"):
             lines.append("")
             continue
-        lines += ["", "| mode | F1 | accuracy | claim risk acc | not run | sec/answer |", "|---|---|---|---|---|---|"]
+        lines += ["", "| mode | F1 | P | R | accuracy | claim risk acc | not run | routed F1 / P / R | sec/answer |",
+                  "|---|---|---|---|---|---|---|---|---|"]
         for mode, m in g["modes"].items():
-            lines.append(f"| {mode} | {m['f1']} | {m['accuracy']} | {m['claim_risk_acc']} | {m['not_run']} | {m['avg_seconds']} |")
+            lines.append(f"| {mode}{' (forced)' if m['forced_criteria'] else ''} | {m['f1']} | {m['precision']} | "
+                         f"{m['recall']} | {m['accuracy']} | {m['claim_risk_acc']} | {m['not_run']} | "
+                         f"{m['routed_f1']} / {m['routed_precision']} / {m['routed_recall']} | {m['avg_seconds']} |")
+        lines += ["", "Gold pairs the routing didn't run, by criterion and cause "
+                  "(plan_dropped = the Plan agent dropped it):", ""]
+        for mode, m in g["modes"].items():
+            missed = "; ".join(f"{c}: " + ", ".join(f"{k} {n}" for k, n in v.items())
+                               for c, v in m["routing_missed"].items()) or "none"
+            lines.append(f"- {mode}: {missed}")
         crits = sorted({c for m in g["modes"].values() for c in m["by_criterion"]})
         lines += ["", "F1 by criterion (n = gold pairs):", "",
                   "| mode | " + " | ".join(crits) + " |", "|---|" + "---|" * len(crits)]
@@ -109,6 +118,8 @@ def main() -> int:
                     help="default: rules_only, plus every model mode if the model answers")
     ap.add_argument("--skip_eval", action="store_true")
     ap.add_argument("--min_f1", type=float, default=None, help="fail if rules_only F1 is below this")
+    ap.add_argument("--force_criteria", action="store_true", default=config.FORCE_CRITERIA,
+                    help="run every labeled criterion and report routed vs forced (default: GISUN_FORCE_CRITERIA)")
     a = ap.parse_args()
 
     stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -131,7 +142,7 @@ def main() -> int:
         print(f"evaluating {path}: {', '.join(modes)} ...", flush=True)
         root = os.path.join(out_dir, os.path.splitext(os.path.basename(path))[0])
         entry["outputs"] = root
-        entry["modes"] = ablate(path, modes, root)
+        entry["modes"] = ablate(path, modes, root, force=a.force_criteria)
         f1 = entry["modes"].get("rules_only", {}).get("f1")
         if a.min_f1 is not None and f1 is not None and f1 < a.min_f1:
             report["regressions"].append(f"{path}: rules_only F1 {f1} < {a.min_f1}")

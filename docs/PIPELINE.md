@@ -116,6 +116,7 @@ python -m gisun.pipeline --text "..." --mode rules_only
 | `GISUN_JUDGE_MODEL` / `GISUN_JUDGE_BASE_URL` | same as above | a different model for the Judge |
 | `GISUN_OPEN_CRITERIA` | 1 | run C3-C6 on unflagged sentences in model modes |
 | `GISUN_C2_MAX_CLAIMS` | 5 | how many claims get the C2 source check |
+| `GISUN_FORCE_CRITERIA` | 0 | evaluation only: 1 = every criterion a gold label asks about runs (see Evaluation); never affects the extension |
 | `GISUN_BLS_KEY` | (none) | BLS key: monthly figures work without it, annual averages need it (500 queries/day vs 25) |
 | `GISUN_CENSUS_KEY` / `GISUN_DATACOMMONS_KEY` | (none) | needed for Census / Data Commons; World Bank needs no key |
 | `GISUN_STAT_CACHE` / `GISUN_STAT_OFFLINE` | data/stat_cache.json / 0 | API response cache; 1 = cache only (HPC nodes with no internet) |
@@ -171,6 +172,24 @@ Qwen's `generation_config.json` adds `top_k=20, top_p=0.8, repetition_penalty=1.
 A gold pair a mode never ran (the Plan agent or funnel dropped the criterion) counts as a
 miss and is reported as `not_run`. Read F1 next to it: a mode can lose points by skipping
 checks, not only by deciding wrongly.
+
+**Forced criteria** separate the two. With `GISUN_FORCE_CRITERIA=1` (or
+`run_ablation --force_criteria`, `run_all --force_criteria`), `run_dataset` passes each item's
+gold labels to `pipeline.run(..., force=labels)`: the rules and the Plan agent route as usual, then
+every labeled criterion that routing left out is added (C2 brings C1), logged in `plan.notes` with
+`"by": "forced"`. `plan.routed` keeps what the routing chose and each added decision has
+`"forced": true`, so one run gives both numbers:
+
+| report field | meaning |
+|---|---|
+| `f1` / `precision` / `recall` | every labeled criterion ran: a miss is a **judgment** miss |
+| `routed_f1` / `routed_precision` / `routed_recall` | only what the routing chose (forced decisions count as `not_run`) |
+| `routing_missed` | per criterion, gold pairs routing didn't run: `plan_dropped` (Plan agent, reason in `plan.notes`), `not_candidate` (rules never offered it), `funnel`, `no_claim` (the sentence never became a claim), `no_output` |
+| `plan_dropped` | per criterion, just the Plan agent's drops |
+
+In a normal run both views are the same. The extension (`server.py`, `api.py`) calls `run()`
+without gold labels, so it is never forced. Forced runs go to `ablation_<model>_<time>_forced/`,
+and a batch folder can't be resumed with a different setting.
 
 Run RQ3 once per model on the HPC for the model-size curve, including the size the extension
 actually runs on a laptop.

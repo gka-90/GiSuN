@@ -16,6 +16,11 @@ variables so the same code runs on a laptop (Ollama) and on the HPC (vLLM).
     GISUN_OPEN_CRITERIA  1 (default) = in model modes, run C3-C6 on every factual sentence,
                     not only on sentences the detectors flagged (open problem #1). 0 = old behaviour.
     GISUN_C2_MAX_CLAIMS  only the N most check-worthy claims get the slow C2 source check (#3)
+    GISUN_FORCE_CRITERIA 1 = evaluation only: in a dataset run (run_dataset / run_ablation), every
+                    criterion an item's gold labels ask about runs on that sentence, even if the rules
+                    didn't offer it or the Plan agent dropped it. The plan keeps what the routing chose
+                    ("routed") and forced decisions are marked, so evaluate.py reports both numbers.
+                    No effect on the extension: run() without gold labels never forces. Default 0.
 
 Any of these can also go in a .env file at the repo root (KEY=value per line; git-ignored, so
 API keys stay out of the repo). A variable already set in the shell wins over .env.
@@ -51,6 +56,7 @@ JUDGE_BASE_URL = os.environ.get("GISUN_JUDGE_BASE_URL", BASE_URL)
 
 OPEN_CRITERIA = os.environ.get("GISUN_OPEN_CRITERIA", "1") == "1"
 C2_MAX_CLAIMS = int(os.environ.get("GISUN_C2_MAX_CLAIMS", "5"))
+FORCE_CRITERIA = os.environ.get("GISUN_FORCE_CRITERIA", "0") == "1"
 
 BLS_KEY = os.environ.get("GISUN_BLS_KEY", "")
 CENSUS_KEY = os.environ.get("GISUN_CENSUS_KEY", "")
