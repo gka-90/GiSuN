@@ -415,22 +415,31 @@ def format_value(value: float, unit: str) -> str:
     return {"percent": f"{text} percent", "usd": f"${text}"}.get(unit, text)
 
 
-def lookup_statistic(measure: str, place: str, period: str) -> dict:
-    """Official figures for exactly this measure, place and period (one per source)."""
+def usable_series(measure: str, place: str, period: str) -> tuple[list[dict], dict | None, str | None, str]:
+    """Which catalog entries could answer this measure, place and period, without fetching anything:
+    (entries, resolved place, normalized period, note). entries is empty when nothing can (note says why)."""
     p, where = normalize_period(period), resolve_place(place)
     if not p:
-        return {"records": [], "note": f"period {period!r} must be a year (2020) or a month (2020-04)."}
+        return [], where, p, f"period {period!r} must be a year (2020) or a month (2020-04)."
     if not where:
-        return {"records": [], "note": f"can't resolve the place {place!r}."}
+        return [], where, p, f"can't resolve the place {place!r}."
     entries = matching_series(measure)
     if not entries:
         known = sorted({a for e in catalog() for a in e["aliases"][:1]})
-        return {"records": [], "note": f"no official series for {measure!r} in the catalog, so C2 can't be "
-                                       f"checked. Measures it knows: {', '.join(known)}."}
+        return [], where, p, (f"no official series for {measure!r} in the catalog, so C2 can't be "
+                              f"checked. Measures it knows: {', '.join(known)}.")
     freq = "monthly" if len(p) > 4 else "annual"
     usable = [e for e in entries if _fits(e, where) and freq in e["frequency"]]
     if not usable:
-        return {"records": [], "note": f"no series for {measure!r} covers {where['name']} with {freq} figures."}
+        return [], where, p, f"no series for {measure!r} covers {where['name']} with {freq} figures."
+    return usable, where, p, ""
+
+
+def lookup_statistic(measure: str, place: str, period: str) -> dict:
+    """Official figures for exactly this measure, place and period (one per source)."""
+    usable, where, p, note = usable_series(measure, place, period)
+    if not usable:
+        return {"records": [], "note": note}
     records, skipped = [], []
     for e in sorted(usable, key=lambda e: ORDER.index(e["provider"])):
         try:
