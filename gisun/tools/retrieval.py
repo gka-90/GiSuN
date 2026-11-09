@@ -368,7 +368,9 @@ def _datacommons(entry: dict, place: dict, period: str) -> tuple[list[dict], str
     out = []
     for f in by_entity.get("orderedFacets", []):
         info = facets.get(f.get("facetId"), {})
-        if info.get("observationPeriod") not in (None, want) or info.get("scalingFactor") not in (None, "1", 1):
+        # scalingFactor 100 on a percent figure means "already in percent" (CDC PLACES gives 29.7, not 0.297)
+        ok_scale = (None, "1", 1) + (("100", 100) if entry.get("unit") == "percent" else ())
+        if info.get("observationPeriod") not in (None, want) or info.get("scalingFactor") not in ok_scale:
             continue
         for o in f.get("observations", []):
             if o.get("date") == period and o.get("value") is not None:

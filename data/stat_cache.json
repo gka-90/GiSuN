@@ -402,6 +402,274 @@
     "status": "REQUEST_SUCCEEDED"
    }
   },
+  "bls https://api.bls.gov/publicAPI/v2/timeseries/data/ {\"annualaverage\": true, \"endyear\": \"2022\", \"seriesid\": [\"LNU04027660\"], \"startyear\": \"2022\"}": {
+   "query_date": "2026-11-08",
+   "response": {
+    "Results": {
+     "series": [
+      {
+       "data": [
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M13",
+         "periodName": "Annual",
+         "value": "4.0",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M12",
+         "periodName": "December",
+         "value": "3.6",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M11",
+         "periodName": "November",
+         "value": "3.8",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M10",
+         "periodName": "October",
+         "value": "3.8",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M09",
+         "periodName": "September",
+         "value": "3.5",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M08",
+         "periodName": "August",
+         "value": "4.3",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M07",
+         "periodName": "July",
+         "value": "3.6",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M06",
+         "periodName": "June",
+         "value": "3.5",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M05",
+         "periodName": "May",
+         "value": "3.5",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M04",
+         "periodName": "April",
+         "value": "3.6",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M03",
+         "periodName": "March",
+         "value": "4.3",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M02",
+         "periodName": "February",
+         "value": "4.9",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M01",
+         "periodName": "January",
+         "value": "5.1",
+         "year": "2022"
+        }
+       ],
+       "seriesID": "LNU04027660"
+      }
+     ]
+    },
+    "message": [],
+    "responseTime": 14,
+    "status": "REQUEST_SUCCEEDED"
+   }
+  },
+  "bls https://api.bls.gov/publicAPI/v2/timeseries/data/ {\"annualaverage\": true, \"endyear\": \"2022\", \"seriesid\": [\"LNU04027662\"], \"startyear\": \"2022\"}": {
+   "query_date": "2026-11-08",
+   "response": {
+    "Results": {
+     "series": [
+      {
+       "data": [
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M13",
+         "periodName": "Annual",
+         "value": "2.0",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M12",
+         "periodName": "December",
+         "value": "1.7",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M11",
+         "periodName": "November",
+         "value": "1.9",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M10",
+         "periodName": "October",
+         "value": "1.8",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M09",
+         "periodName": "September",
+         "value": "1.7",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M08",
+         "periodName": "August",
+         "value": "2.2",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M07",
+         "periodName": "July",
+         "value": "2.3",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M06",
+         "periodName": "June",
+         "value": "2.2",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M05",
+         "periodName": "May",
+         "value": "1.8",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M04",
+         "periodName": "April",
+         "value": "1.8",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M03",
+         "periodName": "March",
+         "value": "1.9",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M02",
+         "periodName": "February",
+         "value": "2.2",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M01",
+         "periodName": "January",
+         "value": "2.4",
+         "year": "2022"
+        }
+       ],
+       "seriesID": "LNU04027662"
+      }
+     ]
+    },
+    "message": [],
+    "responseTime": 16,
+    "status": "REQUEST_SUCCEEDED"
+   }
+  },
   "census https://api.census.gov/data/2020/dec/pl?get=NAME,P1_001N&for=us:1": {
    "query_date": "2026-11-03",
    "response": [
@@ -414,6 +682,224 @@
      "United States",
      "331449281",
      "1"
+    ]
+   ]
+  },
+  "census https://api.census.gov/data/2022/acs/acs1/profile?get=NAME,DP02_0068PE&for=us:1": {
+   "query_date": "2026-11-08",
+   "response": [
+    [
+     "NAME",
+     "DP02_0068PE",
+     "us"
+    ],
+    [
+     "United States",
+     "35.7",
+     "1"
+    ]
+   ]
+  },
+  "census https://api.census.gov/data/2022/acs/acs1?get=NAME,B05002_013E&for=us:1": {
+   "query_date": "2026-11-08",
+   "response": [
+    [
+     "NAME",
+     "B05002_013E",
+     "us"
+    ],
+    [
+     "United States",
+     "46182177",
+     "1"
+    ]
+   ]
+  },
+  "datacommons https://api.datacommons.org/v2/observation?date=2021&variable.dcids=Count_BirthEvent&entity.dcids=country%2FUSA&select=entity&select=variable&select=value&select=date": {
+   "query_date": "2026-11-08",
+   "response": {
+    "byVariable": {
+     "Count_BirthEvent": {
+      "byEntity": {
+       "country/USA": {}
+      }
+     }
+    }
+   }
+  },
+  "datacommons https://api.datacommons.org/v2/observation?date=2021&variable.dcids=Count_Death_DrugPoisoning&entity.dcids=country%2FUSA&select=entity&select=variable&select=value&select=date": {
+   "query_date": "2026-11-08",
+   "response": {
+    "byVariable": {
+     "Count_Death_DrugPoisoning": {
+      "byEntity": {
+       "country/USA": {}
+      }
+     }
+    }
+   }
+  },
+  "datacommons https://api.datacommons.org/v2/observation?date=2021&variable.dcids=Count_Death_MotorVehicleAccidents&entity.dcids=country%2FUSA&select=entity&select=variable&select=value&select=date": {
+   "query_date": "2026-11-08",
+   "response": {
+    "byVariable": {
+     "Count_Death_MotorVehicleAccidents": {
+      "byEntity": {
+       "country/USA": {}
+      }
+     }
+    }
+   }
+  },
+  "datacommons https://api.datacommons.org/v2/observation?date=2021&variable.dcids=Percent_Person_Obesity&entity.dcids=geoId%2F36&select=entity&select=variable&select=value&select=date": {
+   "query_date": "2026-11-08",
+   "response": {
+    "byVariable": {
+     "Percent_Person_Obesity": {
+      "byEntity": {
+       "geoId/36": {
+        "orderedFacets": [
+         {
+          "earliestDate": "2021",
+          "facetId": "15301131402648351561",
+          "latestDate": "2021",
+          "obsCount": 1,
+          "observations": [
+           {
+            "date": "2021",
+            "value": 29.704681949636324
+           }
+          ]
+         },
+         {
+          "earliestDate": "2021",
+          "facetId": "6443263342113131226",
+          "latestDate": "2021",
+          "obsCount": 1,
+          "observations": [
+           {
+            "date": "2021",
+            "value": 29.443132624281652
+           }
+          ]
+         }
+        ]
+       }
+      }
+     }
+    },
+    "facets": {
+     "15301131402648351561": {
+      "isDcAggregate": true,
+      "measurementMethod": "AgeAdjustedPrevalence",
+      "observationPeriod": "P1Y",
+      "provenanceId": "dc/base/CDC500_States",
+      "provenanceUrl": "https://www.cdc.gov/places/index.html",
+      "scalingFactor": "100",
+      "unit": "Percent"
+     },
+     "6443263342113131226": {
+      "isDcAggregate": true,
+      "measurementMethod": "CrudePrevalence",
+      "observationPeriod": "P1Y",
+      "provenanceId": "dc/base/CDC500_States",
+      "provenanceUrl": "https://www.cdc.gov/places/index.html",
+      "scalingFactor": "100",
+      "unit": "Percent"
+     }
+    }
+   }
+  },
+  "worldbank https://api.worldbank.org/v2/country/USA/indicator/SH.STA.TRAF.P5?format=json&date=2019": {
+   "query_date": "2026-11-08",
+   "response": [
+    {
+     "lastupdated": "2026-10-08",
+     "page": 1,
+     "pages": 1,
+     "per_page": 50,
+     "sourceid": "2",
+     "total": 1
+    },
+    [
+     {
+      "country": {
+       "id": "US",
+       "value": "United States"
+      },
+      "countryiso3code": "USA",
+      "date": "2019",
+      "decimal": 0,
+      "indicator": {
+       "id": "SH.STA.TRAF.P5",
+       "value": "Mortality caused by road traffic injury (per 100,000 population)"
+      },
+      "obs_status": "",
+      "unit": "",
+      "value": 12.7
+     }
+    ]
+   ]
+  },
+  "worldbank https://api.worldbank.org/v2/country/USA/indicator/SH.XPD.CHEX.PC.CD?format=json&date=2021": {
+   "query_date": "2026-11-08",
+   "response": [
+    {
+     "lastupdated": "2026-10-08",
+     "page": 1,
+     "pages": 1,
+     "per_page": 50,
+     "sourceid": "2",
+     "total": 1
+    },
+    [
+     {
+      "country": {
+       "id": "US",
+       "value": "United States"
+      },
+      "countryiso3code": "USA",
+      "date": "2021",
+      "decimal": 2,
+      "indicator": {
+       "id": "SH.XPD.CHEX.PC.CD",
+       "value": "Current health expenditure per capita (current US$)"
+      },
+      "obs_status": "",
+      "unit": "",
+      "value": 12080.07324219
+     }
+    ]
+   ]
+  },
+  "worldbank https://api.worldbank.org/v2/country/USA/indicator/SP.ADO.TFRT?format=json&date=2021": {
+   "query_date": "2026-11-08",
+   "response": [
+    {
+     "lastupdated": "2026-10-08",
+     "page": 1,
+     "pages": 1,
+     "per_page": 50,
+     "sourceid": "2",
+     "total": 1
+    },
+    [
+     {
+      "country": {
+       "id": "US",
+       "value": "United States"
+      },
+      "countryiso3code": "USA",
+      "date": "2021",
+      "decimal": 0,
+      "indicator": {
+       "id": "SP.ADO.TFRT",
+       "value": "Adolescent fertility rate (births per 1,000 women ages 15-19)"
+      },
+      "obs_status": "",
+      "unit": "",
+      "value": 13.724
+     }
     ]
    ]
   },
@@ -1617,13 +2103,16 @@
  },
  "usage": {
   "bls": {
-   "2026-11-03": 3
+   "2026-11-08": 2
   },
   "census": {
-   "2026-11-03": 1
+   "2026-11-08": 2
+  },
+  "datacommons": {
+   "2026-11-08": 4
   },
   "worldbank": {
-   "2026-10-31": 1
+   "2026-11-08": 3
   }
  }
 }
