@@ -93,7 +93,7 @@ Done so far (details in git history and docs/PIPELINE.md):
 - C2 checks numbers against official statistics (BLS, Census, World Bank, Data Commons), cached, with hedge-aware tolerances. API keys go in `.env` (git-ignored).
 - Evaluation: 184 agent decisions on 50 Claude answers labeled by both of us (disagreements settled 10/27); public test sets for C1, C2, C3, C5, C6; our own insertion set including C4.
 - First full gold runs (11/3/2026, Qwen2.5-32B, full mode): on our 184 labeled rows precision 0.59 (C6 worst: 28 of 34 flags wrong); on public part 1 precision 0.71 but recall 0.17, because the Plan agent dropped 261 of 367 gold pairs. Details in docs/PIPELINE.md, "First full gold runs".
-- Fixes after that run (11/4/2026): the C3-C6 guidance now follows docs/labeling_rules.md word for word; a C6 pre-filter decides headings, fragments and reported viewpoints ("Critics argue...") without the agent; the Plan agent can no longer drop C1 for a sentence with a number or C5 for "is believed / is regarded as / allegedly / studies show"; `GISUN_FORCE_CRITERIA=1` makes every labeled criterion run, and the evaluation reports routed vs forced numbers and how many gold pairs the Plan agent dropped per criterion; new test sets `datasets/gold_c4_logic.json` (LOGIC, 50 faulty generalizations vs 50 other fallacies) and `datasets/gold_c2_us.json` (QuanTemp claims the series catalog can look up: none).
+- Fixes after that run (11/4/2026): the C3-C6 guidance now follows docs/labeling_rules.md word for word; a C6 pre-filter decides headings, fragments and reported viewpoints ("Critics argue...") without the agent; the Plan agent can no longer drop C1 for a sentence with a number or C5 for "is believed / is regarded as / allegedly / studies show"; `GISUN_FORCE_CRITERIA=1` makes every labeled criterion run, and the evaluation reports routed vs forced numbers and how many gold pairs the Plan agent dropped per criterion; new test sets `datasets/gold_c4_logic.json` (LOGIC, 100 faulty generalizations vs 100 other fallacies, built by Gideon; false causality and slippery slope left out) and `datasets/gold_c2_us.json` (QuanTemp claims the series catalog can look up: none).
 - Two Truths and a Lie was built as a separate agent and removed on 11/3/2026 (it was never connected to the extension); see git history before that date.
 
 ### TODO
@@ -214,7 +214,7 @@ After editing anything in `extension/`, click the ↻ reload button on the GiSuN
 │   ├── run_all.py               #   tests + gold-file checks + RQ1-RQ3 in one go
 │   ├── zero_tool.py             #   one-call, no-tools baseline
 │   ├── datasets/                #   build test sets: collect, external_testset, own_insertion_set, c4_testset,
-│   │                            #   c4_logic_testset (LOGIC -> gold_c4_logic.json), c2_us_testset (-> gold_c2_us.json)
+│   │                            #   c2_us_testset (-> gold_c2_us.json)
 │   └── labeling/                #   annotate, worksheets (make_worksheet, make_agent_worksheet, split_worksheet),
 │                                #   agreement (Cohen's kappa), finalize_labels
 ├── datasets/                    # Only what runs need: gold_example.json (tests, run_all),

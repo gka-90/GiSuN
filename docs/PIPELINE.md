@@ -204,7 +204,7 @@ Qwen's `generation_config.json` adds `top_k=20, top_p=0.8, repetition_penalty=1.
 | agreement | evaluation/labeling/agreement.py | Cohen's kappa between two people's labels, per criterion |
 | baseline | evaluation/zero_tool.py | one call, no tools |
 | C2 set | evaluation/datasets/c2_us_testset.py | QuanTemp claims (C2 rows of `gold_public_*.json`) the series catalog can look up -> `datasets/gold_c2_us.json` (no API call) |
-| C4 set | evaluation/datasets/c4_logic_testset.py | LOGIC (Jin et al. 2022): 50 faulty generalizations (met) vs 50 other fallacies (not_met) -> `datasets/gold_c4_logic.json` |
+| C4 set | built by Gideon in GiSuN_public_datasets.xlsx (C4 tab) | LOGIC (Jin et al. 2022): 100 faulty generalizations (met) vs 100 other fallacies (not_met); false causality and slippery slope left out (closer to C6) -> `datasets/gold_c4_logic.json` |
 
 A gold pair a mode never ran (the Plan agent or funnel dropped the criterion) counts as a
 miss and is reported as `not_run`. Read F1 next to it: a mode can lose points by skipping
@@ -287,7 +287,7 @@ C2 tolerances, API routing, cache, offline mode and the Check agent's C2 rules, 
 answered by `tests/fake_stats.py`. `tests/test_c6.py`: the C6 pre-filter and guidance with the
 sentences GiSuN got wrong; `tests/test_labeling_rules.py`: guidance and rules vs labeling_rules.md;
 `tests/test_forced.py`: forced criteria and the routed / forced report; `tests/test_plan_keep.py`:
-the Plan agent's must_keep; `tests/test_c2_us_testset.py`, `tests/test_c4_logic_testset.py`: the
+the Plan agent's must_keep; `tests/test_c2_us_testset.py`: the
 two test-set scripts, offline.
 
 ## Not done yet
