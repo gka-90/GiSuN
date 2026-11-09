@@ -402,6 +402,21 @@
     "status": "REQUEST_SUCCEEDED"
    }
   },
+  "census https://api.census.gov/data/2020/dec/pl?get=NAME,P1_001N&for=us:1": {
+   "query_date": "2026-11-03",
+   "response": [
+    [
+     "NAME",
+     "P1_001N",
+     "us"
+    ],
+    [
+     "United States",
+     "331449281",
+     "1"
+    ]
+   ]
+  },
   "worldbank https://api.worldbank.org/v2/country?format=json&per_page=400": {
    "query_date": "2026-10-31",
    "response": [
@@ -1603,6 +1618,9 @@
  "usage": {
   "bls": {
    "2026-11-03": 3
+  },
+  "census": {
+   "2026-11-03": 1
   },
   "worldbank": {
    "2026-10-31": 1
