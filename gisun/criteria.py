@@ -118,6 +118,8 @@ def c2_fields_from_text(claim, question: str = "") -> dict | None:
     places = next((p for t in texts if (p := places_in(t))), []) or next(
         (p for t in texts if (p := implied_places(t))), [])
     periods = next((p for t in texts if (p := periods_in(t))), [])
+    # "(2009): ... in October 2009" gives 2009 and 2009-10: the month is the same period, more precisely
+    periods = [p for p in periods if not any(q != p and q.startswith(p + "-") for q in periods)]
     if not periods and (latest := implied_period(claim["sentence"])):
         periods = [latest]  # present tense, no time stated: the latest full year
     if not measure or len(places) != 1 or len(periods) != 1 or not claim["checkable_values"]:
