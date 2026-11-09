@@ -390,9 +390,16 @@ FETCH = {"static": _static, "bls": _bls, "census": _census, "worldbank": _worldb
 # ---- catalog and lookup -------------------------------------------------------------------
 
 @lru_cache(maxsize=1)
-def catalog() -> list[dict]:
+def all_series() -> list[dict]:
+    """Every catalog entry, including new ones not yet confirmed (evaluation/check_series.py)."""
     with open(config.STAT_SERIES_PATH, encoding="utf-8") as f:
         return json.load(f)["series"]
+
+
+def catalog() -> list[dict]:
+    """The entries C2 may use: an entry marked "verified": false stays off until check_series has
+    fetched a plausible value for it, so a guessed series ID can never judge a claim."""
+    return [e for e in all_series() if e.get("verified", True)]
 
 
 def _says(text: str, word: str) -> bool:

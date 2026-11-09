@@ -194,6 +194,16 @@ GISUN_MODEL=Qwen/Qwen2.5-32B-Instruct-AWQ GISUN_PARALLEL=8 uvicorn server:app --
 Qwen's `generation_config.json` adds `top_k=20, top_p=0.8, repetition_penalty=1.05` to our
 `temperature=0.2`; report these with results.
 
+**Adding C2 measures.** New entries in `data/stat_series.json` carry `"verified": false` and a
+`"test"` (place, period, plausible range); C2 skips them until
+`python -m evaluation.check_series --write` (run on a laptop: it needs the API keys and network)
+has fetched a value inside the range. On 11/8/2026, 11 entries were added from the numbers C2
+met in our 50 Claude answers: unemployment by education (BLS), foreign-born population and the
+bachelor's-degree share (Census ACS), health spending per capita, teen birth rate and road-traffic
+death rate (World Bank), and overdose deaths, motor-vehicle deaths, births and adult obesity (Data
+Commons, variable names to be confirmed). The overall unemployment entries now exclude
+education words, so "unemployment rate of college graduates" is never compared with the overall rate.
+
 ## Evaluation
 | RQ | script | measures |
 |---|---|---|
