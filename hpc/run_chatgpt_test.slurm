@@ -14,7 +14,7 @@
 #SBATCH --cpus-per-task=8
 #SBATCH --gres=gpu:nvidia_rtx_pro_6000_blackwell_server_edition:1
 #SBATCH --mem=32G
-#SBATCH --time=06:00:00
+#SBATCH --time=04:00:00   # the cs QOS refuses longer jobs
 #SBATCH --output=logs/%x_%j.out
 #SBATCH --dependency=singleton   # one job of this name at a time: they share the node and its GPU
 
