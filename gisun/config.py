@@ -16,6 +16,7 @@ variables so the same code runs on a laptop (Ollama) and on the HPC (vLLM).
     GISUN_OPEN_CRITERIA  1 (default) = in model modes, run C3-C6 on every factual sentence,
                     not only on sentences the detectors flagged (open problem #1). 0 = old behaviour.
     GISUN_C2_MAX_CLAIMS  only the N most check-worthy claims get the slow C2 source check (#3)
+    GISUN_ONLY_CRITERIA  e.g. C2: run only these criteria and their dependencies (testing one criterion)
     GISUN_FORCE_CRITERIA 1 = evaluation only: in a dataset run (run_dataset / run_ablation), every
                     criterion an item's gold labels ask about runs on that sentence, even if the rules
                     didn't offer it or the Plan agent dropped it. The plan keeps what the routing chose
@@ -57,6 +58,8 @@ JUDGE_BASE_URL = os.environ.get("GISUN_JUDGE_BASE_URL", BASE_URL)
 OPEN_CRITERIA = os.environ.get("GISUN_OPEN_CRITERIA", "1") == "1"
 C2_MAX_CLAIMS = int(os.environ.get("GISUN_C2_MAX_CLAIMS", "5"))
 FORCE_CRITERIA = os.environ.get("GISUN_FORCE_CRITERIA", "0") == "1"
+# Comma list, e.g. "C2": run only these criteria (plus what they depend on: C2 needs C1). Testing only.
+ONLY_CRITERIA = [c.strip().upper() for c in os.environ.get("GISUN_ONLY_CRITERIA", "").split(",") if c.strip()]
 
 BLS_KEY = os.environ.get("GISUN_BLS_KEY", "")
 CENSUS_KEY = os.environ.get("GISUN_CENSUS_KEY", "")

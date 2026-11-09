@@ -145,6 +145,10 @@ def run(text: str, question: str = "", mode: str = "full", keep_trace: bool = Tr
     routed = {k: list(v) for k, v in the_plan["tasks"].items()}
     if force:
         force_criteria(ctx, the_plan, force)
+    if config.ONLY_CRITERIA:
+        keep = {d for c in config.ONLY_CRITERIA if c in CRITERIA for d in [c, *CRITERIA[c]["depends_on"]]}
+        for cid_list in the_plan["tasks"].values():
+            cid_list[:] = [c for c in cid_list if c in keep]
     results: dict[int, dict[str, dict]] = {c["claim_id"]: {} for c in ctx.claims}
 
     with ThreadPoolExecutor(max_workers=config.MAX_PARALLEL_TASKS) as pool:
