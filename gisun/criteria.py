@@ -1,5 +1,5 @@
 """
-Criterion registry -- the GiSuN counterpart of the ACMG criteria table.
+Criterion registry
 
 Each criterion asks one yes/no question about one claim. "met" always means
 "the problem is present" (the reader should be skeptical), so scoring can
@@ -25,9 +25,13 @@ treat all criteria the same way.
 
 The guidance follows docs/labeling_rules.md (same wording and examples), so the agents and
 the human labelers apply the same rules.
+
+A decision is always one of DECISIONS. Finer reasons (for C2: why it is "undetermined") go in the
+optional "status" key of the decision dict, never in the "decision" value itself.
 """
 
 import re
+import statistics
 
 from gisun.detectors.claims import CUES
 from gisun.tools.language import context_cues, heading_or_fragment, reported_viewpoint
@@ -41,8 +45,10 @@ LOADED_CATS = {"loaded_political_terms", "emotionally_charged_terms",
                "loaded_framing_of_events", "loaded_identity_or_group_terms"}
 
 
-def _decision(decision, strength, reasoning, evidence=None):
-    return {"decision": decision, "strength": strength, "reasoning": reasoning, "evidence": evidence or []}
+def _decision(decision, strength, reasoning, evidence=None, **extra):
+    """Build a decision dict. Extra keys (e.g. status, claim_fields) are kept alongside the standard four."""
+    return {"decision": decision, "strength": strength, "reasoning": reasoning,
+            "evidence": evidence or [], **extra}
 
 
 def _terms(claim, cats):
@@ -92,6 +98,8 @@ def rule_c1(claim, ctx):
                      [{"quote": v, "source": "response"} for v in quoted])
 
 
+# ---- C2: statistic_contradicted ----------------------------------------------------------
+
 def c2_outcome(value: str, hedge: str, records: list[dict]) -> tuple[str, list[dict]]:
     """The C2 decision the official figures give, by compare_numbers' tolerance rules:
     all match -> not_met, none match -> met, sources disagree or nothing comparable -> undetermined."""
@@ -110,9 +118,9 @@ def _measure_in(text: str) -> str | None:
                 if re.search(r"(?<![a-z])" + re.escape(a) + r"s?(?![a-z])", text.lower())), key=len, default=None)
 
 
-def c2_fields_from_text(claim, question: str = "") -> dict | None:
-    """The rules' version of step 1: measure, place, period and hedge. Each comes from the claim
-    first, then the two sentences before it, then the user's question. None if any can't be pinned down."""
+def _c2_partial_fields(claim, question: str = "") -> dict:
+    """Step 1 by rules: measure, place, period, hedge, value. Each comes from the claim first, then the
+    two sentences before it, then the user's question. A field that can't be pinned down is None."""
     texts = [claim["sentence"], " ".join(claim["context_before"]), question or ""]
     measure = next((m for t in texts if (m := _measure_in(t))), None)
     places = next((p for t in texts if (p := places_in(t))), []) or next(
@@ -122,36 +130,103 @@ def c2_fields_from_text(claim, question: str = "") -> dict | None:
     periods = [p for p in periods if not any(q != p and q.startswith(p + "-") for q in periods)]
     if not periods and (latest := implied_period(claim["sentence"])):
         periods = [latest]  # present tense, no time stated: the latest full year
-    if not measure or len(places) != 1 or len(periods) != 1 or not claim["checkable_values"]:
-        return None
-    value = claim["checkable_values"][0]
-    return {"value": value, "measure": measure, "place": places[0]["name"], "period": periods[0],
-            "hedge": hedge_of(claim["sentence"], value)}
+    value = claim["checkable_values"][0] if claim["checkable_values"] else None
+    return {"value": value, "measure": measure,
+            "place": places[0]["name"] if len(places) == 1 else None,
+            "period": periods[0] if len(periods) == 1 else None,
+            "hedge": hedge_of(claim["sentence"], value) if value else "none"}
+
+
+def c2_fields_from_text(claim, question: str = "") -> dict | None:
+    """Strict version of step 1: all of measure, place, period and value, or None."""
+    f = _c2_partial_fields(claim, question)
+    return f if all(f[k] for k in ("value", "measure", "place", "period")) else None
+
+
+def _ctx_get(ctx, key: str, default=None):
+    """ctx is a dict in the unit tests and a RunContext in the pipeline: read a key from either."""
+    return ctx.get(key, default) if isinstance(ctx, dict) else getattr(ctx, key, default)
+
+
+def _c2_fields(claim, ctx) -> dict:
+    """Step 1 with the context fallback: fields the agent already extracted win, then the text of the
+    claim and its neighbours, then whatever the pipeline knows about the paragraph / answer (ctx)."""
+    fields = {**_c2_partial_fields(claim, _ctx_get(ctx, "question", "")),
+              **{k: v for k, v in (claim.get("extracted_fields") or {}).items() if v}}
+    if not fields.get("place"):
+        if "federal" in claim["sentence"].lower():  # "the federal minimum wage" is a US figure
+            fields["place"] = "United States"
+        else:
+            fields["place"] = _ctx_get(ctx, "paragraph_place") or _ctx_get(ctx, "global_place")
+    if not fields.get("period"):
+        fields["period"] = _ctx_get(ctx, "paragraph_period") or _ctx_get(ctx, "global_period")
+    return fields
+
+
+def _records(found) -> list[dict]:
+    """lookup_statistic returns {"records": [...], "note": ...}; older callers passed the list."""
+    return found.get("records") or [] if isinstance(found, dict) else found or []
+
+
+def _annual_from_months(measure: str, place: str, year: str) -> list[dict]:
+    """The official annual figure as the mean of 12 monthly records, or [] if the year isn't complete.
+    A partial year would skew the average, so fewer than 12 months gives nothing."""
+    monthly = []
+    for month in range(1, 13):
+        records = _records(lookup_statistic(measure=measure, place=place, period=f"{year}-{month:02d}"))
+        if not records:
+            return []
+        monthly.append(records[0])
+    values = [parse_value(r["value_text"]) for r in monthly]
+    if any(v is None for v in values):
+        return []
+    unit = "%" if "%" in monthly[0]["value_text"] else ""
+    return [{"record_id": f"annual_mean_{year}", "value_text": f"{statistics.mean(values):.2f}{unit}",
+             "note": "Annual average computed from 12 monthly records"}]
 
 
 def rule_c2(claim, ctx):
-    """The C2 steps without a model: pin the claim down, look up the official figure, compare."""
-    fields = c2_fields_from_text(claim, ctx.question)
-    if not fields:
+    """Deterministic C2. Same signature as every other rule: rule(claim, ctx).
+    Decisions stay inside DECISIONS; the reason for 'undetermined' goes in the 'status' key
+    (missing_context / no_record / lookup_error / source_conflict / not_comparable)."""
+    ctx = ctx or {}
+    if not any(parse_value(v) is not None for v in claim["checkable_values"]):
+        return _decision("not_met", "supporting", "No checkable number in the sentence.")
+
+    f = _c2_fields(claim, ctx)
+    if not all(f.get(k) for k in ("value", "measure", "place", "period")):
+        missing = [k for k in ("measure", "place", "period") if not f.get(k)]
         return _decision("undetermined", "supporting",
-                         "The rules can't tell the measure, place and time of this number from the text.")
+                         f"Could not pin down {', '.join(missing)} from the claim, its context or the question.",
+                         status="missing_context", claim_fields=f)
+
     try:
-        found = lookup_statistic(fields["measure"], fields["place"], fields["period"])
-    except Exception as e:
-        return {**_decision("undetermined", "supporting", f"The statistics lookup failed ({e})."), "claim_fields": fields}
-    records = found["records"]
-    ctx.record_official(records)
-    outcome, cmps = c2_outcome(fields["value"], fields["hedge"], records)
+        records = _records(lookup_statistic(measure=f["measure"], place=f["place"], period=f["period"]))
+        if not records and re.fullmatch(r"\d{4}", str(f["period"])):
+            records = _annual_from_months(f["measure"], f["place"], str(f["period"]))
+    except Exception as e:  # a failed lookup is a gap, not a verdict
+        return _decision("undetermined", "supporting", f"Statistic lookup failed: {e}",
+                         status="lookup_error", claim_fields=f)
+    if records and hasattr(ctx, "record_official"):
+        ctx.record_official(records)  # so normalize() can attach the fetched figure to the evidence
     if not records:
-        why = found.get("note") or "No official figure was found."
-    elif outcome == "undetermined" and len({c.get("match") for c in cmps if c.get("comparable")}) > 1:
-        why = "Official sources disagree: " + "; ".join(f"{r['source']} {r['value_text']}" for r in records) + "."
-    else:
-        r = records[0]
-        why = (f"{fields['value']} ({fields['hedge']}) vs {r['source']} {r['series_id']}: {r['value_text']} for "
-               f"{r['period']}; {cmps[0].get('rule', cmps[0].get('reason'))}.")
-    return {**_decision(outcome, "supporting", why, [{"quote": r["value_text"], "source": r["record_id"]}
-                                                     for r in records]), "claim_fields": fields}
+        return _decision("undetermined", "supporting",
+                         f"No official record for {f['measure']}, {f['place']}, {f['period']}.",
+                         status="no_record", claim_fields=f)
+
+    outcome, cmps = c2_outcome(f["value"], f["hedge"], records)
+    evidence = [{"quote": r["value_text"], "source": r["record_id"]} for r in records]
+    if outcome == "not_met":
+        return _decision("not_met", "supporting", "Every official figure matches the claim.",
+                         evidence, claim_fields=f)
+    if outcome == "met":
+        return _decision("met", "strong", "Every official figure differs from the claim.",
+                         evidence, claim_fields=f)
+    comparable = {c["match"] for c in cmps if c.get("comparable")}
+    status = "source_conflict" if comparable == {True, False} else "not_comparable"
+    why = ("Official sources disagree with each other about this figure."
+           if status == "source_conflict" else "No official figure is comparable with the claim.")
+    return _decision("undetermined", "supporting", why, evidence, status=status, claim_fields=f)
 
 
 def rule_terms(cats, label):
@@ -266,8 +341,8 @@ CRITERIA = {
         "question": "Does the claim make an absolute or sweeping statement (always, never, everyone ...) that the evidence can't support?",
         "guidance": "'met' only if the sentence makes an unqualified universal claim about people, groups or "
                     "outcomes ('always', 'never', 'everyone', or a claim about a whole group) that has obvious "
-                    "exceptions ('Everyone concentrates better after a good breakfast'): a tendency turned into a "
-                    "rule. 'not_met' for: literally true absolutes ('water always boils at a lower temperature at "
+                    "exceptions ('Everyone concentrates better after a good breakfast'): a tendency turned into "
+                    "a rule. 'not_met' for: literally true absolutes ('water always boils at a lower temperature at "
                     "altitude' is a physical law); rules and laws ('Only a member of Congress can formally "
                     "introduce a bill'); definitions; closed groups ('all 12 patients'); hedged sentences ('More "
                     "time doesn't always mean better results' is a hedge, not a generalization; so are often, "
@@ -331,26 +406,33 @@ CRITERIA = {
     "C2": {
         "name": "statistic_contradicted",
         "question": "Does a reliable source give a different figure?",
-        "guidance": "1. Pin the number down. From the claim (or the two sentences before it, or the user's "
-                    "question) take: value (the "
-                    "number as written, e.g. '14.7%'), measure (e.g. 'unemployment rate'), place (e.g. 'United "
-                    "States'), period (a year '2020' or a month '2020-04') and hedge: 'approx' for about / "
-                    "roughly / around / nearly, 'at_least' for over / more than / at least, 'at_most' for under / "
-                    "less than / fewer than, else 'none'. If the measure, place or time is not stated in any of these, stop "
-                    "and decide 'undetermined'. Plain 'unemployment rate' means U-3, not U-6. 'Federal' (e.g. federal minimum wage) means the United States. A present-tense claim with no time ('the minimum wage is $9.50') is about now: use the latest full year as the period. "
-                    "2. Call lookup_statistic(measure, place, period); it picks the official API and only returns "
-                    "figures for exactly that measure, place, period and unit. A monthly figure does not answer an "
-                    "annual claim, and an annual average does not answer a monthly one. If it returns no record, "
-                    "decide 'undetermined': never compare with a close-enough figure. "
-                    "3. Call compare_numbers(claim_value, official_value=value_text, hedge) for EVERY record. "
-                    "'not_met' = every official figure matches, 'met' = none does, 'undetermined' = official "
-                    "sources disagree with each other (cite all of them) or nothing comparable was found. "
-                    "4. Submit claim_fields, and one evidence item per record: quote = its value_text, source = "
-                    "its record_id.",
-        "phase": 2, "depends_on": {"C1": ["met", "not_met", "undetermined"]},
+        "guidance": (
+            "1. Pin the number down.\n"
+            "   - Extract: value, measure, place, period, and hedge ('approx' for about/roughly/around/nearly, "
+            "'at_least' for over/more than/at least, 'at_most' for under/less than/fewer than, else 'none').\n"
+            "   - Context fallback: if place or period is missing from the sentence, use the two previous "
+            "sentences and the user's question (if they say 'the US in 2020', inherit place='United States', "
+            "period='2020'). 'Federal' means 'United States'. Present tense with no time stated means the latest "
+            "full year.\n"
+            "   - A plain 'unemployment rate' means U-3, not U-6.\n"
+            "   - If measure, place or period still can't be determined, decide 'undetermined' and say "
+            "'missing_context' in your reasoning.\n\n"
+            "2. Call lookup_statistic(measure, place, period).\n"
+            "   - If an annual figure is asked for and only monthly records exist, and all 12 months of that "
+            "year are there, use their mean as the annual figure.\n"
+            "   - If no matching record is found, decide 'undetermined' and say 'no_record' in your reasoning. "
+            "Never compare with a different measure, place or period.\n\n"
+            "3. Call compare_numbers(claim_value, official_value=value_text, hedge) for EVERY record.\n"
+            "   - 'not_met': every official figure matches the claim within the hedge tolerance.\n"
+            "   - 'met': official figures exist and ALL of them contradict the claim.\n"
+            "   - 'undetermined': official figures disagree with each other ('source_conflict'; cite all) "
+            "or none is comparable.\n\n"
+            "4. Submit claim_fields and one evidence item per record (quote = value_text, source = record_id)."
+        ),
+        "phase": 2,
+        "depends_on": {"C1": ["met", "not_met", "undetermined"]},
         "tools": ["lookup_statistic", "compare_numbers"],
         "severity": {"strong": 3, "moderate": 3, "supporting": 2},
-        # only values compare_numbers can read ("most Americans" needs a source, but can't be checked)
         "applies": lambda c: any(parse_value(v) is not None for v in c["checkable_values"]),
         "open": False,
         "rule": rule_c2,

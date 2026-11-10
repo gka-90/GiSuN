@@ -38,7 +38,7 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
 
 from gisun import config, llm
-from gisun.agents.check import check_decision, normalize
+from gisun.agents.check import c2_status, check_decision, normalize
 from gisun.agents.debug import failure_entry, run_with_debug
 from gisun.agents.judge import judge
 from gisun.agents.plan import plan
@@ -59,6 +59,8 @@ MODES = {
 def _rule(ctx, claim, cid, why: str) -> dict:
     out = normalize(cid, CRITERIA[cid]["rule"](claim, ctx), ctx)
     out.update(by="rules", note=why)
+    if cid == "C2":
+        out["c2_status"] = c2_status(out, [])
     return out
 
 
@@ -105,6 +107,8 @@ def _run_one(ctx, claim: dict, cid: str, mode: dict) -> dict:
     if final_problems:
         return {**_rule(ctx, claim, cid, f"final check failed: {final_problems}"), "seconds": round(time.time() - t0, 1),
                 "trace": trace}
+    if cid == "C2":
+        decision["c2_status"] = c2_status(decision, res.tool_log)
     return {**decision, "by": "agent", "debug": debug_log, "judge": judge_log, "steps": res.steps,
             "seconds": round(time.time() - t0, 1), "trace": trace}
 

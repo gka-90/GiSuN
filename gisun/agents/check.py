@@ -128,6 +128,42 @@ def _check_c2(answer, decision, evidence, claim, ctx, tool_log) -> list[str]:
     return problems
 
 
+def c2_status(decision: dict, tool_log: list[dict]) -> str:
+    """Why C2 came out as it did, one code (deterministic, from the decision and the tool calls):
+    checked | no_measure | no_place | no_period | no_series | no_series_for_place | no_record |
+    lookup_error | source_conflict | not_comparable | not_looked_up."""
+    if decision.get("decision") in ("met", "not_met"):
+        return "checked"
+    fields = decision.get("claim_fields") or {}
+    old = {"missing_context": None, "no_record": "no_record", "lookup_error": "lookup_error",
+           "source_conflict": "source_conflict", "not_comparable": "not_comparable"}
+    if old.get(decision.get("status")):
+        return old[decision["status"]]
+    calls = [t["output"] for t in tool_log if t.get("tool") == "lookup_statistic" and isinstance(t.get("output"), dict)]
+    if calls:
+        last = calls[-1]
+        records, note = last.get("records") or [], str(last.get("note") or "").lower()
+        if records and fields.get("value"):
+            matches = {c.get("match") for c in c2_outcome(str(fields["value"]), str(fields.get("hedge") or "none"),
+                                                          records)[1] if c.get("comparable")}
+            return "source_conflict" if matches == {True, False} else "not_comparable"
+        if last.get("skipped"):
+            return "lookup_error"
+        if "must be a year" in note:
+            return "no_period"
+        if "can't resolve the place" in note:
+            return "no_place"
+        if note.startswith("no official series for"):
+            return "no_series"
+        if "covers" in note:
+            return "no_series_for_place"
+        return "no_record"
+    for key, code in (("period", "no_period"), ("place", "no_place"), ("measure", "no_measure")):
+        if not str(fields.get(key) or "").strip():
+            return code
+    return "not_looked_up"
+
+
 def normalize(cid: str, answer: dict, ctx=None) -> dict:
     official = ctx.official_records if ctx is not None else {}
 

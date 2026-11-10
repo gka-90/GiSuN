@@ -36,6 +36,9 @@ def main():
                          "claims": [{"sentence": c["sentence"], "risk": c["score"]["risk"],
                                      "criteria": {k: v["decision"] for k, v in c["criteria"].items()},
                                      "reasons": {k: (v.get("reasoning") or "")[:300] for k, v in c["criteria"].items()},
+                                     "by": {k: v.get("by") for k, v in c["criteria"].items()},
+                                     **({"c2_status": c["criteria"]["C2"].get("c2_status")}
+                                        if c["criteria"].get("C2", {}).get("c2_status") else {}),
                                      **({"c2_fields": c["criteria"]["C2"].get("claim_fields")}
                                         if c["criteria"].get("C2", {}).get("claim_fields") else {})}
                                     for c in r["claims"]],
