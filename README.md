@@ -213,9 +213,9 @@ After editing anything in `extension/`, click the ↻ reload button on the GiSuN
 │   ├── run_ablation.py          #   RQ3: full / no_judge / no_debug / task_only
 │   ├── run_all.py               #   tests + gold-file checks + RQ1-RQ3 in one go
 │   ├── zero_tool.py             #   one-call, no-tools baseline
-│   ├── datasets/                #   build test sets: collect, external_testset, own_insertion_set, c4_testset,
+│   ├── datasets/                #   build test sets: collect, external_testset, own_insertion_set,
 │   │                            #   c2_us_testset (-> gold_c2_us.json)
-│   └── labeling/                #   annotate, worksheets (make_worksheet, make_agent_worksheet, split_worksheet),
+│   └── labeling/                #   annotate, worksheets (make_agent_worksheet, split_worksheet),
 │                                #   agreement (Cohen's kappa), finalize_labels
 ├── datasets/                    # Only what runs need: gold_example.json (tests, run_all),
 │                                #   collected/claude_2026-10-12.json (the 50 answers the HPC run checks),
