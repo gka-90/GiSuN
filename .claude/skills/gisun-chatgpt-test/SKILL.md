@@ -44,4 +44,4 @@ but no C1 decision (possible misses). Quote the sentence for each example.
 - A failure caused by a missing package or an unreachable model is an environment problem: say so,
   don't change code for it.
 - These answers are unlabeled; flags here are not accuracy. Accuracy comes from `datasets/gold.json`
-  after both annotators label (`python -m evaluation.labeling.annotate`).
+  after both annotators label.

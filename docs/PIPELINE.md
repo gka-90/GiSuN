@@ -194,9 +194,9 @@ Qwen's `generation_config.json` adds `top_k=20, top_p=0.8, repetition_penalty=1.
 `temperature=0.2`; report these with results.
 
 **Adding C2 measures.** New entries in `data/stat_series.json` carry `"verified": false` and a
-`"test"` (place, period, plausible range); C2 skips them until
-`python -m evaluation.check_series --write` (run on a laptop: it needs the API keys and network)
-has fetched a value inside the range. On 11/8/2026, 11 entries were added from the numbers C2
+`"test"` (place, period, plausible range); C2 skips them until someone has fetched a value inside
+that range with the API keys and set `"verified": true` by hand (the old `check_series.py` script
+that did this was removed). On 11/8/2026, 11 entries were added from the numbers C2
 met in our 50 Claude answers: unemployment by education (BLS), foreign-born population and the
 bachelor's-degree share (Census ACS), health spending per capita, teen birth rate and road-traffic
 death rate (World Bank), and overdose deaths, motor-vehicle deaths, births and adult obesity (Data
@@ -210,7 +210,6 @@ education words, so "unemployment rate of college graduates" is never compared w
 | RQ2 | evaluation/evaluate.py | claim risk agreement |
 | RQ3 | evaluation/run_ablation.py | full / no_judge / no_debug / task_only |
 | RQ4 | (todo) | C2 on a validation set: step 1 (measure / place / period / hedge) accuracy, then the decision |
-| agreement | evaluation/labeling/agreement.py | Cohen's kappa between two people's labels, per criterion |
 | baseline | evaluation/zero_tool.py | one call, no tools |
 | C2 set | evaluation/datasets/c2_us_testset.py | QuanTemp claims (C2 rows of `gold_public_*.json`) the series catalog can look up -> `datasets/gold_c2_us.json` (no API call) |
 | C4 set | built by Gideon in GiSuN_public_datasets.xlsx (C4 tab) | LOGIC (Jin et al. 2022): 100 faulty generalizations (met) vs 100 other fallacies (not_met); false causality and slippery slope left out (closer to C6) -> `datasets/gold_c4_logic.json` |
@@ -283,9 +282,8 @@ the full mode drops below 0.8. `--skip_eval` = tests and checks only.
 ## Gold set from real ChatGPT answers
 65 real ChatGPT answers are collected (`datasets/candidates_*.json`: 50 from WildChat-1M, 15
 from HC3) with blank labeling files in `datasets/annotation/`. Labeling rules, the merge and
-adjudication steps: **[annotation_guide.md](annotation_guide.md)**. Tools:
-`evaluation/datasets/collect.py` (download + filter + sample, `pip install pyarrow` for WildChat) and
-`evaluation/labeling/annotate.py` (`sheet` / `status` / `merge`).
+adjudication steps: **[annotation_guide.md](annotation_guide.md)** (the collect / annotate / agreement
+scripts it describes were removed; the labeled data stays in `datasets/`).
 
 ## Unit tests (no model)
 `python -m unittest discover tests`: a scripted fake model checks the full flow,
@@ -316,7 +314,7 @@ Full list with priorities: *GiSuN: open problems and proposed solutions* (Fall 2
   with internet before HPC runs. The Data Commons calls are written from its v2 docs but not yet
   tried with a key. The headline US median household income (CPS ASEC) is not in the catalog. (#6)
 - Label the 65 collected real ChatGPT answers (`datasets/annotation/`, see the guide), both
-  of you with written guidelines; check agreement with `evaluation/labeling/agreement.py`. (#9, #10)
+  of you with written guidelines. (#9, #10)
 - RQ4: a C2 validation set: label measure / place / period / hedge and the decision per claim;
   step 1 is the hardest part, so measure it first. (#8)
 - The Plan agent ranks nothing yet: the C2 funnel uses extract_claims' rule score. (#3)
