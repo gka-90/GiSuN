@@ -44,7 +44,7 @@
     "C1": "met"
    },
    "During the pandemic, Americans shifted spending from": {
-    "C6": "met"
+    "C6": "not_met"
    },
    "Some economists, like Larry Summers, argued this added too": {
     "C6": "not_met"
@@ -53,7 +53,7 @@
     "C6": "not_met"
    },
    "Russia's invasion of Ukraine in February 2022 caused oil,": {
-    "C6": "not_met"
+    "C6": "met"
    }
   }
  },
@@ -72,10 +72,10 @@
     "C5": "met"
    },
    "This pattern is seen in almost every country as it develops.": {
-    "C6": "met"
+    "C6": "not_met"
    },
    "As women have gained access to higher education and": {
-    "C6": "met"
+    "C6": "not_met"
    },
    "The cost of raising a child in the US is estimated at over": {
     "C1": "met"
@@ -172,7 +172,7 @@
     "C6": "not_met"
    },
    "Evidence from bans: After states like California (in 1996)": {
-    "C6": "met"
+    "C6": "not_met"
    },
    "Representation: It can help produce more doctors, lawyers,": {
     "C6": "not_met"
@@ -319,14 +319,14 @@
   "labels": {
    "Even small losses could wipe them out.": {
     "C4": "not_met",
-    "C6": "met"
+    "C6": "not_met"
    },
    "Many people believed prices would keep rising forever,": {
     "C5": "not_met",
     "C6": "not_met"
    },
    "Rating agencies like Moody's and Standard & Poor's gave": {
-    "C6": "met"
+    "C6": "not_met"
    },
    "When housing prices fell, losses spread rapidly.": {
     "C6": "not_met"
@@ -335,7 +335,7 @@
     "C5": "not_met"
    },
    "Lenders issued huge numbers of mortgages to borrowers with": {
-    "C6": "met"
+    "C6": "not_met"
    },
    "The government responded with a $700 billion bank bailout": {
     "C1": "met"
@@ -477,7 +477,7 @@
     "C1": "met"
    },
    "When the prediction is a good match, effectiveness is": {
-    "C6": "met"
+    "C6": "not_met"
    },
    "When the virus changes after the vaccine is made,": {
     "C6": "not_met"
@@ -614,7 +614,7 @@
     "C6": "not_met"
    },
    "Recovery of normal routines, schools, and jobs": {
-    "C6": "met"
+    "C6": "not_met"
    },
    "Murders spiked in 2020: The US murder rate rose by about": {
     "C1": "met"
@@ -651,7 +651,7 @@
     "C5": "met"
    },
    "Regional differences: A single national wage might be": {
-    "C6": "met"
+    "C6": "not_met"
    },
    "Inflation has eroded its value by roughly 30% since 2009.": {
     "C1": "met"
@@ -685,7 +685,7 @@
   "text": "The debate over abortion laws in the US is one of the most divisive in American politics.\n\n**Background**\nIn 1973, the Supreme Court ruled in **Roe v. Wade** that the Constitution protects a right to abortion, generally up until fetal viability (around 24 weeks). In 1992, **Planned Parenthood v. Casey** upheld that right while allowing states to impose restrictions that didn't create an \"undue burden.\"\n\nIn June 2022, the Court overturned both decisions in **Dobbs v. Jackson Women's Health Organization**, ruling 6-3 that the Constitution does not confer a right to abortion. This returned the power to regulate abortion to the states.\n\n**The current landscape**\nSince Dobbs, around 14 states have enacted near-total bans, and several others ban abortion after about six weeks of pregnancy, before many people know they're pregnant. Other states, such as California, New York, and Illinois, have strengthened protections. Voters in several states, including Kansas, Ohio, and Michigan, have approved ballot measures protecting abortion rights.\n\n**Main arguments**\n\n*Those who support abortion restrictions* (often called \"pro-life\") argue that life begins at conception, that a fetus has a right to life, and that the state has a duty to protect it. Many base this on religious or moral beliefs.\n\n*Those who support abortion rights* (often called \"pro-choice\") argue that people should have control over their own bodies, health, and futures, and that bans endanger women's health, particularly in cases of miscarriage complications or pregnancies that threaten the mother's life.\n\n**Ongoing issues**\nCurrent debates include exceptions for rape, incest, and the health of the mother; access to abortion pills like mifepristone; whether people can travel across state lines for care; and effects on doctors and maternal healthcare. Public opinion polls generally show that about 60% of Americans believe abortion should be legal in all or most cases.",
   "labels": {
    "Since Dobbs, around 14 states have enacted near-total bans,": {
-    "C6": "met"
+    "C6": "not_met"
    },
    "Public opinion polls generally show that about 60% of": {
     "C1": "met"
