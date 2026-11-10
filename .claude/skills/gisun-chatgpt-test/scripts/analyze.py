@@ -12,16 +12,13 @@ sys.path.insert(0, os.getcwd())
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("files", nargs="+")
-    ap.add_argument("--mode", default="rules_only")
+    ap.add_argument("--mode", default="full")
     a = ap.parse_args()
-    if a.mode == "rules_only":
-        os.environ["GISUN_BACKEND"] = "none"
-    else:
-        from gisun import llm
-        try:
-            llm.chat([{"role": "user", "content": "ping"}])
-        except Exception as e:
-            sys.exit(f"model unreachable ({e}); --mode {a.mode} would silently fall back to rules. Start Ollama or the HPC tunnel.")
+    from gisun import llm
+    try:
+        llm.chat([{"role": "user", "content": "ping"}])
+    except Exception as e:
+        sys.exit(f"model unreachable ({e}). Start Ollama or the HPC tunnel.")
     from gisun.pipeline import run
 
     rows, errors = [], []
@@ -63,7 +60,7 @@ def main():
            "criteria": {f"{k} {v}": n for (k, v), n in sorted(crit.items())},
            "met_examples": dict(examples), "answers_detail": rows}
     os.makedirs("evaluation/outputs", exist_ok=True)
-    tag = os.environ.get("GISUN_MODEL", "").split("/")[-1].replace(":", "-") if a.mode != "rules_only" else ""
+    tag = os.environ.get("GISUN_MODEL", "").split("/")[-1].replace(":", "-")
     src = "chatgpt" if any("candidates_" in f for f in a.files) else os.path.splitext(os.path.basename(a.files[0]))[0]
     base = os.path.join("evaluation/outputs", f"{src}_{a.mode}" + (f"_{tag}" if tag else ""))
     json.dump(out, open(base + ".json", "w"), indent=1, ensure_ascii=False)

@@ -3,7 +3,7 @@ C2 test set: the QuanTemp claims (the C2 rows of datasets/gold_public_*.json) th
 catalog (data/stat_series.json) can actually look up. On the full public set C2 made no flag on
 67 QuanTemp claims, because almost none of them are about a measure the catalog has.
 
-A claim is kept when the C2 rules' own step 1 (criteria.c2_fields_from_text) pins down a value,
+A claim is kept when the step-1 rules below (c2_fields_from_text) pins down a value,
 a catalog measure, one place and one period from the text, the place is the United States or a
 U.S. state, and some catalog series covers that place and frequency (retrieval.usable_series) in
 the claim's unit (a percent for a rate, dollars for a wage: "$175 a month" is not a CPI rate).
@@ -22,11 +22,47 @@ import sys
 from collections import Counter
 
 sys.path.insert(0, os.getcwd())
+import re
+
 from gisun import config
-from gisun.criteria import _measure_in, c2_fields_from_text
 from gisun.preprocess import match_claim, preprocess
-from gisun.tools.numbers import parse_value
-from gisun.tools.retrieval import resolve_place, usable_series
+from gisun.tools.numbers import hedge_of, parse_value
+from gisun.tools.retrieval import (implied_period, implied_places, matching_series, periods_in, places_in,
+                                   resolve_place, usable_series)
+
+# ---- step 1 by rules: used only to pick which public claims the catalog can look up; the agents
+# extract these fields themselves.
+
+def _measure_in(text: str) -> str | None:
+    """The longest catalog alias named in the text."""
+    return max((a for e in matching_series(text) for a in e["aliases"]
+                if re.search(r"(?<![a-z])" + re.escape(a) + r"s?(?![a-z])", text.lower())), key=len, default=None)
+
+
+def _c2_partial_fields(claim, question: str = "") -> dict:
+    """Step 1 by rules: measure, place, period, hedge, value. Each comes from the claim first, then the
+    two sentences before it, then the user's question. A field that can't be pinned down is None."""
+    texts = [claim["sentence"], " ".join(claim["context_before"]), question or ""]
+    measure = next((m for t in texts if (m := _measure_in(t))), None)
+    places = next((p for t in texts if (p := places_in(t))), []) or next(
+        (p for t in texts if (p := implied_places(t))), [])
+    periods = next((p for t in texts if (p := periods_in(t))), [])
+    # "(2009): ... in October 2009" gives 2009 and 2009-10: the month is the same period, more precisely
+    periods = [p for p in periods if not any(q != p and q.startswith(p + "-") for q in periods)]
+    if not periods and (latest := implied_period(claim["sentence"])):
+        periods = [latest]  # present tense, no time stated: the latest full year
+    value = claim["checkable_values"][0] if claim["checkable_values"] else None
+    return {"value": value, "measure": measure,
+            "place": places[0]["name"] if len(places) == 1 else None,
+            "period": periods[0] if len(periods) == 1 else None,
+            "hedge": hedge_of(claim["sentence"], value) if value else "none"}
+
+
+def c2_fields_from_text(claim, question: str = "") -> dict | None:
+    """Strict version of step 1: all of measure, place, period and value, or None."""
+    f = _c2_partial_fields(claim, question)
+    return f if all(f[k] for k in ("value", "measure", "place", "period")) else None
+
 
 SOURCES = "datasets/gold_public_*.json"
 OUT = "datasets/gold_c2_us.json"

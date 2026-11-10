@@ -63,7 +63,7 @@ class Forced(unittest.TestCase):
         self.assertTrue(r["forced_criteria"])
         for claim, cid in ((shea, "C5"), (shea, "C1"), (tax, "C6")):
             with self.subTest(cid=cid):
-                self.assertIn(claim["criteria"][cid]["by"], ("agent", "rules"))  # rules = the Check agent's fallback
+                self.assertIn(claim["criteria"][cid]["by"], ("agent", "failed", "prefilter"))  # failed = the Check agent rejected it
                 self.assertTrue(claim["criteria"][cid]["forced"])  # not chosen by the routing
                 self.assertNotIn(cid, r["plan"]["routed"][str(claim["claim_id"])])
         self.assertFalse(shea["criteria"]["C3"]["forced"])  # routed as usual

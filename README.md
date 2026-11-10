@@ -88,7 +88,7 @@ Every detector returns flags in the same shape, and `/verify` returns them sorte
 
 Done so far (details in git history and docs/PIPELINE.md):
 - Tier 1 detectors: numbers and statistics (131/140 examples of *Statistic Formats for Claim Detection*), bias word list (269 terms), sentence splitting, source detection.
-- Chrome extension: agent-decided highlights with rule fallback, citation / in-your-face modes, prebunking banner, gate question.
+- Chrome extension: agent-decided highlights, citation / in-your-face modes, prebunking banner, gate question.
 - Multi-agent pipeline (Plan / Task / Check / Debug / Judge) on C1-C6 with deterministic scoring, served by `/pipeline`; runs on the Hamilton HPC (Qwen2.5-32B-Instruct-AWQ, vLLM).
 - C2 checks numbers against official statistics (BLS, Census, World Bank, Data Commons), cached, with hedge-aware tolerances. API keys go in `.env` (git-ignored).
 - Evaluation: 184 agent decisions on 50 Claude answers labeled by both of us (disagreements settled 10/27); public test sets for C1, C2, C3, C5, C6; our own insertion set including C4.
@@ -135,7 +135,7 @@ uvicorn server:app --port 8000 --reload
 ```
 Check it's up by opening http://localhost:8000/docs (you can try `/verify` from there).
 
-### 3. Local LLM (Ollama + Qwen) — needed for `/pipeline` (except `mode: rules_only`)
+### 3. Local LLM (Ollama + Qwen) — needed for `/pipeline`
 ```bash
 brew install ollama
 brew services start ollama
@@ -210,7 +210,7 @@ After editing anything in `extension/`, click the ↻ reload button on the GiSuN
 │
 ├── evaluation/                  # Measuring GiSuN
 │   ├── evaluate.py              #   RQ1/RQ2: criterion accuracy / P / R / F1, risk agreement
-│   ├── run_ablation.py          #   RQ3: full / no_judge / no_debug / task_only / rules_only
+│   ├── run_ablation.py          #   RQ3: full / no_judge / no_debug / task_only
 │   ├── run_all.py               #   tests + gold-file checks + RQ1-RQ3 in one go
 │   ├── zero_tool.py             #   one-call, no-tools baseline
 │   ├── datasets/                #   build test sets: collect, external_testset, own_insertion_set, c4_testset,

@@ -39,7 +39,7 @@ The user may give other prompts: add them to a copy of prompts.json with the sam
    ```bash
    python .claude/skills/gisun-chatgpt-test/scripts/analyze.py datasets/collected/claude_<date>.json
    ```
-   This is the quick rules_only pass (no model). The agent pass (Plan/Task/Judge with Qwen 32B) runs on
+   The analysis needs a model (Plan/Task/Judge with Qwen 32B); it runs on
    the HPC: commit and push the json, then on the HPC login node
    `git pull && DATA=datasets/collected/claude_<date>.json sbatch hpc/run_chatgpt_test.slurm`.
    Tell the user these two commands; the agent report lands in `evaluation/outputs/claude_<date>_full_<model>.md`.

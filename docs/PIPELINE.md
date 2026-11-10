@@ -35,8 +35,10 @@ scoring.py         claim risk (low/medium/high, +unverified) and response level 
 | C5 | vague_attribution | "experts say" instead of a source? | find_attribution, context_window | yes |
 | C6 | unsupported_causal_claim | cause-effect with no evidence? | find_attribution, context_window | yes |
 
-Each criterion also has a deterministic `rule`, used in `rules_only` mode and as the
-fallback when an agent fails (`by: "rules"` in the output).
+Every decision is made by the Task agent. There is no rule version of a criterion and no rules-only
+mode. If an agent fails (or the final Check rejects its answer) the result is `undetermined` with
+`by: "failed"` and the reason in `note`; C6's pre-filter (below) is the only code that decides
+(`by: "prefilter"`).
 
 **Guidance = labeling rules.** The `guidance` the Task and Judge agents see for C3-C6 uses the
 wording and examples of [labeling_rules.md](labeling_rules.md), so the agent and the labelers
@@ -44,9 +46,7 @@ judge the same way (`tests/test_labeling_rules.py` checks every example is in bo
 get the "rules for every criterion" (`SHARED_RULES`: headings and fragments are never met,
 reported viewpoints aren't the answer's claim, common knowledge counts as support, the two
 previous sentences count, when in doubt not_met). The Judge treats `met` on a case the guidance
-lists as not_met as a concrete error. The rules follow too: `rule_c5` doesn't flag opinion
-holders from the word list ("critics argue", "some people say"), the C3/C4 term rule and
-`rule_c5` say not_met for headings and reported viewpoints, and "doesn't always" is a hedge.
+lists as not_met as a concrete error.
 
 **C6 pre-filter.** A criterion may have a `prefilter(claim)`: a reason when the sentence can be
 decided `not_met` without a model. C6 has one (`c6_prefilter`): headings, questions and
@@ -54,17 +54,16 @@ fragments (`heading_or_fragment`: a bold or `#` line with no sentence ending, a 
 colon lead-in, an unpunctuated line under 8 words), reported viewpoints (`reported_viewpoint`:
 "Critics argue", "Some economists, like Larry Summers, argued", "Jonathan Haidt ... argues";
 not "studies show", which is still a claim), and a named source in the sentence. Those get the
-rule's `not_met` (`by: "rules"`, `note: "pre-filter: ..."`) and never reach the C6 agent. On
+`not_met` (`by: "prefilter"`, `note: "pre-filter: ..."`) and never reach the C6 agent. On
 `gold_answers.json` it decides 20 not_met C6 rows and 1 met row (a fragment, against rule 2), on
 the public sets 2 not_met and no met row.
 
 **Which claims get which criteria.** `applies(claim)` is the rule gate: C1 for a statistic,
 C3/C4/C5 for a word-list hit, C6 for causal wording, C2 for a number `compare_numbers` can
-read (not "most Americans"). In model modes, the **open** criteria (C3-C6) also run on every
+read (not "most Americans"). The **open** criteria (C3-C6) also run on every
 other factual sentence, including ones no detector flagged (`detector_hit: false` in the
 output), because the agents can only catch what the rules miss if they see those sentences.
-`rules_only` keeps the gates (the rules have nothing to say about unflagged sentences), so it
-stays the same baseline. Turn this off with `GISUN_OPEN_CRITERIA=0`. In model modes C1 is also
+Turn this off with `GISUN_OPEN_CRITERIA=0`. C1 is also
 offered for any number the detector doesn't flag ("a density of 11.34 g/cm3", "averaging 22 °C";
 `numbers_in` skips years and calendar days).
 
@@ -100,13 +99,15 @@ undetermined).
    isn't the sentence's, that cites a figure not fetched in this run, leaves out a figure the
    lookup returned, skips compare_numbers, or disagrees with the tolerance rules.
 
-The rule (`rules_only`) does the same steps with no model: measure from the catalog aliases,
-place and period from the text, one of each or `undetermined`.
+Every C2 result also carries a `c2_status` reason code (`checked`, `no_series`, `no_series_for_place`,
+`no_period`, `no_place`, `no_measure`, `no_record`, `lookup_error`, `source_conflict`, `not_comparable`,
+`not_looked_up`, `agent_failed`), computed by `check.c2_status` from the claim fields and the
+lookup tool's answer, so "undetermined" says why.
 
 **Quantitative claims without numbers.** "The highest ever", "a record low", "skyrocketed",
 "outpaced inflation" (the statistic-formats reference's "claims without explicit numbers") make a
-claim quantitative with no digits. In model modes C1 also runs on those (the `quantitative` cue in
-gisun/detectors/claims.py); `rules_only` keeps its narrower gate. C2 only runs on values it can compare
+claim quantitative with no digits. C1 also runs on those (the `quantitative` cue in
+gisun/detectors/claims.py). C2 only runs on values it can compare
 (percentages, amounts, counts, ratios), not on scores, rankings or research statistics.
 
 **Scoring.** C1 and C5 usually describe the same missing source, so together they add at
@@ -127,8 +128,6 @@ Every criterion the Plan agent or the funnel drops is logged in the result's `pl
 ```bash
 # laptop (Ollama)
 GISUN_MODEL=qwen2.5:7b python -m gisun.pipeline --text "..." --mode full
-# no model
-python -m gisun.pipeline --text "..." --mode rules_only
 # browser: start the backend, load the extension, click any highlight (see README)
 ```
 
@@ -209,7 +208,7 @@ education words, so "unemployment rate of college graduates" is never compared w
 |---|---|---|
 | RQ1 | evaluation/evaluate.py | criterion-level accuracy / P / R / F1 |
 | RQ2 | evaluation/evaluate.py | claim risk agreement |
-| RQ3 | evaluation/run_ablation.py | full / no_judge / no_debug / task_only / **rules_only** |
+| RQ3 | evaluation/run_ablation.py | full / no_judge / no_debug / task_only |
 | RQ4 | (todo) | C2 on a validation set: step 1 (measure / place / period / hedge) accuracy, then the decision |
 | agreement | evaluation/labeling/agreement.py | Cohen's kappa between two people's labels, per criterion |
 | baseline | evaluation/zero_tool.py | one call, no tools |
@@ -255,11 +254,11 @@ actually runs on a laptop.
 - **C2** made no flag on the 67 QuanTemp claims: none of the 200 QuanTemp claims is about a
   measure, place and period the catalog covers (`c2_us_testset.py`: 118 have no comparable number,
   67 a measure outside the catalog). A C2 test set has to come from the catalog's own measures.
-- **C4** has 4 met of 447 pairs in our data -> the LOGIC set (rules_only on it: P 0.71, R 0.10).
+- **C4** has 4 met of 447 pairs in our data -> the LOGIC set (an earlier rules-only baseline on it: P 0.71, R 0.10; that mode has since been removed).
   LOGIC's "faulty generalization" also holds slippery-slope and one-case inferences (about 10 of 50).
 
 ### Results so far (4-item example set, 15 gold pairs: a smoke test, not evidence)
-`rules_only`: F1 0.84, but **C2 F1 0.0** (rules can't verify numbers) and C1 misses "The 2020
+Earlier `rules_only` baseline (removed since): F1 0.84, but **C2 F1 0.0** (rules can't verify numbers) and C1 misses "The 2020
 Census counted ..." (no attribution verb).
 
 Qwen2.5-32B-Instruct-AWQ, vLLM 0.22.1, one RTX PRO 6000 (Oct 4, 2026, before the open-criteria change):
@@ -277,10 +276,9 @@ gold pairs, because the Plan agent dropped criteria; their lower scores mostly m
 
 ## Automated tests
 `python -m evaluation.run_all` runs, in one go: the unit tests, a format check of every gold
-file, and RQ1-RQ3 on `datasets/gold_example.json` and `datasets/gold.json` (rules_only always;
-the model modes only if the model backend answers). Report: `evaluation/outputs/report_<time>/report.md`.
+file, and RQ1-RQ3 on `datasets/gold_example.json` and `datasets/gold.json` (the evaluation needs a model backend; without one only the tests and checks run). Report: `evaluation/outputs/report_<time>/report.md`.
 Exit code 1 if a test fails or a gold file is malformed; `--min_f1 0.8` also fails it when
-rules_only drops below 0.8 (a guard for detector changes). `--skip_eval` = tests and checks only.
+the full mode drops below 0.8. `--skip_eval` = tests and checks only.
 
 ## Gold set from real ChatGPT answers
 65 real ChatGPT answers are collected (`datasets/candidates_*.json`: 50 from WildChat-1M, 15
@@ -291,7 +289,7 @@ adjudication steps: **[annotation_guide.md](annotation_guide.md)**. Tools:
 
 ## Unit tests (no model)
 `python -m unittest discover tests`: a scripted fake model checks the full flow,
-rejection of an invented quote, judge revisions, rule fallback when the backend is down,
+rejection of an invented quote, judge revisions, a failed agent recorded as undetermined when the backend is down,
 open criteria on unflagged sentences, the C1+C5 cap and the C2 funnel. `tests/test_c2.py`: the
 C2 tolerances, API routing, cache, offline mode and the Check agent's C2 rules, with the APIs
 answered by `tests/fake_stats.py`. `tests/test_c6.py`: the C6 pre-filter and guidance with the

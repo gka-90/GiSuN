@@ -10,7 +10,8 @@ from unittest.mock import patch
 
 from gisun import config
 from gisun.agents.check import check_decision, normalize
-from gisun.criteria import c2_fields_from_text, c2_outcome
+from evaluation.datasets.c2_us_testset import c2_fields_from_text
+from gisun.criteria import c2_outcome
 from gisun.preprocess import preprocess
 from gisun.tools import retrieval
 from gisun.tools.numbers import compare_numbers, hedge_of

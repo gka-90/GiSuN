@@ -77,11 +77,6 @@ class KeepRule(unittest.TestCase):
             with self.subTest(s=c["sentence"]):
                 self.assertEqual("C1" in c["criteria"], c["sentence"] in NUMBERS)
 
-    def test_rules_only_baseline_is_unchanged(self):
-        llm.set_backend(None)
-        r = run(" ".join(NUMBERS), mode="rules_only")
-        self.assertFalse(any("C1" in c["criteria"] for c in r["claims"]))
-
 
 if __name__ == "__main__":
     unittest.main()

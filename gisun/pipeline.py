@@ -14,10 +14,11 @@ Modes (for the ablation study, RQ3):
     full        plan + task + debug + judge
     no_judge    plan + task + debug
     no_debug    plan + task + judge
-    task_only   task agent only (rule plan, no debug, no judge)
-    rules_only  no model at all (the current Tier 1 system) -- the baseline to beat
+    task_only   task agent only (detector-based plan, no debug, no judge)
 
-A task that fails in any mode falls back to the criterion's rule, marked by="rules".
+Every decision comes from the Task agent. The only exception is the C6 pre-filter (a heading or a
+reported viewpoint is never an unsupported causal claim), marked by="prefilter". A task that fails
+is recorded as "undetermined" with by="failed" and the reason, never guessed by a rule.
 
 Forced criteria (evaluation only, GISUN_FORCE_CRITERIA=1 or run(..., force=labels)): every
 criterion a gold label asks about runs on its sentence, even if the rules didn't offer it or the
@@ -52,25 +53,31 @@ MODES = {
     "no_judge":   {"plan": True,  "task": True,  "debug": True,  "judge": False},
     "no_debug":   {"plan": True,  "task": True,  "debug": False, "judge": True},
     "task_only":  {"plan": False, "task": True,  "debug": False, "judge": False},
-    "rules_only": {"plan": False, "task": False, "debug": False, "judge": False},
 }
 
 
-def _rule(ctx, claim, cid, why: str) -> dict:
-    out = normalize(cid, CRITERIA[cid]["rule"](claim, ctx), ctx)
-    out.update(by="rules", note=why)
+def _gap(ctx, cid, why: str) -> dict:
+    """The agent produced no usable decision: say so ("undetermined") instead of guessing."""
+    out = normalize(cid, {"decision": "undetermined", "strength": "supporting", "reasoning": why,
+                          "evidence": []}, ctx)
+    out.update(by="failed", note=why)
     if cid == "C2":
-        out["c2_status"] = c2_status(out, [])
+        out["c2_status"] = "agent_failed"
+    return out
+
+
+def _prefiltered(ctx, cid, why: str) -> dict:
+    out = normalize(cid, {"decision": "not_met", "strength": "supporting", "reasoning": why,
+                          "evidence": []}, ctx)
+    out.update(by="prefilter", note=why)
     return out
 
 
 def _run_one(ctx, claim: dict, cid: str, mode: dict) -> dict:
     t0 = time.time()
-    if not mode["task"]:
-        return {**_rule(ctx, claim, cid, "rules_only mode"), "seconds": 0.0, "trace": []}
     prefilter = CRITERIA[cid].get("prefilter")
     if prefilter and (why := prefilter(claim)):  # decided without a model: never sent to the agent
-        return {**_rule(ctx, claim, cid, f"pre-filter: {why}"), "seconds": 0.0, "trace": []}
+        return {**_prefiltered(ctx, cid, f"pre-filter: {why}"), "seconds": 0.0, "trace": []}
 
     attempt = lambda fb: run_task(ctx, claim, cid, feedback=fb)
     if mode["debug"]:
@@ -85,7 +92,7 @@ def _run_one(ctx, claim: dict, cid: str, mode: dict) -> dict:
             res, debug_log = None, [{"attempt": 1, "error": str(e)}]
 
     if res is None:
-        return {**_rule(ctx, claim, cid, "agent failed; rule fallback"), "debug": debug_log,
+        return {**_gap(ctx, cid, "the agent produced no decision"), "debug": debug_log,
                 "seconds": round(time.time() - t0, 1), "trace": []}
 
     decision, trace, judge_log = normalize(cid, res.answer, ctx), list(res.trace), []
@@ -105,7 +112,7 @@ def _run_one(ctx, claim: dict, cid: str, mode: dict) -> dict:
 
     final_problems = check_decision(cid, decision, claim, ctx, res.tool_log)  # Check agent, final pass
     if final_problems:
-        return {**_rule(ctx, claim, cid, f"final check failed: {final_problems}"), "seconds": round(time.time() - t0, 1),
+        return {**_gap(ctx, cid, f"final check failed: {final_problems}"), "seconds": round(time.time() - t0, 1),
                 "trace": trace}
     if cid == "C2":
         decision["c2_status"] = c2_status(decision, res.tool_log)
@@ -138,12 +145,11 @@ def run(text: str, question: str = "", mode: str = "full", keep_trace: bool = Tr
     if mode not in MODES:
         raise ValueError(f"mode must be one of {list(MODES)}")
     m = dict(MODES[mode])
-    if m["task"] and not llm.available():
-        m = dict(MODES["rules_only"])
-        mode = "rules_only (no model backend)"
+    if not llm.available():
+        raise llm.LLMError("no model backend: set GISUN_BACKEND (ollama or openai_compat) and GISUN_MODEL")
     t0 = time.time()
-    # Model modes also look at sentences the detectors missed (open problem #1); rules_only can't use them
-    open_criteria = m["task"] and config.OPEN_CRITERIA
+    # The agents also look at sentences the detectors missed (open problem #1)
+    open_criteria = config.OPEN_CRITERIA
     ctx = preprocess(text, question, all_sentences=open_criteria or bool(force))
     the_plan = plan(ctx, use_model=m["plan"], open_criteria=open_criteria)
     routed = {k: list(v) for k, v in the_plan["tasks"].items()}
@@ -183,7 +189,7 @@ def run(text: str, question: str = "", mode: str = "full", keep_trace: bool = Tr
                            "criteria": decisions, "score": score_claim(decisions)})
     by = [d["by"] for c in claims_out for d in c["criteria"].values()]
     return {
-        "mode": mode, "model": config.MODEL if m["task"] else None, "backend": config.BACKEND if m["task"] else None,
+        "mode": mode, "model": config.MODEL, "backend": config.BACKEND,
         "judge_model": config.JUDGE_MODEL if m["judge"] else None, "open_criteria": open_criteria,
         "question": question, "text": text,
         "forced_criteria": bool(force),

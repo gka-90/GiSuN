@@ -9,7 +9,7 @@ import re
 import unittest
 
 from gisun import llm
-from gisun.criteria import CRITERIA, c6_prefilter, rule_c6
+from gisun.criteria import CRITERIA, c6_prefilter
 from gisun.pipeline import run
 from gisun.preprocess import preprocess
 from gisun.tools.language import heading_or_fragment, reported_viewpoint
@@ -95,14 +95,12 @@ class PreFilter(unittest.TestCase):
                 self.assertIsNone(heading_or_fragment(s))
                 self.assertIsNone(reported_viewpoint(s))
 
-    def test_rule_uses_the_prefilter(self):
+    def test_prefilter_fires_for_attributed_claims(self):
         for s in ATTRIBUTED:
             ctx = preprocess(s, all_sentences=True)
             with self.subTest(s=s):
                 self.assertIsNotNone(c6_prefilter(ctx.claims[0]))
-                self.assertEqual(rule_c6(ctx.claims[0], ctx)["decision"], "not_met")
-        ctx = preprocess(STUDIES)
-        self.assertEqual(rule_c6(ctx.claims[0], ctx)["decision"], "met")
+        self.assertIsNone(c6_prefilter(preprocess(STUDIES).claims[0]))
 
     def test_a_capitalized_preposition_is_not_a_source(self):
         s = ("- **Evidence from bans:** After states like California (in 1996) and Michigan (in 2006) banned "
@@ -132,7 +130,7 @@ class AgentSide(unittest.TestCase):
         for sentence, d in got.items():
             with self.subTest(s=sentence):
                 self.assertEqual(d["decision"], "not_met")
-                self.assertEqual(d["by"], "rules")
+                self.assertEqual(d["by"], "prefilter")
                 self.assertIn("pre-filter", d["note"])
         self.assertEqual(self.model.c6_tasks, [], "no C6 task for a heading or a reported viewpoint")
 

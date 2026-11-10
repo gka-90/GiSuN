@@ -3,15 +3,14 @@ One command for everything that can be checked automatically:
 
     1. unit tests (tests/, no model needed)
     2. gold files are well-formed: valid decisions, every labeled sentence is in the item's text
-    3. RQ1-RQ3 on each gold file: rules_only always; the model modes only if the model backend
-       answers (an unreachable model would silently turn every mode into the rule fallback)
+    3. RQ1-RQ3 on each gold file with the agent modes, only if the model backend answers
+       (with no model nothing can be decided, so the evaluation is skipped)
 
 Writes report.md + report.json to evaluation/outputs/report_<time>/ and exits non-zero if a
-test fails, a gold file is malformed, or rules_only F1 drops below --min_f1 (a regression guard
-for detector changes).
+test fails, a gold file is malformed, or F1 of the "full" mode drops below --min_f1.
 
     python -m evaluation.run_all                              # datasets/gold_example.json (+ datasets/gold.json if present)
-    python -m evaluation.run_all --gold datasets/gold.json --modes rules_only task_only
+    python -m evaluation.run_all --gold datasets/gold.json --modes full task_only
     python -m evaluation.run_all --skip_eval                  # unit tests + gold checks only
 """
 
@@ -115,9 +114,9 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--gold", nargs="+", default=None)
     ap.add_argument("--modes", nargs="+", default=None, choices=list(MODES),
-                    help="default: rules_only, plus every model mode if the model answers")
+                    help="default: every mode, if the model answers")
     ap.add_argument("--skip_eval", action="store_true")
-    ap.add_argument("--min_f1", type=float, default=None, help="fail if rules_only F1 is below this")
+    ap.add_argument("--min_f1", type=float, default=None, help="fail if the full mode's F1 is below this")
     ap.add_argument("--force_criteria", action="store_true", default=config.FORCE_CRITERIA,
                     help="run every labeled criterion and report routed vs forced (default: GISUN_FORCE_CRITERIA)")
     a = ap.parse_args()
@@ -130,9 +129,10 @@ def main() -> int:
 
     reachable, model_note = model_reachable() if not a.skip_eval else (False, "skipped")
     report["model"] = model_note
-    modes = a.modes or (list(MODES) if reachable else ["rules_only"])
-    if not reachable and any(MODES[m]["task"] for m in modes):
-        print(f"warning: {model_note}; model modes will fall back to rules_only", file=sys.stderr)
+    modes = a.modes or list(MODES)
+    if not reachable and not a.skip_eval:
+        print(f"warning: {model_note}; skipping the evaluation (no model, no decisions)", file=sys.stderr)
+        a.skip_eval = True
 
     for path in a.gold or [p for p in DEFAULT_GOLD if os.path.exists(p)]:
         entry = {"check": check_gold(path)}
@@ -143,9 +143,9 @@ def main() -> int:
         root = os.path.join(out_dir, os.path.splitext(os.path.basename(path))[0])
         entry["outputs"] = root
         entry["modes"] = ablate(path, modes, root, force=a.force_criteria)
-        f1 = entry["modes"].get("rules_only", {}).get("f1")
+        f1 = entry["modes"].get("full", {}).get("f1")
         if a.min_f1 is not None and f1 is not None and f1 < a.min_f1:
-            report["regressions"].append(f"{path}: rules_only F1 {f1} < {a.min_f1}")
+            report["regressions"].append(f"{path}: full F1 {f1} < {a.min_f1}")
 
     report["seconds"] = round(time.time() - t0, 1)
     os.makedirs(out_dir, exist_ok=True)

@@ -1,6 +1,6 @@
 """
 The agents get the same rules as the labelers: every example sentence in docs/labeling_rules.md
-for C3-C6 is in that criterion's guidance, and the fallback rules follow the same rules.
+for C3-C6 is in that criterion's guidance.
     python -m unittest tests.test_labeling_rules
 """
 
@@ -22,11 +22,6 @@ EXAMPLES = {
 }
 
 
-def rule(cid, text):
-    ctx = preprocess(text)
-    return CRITERIA[cid]["rule"](ctx.claims[0], ctx)["decision"]
-
-
 class GuidanceMirrorsTheLabelingRules(unittest.TestCase):
     def test_examples(self):
         with open("docs/labeling_rules.md", encoding="utf-8") as f:
@@ -44,23 +39,6 @@ class GuidanceMirrorsTheLabelingRules(unittest.TestCase):
         for words in ("headings, questions and fragments", "reported viewpoints", "common knowledge",
                       "two previous sentences", "When in doubt, decide 'not_met'"):
             self.assertIn(words, SHARED_RULES)
-
-
-class FallbackRules(unittest.TestCase):
-    def test_c5_opinion_holders_are_not_vague_attribution(self):
-        self.assertEqual(rule("C5", "Critics argue these costs fall hardest on working-class people."), "not_met")
-        self.assertEqual(rule("C5", "Some people say the city has never been safer."), "not_met")
-
-    def test_c5_fact_resting_on_studies(self):
-        self.assertEqual(rule("C5", "Studies show it lowers the risk of hospitalization and death."), "met")
-        self.assertEqual(rule("C5", "Experts say the recovery was a disaster for small businesses."), "met")
-
-    def test_c4_hedge_and_universal(self):
-        self.assertEqual(rule("C4", "More time doesn't always mean better results."), "not_met")
-        self.assertEqual(rule("C4", "Remote work always increases productivity for every team."), "met")
-
-    def test_reported_wording_is_not_loaded_use(self):
-        self.assertEqual(rule("C4", "Critics argue that the program always fails the poorest families."), "not_met")
 
 
 if __name__ == "__main__":

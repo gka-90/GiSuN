@@ -10,7 +10,6 @@ from unittest.mock import patch
 
 from gisun import config, llm
 from gisun.agents.check import check_decision
-from gisun.criteria import rule_c1
 from gisun.pipeline import run
 from gisun.preprocess import preprocess
 from gisun.scoring import score_claim
@@ -104,17 +103,21 @@ class PipelineTest(unittest.TestCase):
         self.assertEqual(len(d["judge"]), 2)
         self.assertTrue(d.get("judge_disputed"))
 
-    def test_backend_failure_falls_back_to_rules(self):
+    def test_backend_failure_is_a_gap_not_a_guess(self):
         def broken(messages, tools):
             raise llm.LLMError("connection refused")
         llm.set_backend(broken)
         r = run(TEXT, mode="full")
-        self.assertTrue(all(d["by"] == "rules" for c in r["claims"] for d in c["criteria"].values()))
-        self.assertEqual(r["plan"]["by"], "rules")
+        decisions = [d for c in r["claims"] for d in c["criteria"].values()]
+        self.assertTrue(decisions)
+        self.assertTrue(all(d["by"] == "failed" and d["decision"] == "undetermined" for d in decisions))
+        self.assertEqual(r["plan"]["by"], "rules")  # only the routing falls back to the detector candidates
 
-    def test_rules_only_needs_no_model(self):
-        r = run(TEXT, mode="rules_only")
-        self.assertEqual(r["claims"][0]["criteria"]["C1"]["decision"], "met")
+    def test_no_model_backend_raises(self):
+        llm.set_backend(None)
+        with patch.object(config, "BACKEND", "none"):
+            with self.assertRaises(llm.LLMError):
+                run(TEXT, mode="full")
 
     def test_check_rejects_c2_without_comparison(self):
         ctx = preprocess(TEXT)
@@ -139,7 +142,6 @@ class PipelineTest(unittest.TestCase):
         unflagged = next(c for c in full["claims"] if c["sentence"].startswith("Every worker"))
         self.assertFalse(unflagged["detector_hit"])
         self.assertTrue({"C3", "C4", "C5", "C6"} <= set(unflagged["criteria"]))
-        self.assertFalse(any(c["sentence"].startswith("Every worker") for c in run(text, mode="rules_only")["claims"]))
 
     def test_open_criteria_can_be_turned_off(self):
         llm.set_backend(FakeModel())
@@ -153,21 +155,6 @@ class PipelineTest(unittest.TestCase):
         llm.set_backend(FakeModel())
         claim = run(text, mode="full")["claims"][0]
         self.assertIn("C1", claim["criteria"])
-        self.assertEqual(run(text, mode="rules_only")["claims"], [])  # the rules baseline is unchanged
-        ctx = preprocess(text, all_sentences=True)
-        self.assertIn("highest level ever", rule_c1(ctx.claims[0], ctx)["evidence"][0]["quote"])
-
-    # open problem #7 / C2 step 1: same measure, place and period, all stated in the text
-    def test_c2_rule_needs_measure_place_and_period(self):
-        # 3.7 percent is the 2019 figure: it must not confirm a claim with no year
-        r = run("According to the Bureau of Labor Statistics, the U.S. unemployment rate is 3.7 percent.", mode="rules_only")
-        self.assertEqual(r["claims"][0]["criteria"]["C2"]["decision"], "undetermined")
-        r = run("Unemployment peaked at 14.8% in April 2020.", mode="rules_only")  # no place
-        self.assertEqual(r["claims"][0]["criteria"]["C2"]["decision"], "undetermined")
-        r = run("U.S. unemployment peaked at 14.8% in April 2020.", mode="rules_only")
-        c2 = r["claims"][0]["criteria"]["C2"]
-        self.assertEqual(c2["decision"], "not_met")
-        self.assertEqual(c2["evidence"][0]["official"]["series_id"], "LNS14000000")
 
     def test_check_rejects_contradiction_without_year(self):
         ctx = preprocess("The U.S. unemployment rate is 12%.")
@@ -194,7 +181,8 @@ class PipelineTest(unittest.TestCase):
     def test_c2_funnel_logs_dropped_claims(self):
         text = "Sales rose 5% in 2020. Costs rose 7% in 2021. Prices rose 9% in 2022."
         with patch.object(config, "C2_MAX_CLAIMS", 1):
-            r = run(text, mode="rules_only")
+            llm.set_backend(FakeModel())
+            r = run(text, mode="full")
         self.assertEqual(sum("C2" in c["criteria"] for c in r["claims"]), 1)
         self.assertEqual(sum(n.get("by") == "funnel" for n in r["plan"]["notes"]), 2)
 

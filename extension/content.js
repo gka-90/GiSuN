@@ -479,8 +479,8 @@ function renderDeepResult(panel, claim, result) {
         `Source: ${o.source}, series ${o.series_id}: ${o.value_text} for ${o.period} (looked up ${o.query_date})`));
       else if (e.source && e.source !== "response") item.appendChild(makeEl("div", "gisun-deep-source", `Source (${e.source}): "${e.quote}"`));
     }
-    if (d.by === "rules" && result.agent_share) {
-      item.appendChild(makeEl("div", "gisun-deep-meta", "Decided by the rules (the agent didn't finish)."));
+    if (d.by === "failed") {
+      item.appendChild(makeEl("div", "gisun-deep-meta", "The agent didn't finish this check."));
     }
     list.appendChild(item);
   }

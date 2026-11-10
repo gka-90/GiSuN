@@ -16,28 +16,21 @@ treat all criteria the same way.
                         trigger for it (open problem #1: the agents can only catch what
                         the rules miss if they get to see those sentences); or a
                         function(claim) that says which extra claims it runs on
-    rule(claim, ctx)    deterministic decision: used in rules_only mode and as the
-                        fallback when the agent fails (like the variant pipeline's
-                        error path, but with an answer instead of a gap)
     prefilter(claim)    optional: a reason string when the sentence can be decided "not_met"
                         without a model (a heading, a reported viewpoint); the pipeline then
-                        uses the rule and never sends the claim to the task agent
+                        records "not_met" and never sends the claim to the task agent
 
 The guidance follows docs/labeling_rules.md (same wording and examples), so the agents and
 the human labelers apply the same rules.
 
-A decision is always one of DECISIONS. Finer reasons (for C2: why it is "undetermined") go in the
-optional "status" key of the decision dict, never in the "decision" value itself.
+A decision is always one of DECISIONS. The agents make every decision; the only code that decides
+is the C6 prefilter (headings, reported viewpoints). If an agent fails the result is "undetermined".
 """
 
 import re
-import statistics
 
-from gisun.detectors.claims import CUES
-from gisun.tools.language import context_cues, heading_or_fragment, reported_viewpoint
-from gisun.tools.numbers import compare_numbers, hedge_of, numbers_in, parse_value
-from gisun.tools.retrieval import (implied_period, implied_places, lookup_statistic, matching_series,
-                                   periods_in, places_in)
+from gisun.tools.language import heading_or_fragment, reported_viewpoint
+from gisun.tools.numbers import compare_numbers, numbers_in, parse_value
 
 DECISIONS = ("met", "not_met", "undetermined")
 STRENGTHS = ("strong", "moderate", "supporting")
@@ -46,7 +39,7 @@ LOADED_CATS = {"loaded_political_terms", "emotionally_charged_terms",
 
 
 def _decision(decision, strength, reasoning, evidence=None, **extra):
-    """Build a decision dict. Extra keys (e.g. status, claim_fields) are kept alongside the standard four."""
+    """Build a decision dict."""
     return {"decision": decision, "strength": strength, "reasoning": reasoning,
             "evidence": evidence or [], **extra}
 
@@ -64,40 +57,6 @@ SHARED_RULES = ("Rules for every criterion: judge only this criterion (a differe
                 "sentences covers this sentence. When in doubt, decide 'not_met'.")
 
 
-def _not_own_claim(claim) -> str | None:
-    """Rules 2 and 3 for the wording criteria: a heading or a reported viewpoint is never 'met'."""
-    if why := heading_or_fragment(claim["sentence"]):
-        return f"The sentence is {why}, not a claim."
-    if who := reported_viewpoint(claim["sentence"]):
-        return f"The sentence reports a viewpoint ({who!r}), not the answer's own claim."
-    return None
-
-
-def _used_terms(claim, cats):
-    """Terms from these categories that are not negated / quoted / merely mentioned."""
-    used = []
-    for b in _terms(claim, cats):
-        cues = context_cues(claim["sentence"], b["term"])
-        if not (cues.get("negated") or cues.get("quoted") or cues.get("mentioned_not_used")):
-            used.append(b["term"])
-    return used
-
-
-# ---- deterministic rules ---------------------------------------------------------------
-
-def rule_c1(claim, ctx):
-    src = claim["attribution"]["source_text"] or claim["attribution_nearby"]["source_text"]
-    # The numbers, or for a claim with no number the record/trend/comparison words ("the highest ever")
-    quoted = claim["stat_values"] or [m.group(0) for m in CUES["quantitative"].finditer(claim["sentence"])] \
-        or numbers_in(claim["sentence"])
-    values = ", ".join(quoted)
-    if src:
-        return _decision("not_met", "moderate", f"{values} is attributed to {src}.",
-                         [{"quote": src, "source": "response"}])
-    return _decision("met", "strong", f"{values} is given with no named source in this or the previous sentences.",
-                     [{"quote": v, "source": "response"} for v in quoted])
-
-
 # ---- C2: statistic_contradicted ----------------------------------------------------------
 
 def c2_outcome(value: str, hedge: str, records: list[dict]) -> tuple[str, list[dict]]:
@@ -110,157 +69,6 @@ def c2_outcome(value: str, hedge: str, records: list[dict]) -> tuple[str, list[d
     if matches == {False}:
         return "met", cmps
     return "undetermined", cmps
-
-
-def _measure_in(text: str) -> str | None:
-    """The longest catalog alias named in the text."""
-    return max((a for e in matching_series(text) for a in e["aliases"]
-                if re.search(r"(?<![a-z])" + re.escape(a) + r"s?(?![a-z])", text.lower())), key=len, default=None)
-
-
-def _c2_partial_fields(claim, question: str = "") -> dict:
-    """Step 1 by rules: measure, place, period, hedge, value. Each comes from the claim first, then the
-    two sentences before it, then the user's question. A field that can't be pinned down is None."""
-    texts = [claim["sentence"], " ".join(claim["context_before"]), question or ""]
-    measure = next((m for t in texts if (m := _measure_in(t))), None)
-    places = next((p for t in texts if (p := places_in(t))), []) or next(
-        (p for t in texts if (p := implied_places(t))), [])
-    periods = next((p for t in texts if (p := periods_in(t))), [])
-    # "(2009): ... in October 2009" gives 2009 and 2009-10: the month is the same period, more precisely
-    periods = [p for p in periods if not any(q != p and q.startswith(p + "-") for q in periods)]
-    if not periods and (latest := implied_period(claim["sentence"])):
-        periods = [latest]  # present tense, no time stated: the latest full year
-    value = claim["checkable_values"][0] if claim["checkable_values"] else None
-    return {"value": value, "measure": measure,
-            "place": places[0]["name"] if len(places) == 1 else None,
-            "period": periods[0] if len(periods) == 1 else None,
-            "hedge": hedge_of(claim["sentence"], value) if value else "none"}
-
-
-def c2_fields_from_text(claim, question: str = "") -> dict | None:
-    """Strict version of step 1: all of measure, place, period and value, or None."""
-    f = _c2_partial_fields(claim, question)
-    return f if all(f[k] for k in ("value", "measure", "place", "period")) else None
-
-
-def _ctx_get(ctx, key: str, default=None):
-    """ctx is a dict in the unit tests and a RunContext in the pipeline: read a key from either."""
-    return ctx.get(key, default) if isinstance(ctx, dict) else getattr(ctx, key, default)
-
-
-def _c2_fields(claim, ctx) -> dict:
-    """Step 1 with the context fallback: fields the agent already extracted win, then the text of the
-    claim and its neighbours, then whatever the pipeline knows about the paragraph / answer (ctx)."""
-    fields = {**_c2_partial_fields(claim, _ctx_get(ctx, "question", "")),
-              **{k: v for k, v in (claim.get("extracted_fields") or {}).items() if v}}
-    if not fields.get("place"):
-        if "federal" in claim["sentence"].lower():  # "the federal minimum wage" is a US figure
-            fields["place"] = "United States"
-        else:
-            fields["place"] = _ctx_get(ctx, "paragraph_place") or _ctx_get(ctx, "global_place")
-    if not fields.get("period"):
-        fields["period"] = _ctx_get(ctx, "paragraph_period") or _ctx_get(ctx, "global_period")
-    return fields
-
-
-def _records(found) -> list[dict]:
-    """lookup_statistic returns {"records": [...], "note": ...}; older callers passed the list."""
-    return found.get("records") or [] if isinstance(found, dict) else found or []
-
-
-def _annual_from_months(measure: str, place: str, year: str) -> list[dict]:
-    """The official annual figure as the mean of 12 monthly records, or [] if the year isn't complete.
-    A partial year would skew the average, so fewer than 12 months gives nothing."""
-    monthly = []
-    for month in range(1, 13):
-        records = _records(lookup_statistic(measure=measure, place=place, period=f"{year}-{month:02d}"))
-        if not records:
-            return []
-        monthly.append(records[0])
-    values = [parse_value(r["value_text"]) for r in monthly]
-    if any(v is None for v in values):
-        return []
-    unit = "%" if "%" in monthly[0]["value_text"] else ""
-    return [{"record_id": f"annual_mean_{year}", "value_text": f"{statistics.mean(values):.2f}{unit}",
-             "note": "Annual average computed from 12 monthly records"}]
-
-
-def rule_c2(claim, ctx):
-    """Deterministic C2. Same signature as every other rule: rule(claim, ctx).
-    Decisions stay inside DECISIONS; the reason for 'undetermined' goes in the 'status' key
-    (missing_context / no_record / lookup_error / source_conflict / not_comparable)."""
-    ctx = ctx or {}
-    if not any(parse_value(v) is not None for v in claim["checkable_values"]):
-        return _decision("not_met", "supporting", "No checkable number in the sentence.")
-
-    f = _c2_fields(claim, ctx)
-    if not all(f.get(k) for k in ("value", "measure", "place", "period")):
-        missing = [k for k in ("measure", "place", "period") if not f.get(k)]
-        return _decision("undetermined", "supporting",
-                         f"Could not pin down {', '.join(missing)} from the claim, its context or the question.",
-                         status="missing_context", claim_fields=f)
-
-    try:
-        records = _records(lookup_statistic(measure=f["measure"], place=f["place"], period=f["period"]))
-        if not records and re.fullmatch(r"\d{4}", str(f["period"])):
-            records = _annual_from_months(f["measure"], f["place"], str(f["period"]))
-    except Exception as e:  # a failed lookup is a gap, not a verdict
-        return _decision("undetermined", "supporting", f"Statistic lookup failed: {e}",
-                         status="lookup_error", claim_fields=f)
-    if records and hasattr(ctx, "record_official"):
-        ctx.record_official(records)  # so normalize() can attach the fetched figure to the evidence
-    if not records:
-        return _decision("undetermined", "supporting",
-                         f"No official record for {f['measure']}, {f['place']}, {f['period']}.",
-                         status="no_record", claim_fields=f)
-
-    outcome, cmps = c2_outcome(f["value"], f["hedge"], records)
-    evidence = [{"quote": r["value_text"], "source": r["record_id"]} for r in records]
-    if outcome == "not_met":
-        return _decision("not_met", "supporting", "Every official figure matches the claim.",
-                         evidence, claim_fields=f)
-    if outcome == "met":
-        return _decision("met", "strong", "Every official figure differs from the claim.",
-                         evidence, claim_fields=f)
-    comparable = {c["match"] for c in cmps if c.get("comparable")}
-    status = "source_conflict" if comparable == {True, False} else "not_comparable"
-    why = ("Official sources disagree with each other about this figure."
-           if status == "source_conflict" else "No official figure is comparable with the claim.")
-    return _decision("undetermined", "supporting", why, evidence, status=status, claim_fields=f)
-
-
-def rule_terms(cats, label):
-    def rule(claim, ctx):
-        terms = _terms(claim, cats)
-        if terms and (why := _not_own_claim(claim)):
-            return _decision("not_met", "supporting", why)
-        used = _used_terms(claim, cats)
-        if used:
-            return _decision("met", "moderate", f"Uses {', '.join(repr(t) for t in used)} ({label.lower()}), "
-                                                f"not negated, quoted or only mentioned.",
-                             [{"quote": t, "source": "response"} for t in used])
-        if not terms:  # an open-criteria sentence with no word-list hit
-            return _decision("not_met", "supporting", "No word-list term for this check appears in the sentence.")
-        return _decision("not_met", "supporting",
-                         f"{', '.join(b['term'] for b in terms)} appears negated, quoted or only mentioned.")
-    return rule
-
-
-def rule_c5(claim, ctx):
-    vague = [b["term"] for b in _terms(claim, {"vague_or_unsourced_attribution"})]
-    # "critics argue", "some people say": naming who holds an opinion, not evidence for a fact
-    opinion = [t for t in vague if reported_viewpoint(t)]
-    if vague and (why := heading_or_fragment(claim["sentence"])):
-        return _decision("not_met", "supporting", f"The sentence is {why}, not a claim.")
-    if vague and len(opinion) == len(vague):
-        return _decision("not_met", "supporting", f"{', '.join(opinion)} names who holds an opinion in a debate; "
-                                                  "it is not used as evidence for a fact.")
-    if vague and not claim["attribution"]["names_specific_source"]:
-        return _decision("met", "moderate", f"Credits unnamed sources: {', '.join(vague)}.",
-                         [{"quote": t, "source": "response"} for t in vague])
-    if vague:
-        return _decision("not_met", "supporting", f"{', '.join(vague)} appears, but a specific source is also named.")
-    return _decision("not_met", "supporting", "No vague attribution ('experts say', 'studies show') in the sentence.")
 
 
 # find_attribution reads "After states like California ... banned" as a source "After" that "states";
@@ -280,17 +88,6 @@ def c6_prefilter(claim) -> str | None:
     if claim["attribution"]["names_specific_source"] and not NOT_A_SOURCE.match(src):
         return f"The causal claim is attributed to a source ({src!r})."
     return None
-
-
-def rule_c6(claim, ctx):
-    if why := c6_prefilter(claim):
-        return _decision("not_met", "moderate", why)
-    # Open criteria send every sentence here; without cause-effect wording there is nothing to check
-    if "causal" not in claim["signals"]:
-        return _decision("not_met", "supporting", "The sentence has no cause-effect wording.")
-    if claim["attribution"]["names_specific_source"] or claim["attribution_nearby"]["names_specific_source"]:
-        return _decision("not_met", "supporting", "The causal claim is attributed to a source.")
-    return _decision("met", "supporting", "States a cause-effect link without evidence or a source.")
 
 
 # ---- registry ----------------------------------------------------------------------------
@@ -313,7 +110,6 @@ CRITERIA = {
         # number the detector doesn't flag ("a density of 11.34 g/cm3"); the rules-only baseline keeps the
         # narrower gate, so its numbers stay comparable with earlier runs
         "open": lambda c: "quantitative" in c["signals"] or bool(numbers_in(c["sentence"])),
-        "rule": rule_c1,
     },
     "C3": {
         "name": "loaded_language",
@@ -334,7 +130,6 @@ CRITERIA = {
         "severity": {"strong": 2, "moderate": 1, "supporting": 1},
         "applies": lambda c: bool(_terms(c, LOADED_CATS)),
         "open": True,
-        "rule": rule_terms(LOADED_CATS, "Loaded wording"),
     },
     "C4": {
         "name": "overgeneralization",
@@ -354,7 +149,6 @@ CRITERIA = {
         "severity": {"strong": 2, "moderate": 1, "supporting": 1},
         "applies": lambda c: bool(_terms(c, {"absolutist_or_overgeneralizing_terms"})),
         "open": True,
-        "rule": rule_terms({"absolutist_or_overgeneralizing_terms"}, "Sweeping wording"),
     },
     "C5": {
         "name": "vague_attribution",
@@ -373,7 +167,6 @@ CRITERIA = {
         "severity": {"strong": 2, "moderate": 1, "supporting": 1},
         "applies": lambda c: bool(_terms(c, {"vague_or_unsourced_attribution"})) or "attribution" in c["signals"],
         "open": True,
-        "rule": rule_c5,
     },
     "C6": {
         "name": "unsupported_causal_claim",
@@ -400,7 +193,6 @@ CRITERIA = {
         "severity": {"strong": 1, "moderate": 1, "supporting": 0},
         "applies": lambda c: "causal" in c["signals"],
         "open": True,
-        "rule": rule_c6,
         "prefilter": c6_prefilter,
     },
     "C2": {
@@ -435,7 +227,6 @@ CRITERIA = {
         "severity": {"strong": 3, "moderate": 3, "supporting": 2},
         "applies": lambda c: any(parse_value(v) is not None for v in c["checkable_values"]),
         "open": False,
-        "rule": rule_c2,
     },
 }
 PHASES = sorted({c["phase"] for c in CRITERIA.values()})

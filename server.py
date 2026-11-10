@@ -6,7 +6,7 @@ POST /verify   fast, no model: runs detect_numeric_claims() and
                shared format that extension/content.js renders.
 POST /pipeline, GET /pipeline/{id}
                multi-agent pipeline (gisun/, see docs/PIPELINE.md): runs in the
-               background, poll for the result. Needs a model unless mode=rules_only.
+               background, poll for the result. Needs a model backend.
 
 Run from the project root:
     uvicorn server:app --port 8000 --reload

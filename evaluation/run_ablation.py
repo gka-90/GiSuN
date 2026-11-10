@@ -2,7 +2,7 @@
 RQ3: run every mode on the same gold set and compare.
 
     python -m evaluation.run_ablation --gold datasets/gold_example.json
-    python -m evaluation.run_ablation --gold ... --modes full rules_only   # subset
+    python -m evaluation.run_ablation --gold ... --modes full task_only   # subset
 
 On the HPC, run once per model (GISUN_MODEL=...) to get the model-size curve.
 

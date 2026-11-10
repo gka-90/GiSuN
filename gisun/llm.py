@@ -5,7 +5,7 @@ One chat() call for every backend, returning the same shape:
 
 ollama        -> the ollama Python package (laptop)
 openai_compat -> any OpenAI-compatible /chat/completions endpoint (vLLM on the HPC)
-none          -> raises; the pipeline runs in rules_only mode without a model
+none          -> raises: every decision needs a model
 """
 
 import json

@@ -80,8 +80,7 @@ def _context_before(sentences: list[str], sentence: str, n: int = 2) -> list[str
 
 def preprocess(text: str, question: str = "", all_sentences: bool = False) -> RunContext:
     """all_sentences=True also turns factual sentences with no detector flag into
-    claims (open problem #1), so the agents can judge wording the rules miss.
-    rules_only keeps it off: the rules have nothing to say about those sentences."""
+    claims (open problem #1), so the agents can judge wording the detectors miss."""
     numeric = detect_numeric_claims(text)
     bias = _drop_nested(detect_bias_framing(text, wordlist_path=config.WORDLIST_PATH))
     sentences = split_sentences(text)

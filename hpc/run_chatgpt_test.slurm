@@ -3,7 +3,6 @@
 #     sbatch hpc/run_chatgpt_test.slurm
 #     MODES="full task_only" sbatch hpc/run_chatgpt_test.slurm
 #     DATA=datasets/collected/claude_2026-10-12.json sbatch hpc/run_chatgpt_test.slurm   # Claude-written answers
-#     RULES=0 DATA=... sbatch hpc/run_chatgpt_test.slurm   # agent only, no rules_only baseline
 #     MODEL=Qwen/Qwen2.5-14B-Instruct-AWQ sbatch --gres=gpu:1 hpc/run_eval.slurm   # 16 GB RTX 5070 Ti nodes
 #     JUDGE_MODEL=Qwen/Qwen2.5-7B-Instruct-AWQ sbatch hpc/run_eval.slurm           # separate Judge model (#11)
 # Download models first on the login node (the GPU nodes may have no internet):
@@ -61,5 +60,4 @@ export GISUN_BACKEND=openai_compat GISUN_BASE_URL=http://localhost:$PORT/v1 GISU
 for MODE in ${MODES:-full}; do
     python .claude/skills/gisun-chatgpt-test/scripts/analyze.py $DATA --mode "$MODE"
 done
-[ "${RULES:-1}" = "1" ] && python .claude/skills/gisun-chatgpt-test/scripts/analyze.py $DATA --mode rules_only   # RULES=0 to skip the baseline
 kill $PIDS
