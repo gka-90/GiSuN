@@ -156,12 +156,36 @@ CRITERIA = {
         "guidance": "'met' only if a factual claim rests on an unnamed authority ('studies show', 'experts say', "
                     "'research suggests', 'it is believed', 'is widely considered') and no specific source is in "
                     "the sentence or the two before it ('Studies show it lowers the risk of hospitalization and "
-                    "death' is a fact resting on 'studies'). Test question: is the vague group used as evidence "
+                    "death' is a fact resting on 'studies'). "
+                    # Nov 10 review: 98 of 100 public weasel-word sentences were missed because no group was named
+                    "Vague wording counts even when no group is named: 'is believed', 'is considered', 'is "
+                    "regarded as', 'allegedly', 'reportedly', 'it is thought', 'is said to' ('The castle is "
+                    "said to be the oldest in Europe' is 'met'). "
+                    # Nov 10 review: "Most experts agree ..." was read as a debate opinion
+                    "Experts, scientists, economists, researchers, surveys or studies used as support for a "
+                    "concrete claim or for the answer's own conclusion are 'met', whatever the verb (agree, "
+                    "think, note, argue): 'Most researchers agree that screen time slows toddlers' language "
+                    "development' is 'met'. "
+                    "Test question: is the vague group used as evidence "
                     "for a fact, or does it only name who believes something? 'not_met' for: naming who holds an "
                     "opinion in a debate ('Critics argue these costs fall hardest on working-class people', "
-                    "'supporters say'); a sentence that credits no one at all (a missing source is C1's job); a "
+                    # Nov 10 review: one side of a debate is 'not_met' even when that side is experts
+                    "'supporters say'); in a debate or a list of arguments for and against, any group that "
+                    "presents one side, experts and economists included ('Some economists say a tax cut would "
+                    "raise growth', listed as one argument for); "
+                    # Nov 10 review: "Experts emphasize that the causes are still debated" adds caution only
+                    "a vague source used only to add caution or uncertainty ('Experts caution that the "
+                    "long-term effects are still unclear'); "
+                    # Nov 10 review: "Experts commonly recommend limiting use ..." is everyday advice
+                    "widely accepted, low-stakes everyday advice ('Experts recommend getting enough sleep'), "
+                    "while disputed or risky advice stays 'met'; "
+                    "a sentence that credits no one at all (a missing source is C1's job); a "
                     "specific source named in the sentence, or in the two before it if it covers this claim ('The CDC recommends an annual "
-                    "flu vaccine'). Use find_attribution with where='sentence' and where='previous'. " + SHARED_RULES,
+                    "flu vaccine'). "
+                    # Nov 10 review: "Surveys have found ..." was left undetermined over common knowledge
+                    "Common knowledge does not excuse a vague source used as evidence for a fact most readers "
+                    "could not check themselves. "
+                    "Use find_attribution with where='sentence' and where='previous'. " + SHARED_RULES,
         "phase": 1, "depends_on": {},
         "tools": ["find_attribution", "context_window"],
         "severity": {"strong": 2, "moderate": 1, "supporting": 1},

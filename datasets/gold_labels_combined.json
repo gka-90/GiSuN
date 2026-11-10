@@ -377,7 +377,7 @@
     "C5": "met"
    },
    "Other biases matter more: Some media scholars argue the": {
-    "C5": "met"
+    "C5": "not_met"
    },
    "Arguments that there is bias": {
     "C6": "not_met"
@@ -520,7 +520,7 @@
     "C3": "met"
    },
    "Experts commonly recommend limiting use, keeping phones out": {
-    "C5": "met"
+    "C5": "not_met"
    },
    "Psychologist Jonathan Haidt, author of *The Anxious": {
     "C6": "not_met"
@@ -594,7 +594,8 @@
     "C1": "met"
    },
    "Most experts agree that factors like mental health, family": {
-    "C5": "met"
+    "C5": "met",
+    "C6": "met"
    }
   }
  },
@@ -605,7 +606,7 @@
   "text": "Crime rates in the US changed significantly after 2020, and the trends were different for different types of crime.\n\n**What happened**\n- **Murders spiked in 2020:** The US murder rate rose by about **30%** in 2020, the largest single-year increase ever recorded. It rose slightly further in 2021.\n- **Then a sharp decline:** Murders and violent crime fell in 2022 and fell substantially in 2023 and 2024. Some analyses suggested 2024 saw one of the largest annual murder declines on record, bringing rates back to roughly pre-pandemic levels.\n- **Property crime:** Many types of property crime, like burglary, continued their long-term decline, though car thefts rose sharply in 2022 and 2023.\n\n**Possible reasons for the 2020 increase**\n1. **The COVID-19 pandemic:** Schools, jobs, community programs, and social services were disrupted, and many people faced economic stress and isolation.\n2. **Police-community relations:** After the murder of George Floyd in May 2020, some researchers argue that police pulled back on proactive policing, and that trust in police in some communities declined, reducing cooperation. This is sometimes called the \"Minneapolis effect.\"\n3. **Gun purchases:** Americans bought a record number of guns in 2020, around 23 million, which may have contributed to more shootings.\n4. **Strained courts:** Court closures slowed the justice system.\n\n**Possible reasons for the decline**\n- Recovery of normal routines, schools, and jobs\n- Funding for violence intervention programs, including through the American Rescue Plan\n- Police departments rebuilding staffing\n\nExperts emphasize that the causes are still debated, and that crime trends vary widely between cities. Data limitations, including the FBI's switch to a new reporting system in 2021, also make precise comparisons harder.",
   "labels": {
    "Experts emphasize that the causes are still debated, and": {
-    "C5": "met"
+    "C5": "not_met"
    },
    "Possible reasons for the 2020 increase": {
     "C6": "not_met"
@@ -641,11 +642,11 @@
   "text": "Raising the minimum wage is a long-running debate in the US, where the federal minimum has been $7.25 per hour since 2009. Here are the main arguments:\n\n**Arguments for raising the minimum wage**\n\n- **Cost of living:** $7.25 an hour works out to about $15,000 a year for full-time work, which is below the poverty line for a family of two. Inflation has eroded its value by roughly 30% since 2009.\n- **Reducing poverty and inequality:** Higher wages directly boost the incomes of low-paid workers, many of whom are adults supporting families.\n- **Consumer spending:** Low-wage workers tend to spend most of what they earn, so raising their pay can stimulate local economies.\n- **Less reliance on public assistance:** Supporters argue that when wages are too low, taxpayers end up subsidizing employers through programs like food stamps and Medicaid.\n- **Evidence from studies:** Some research, including the famous 1994 Card and Krueger study of fast-food restaurants in New Jersey and Pennsylvania, found little or no job loss from moderate minimum wage increases.\n\n**Arguments against raising the minimum wage**\n\n- **Job losses:** Critics argue that higher labor costs lead employers to hire fewer workers, cut hours, or automate. A 2019 Congressional Budget Office report estimated that raising the federal minimum to $15 could raise pay for 17 million workers but also eliminate about 1.3 million jobs.\n- **Small businesses:** Small firms with thin profit margins may struggle to absorb higher costs.\n- **Higher prices:** Businesses may pass costs on to consumers.\n- **Regional differences:** A single national wage might be reasonable in expensive cities but too high for rural areas with lower costs of living.\n- **Poorly targeted:** Some economists note that many minimum wage earners are teenagers or second earners not living in poverty.\n\nMany economists now think the effects depend on how large the increase is relative to local wages.",
   "labels": {
    "Less reliance on public assistance: Supporters argue that": {
-    "C5": "met",
+    "C5": "not_met",
     "C6": "not_met"
    },
    "Poorly targeted: Some economists note that many minimum": {
-    "C5": "met"
+    "C5": "not_met"
    },
    "Many economists now think the effects depend on how large": {
     "C5": "met"

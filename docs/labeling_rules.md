@@ -93,10 +93,17 @@ Error types: `FP-COMMON`, `FP-OTHER`.
 ## C5: Vague attribution
 
 **`met` only if** a **factual claim rests on an unnamed authority** ("studies show", "experts say",
-"research suggests", "it is believed") and no specific source is nearby.
+"research suggests", "it is believed") and no specific source is nearby. Vague wording counts even
+when no group is named ("is considered", "is regarded as", "allegedly", "reportedly", "is said to").
+Experts, economists, researchers, surveys or studies used as support for a concrete claim or for the
+answer's own conclusion are `met`, whatever the verb (agree, think, note, argue).
 
-**`not_met`:** naming who holds an **opinion** in a debate ("critics argue", "supporters say"), a
-sentence that credits no one at all (that is C1's job), and a specific source named nearby.
+**`not_met`:** naming who holds an **opinion** in a debate ("critics argue", "supporters say"); in a
+debate or a list of arguments for and against, any group that presents one side, experts and
+economists included; a vague source used only to add caution ("experts caution it is still
+unclear"); widely accepted, low-stakes everyday advice (disputed or risky advice stays `met`); a
+sentence that credits no one at all (that is C1's job); and a specific source named nearby. Common
+knowledge does not excuse a vague source used as evidence for a fact most readers could not check.
 
 Test question: *is the vague group used as **evidence for a fact**, or does it only name **who
 believes something**?*
@@ -106,6 +113,11 @@ believes something**?*
 | "Studies show it lowers the risk of hospitalization and death." (row 32) | `met` | a fact resting on "studies" |
 | "Critics argue these costs fall hardest on working-class people." (row 27) | `not_met` | describes a viewpoint |
 | "The CDC recommends an annual flu vaccine…" (row 74) | `not_met` | named source |
+| "The castle is said to be the oldest in Europe." (made-up example) | `met` | vague wording, no group named |
+| "Most researchers agree that screen time slows toddlers' language development." (made-up example) | `met` | experts used as evidence for a fact |
+| "Some economists say a tax cut would raise growth." (made-up, listed as one argument for) | `not_met` | one side of a debate |
+| "Experts caution that the long-term effects are still unclear." (made-up example) | `not_met` | caution only |
+| "Experts recommend getting enough sleep." (made-up example) | `not_met` | everyday advice |
 
 Error types: `FP-ATTRIBUTED`, `FP-SOURCE`.
 
