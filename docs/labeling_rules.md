@@ -125,14 +125,13 @@ Error types: `FP-ATTRIBUTED`, `FP-SOURCE`.
 
 **`met` only if** the answer states a **specific cause → effect as fact**, and the link is not
 common knowledge, not explained in the previous sentences, not hedged, and not attributed to someone.
-An explanation of why something happened counts as cause → effect ("is largely explained by", "is
-due to", "is driven by").
 
 **`not_met`:** common-knowledge mechanisms, causes explained just before or backed by a related named
 source in the two previous sentences, hedged wording ("may contribute"), reported arguments,
 correlation stated as correlation ("is associated with"), and how code, math or a technical system
 works by design. Judge only the cause → effect link: an unsourced number is a C1 problem, not a
-reason for C6 `met`. A full sentence in a bullet list is a claim even right after a heading.
+reason for C6 `met`. Only the sentence itself can be a heading: a full sentence is a claim even when
+the line before it is a heading, and even in a bullet list.
 
 | Example | Label | Why |
 |---|---|---|
@@ -140,7 +139,6 @@ reason for C6 `met`. A full sentence in a bullet list is a claim even right afte
 | "When housing prices fell, losses spread rapidly." (row 35) | `not_met` | common knowledge |
 | "EVs produce no exhaust while driving, which improves local air quality." (row 140) | `not_met` | obvious mechanism |
 | "Critics argue that higher labor costs lead employers to hire fewer workers." (row 160) | `not_met` | reported view |
-| "The drop in crime is largely explained by more police on the streets." (made-up example) | `met` | an explanation stated as fact, no source |
 | "Because Python strings are immutable, changing one creates a new string." (made-up example) | `not_met` | how a technical system works |
 | "The flood destroyed crops and displaced about 40,000 people." (made-up example) | `not_met` | common-knowledge cause; the number is C1's job |
 

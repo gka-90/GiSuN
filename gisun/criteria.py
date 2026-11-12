@@ -199,11 +199,7 @@ CRITERIA = {
                     "not common knowledge, not explained in the previous two sentences, not hedged, and not "
                     "attributed to someone. Correlation presented as cause is the main problem: 'Pilates and "
                     "walking positively impact quality of life, depression and anxiety' is 'met' (a specific "
-                    "causal claim stated as fact). "
-                    # Nov 10 review: the agent missed "The rise is largely explained by ..." as not causal
-                    "An explanation of why something happened is a cause -> effect too: 'is (largely) "
-                    "explained by', 'is due to', 'is driven by' ('The drop in crime is largely explained by "
-                    "more police on the streets' is 'met' unless a rule below applies). Decide 'not_met' for: "
+                    "causal claim stated as fact). Decide 'not_met' for: "
                     "(1) reported viewpoints attributed to someone ('Critics argue that higher labor costs lead "
                     "employers to hire fewer workers', 'Some economists argue ...', 'X says ...', 'Opponents "
                     "claimed ...'): they describe a debate, unless the answer itself endorses the claim; "
@@ -216,9 +212,12 @@ CRITERIA = {
                     "(4) a cause already explained, or backed by a related named source (an organisation, "
                     "study or dataset), in this sentence or the two previous sentences (use context_window); "
                     "(5) headings, questions and fragments ('Possible reasons for the 2020 increase', 'Why it "
-                    # Nov 10 review: the agent called a full bullet-point sentence after a heading a fragment
-                    "changes each year'). A full sentence in a bullet list is still a claim, even right after "
-                    "a heading ('- Regular exercise lowers blood pressure.' is judged like any sentence); "
+                    # Nov 10 review: the judge called the Russia sentence a heading because the sentences
+                    # before it were a heading; only the sentence being judged can make it a heading
+                    "changes each year'). Only the sentence being judged can be a heading: a full sentence "
+                    "with a verb is a claim even when the previous sentences in context_window are a heading or "
+                    "a numbered title, and even in a bullet list ('- Regular exercise lowers blood pressure.' is "
+                    "judged like any sentence); "
                     # Nov 10 review: "Because tuples are immutable ..." (how Python works) was flagged
                     "(6) how code, math or a technical system works by design ('Because Python strings are "
                     "immutable, changing one creates a new string'): this is common knowledge; "
@@ -226,10 +225,7 @@ CRITERIA = {
                     "(7) a number in the sentence is not a reason for 'met': judge only the cause -> effect "
                     "link ('The flood destroyed crops and displaced about 40,000 people': the number is C1's "
                     "job, the flood destroying crops is common knowledge). A sentence with no cause-effect "
-                    "link at all is 'not_met' too. When in doubt, decide 'not_met'. "
-                    # Nov 10 review: say so when common knowledge decided it, so a reader knows to look it up
-                    "When common knowledge is your reason for 'not_met', start the reasoning with 'Common "
-                    "knowledge:' and say what a quick search would confirm.",
+                    "link at all is 'not_met' too. When in doubt, decide 'not_met'.",
         "phase": 1, "depends_on": {},
         "tools": ["find_attribution", "context_window"],
         "severity": {"strong": 1, "moderate": 1, "supporting": 0},

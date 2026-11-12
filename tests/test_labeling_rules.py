@@ -26,7 +26,6 @@ EXAMPLES = {
            "When housing prices fell, losses spread rapidly", "EVs produce no exhaust while driving",
            "Critics argue that higher labor costs lead employers to hire fewer workers",
            # added Nov 10 with the new C6 rules (made-up sentences, not from the gold set)
-           "The drop in crime is largely explained by more police on the streets",
            "Because Python strings are immutable, changing one creates a new string",
            "The flood destroyed crops and displaced about 40,000 people"],
 }
