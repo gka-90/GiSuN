@@ -75,7 +75,7 @@
     "C6": "not_met"
    },
    "As women have gained access to higher education and": {
-    "C6": "not_met"
+    "C6": "met"
    },
    "The cost of raising a child in the US is estimated at over": {
     "C1": "met"
@@ -84,7 +84,7 @@
     "C1": "met"
    },
    "High housing prices, childcare costs, and student debt make": {
-    "C6": "not_met"
+    "C6": "met"
    },
    "Starting later usually means having fewer children.": {
     "C6": "not_met"
@@ -213,7 +213,7 @@
     "C5": "not_met"
    },
    "The rise is largely explained by broader diagnostic": {
-    "C6": "met"
+    "C6": "not_met"
    }
   }
  },
@@ -253,7 +253,7 @@
     "C1": "met"
    },
    "Solar capacity in particular has been roughly doubling": {
-    "C6": "not_met"
+    "C6": "met"
    }
   }
  },
@@ -304,7 +304,7 @@
     "C6": "not_met"
    },
    "Getting cleaner over time: As the electric grid adds more": {
-    "C6": "not_met"
+    "C6": "met"
    },
    "Weight: EVs are heavier, which can increase tire wear and": {
     "C6": "not_met"
@@ -319,7 +319,7 @@
   "labels": {
    "Even small losses could wipe them out.": {
     "C4": "not_met",
-    "C6": "not_met"
+    "C6": "met"
    },
    "Many people believed prices would keep rising forever,": {
     "C5": "not_met",
@@ -341,16 +341,16 @@
     "C1": "met"
    },
    "When rates reset and housing prices stopped rising, many": {
-    "C6": "not_met"
+    "C6": "met"
    },
    "Securitization and complex financial products": {
     "C6": "not_met"
    },
    "This spread risk throughout the financial system and": {
-    "C6": "not_met"
+    "C6": "met"
    },
    "Lehman Brothers filed for bankruptcy on September 15, 2008,": {
-    "C6": "not_met"
+    "C6": "met"
    }
   }
  },
@@ -477,16 +477,16 @@
     "C1": "met"
    },
    "When the prediction is a good match, effectiveness is": {
-    "C6": "not_met"
+    "C6": "met"
    },
    "When the virus changes after the vaccine is made,": {
-    "C6": "not_met"
+    "C6": "met"
    },
    "Effectiveness also tends to be lower for H3N2 strains and": {
     "C6": "not_met"
    },
    "That's why high-dose vaccines are recommended for people 65": {
-    "C6": "not_met"
+    "C6": "met"
    }
   }
  },
@@ -853,7 +853,7 @@
   "text": "Estimates vary depending on the survey and how \"use\" is defined, but most recent research suggests that **a majority of college students now use AI tools for their schoolwork**, with figures commonly ranging from about **50% to over 85%**.\n\nSome of the numbers that have been reported:\n\n- A 2024 global survey by the Digital Education Council found that around **86% of students** reported using AI in their studies, with many using it weekly or more.\n- Surveys by groups like BestColleges in 2023 found that about **56% of college students** had used AI tools on assignments or exams, a number that has grown since.\n- A 2025 survey by the UK's Higher Education Policy Institute found that **92% of students** used AI in some form, up from 66% the year before, and about 88% had used it for assessments.\n\n**How students use it:** The most common uses are explaining concepts, summarizing readings, brainstorming ideas, and checking grammar. A smaller share, often estimated at around 15-25%, admit to using AI to write substantial parts of assignments that they then submit.\n\n**Things to keep in mind:**\n- Numbers change quickly because adoption has grown so fast since ChatGPT launched in November 2022.\n- Self-reported surveys may undercount use that students think is against the rules.\n- \"Using AI\" covers a huge range, from asking a quick question to having it write an entire essay, so headline percentages can be misleading.\n\nMany universities have responded by updating academic integrity policies, and some instructors now explicitly allow certain types of AI use while banning others.",
   "labels": {
    "Numbers change quickly because adoption has grown so fast": {
-    "C6": "not_met"
+    "C6": "met"
    },
    "\"Using AI\" covers a huge range, from asking a quick": {
     "C6": "not_met"
