@@ -68,7 +68,7 @@
    },
    "Surveys show growing numbers of young adults say they're": {
     "C3": "not_met",
-    "C4": "met",
+    "C4": "not_met",
     "C5": "met"
    },
    "This pattern is seen in almost every country as it develops.": {
@@ -126,7 +126,7 @@
     "C5": "met"
    },
    "Mixed research: A 2024 observational study presented at an": {
-    "C3": "met"
+    "C3": "not_met"
    }
   }
  },
@@ -227,10 +227,10 @@
     "C3": "not_met"
    },
    "Loss of independence: Skilled artisans, like handloom": {
-    "C3": "met"
+    "C3": "not_met"
    },
    "The long term: big gains": {
-    "C3": "met"
+    "C3": "not_met"
    },
    "Over the following century, wages, life expectancy, and": {
     "C3": "not_met"
@@ -318,7 +318,7 @@
   "text": "The 2008 financial crisis was the worst economic disaster since the Great Depression, and it was caused by a combination of factors that built up over several years:\n\n**1. The housing bubble**\nFrom the late 1990s to 2006, US home prices rose rapidly. Many people believed prices would keep rising forever, which encouraged speculation and risky borrowing.\n\n**2. Subprime lending**\nLenders issued huge numbers of mortgages to borrowers with weak credit, often with little or no documentation of income (\"liar loans\"). Many loans had adjustable rates with low \"teaser\" rates that later jumped. When rates reset and housing prices stopped rising, many borrowers defaulted.\n\n**3. Securitization and complex financial products**\nBanks bundled mortgages into mortgage-backed securities and collateralized debt obligations (CDOs), then sold them to investors worldwide. This spread risk throughout the financial system and reduced lenders' incentive to check whether borrowers could repay.\n\n**4. Credit rating failures**\nRating agencies like Moody's and Standard & Poor's gave many of these risky securities top AAA ratings, partly because they were paid by the banks issuing them.\n\n**5. Excessive leverage**\nInvestment banks borrowed heavily, with some, like Lehman Brothers and Bear Stearns, having leverage ratios of more than 30 to 1. Even small losses could wipe them out.\n\n**6. Weak regulation**\nRegulators failed to keep up with new financial products. Credit default swaps, like those sold by AIG, were largely unregulated.\n\n**The collapse**\nWhen housing prices fell, losses spread rapidly. Lehman Brothers filed for bankruptcy on September 15, 2008, triggering panic. The government responded with a $700 billion bank bailout (TARP). The recession that followed cost about 8.7 million US jobs, and unemployment reached 10% by October 2009.",
   "labels": {
    "Even small losses could wipe them out.": {
-    "C4": "not_met",
+    "C4": "met",
     "C6": "met"
    },
    "Many people believed prices would keep rising forever,": {
@@ -361,7 +361,7 @@
   "text": "Whether the mainstream media is biased is a hotly debated question, and the answer depends a lot on what kind of bias you mean.\n\n**Arguments that there is bias**\n\n- **Political leanings of journalists:** Surveys have found that journalists in the US are more likely to identify as Democrats than Republicans. A 2022 Indiana University survey found that about 36% of journalists identified as Democrats and only around 3% as Republicans, with most identifying as independents.\n- **Story selection and framing:** Critics argue bias appears less in outright falsehoods and more in which stories get covered, which sources get quoted, and what language is used.\n- **Partisan outlets:** Cable news in particular has become more polarized. Fox News is widely seen as leaning right, while MSNBC is seen as leaning left.\n- **Public trust:** According to Gallup, only about 31-32% of Americans say they trust the mass media \"a great deal\" or \"a fair amount,\" a record low. Republicans have especially low trust.\n\n**Arguments that the bias claim is overstated**\n\n- **Professional standards:** Many outlets, such as the Associated Press and Reuters, follow strict standards of fact-checking and separation between news and opinion.\n- **Other biases matter more:** Some media scholars argue the biggest biases aren't partisan but structural, such as a bias toward conflict, sensational stories, negativity, and what generates clicks and ratings.\n- **Critiques from both sides:** People on the left often argue the media is too deferential to corporations and powerful people, or engages in \"false balance.\"\n- **Perception:** Research shows people tend to perceive neutral coverage as biased against their own side, a phenomenon called the \"hostile media effect.\"\n\nA practical approach is to read several sources across the spectrum and use media bias tools like AllSides or Ad Fontes Media.",
   "labels": {
    "Republicans have especially low trust.": {
-    "C4": "met"
+    "C4": "not_met"
    },
    "Story selection and framing: Critics argue bias appears": {
     "C5": "not_met"
@@ -370,7 +370,7 @@
     "C5": "met"
    },
    "Arguments that the bias claim is overstated": {
-    "C3": "met",
+    "C3": "not_met",
     "C6": "not_met"
    },
    "Political leanings of journalists: Surveys have found that": {
@@ -422,8 +422,8 @@
    "Citation: CDC, \"Adult Obesity Prevalence Maps,\" September": {
     "C4": "not_met"
    },
-   "Citation: Emmerich SD, et al.": {
-    "C3": "not_met"
+   "A later NCHS data brief using 2021-2023 survey data found adult obesity": {
+    "C3": "met"
    }
   }
  },
@@ -500,7 +500,7 @@
     "C6": "not_met"
    },
    "Tuples only have two methods: `count()` and `index()`.": {
-    "C4": "not_met"
+    "C4": "met"
    },
    "Because lists can change, they have many more methods, like": {
     "C6": "not_met"
@@ -517,7 +517,7 @@
   "text": "The research on social media and teenagers is mixed, and experts disagree about how big the harms are. The best answer is that social media **can** harm some teenagers, especially with heavy use, but its effects vary a lot from person to person.\n\n**Evidence of harm**\n- Rates of teen depression, anxiety, and self-harm rose sharply in the US starting around 2012, roughly when smartphones and social media became widespread. Psychologist Jonathan Haidt, author of *The Anxious Generation* (2024), argues this timing points to social media as a major cause, especially for girls.\n- Some studies have found that teens who spend more than three hours a day on social media face double the risk of mental health problems like depression and anxiety.\n- In 2023, the US Surgeon General issued an advisory warning that social media may pose \"a profound risk of harm\" to young people's mental health.\n- Concerns include cyberbullying, body image issues, sleep disruption, and exposure to harmful content.\n\n**Evidence that the effects are smaller or mixed**\n- Many researchers, such as Candice Odgers and Amy Orben, argue that the overall correlation between social media use and teen well-being is quite small, and that correlation doesn't prove causation. Teens who are already struggling may use social media more.\n- Social media can also have benefits, such as staying connected with friends, finding communities (especially for LGBTQ+ teens or those with rare interests), and accessing support and information.\n\n**What seems to matter most**\nHow teens use social media matters more than simply how much. Passive scrolling, comparing oneself to others, and use late at night seem to be more harmful than active, social use.\n\nExperts commonly recommend limiting use, keeping phones out of bedrooms at night, and having open conversations about online experiences.",
   "labels": {
    "Concerns include cyberbullying, body image issues, sleep": {
-    "C3": "met"
+    "C3": "not_met"
    },
    "Experts commonly recommend limiting use, keeping phones out": {
     "C5": "not_met"
@@ -540,7 +540,7 @@
     "C3": "not_met"
    },
    "Kazakhstan was also devastated, losing roughly 1.5 million": {
-    "C3": "met",
+    "C3": "not_met",
     "C1": "met"
    },
    "Estimates generally range from 5.5 to 8.7 million deaths": {
@@ -567,7 +567,7 @@
   "text": "The gender pay gap, in which women in the US earn roughly 82-84 cents for every dollar men earn, has several causes. Researchers generally agree it's the result of multiple factors working together:\n\n**1. Occupational differences**\nMen and women tend to work in different fields. Women are overrepresented in lower-paying fields like education, social work, childcare, and administrative work, while men are overrepresented in higher-paying fields like engineering, finance, and tech. Some research also suggests that when more women enter a field, its pay tends to decline.\n\n**2. The \"motherhood penalty\"**\nOne of the biggest factors is having children. Studies show that women's earnings drop sharply after their first child and often never fully recover, while men's earnings are mostly unaffected or even rise. Economist Claudia Goldin, who won the Nobel Prize in Economics in 2023, showed that much of the modern gap emerges after women have children.\n\n**3. \"Greedy jobs\"**\nGoldin also highlights that many high-paying jobs reward long, inflexible hours disproportionately. Because women more often take on caregiving responsibilities, they are more likely to choose jobs with flexibility, which tend to pay less.\n\n**4. Hours worked**\nEven among full-time workers, men on average work slightly more paid hours.\n\n**5. Discrimination**\nAfter accounting for occupation, experience, and hours, a gap of about 5-8% typically remains unexplained. Many researchers attribute at least part of this to discrimination, such as bias in hiring, promotions, and salary negotiations. Experiments where identical resumes are sent with male or female names have found evidence of such bias.\n\n**6. Negotiation and social norms**\nSome studies suggest women are less likely to negotiate salaries, or face backlash when they do.\n\nThe gap has narrowed since the 1980s, but progress has slowed in recent decades.",
   "labels": {
    "Studies show that women's earnings drop sharply after their": {
-    "C4": "met",
+    "C4": "not_met",
     "C5": "met"
    }
   }
@@ -579,7 +579,7 @@
   "text": "Differences in test scores between countries, such as those measured by the international PISA exams, come from a combination of factors. Countries like Singapore, Japan, South Korea, Estonia, and Finland consistently score near the top, while the US usually scores around average among wealthy countries, especially in math.\n\n**1. Teacher quality and status**\nHigh-performing systems tend to recruit teachers from top graduates, train them extensively, and give them high social status. In Finland, for example, teaching is a highly competitive profession that requires a master's degree.\n\n**2. Curriculum and focus**\nTop-performing Asian countries often use a focused, coherent math curriculum that covers fewer topics in greater depth. The US curriculum has been criticized as \"a mile wide and an inch deep.\"\n\n**3. Cultural attitudes toward education**\nIn many East Asian countries, education is seen as the main path to success, and there's a strong belief that effort, rather than innate ability, determines achievement. Many students also attend private tutoring after school, such as \"hagwons\" in South Korea.\n\n**4. Poverty and inequality**\nSocioeconomic background is one of the strongest predictors of test scores. Countries with lower child poverty and more equal school funding tend to perform better. In the US, school funding often depends on local property taxes, which can widen gaps.\n\n**5. Time spent learning**\nSome countries have longer school years or more instructional time, though more time doesn't always mean better results.\n\n**6. Testing differences**\nSome differences may reflect which students are tested and how familiar students are with test formats.\n\nNotably, there's no single formula. Finland and South Korea both score highly but have very different approaches. Finland has short school days and little homework, while South Korea is known for intense study hours.",
   "labels": {
    "Some countries have longer school years or more": {
-    "C4": "met"
+    "C4": "not_met"
    }
   }
  },
