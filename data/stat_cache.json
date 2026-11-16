@@ -1,5 +1,130 @@
 {
  "responses": {
+  "bls https://api.bls.gov/publicAPI/v2/timeseries/data/ {\"annualaverage\": true, \"endyear\": \"2009\", \"seriesid\": [\"LNS14000000\"], \"startyear\": \"2009\"}": {
+   "query_date": "2026-11-16",
+   "response": {
+    "Results": {
+     "series": [
+      {
+       "data": [
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M12",
+         "periodName": "December",
+         "value": "9.9",
+         "year": "2009"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M11",
+         "periodName": "November",
+         "value": "9.9",
+         "year": "2009"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M10",
+         "periodName": "October",
+         "value": "10.0",
+         "year": "2009"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M09",
+         "periodName": "September",
+         "value": "9.8",
+         "year": "2009"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M08",
+         "periodName": "August",
+         "value": "9.6",
+         "year": "2009"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M07",
+         "periodName": "July",
+         "value": "9.5",
+         "year": "2009"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M06",
+         "periodName": "June",
+         "value": "9.5",
+         "year": "2009"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M05",
+         "periodName": "May",
+         "value": "9.4",
+         "year": "2009"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M04",
+         "periodName": "April",
+         "value": "9.0",
+         "year": "2009"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M03",
+         "periodName": "March",
+         "value": "8.7",
+         "year": "2009"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M02",
+         "periodName": "February",
+         "value": "8.3",
+         "year": "2009"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M01",
+         "periodName": "January",
+         "value": "7.8",
+         "year": "2009"
+        }
+       ],
+       "seriesID": "LNS14000000"
+      }
+     ]
+    },
+    "message": [],
+    "responseTime": 11,
+    "status": "REQUEST_SUCCEEDED"
+   }
+  },
   "bls https://api.bls.gov/publicAPI/v2/timeseries/data/ {\"annualaverage\": true, \"endyear\": \"2019\", \"seriesid\": [\"LNU01300000\"], \"startyear\": \"2019\"}": {
    "query_date": "2026-11-03",
    "response": {
@@ -131,6 +256,649 @@
     },
     "message": [],
     "responseTime": 14,
+    "status": "REQUEST_SUCCEEDED"
+   }
+  },
+  "bls https://api.bls.gov/publicAPI/v2/timeseries/data/ {\"annualaverage\": true, \"endyear\": \"2019\", \"seriesid\": [\"LNU03327709\"], \"startyear\": \"2019\"}": {
+   "query_date": "2026-11-16",
+   "response": {
+    "Results": {
+     "series": [
+      {
+       "data": [
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M13",
+         "periodName": "Annual",
+         "value": "7.2",
+         "year": "2019"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M12",
+         "periodName": "December",
+         "value": "6.7",
+         "year": "2019"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M11",
+         "periodName": "November",
+         "value": "6.5",
+         "year": "2019"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M10",
+         "periodName": "October",
+         "value": "6.5",
+         "year": "2019"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M09",
+         "periodName": "September",
+         "value": "6.5",
+         "year": "2019"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M08",
+         "periodName": "August",
+         "value": "7.3",
+         "year": "2019"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M07",
+         "periodName": "July",
+         "value": "7.3",
+         "year": "2019"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M06",
+         "periodName": "June",
+         "value": "7.5",
+         "year": "2019"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M05",
+         "periodName": "May",
+         "value": "6.7",
+         "year": "2019"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M04",
+         "periodName": "April",
+         "value": "6.9",
+         "year": "2019"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M03",
+         "periodName": "March",
+         "value": "7.5",
+         "year": "2019"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M02",
+         "periodName": "February",
+         "value": "7.7",
+         "year": "2019"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M01",
+         "periodName": "January",
+         "value": "8.8",
+         "year": "2019"
+        }
+       ],
+       "seriesID": "LNU03327709"
+      }
+     ]
+    },
+    "message": [],
+    "responseTime": 12,
+    "status": "REQUEST_SUCCEEDED"
+   }
+  },
+  "bls https://api.bls.gov/publicAPI/v2/timeseries/data/ {\"annualaverage\": true, \"endyear\": \"2019\", \"seriesid\": [\"LNU04000000\"], \"startyear\": \"2019\"}": {
+   "query_date": "2026-11-16",
+   "response": {
+    "Results": {
+     "series": [
+      {
+       "data": [
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M13",
+         "periodName": "Annual",
+         "value": "3.7",
+         "year": "2019"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M12",
+         "periodName": "December",
+         "value": "3.4",
+         "year": "2019"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M11",
+         "periodName": "November",
+         "value": "3.3",
+         "year": "2019"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M10",
+         "periodName": "October",
+         "value": "3.3",
+         "year": "2019"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M09",
+         "periodName": "September",
+         "value": "3.3",
+         "year": "2019"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M08",
+         "periodName": "August",
+         "value": "3.8",
+         "year": "2019"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M07",
+         "periodName": "July",
+         "value": "4.0",
+         "year": "2019"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M06",
+         "periodName": "June",
+         "value": "3.8",
+         "year": "2019"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M05",
+         "periodName": "May",
+         "value": "3.4",
+         "year": "2019"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M04",
+         "periodName": "April",
+         "value": "3.3",
+         "year": "2019"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M03",
+         "periodName": "March",
+         "value": "3.9",
+         "year": "2019"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M02",
+         "periodName": "February",
+         "value": "4.1",
+         "year": "2019"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M01",
+         "periodName": "January",
+         "value": "4.4",
+         "year": "2019"
+        }
+       ],
+       "seriesID": "LNU04000000"
+      }
+     ]
+    },
+    "message": [],
+    "responseTime": 15,
+    "status": "REQUEST_SUCCEEDED"
+   }
+  },
+  "bls https://api.bls.gov/publicAPI/v2/timeseries/data/ {\"annualaverage\": true, \"endyear\": \"2020\", \"seriesid\": [\"LNS11300000\"], \"startyear\": \"2020\"}": {
+   "query_date": "2026-11-16",
+   "response": {
+    "Results": {
+     "series": [
+      {
+       "data": [
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M12",
+         "periodName": "December",
+         "value": "61.5",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M11",
+         "periodName": "November",
+         "value": "61.5",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M10",
+         "periodName": "October",
+         "value": "61.7",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M09",
+         "periodName": "September",
+         "value": "61.4",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M08",
+         "periodName": "August",
+         "value": "61.7",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M07",
+         "periodName": "July",
+         "value": "61.5",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M06",
+         "periodName": "June",
+         "value": "61.5",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M05",
+         "periodName": "May",
+         "value": "60.8",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M04",
+         "periodName": "April",
+         "value": "60.1",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M03",
+         "periodName": "March",
+         "value": "62.6",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M02",
+         "periodName": "February",
+         "value": "63.3",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M01",
+         "periodName": "January",
+         "value": "63.3",
+         "year": "2020"
+        }
+       ],
+       "seriesID": "LNS11300000"
+      }
+     ]
+    },
+    "message": [],
+    "responseTime": 11,
+    "status": "REQUEST_SUCCEEDED"
+   }
+  },
+  "bls https://api.bls.gov/publicAPI/v2/timeseries/data/ {\"annualaverage\": true, \"endyear\": \"2020\", \"seriesid\": [\"LNS13327709\"], \"startyear\": \"2020\"}": {
+   "query_date": "2026-11-16",
+   "response": {
+    "Results": {
+     "series": [
+      {
+       "data": [
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M12",
+         "periodName": "December",
+         "value": "11.7",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M11",
+         "periodName": "November",
+         "value": "11.9",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M10",
+         "periodName": "October",
+         "value": "12.1",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M09",
+         "periodName": "September",
+         "value": "12.8",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M08",
+         "periodName": "August",
+         "value": "14.2",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M07",
+         "periodName": "July",
+         "value": "16.5",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M06",
+         "periodName": "June",
+         "value": "18.0",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M05",
+         "periodName": "May",
+         "value": "21.1",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M04",
+         "periodName": "April",
+         "value": "22.9",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M03",
+         "periodName": "March",
+         "value": "8.8",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M02",
+         "periodName": "February",
+         "value": "7.0",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M01",
+         "periodName": "January",
+         "value": "7.0",
+         "year": "2020"
+        }
+       ],
+       "seriesID": "LNS13327709"
+      }
+     ]
+    },
+    "message": [],
+    "responseTime": 11,
+    "status": "REQUEST_SUCCEEDED"
+   }
+  },
+  "bls https://api.bls.gov/publicAPI/v2/timeseries/data/ {\"annualaverage\": true, \"endyear\": \"2020\", \"seriesid\": [\"LNS14000000\"], \"startyear\": \"2020\"}": {
+   "query_date": "2026-11-16",
+   "response": {
+    "Results": {
+     "series": [
+      {
+       "data": [
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M12",
+         "periodName": "December",
+         "value": "6.7",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M11",
+         "periodName": "November",
+         "value": "6.7",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M10",
+         "periodName": "October",
+         "value": "6.9",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M09",
+         "periodName": "September",
+         "value": "7.8",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M08",
+         "periodName": "August",
+         "value": "8.4",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M07",
+         "periodName": "July",
+         "value": "10.2",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M06",
+         "periodName": "June",
+         "value": "11.0",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M05",
+         "periodName": "May",
+         "value": "13.2",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M04",
+         "periodName": "April",
+         "value": "14.8",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M03",
+         "periodName": "March",
+         "value": "4.4",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M02",
+         "periodName": "February",
+         "value": "3.5",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M01",
+         "periodName": "January",
+         "value": "3.6",
+         "year": "2020"
+        }
+       ],
+       "seriesID": "LNS14000000"
+      }
+     ]
+    },
+    "message": [],
+    "responseTime": 27,
     "status": "REQUEST_SUCCEEDED"
    }
   },
@@ -402,6 +1170,893 @@
     "status": "REQUEST_SUCCEEDED"
    }
   },
+  "bls https://api.bls.gov/publicAPI/v2/timeseries/data/ {\"annualaverage\": true, \"endyear\": \"2021\", \"seriesid\": [\"CUUR0000SA0\"], \"startyear\": \"2020\"}": {
+   "query_date": "2026-11-16",
+   "response": {
+    "Results": {
+     "series": [
+      {
+       "data": [
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M13",
+         "periodName": "Annual",
+         "value": "270.970",
+         "year": "2021"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M12",
+         "periodName": "December",
+         "value": "278.802",
+         "year": "2021"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M11",
+         "periodName": "November",
+         "value": "277.948",
+         "year": "2021"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M10",
+         "periodName": "October",
+         "value": "276.589",
+         "year": "2021"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M09",
+         "periodName": "September",
+         "value": "274.310",
+         "year": "2021"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M08",
+         "periodName": "August",
+         "value": "273.567",
+         "year": "2021"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M07",
+         "periodName": "July",
+         "value": "273.003",
+         "year": "2021"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M06",
+         "periodName": "June",
+         "value": "271.696",
+         "year": "2021"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M05",
+         "periodName": "May",
+         "value": "269.195",
+         "year": "2021"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M04",
+         "periodName": "April",
+         "value": "267.054",
+         "year": "2021"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M03",
+         "periodName": "March",
+         "value": "264.877",
+         "year": "2021"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M02",
+         "periodName": "February",
+         "value": "263.014",
+         "year": "2021"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M01",
+         "periodName": "January",
+         "value": "261.582",
+         "year": "2021"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M13",
+         "periodName": "Annual",
+         "value": "258.811",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M12",
+         "periodName": "December",
+         "value": "260.474",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M11",
+         "periodName": "November",
+         "value": "260.229",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M10",
+         "periodName": "October",
+         "value": "260.388",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M09",
+         "periodName": "September",
+         "value": "260.280",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M08",
+         "periodName": "August",
+         "value": "259.918",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M07",
+         "periodName": "July",
+         "value": "259.101",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M06",
+         "periodName": "June",
+         "value": "257.797",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M05",
+         "periodName": "May",
+         "value": "256.394",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M04",
+         "periodName": "April",
+         "value": "256.389",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M03",
+         "periodName": "March",
+         "value": "258.115",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M02",
+         "periodName": "February",
+         "value": "258.678",
+         "year": "2020"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M01",
+         "periodName": "January",
+         "value": "257.971",
+         "year": "2020"
+        }
+       ],
+       "seriesID": "CUUR0000SA0"
+      }
+     ]
+    },
+    "message": [],
+    "responseTime": 20,
+    "status": "REQUEST_SUCCEEDED"
+   }
+  },
+  "bls https://api.bls.gov/publicAPI/v2/timeseries/data/ {\"annualaverage\": true, \"endyear\": \"2022\", \"seriesid\": [\"CUUR0000SA0\"], \"startyear\": \"2021\"}": {
+   "query_date": "2026-11-16",
+   "response": {
+    "Results": {
+     "series": [
+      {
+       "data": [
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M13",
+         "periodName": "Annual",
+         "value": "292.655",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M12",
+         "periodName": "December",
+         "value": "296.797",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M11",
+         "periodName": "November",
+         "value": "297.711",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M10",
+         "periodName": "October",
+         "value": "298.012",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M09",
+         "periodName": "September",
+         "value": "296.808",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M08",
+         "periodName": "August",
+         "value": "296.171",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M07",
+         "periodName": "July",
+         "value": "296.276",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M06",
+         "periodName": "June",
+         "value": "296.311",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M05",
+         "periodName": "May",
+         "value": "292.296",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M04",
+         "periodName": "April",
+         "value": "289.109",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M03",
+         "periodName": "March",
+         "value": "287.504",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M02",
+         "periodName": "February",
+         "value": "283.716",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M01",
+         "periodName": "January",
+         "value": "281.148",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M13",
+         "periodName": "Annual",
+         "value": "270.970",
+         "year": "2021"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M12",
+         "periodName": "December",
+         "value": "278.802",
+         "year": "2021"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M11",
+         "periodName": "November",
+         "value": "277.948",
+         "year": "2021"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M10",
+         "periodName": "October",
+         "value": "276.589",
+         "year": "2021"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M09",
+         "periodName": "September",
+         "value": "274.310",
+         "year": "2021"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M08",
+         "periodName": "August",
+         "value": "273.567",
+         "year": "2021"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M07",
+         "periodName": "July",
+         "value": "273.003",
+         "year": "2021"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M06",
+         "periodName": "June",
+         "value": "271.696",
+         "year": "2021"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M05",
+         "periodName": "May",
+         "value": "269.195",
+         "year": "2021"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M04",
+         "periodName": "April",
+         "value": "267.054",
+         "year": "2021"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M03",
+         "periodName": "March",
+         "value": "264.877",
+         "year": "2021"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M02",
+         "periodName": "February",
+         "value": "263.014",
+         "year": "2021"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M01",
+         "periodName": "January",
+         "value": "261.582",
+         "year": "2021"
+        }
+       ],
+       "seriesID": "CUUR0000SA0"
+      }
+     ]
+    },
+    "message": [],
+    "responseTime": 11,
+    "status": "REQUEST_SUCCEEDED"
+   }
+  },
+  "bls https://api.bls.gov/publicAPI/v2/timeseries/data/ {\"annualaverage\": true, \"endyear\": \"2022\", \"seriesid\": [\"CUUR0000SA0L1E\"], \"startyear\": \"2021\"}": {
+   "query_date": "2026-11-16",
+   "response": {
+    "Results": {
+     "series": [
+      {
+       "data": [
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M13",
+         "periodName": "Annual",
+         "value": "294.307",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M12",
+         "periodName": "December",
+         "value": "300.113",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M11",
+         "periodName": "November",
+         "value": "299.600",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M10",
+         "periodName": "October",
+         "value": "299.315",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M09",
+         "periodName": "September",
+         "value": "298.442",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M08",
+         "periodName": "August",
+         "value": "297.178",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M07",
+         "periodName": "July",
+         "value": "295.646",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M06",
+         "periodName": "June",
+         "value": "294.680",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M05",
+         "periodName": "May",
+         "value": "292.506",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M04",
+         "periodName": "April",
+         "value": "290.846",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M03",
+         "periodName": "March",
+         "value": "289.305",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M02",
+         "periodName": "February",
+         "value": "288.059",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M01",
+         "periodName": "January",
+         "value": "285.996",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M13",
+         "periodName": "Annual",
+         "value": "277.255",
+         "year": "2021"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M12",
+         "periodName": "December",
+         "value": "283.908",
+         "year": "2021"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M11",
+         "periodName": "November",
+         "value": "282.754",
+         "year": "2021"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M10",
+         "periodName": "October",
+         "value": "281.617",
+         "year": "2021"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M09",
+         "periodName": "September",
+         "value": "279.884",
+         "year": "2021"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M08",
+         "periodName": "August",
+         "value": "279.507",
+         "year": "2021"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M07",
+         "periodName": "July",
+         "value": "279.146",
+         "year": "2021"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M06",
+         "periodName": "June",
+         "value": "278.218",
+         "year": "2021"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M05",
+         "periodName": "May",
+         "value": "275.893",
+         "year": "2021"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M04",
+         "periodName": "April",
+         "value": "273.968",
+         "year": "2021"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M03",
+         "periodName": "March",
+         "value": "271.713",
+         "year": "2021"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M02",
+         "periodName": "February",
+         "value": "270.696",
+         "year": "2021"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M01",
+         "periodName": "January",
+         "value": "269.755",
+         "year": "2021"
+        }
+       ],
+       "seriesID": "CUUR0000SA0L1E"
+      }
+     ]
+    },
+    "message": [],
+    "responseTime": 12,
+    "status": "REQUEST_SUCCEEDED"
+   }
+  },
+  "bls https://api.bls.gov/publicAPI/v2/timeseries/data/ {\"annualaverage\": true, \"endyear\": \"2022\", \"seriesid\": [\"LNU04000000\"], \"startyear\": \"2022\"}": {
+   "query_date": "2026-11-16",
+   "response": {
+    "Results": {
+     "series": [
+      {
+       "data": [
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M13",
+         "periodName": "Annual",
+         "value": "3.6",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M12",
+         "periodName": "December",
+         "value": "3.3",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M11",
+         "periodName": "November",
+         "value": "3.4",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M10",
+         "periodName": "October",
+         "value": "3.4",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M09",
+         "periodName": "September",
+         "value": "3.3",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M08",
+         "periodName": "August",
+         "value": "3.8",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M07",
+         "periodName": "July",
+         "value": "3.8",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M06",
+         "periodName": "June",
+         "value": "3.8",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M05",
+         "periodName": "May",
+         "value": "3.4",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M04",
+         "periodName": "April",
+         "value": "3.3",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M03",
+         "periodName": "March",
+         "value": "3.8",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M02",
+         "periodName": "February",
+         "value": "4.1",
+         "year": "2022"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M01",
+         "periodName": "January",
+         "value": "4.4",
+         "year": "2022"
+        }
+       ],
+       "seriesID": "LNU04000000"
+      }
+     ]
+    },
+    "message": [],
+    "responseTime": 11,
+    "status": "REQUEST_SUCCEEDED"
+   }
+  },
   "bls https://api.bls.gov/publicAPI/v2/timeseries/data/ {\"annualaverage\": true, \"endyear\": \"2022\", \"seriesid\": [\"LNU04027660\"], \"startyear\": \"2022\"}": {
    "query_date": "2026-11-08",
    "response": {
@@ -670,6 +2325,286 @@
     "status": "REQUEST_SUCCEEDED"
    }
   },
+  "bls https://api.bls.gov/publicAPI/v2/timeseries/data/ {\"annualaverage\": true, \"endyear\": \"2023\", \"seriesid\": [\"CES0500000003\"], \"startyear\": \"2023\"}": {
+   "query_date": "2026-11-16",
+   "response": {
+    "Results": {
+     "series": [
+      {
+       "data": [
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M12",
+         "periodName": "December",
+         "value": "34.29",
+         "year": "2023"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M11",
+         "periodName": "November",
+         "value": "34.17",
+         "year": "2023"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M10",
+         "periodName": "October",
+         "value": "34.08",
+         "year": "2023"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M09",
+         "periodName": "September",
+         "value": "34.01",
+         "year": "2023"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M08",
+         "periodName": "August",
+         "value": "33.89",
+         "year": "2023"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M07",
+         "periodName": "July",
+         "value": "33.85",
+         "year": "2023"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M06",
+         "periodName": "June",
+         "value": "33.69",
+         "year": "2023"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M05",
+         "periodName": "May",
+         "value": "33.50",
+         "year": "2023"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M04",
+         "periodName": "April",
+         "value": "33.43",
+         "year": "2023"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M03",
+         "periodName": "March",
+         "value": "33.27",
+         "year": "2023"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M02",
+         "periodName": "February",
+         "value": "33.15",
+         "year": "2023"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M01",
+         "periodName": "January",
+         "value": "33.02",
+         "year": "2023"
+        }
+       ],
+       "seriesID": "CES0500000003"
+      }
+     ]
+    },
+    "message": [],
+    "responseTime": 20,
+    "status": "REQUEST_SUCCEEDED"
+   }
+  },
+  "bls https://api.bls.gov/publicAPI/v2/timeseries/data/ {\"annualaverage\": true, \"endyear\": \"2023\", \"seriesid\": [\"LNS14000000\"], \"startyear\": \"2023\"}": {
+   "query_date": "2026-11-16",
+   "response": {
+    "Results": {
+     "series": [
+      {
+       "data": [
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M12",
+         "periodName": "December",
+         "value": "3.8",
+         "year": "2023"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M11",
+         "periodName": "November",
+         "value": "3.7",
+         "year": "2023"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M10",
+         "periodName": "October",
+         "value": "3.9",
+         "year": "2023"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M09",
+         "periodName": "September",
+         "value": "3.7",
+         "year": "2023"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M08",
+         "periodName": "August",
+         "value": "3.7",
+         "year": "2023"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M07",
+         "periodName": "July",
+         "value": "3.5",
+         "year": "2023"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M06",
+         "periodName": "June",
+         "value": "3.6",
+         "year": "2023"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M05",
+         "periodName": "May",
+         "value": "3.6",
+         "year": "2023"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M04",
+         "periodName": "April",
+         "value": "3.4",
+         "year": "2023"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M03",
+         "periodName": "March",
+         "value": "3.5",
+         "year": "2023"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M02",
+         "periodName": "February",
+         "value": "3.6",
+         "year": "2023"
+        },
+        {
+         "footnotes": [
+          {}
+         ],
+         "period": "M01",
+         "periodName": "January",
+         "value": "3.5",
+         "year": "2023"
+        }
+       ],
+       "seriesID": "LNS14000000"
+      }
+     ]
+    },
+    "message": [],
+    "responseTime": 15,
+    "status": "REQUEST_SUCCEEDED"
+   }
+  },
+  "census https://api.census.gov/data/2020/dec/pl?get=NAME,P1_001N&for=state:06": {
+   "query_date": "2026-11-16",
+   "response": [
+    [
+     "NAME",
+     "P1_001N",
+     "state"
+    ],
+    [
+     "California",
+     "39538223",
+     "06"
+    ]
+   ]
+  },
+  "census https://api.census.gov/data/2020/dec/pl?get=NAME,P1_001N&for=state:48": {
+   "query_date": "2026-11-16",
+   "response": [
+    [
+     "NAME",
+     "P1_001N",
+     "state"
+    ],
+    [
+     "Texas",
+     "29145505",
+     "48"
+    ]
+   ]
+  },
   "census https://api.census.gov/data/2020/dec/pl?get=NAME,P1_001N&for=us:1": {
    "query_date": "2026-11-03",
    "response": [
@@ -700,6 +2635,21 @@
     ]
    ]
   },
+  "census https://api.census.gov/data/2022/acs/acs1?get=NAME,B01003_001E&for=us:1": {
+   "query_date": "2026-11-16",
+   "response": [
+    [
+     "NAME",
+     "B01003_001E",
+     "us"
+    ],
+    [
+     "United States",
+     "333287562",
+     "1"
+    ]
+   ]
+  },
   "census https://api.census.gov/data/2022/acs/acs1?get=NAME,B05002_013E&for=us:1": {
    "query_date": "2026-11-08",
    "response": [
@@ -714,6 +2664,41 @@
      "1"
     ]
    ]
+  },
+  "datacommons https://api.datacommons.org/v2/observation?date=2020&variable.dcids=UnemploymentRate_Person&entity.dcids=geoId%2F06&select=entity&select=variable&select=value&select=date": {
+   "query_date": "2026-11-16",
+   "response": {
+    "byVariable": {
+     "UnemploymentRate_Person": {
+      "byEntity": {
+       "geoId/06": {
+        "orderedFacets": [
+         {
+          "earliestDate": "2020",
+          "facetId": "10240237642168108380",
+          "latestDate": "2020",
+          "obsCount": 1,
+          "observations": [
+           {
+            "date": "2020",
+            "value": 10.1
+           }
+          ]
+         }
+        ]
+       }
+      }
+     }
+    },
+    "facets": {
+     "10240237642168108380": {
+      "measurementMethod": "BLSSeasonallyUnadjusted",
+      "observationPeriod": "P1Y",
+      "provenanceId": "dc/base/BLS_LAUS",
+      "provenanceUrl": "https://www.bls.gov/lau/"
+     }
+    }
+   }
   },
   "datacommons https://api.datacommons.org/v2/observation?date=2021&variable.dcids=Count_BirthEvent&entity.dcids=country%2FUSA&select=entity&select=variable&select=value&select=date": {
    "query_date": "2026-11-08",
@@ -810,6 +2795,719 @@
     }
    }
   },
+  "worldbank https://api.worldbank.org/v2/country/BRA/indicator/EG.FEC.RNEW.ZS?format=json&date=2019": {
+   "query_date": "2026-11-16",
+   "response": [
+    {
+     "lastupdated": "2026-11-11",
+     "page": 1,
+     "pages": 1,
+     "per_page": 50,
+     "sourceid": "2",
+     "total": 1
+    },
+    [
+     {
+      "country": {
+       "id": "BR",
+       "value": "Brazil"
+      },
+      "countryiso3code": "BRA",
+      "date": "2019",
+      "decimal": 2,
+      "indicator": {
+       "id": "EG.FEC.RNEW.ZS",
+       "value": "Renewable energy consumption (% of total final energy consumption)"
+      },
+      "obs_status": "",
+      "unit": "",
+      "value": 47.5
+     }
+    ]
+   ]
+  },
+  "worldbank https://api.worldbank.org/v2/country/BRA/indicator/FP.CPI.TOTL.ZG?format=json&date=2021": {
+   "query_date": "2026-11-16",
+   "response": [
+    {
+     "lastupdated": "2026-11-11",
+     "page": 1,
+     "pages": 1,
+     "per_page": 50,
+     "sourceid": "2",
+     "total": 1
+    },
+    [
+     {
+      "country": {
+       "id": "BR",
+       "value": "Brazil"
+      },
+      "countryiso3code": "BRA",
+      "date": "2021",
+      "decimal": 1,
+      "indicator": {
+       "id": "FP.CPI.TOTL.ZG",
+       "value": "Inflation, consumer prices (annual %)"
+      },
+      "obs_status": "",
+      "unit": "",
+      "value": 8.30165975585673
+     }
+    ]
+   ]
+  },
+  "worldbank https://api.worldbank.org/v2/country/BRA/indicator/SP.DYN.LE00.IN?format=json&date=2019": {
+   "query_date": "2026-11-16",
+   "response": [
+    {
+     "lastupdated": "2026-11-11",
+     "page": 1,
+     "pages": 1,
+     "per_page": 50,
+     "sourceid": "2",
+     "total": 1
+    },
+    [
+     {
+      "country": {
+       "id": "BR",
+       "value": "Brazil"
+      },
+      "countryiso3code": "BRA",
+      "date": "2019",
+      "decimal": 0,
+      "indicator": {
+       "id": "SP.DYN.LE00.IN",
+       "value": "Life expectancy at birth, total (years)"
+      },
+      "obs_status": "",
+      "unit": "",
+      "value": 75.809
+     }
+    ]
+   ]
+  },
+  "worldbank https://api.worldbank.org/v2/country/DEU/indicator/EG.FEC.RNEW.ZS?format=json&date=2019": {
+   "query_date": "2026-11-16",
+   "response": [
+    {
+     "lastupdated": "2026-11-11",
+     "page": 1,
+     "pages": 1,
+     "per_page": 50,
+     "sourceid": "2",
+     "total": 1
+    },
+    [
+     {
+      "country": {
+       "id": "DE",
+       "value": "Germany"
+      },
+      "countryiso3code": "DEU",
+      "date": "2019",
+      "decimal": 2,
+      "indicator": {
+       "id": "EG.FEC.RNEW.ZS",
+       "value": "Renewable energy consumption (% of total final energy consumption)"
+      },
+      "obs_status": "",
+      "unit": "",
+      "value": 17.1
+     }
+    ]
+   ]
+  },
+  "worldbank https://api.worldbank.org/v2/country/DEU/indicator/FP.CPI.TOTL.ZG?format=json&date=2022": {
+   "query_date": "2026-11-16",
+   "response": [
+    {
+     "lastupdated": "2026-11-11",
+     "page": 1,
+     "pages": 1,
+     "per_page": 50,
+     "sourceid": "2",
+     "total": 1
+    },
+    [
+     {
+      "country": {
+       "id": "DE",
+       "value": "Germany"
+      },
+      "countryiso3code": "DEU",
+      "date": "2022",
+      "decimal": 1,
+      "indicator": {
+       "id": "FP.CPI.TOTL.ZG",
+       "value": "Inflation, consumer prices (annual %)"
+      },
+      "obs_status": "",
+      "unit": "",
+      "value": 6.87257438551096
+     }
+    ]
+   ]
+  },
+  "worldbank https://api.worldbank.org/v2/country/DEU/indicator/NY.GDP.MKTP.KD.ZG?format=json&date=2021": {
+   "query_date": "2026-11-16",
+   "response": [
+    {
+     "lastupdated": "2026-11-11",
+     "page": 1,
+     "pages": 1,
+     "per_page": 50,
+     "sourceid": "2",
+     "total": 1
+    },
+    [
+     {
+      "country": {
+       "id": "DE",
+       "value": "Germany"
+      },
+      "countryiso3code": "DEU",
+      "date": "2021",
+      "decimal": 1,
+      "indicator": {
+       "id": "NY.GDP.MKTP.KD.ZG",
+       "value": "GDP growth (annual %)"
+      },
+      "obs_status": "",
+      "unit": "",
+      "value": 3.90999994204108
+     }
+    ]
+   ]
+  },
+  "worldbank https://api.worldbank.org/v2/country/DEU/indicator/NY.GDP.PCAP.CD?format=json&date=2020": {
+   "query_date": "2026-11-16",
+   "response": [
+    {
+     "lastupdated": "2026-11-11",
+     "page": 1,
+     "pages": 1,
+     "per_page": 50,
+     "sourceid": "2",
+     "total": 1
+    },
+    [
+     {
+      "country": {
+       "id": "DE",
+       "value": "Germany"
+      },
+      "countryiso3code": "DEU",
+      "date": "2020",
+      "decimal": 1,
+      "indicator": {
+       "id": "NY.GDP.PCAP.CD",
+       "value": "GDP per capita (current US$)"
+      },
+      "obs_status": "",
+      "unit": "",
+      "value": 47394.8734504469
+     }
+    ]
+   ]
+  },
+  "worldbank https://api.worldbank.org/v2/country/DEU/indicator/SL.UEM.TOTL.ZS?format=json&date=2019": {
+   "query_date": "2026-11-16",
+   "response": [
+    {
+     "lastupdated": "2026-11-11",
+     "page": 1,
+     "pages": 1,
+     "per_page": 50,
+     "sourceid": "2",
+     "total": 1
+    },
+    [
+     {
+      "country": {
+       "id": "DE",
+       "value": "Germany"
+      },
+      "countryiso3code": "DEU",
+      "date": "2019",
+      "decimal": 1,
+      "indicator": {
+       "id": "SL.UEM.TOTL.ZS",
+       "value": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+      },
+      "obs_status": "",
+      "unit": "",
+      "value": 3.163
+     }
+    ]
+   ]
+  },
+  "worldbank https://api.worldbank.org/v2/country/DEU/indicator/SP.POP.TOTL?format=json&date=2020": {
+   "query_date": "2026-11-16",
+   "response": [
+    {
+     "lastupdated": "2026-11-11",
+     "page": 1,
+     "pages": 1,
+     "per_page": 50,
+     "sourceid": "2",
+     "total": 1
+    },
+    [
+     {
+      "country": {
+       "id": "DE",
+       "value": "Germany"
+      },
+      "countryiso3code": "DEU",
+      "date": "2020",
+      "decimal": 0,
+      "indicator": {
+       "id": "SP.POP.TOTL",
+       "value": "Population, total"
+      },
+      "obs_status": "",
+      "unit": "",
+      "value": 83160871
+     }
+    ]
+   ]
+  },
+  "worldbank https://api.worldbank.org/v2/country/ESP/indicator/SL.UEM.TOTL.ZS?format=json&date=2019": {
+   "query_date": "2026-11-16",
+   "response": [
+    {
+     "lastupdated": "2026-11-11",
+     "page": 1,
+     "pages": 1,
+     "per_page": 50,
+     "sourceid": "2",
+     "total": 1
+    },
+    [
+     {
+      "country": {
+       "id": "ES",
+       "value": "Spain"
+      },
+      "countryiso3code": "ESP",
+      "date": "2019",
+      "decimal": 1,
+      "indicator": {
+       "id": "SL.UEM.TOTL.ZS",
+       "value": "Unemployment, total (% of total labor force) (modeled ILO estimate)"
+      },
+      "obs_status": "",
+      "unit": "",
+      "value": 14.104
+     }
+    ]
+   ]
+  },
+  "worldbank https://api.worldbank.org/v2/country/FRA/indicator/SP.DYN.TFRT.IN?format=json&date=2019": {
+   "query_date": "2026-11-16",
+   "response": [
+    {
+     "lastupdated": "2026-11-11",
+     "page": 1,
+     "pages": 1,
+     "per_page": 50,
+     "sourceid": "2",
+     "total": 1
+    },
+    [
+     {
+      "country": {
+       "id": "FR",
+       "value": "France"
+      },
+      "countryiso3code": "FRA",
+      "date": "2019",
+      "decimal": 1,
+      "indicator": {
+       "id": "SP.DYN.TFRT.IN",
+       "value": "Fertility rate, total (births per woman)"
+      },
+      "obs_status": "",
+      "unit": "",
+      "value": 1.86
+     }
+    ]
+   ]
+  },
+  "worldbank https://api.worldbank.org/v2/country/IND/indicator/EG.ELC.ACCS.ZS?format=json&date=2015": {
+   "query_date": "2026-11-16",
+   "response": [
+    {
+     "lastupdated": "2026-11-11",
+     "page": 1,
+     "pages": 1,
+     "per_page": 50,
+     "sourceid": "2",
+     "total": 1
+    },
+    [
+     {
+      "country": {
+       "id": "IN",
+       "value": "India"
+      },
+      "countryiso3code": "IND",
+      "date": "2015",
+      "decimal": 1,
+      "indicator": {
+       "id": "EG.ELC.ACCS.ZS",
+       "value": "Access to electricity (% of population)"
+      },
+      "obs_status": "",
+      "unit": "",
+      "value": 88
+     }
+    ]
+   ]
+  },
+  "worldbank https://api.worldbank.org/v2/country/IND/indicator/NY.GDP.MKTP.KD.ZG?format=json&date=2021": {
+   "query_date": "2026-11-16",
+   "response": [
+    {
+     "lastupdated": "2026-11-11",
+     "page": 1,
+     "pages": 1,
+     "per_page": 50,
+     "sourceid": "2",
+     "total": 1
+    },
+    [
+     {
+      "country": {
+       "id": "IN",
+       "value": "India"
+      },
+      "countryiso3code": "IND",
+      "date": "2021",
+      "decimal": 1,
+      "indicator": {
+       "id": "NY.GDP.MKTP.KD.ZG",
+       "value": "GDP growth (annual %)"
+      },
+      "obs_status": "",
+      "unit": "",
+      "value": 9.68959249191741
+     }
+    ]
+   ]
+  },
+  "worldbank https://api.worldbank.org/v2/country/IND/indicator/SE.ADT.LITR.ZS?format=json&date=2018": {
+   "query_date": "2026-11-16",
+   "response": [
+    {
+     "lastupdated": "2026-11-11",
+     "page": 1,
+     "pages": 1,
+     "per_page": 50,
+     "sourceid": "2",
+     "total": 1
+    },
+    [
+     {
+      "country": {
+       "id": "IN",
+       "value": "India"
+      },
+      "countryiso3code": "IND",
+      "date": "2018",
+      "decimal": 0,
+      "indicator": {
+       "id": "SE.ADT.LITR.ZS",
+       "value": "Literacy rate, adult total (% of people ages 15 and above)"
+      },
+      "obs_status": "",
+      "unit": "",
+      "value": 73.6883524760717
+     }
+    ]
+   ]
+  },
+  "worldbank https://api.worldbank.org/v2/country/IND/indicator/SP.DYN.IMRT.IN?format=json&date=2019": {
+   "query_date": "2026-11-16",
+   "response": [
+    {
+     "lastupdated": "2026-11-11",
+     "page": 1,
+     "pages": 1,
+     "per_page": 50,
+     "sourceid": "2",
+     "total": 1
+    },
+    [
+     {
+      "country": {
+       "id": "IN",
+       "value": "India"
+      },
+      "countryiso3code": "IND",
+      "date": "2019",
+      "decimal": 0,
+      "indicator": {
+       "id": "SP.DYN.IMRT.IN",
+       "value": "Mortality rate, infant (per 1,000 live births)"
+      },
+      "obs_status": "",
+      "unit": "",
+      "value": 29.8
+     }
+    ]
+   ]
+  },
+  "worldbank https://api.worldbank.org/v2/country/IND/indicator/SP.DYN.TFRT.IN?format=json&date=2019": {
+   "query_date": "2026-11-16",
+   "response": [
+    {
+     "lastupdated": "2026-11-11",
+     "page": 1,
+     "pages": 1,
+     "per_page": 50,
+     "sourceid": "2",
+     "total": 1
+    },
+    [
+     {
+      "country": {
+       "id": "IN",
+       "value": "India"
+      },
+      "countryiso3code": "IND",
+      "date": "2019",
+      "decimal": 1,
+      "indicator": {
+       "id": "SP.DYN.TFRT.IN",
+       "value": "Fertility rate, total (births per woman)"
+      },
+      "obs_status": "",
+      "unit": "",
+      "value": 2.12
+     }
+    ]
+   ]
+  },
+  "worldbank https://api.worldbank.org/v2/country/JPN/indicator/NY.GDP.PCAP.CD?format=json&date=2019": {
+   "query_date": "2026-11-16",
+   "response": [
+    {
+     "lastupdated": "2026-11-11",
+     "page": 1,
+     "pages": 1,
+     "per_page": 50,
+     "sourceid": "2",
+     "total": 1
+    },
+    [
+     {
+      "country": {
+       "id": "JP",
+       "value": "Japan"
+      },
+      "countryiso3code": "JPN",
+      "date": "2019",
+      "decimal": 1,
+      "indicator": {
+       "id": "NY.GDP.PCAP.CD",
+       "value": "GDP per capita (current US$)"
+      },
+      "obs_status": "",
+      "unit": "",
+      "value": 41424.8655601543
+     }
+    ]
+   ]
+  },
+  "worldbank https://api.worldbank.org/v2/country/JPN/indicator/SP.DYN.LE00.IN?format=json&date=2019": {
+   "query_date": "2026-11-16",
+   "response": [
+    {
+     "lastupdated": "2026-11-11",
+     "page": 1,
+     "pages": 1,
+     "per_page": 50,
+     "sourceid": "2",
+     "total": 1
+    },
+    [
+     {
+      "country": {
+       "id": "JP",
+       "value": "Japan"
+      },
+      "countryiso3code": "JPN",
+      "date": "2019",
+      "decimal": 0,
+      "indicator": {
+       "id": "SP.DYN.LE00.IN",
+       "value": "Life expectancy at birth, total (years)"
+      },
+      "obs_status": "",
+      "unit": "",
+      "value": 84.3563414634146
+     }
+    ]
+   ]
+  },
+  "worldbank https://api.worldbank.org/v2/country/JPN/indicator/SP.POP.TOTL?format=json&date=2019": {
+   "query_date": "2026-11-16",
+   "response": [
+    {
+     "lastupdated": "2026-11-11",
+     "page": 1,
+     "pages": 1,
+     "per_page": 50,
+     "sourceid": "2",
+     "total": 1
+    },
+    [
+     {
+      "country": {
+       "id": "JP",
+       "value": "Japan"
+      },
+      "countryiso3code": "JPN",
+      "date": "2019",
+      "decimal": 0,
+      "indicator": {
+       "id": "SP.POP.TOTL",
+       "value": "Population, total"
+      },
+      "obs_status": "",
+      "unit": "",
+      "value": 126633000
+     }
+    ]
+   ]
+  },
+  "worldbank https://api.worldbank.org/v2/country/NGA/indicator/EG.ELC.ACCS.ZS?format=json&date=2019": {
+   "query_date": "2026-11-16",
+   "response": [
+    {
+     "lastupdated": "2026-11-11",
+     "page": 1,
+     "pages": 1,
+     "per_page": 50,
+     "sourceid": "2",
+     "total": 1
+    },
+    [
+     {
+      "country": {
+       "id": "NG",
+       "value": "Nigeria"
+      },
+      "countryiso3code": "NGA",
+      "date": "2019",
+      "decimal": 1,
+      "indicator": {
+       "id": "EG.ELC.ACCS.ZS",
+       "value": "Access to electricity (% of population)"
+      },
+      "obs_status": "",
+      "unit": "",
+      "value": 55.4
+     }
+    ]
+   ]
+  },
+  "worldbank https://api.worldbank.org/v2/country/USA/indicator/FP.CPI.TOTL.ZG?format=json&date=2021": {
+   "query_date": "2026-11-16",
+   "response": [
+    {
+     "lastupdated": "2026-11-11",
+     "page": 1,
+     "pages": 1,
+     "per_page": 50,
+     "sourceid": "2",
+     "total": 1
+    },
+    [
+     {
+      "country": {
+       "id": "US",
+       "value": "United States"
+      },
+      "countryiso3code": "USA",
+      "date": "2021",
+      "decimal": 1,
+      "indicator": {
+       "id": "FP.CPI.TOTL.ZG",
+       "value": "Inflation, consumer prices (annual %)"
+      },
+      "obs_status": "",
+      "unit": "",
+      "value": 4.69785886363742
+     }
+    ]
+   ]
+  },
+  "worldbank https://api.worldbank.org/v2/country/USA/indicator/FP.CPI.TOTL.ZG?format=json&date=2022": {
+   "query_date": "2026-11-16",
+   "response": [
+    {
+     "lastupdated": "2026-11-11",
+     "page": 1,
+     "pages": 1,
+     "per_page": 50,
+     "sourceid": "2",
+     "total": 1
+    },
+    [
+     {
+      "country": {
+       "id": "US",
+       "value": "United States"
+      },
+      "countryiso3code": "USA",
+      "date": "2022",
+      "decimal": 1,
+      "indicator": {
+       "id": "FP.CPI.TOTL.ZG",
+       "value": "Inflation, consumer prices (annual %)"
+      },
+      "obs_status": "",
+      "unit": "",
+      "value": 8.00279982052121
+     }
+    ]
+   ]
+  },
+  "worldbank https://api.worldbank.org/v2/country/USA/indicator/NY.GDP.PCAP.CD?format=json&date=2019": {
+   "query_date": "2026-11-16",
+   "response": [
+    {
+     "lastupdated": "2026-11-11",
+     "page": 1,
+     "pages": 1,
+     "per_page": 50,
+     "sourceid": "2",
+     "total": 1
+    },
+    [
+     {
+      "country": {
+       "id": "US",
+       "value": "United States"
+      },
+      "countryiso3code": "USA",
+      "date": "2019",
+      "decimal": 1,
+      "indicator": {
+       "id": "NY.GDP.PCAP.CD",
+       "value": "GDP per capita (current US$)"
+      },
+      "obs_status": "",
+      "unit": "",
+      "value": 65227.9565911038
+     }
+    ]
+   ]
+  },
   "worldbank https://api.worldbank.org/v2/country/USA/indicator/SH.STA.TRAF.P5?format=json&date=2019": {
    "query_date": "2026-11-08",
    "response": [
@@ -899,6 +3597,37 @@
       "obs_status": "",
       "unit": "",
       "value": 13.724
+     }
+    ]
+   ]
+  },
+  "worldbank https://api.worldbank.org/v2/country/USA/indicator/SP.DYN.LE00.IN?format=json&date=2019": {
+   "query_date": "2026-11-16",
+   "response": [
+    {
+     "lastupdated": "2026-11-11",
+     "page": 1,
+     "pages": 1,
+     "per_page": 50,
+     "sourceid": "2",
+     "total": 1
+    },
+    [
+     {
+      "country": {
+       "id": "US",
+       "value": "United States"
+      },
+      "countryiso3code": "USA",
+      "date": "2019",
+      "decimal": 0,
+      "indicator": {
+       "id": "SP.DYN.LE00.IN",
+       "value": "Life expectancy at birth, total (years)"
+      },
+      "obs_status": "",
+      "unit": "",
+      "value": 78.7878048780488
      }
     ]
    ]
@@ -2103,16 +4832,16 @@
  },
  "usage": {
   "bls": {
-   "2026-11-08": 2
+   "2026-11-16": 12
   },
   "census": {
-   "2026-11-08": 2
+   "2026-11-16": 3
   },
   "datacommons": {
-   "2026-11-08": 4
+   "2026-11-16": 1
   },
   "worldbank": {
-   "2026-11-08": 3
+   "2026-11-16": 24
   }
  }
 }

@@ -1,0 +1,1982 @@
+[
+ {
+  "id": "c2cat-unemployment_rate-united_states-2019-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the unemployment rate in the United States was 3.7%.",
+  "labels": {
+   "In 2019, the unemployment rate in the United States was 3.7%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate-united_states-2019-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the unemployment rate in the United States was 4.4%.",
+  "labels": {
+   "In 2019, the unemployment rate in the United States was 4.4%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate-united_states-2019-approx_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the unemployment rate in the United States was about 3.8%.",
+  "labels": {
+   "In 2019, the unemployment rate in the United States was about 3.8%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate-united_states-2019-approx_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the unemployment rate in the United States was about 4.8%.",
+  "labels": {
+   "In 2019, the unemployment rate in the United States was about 4.8%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate-united_states-2020-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2020, the unemployment rate in the United States was 8.1%.",
+  "labels": {
+   "In 2020, the unemployment rate in the United States was 8.1%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate-united_states-2020-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2020, the unemployment rate in the United States was 9.7%.",
+  "labels": {
+   "In 2020, the unemployment rate in the United States was 9.7%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate-united_states-2020-floor_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2020, the unemployment rate in the United States was more than 7.3%.",
+  "labels": {
+   "In 2020, the unemployment rate in the United States was more than 7.3%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate-united_states-2020-floor_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2020, the unemployment rate in the United States was more than 9.3%.",
+  "labels": {
+   "In 2020, the unemployment rate in the United States was more than 9.3%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate-united_states-2022-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2022, the unemployment rate in the United States was 3.6%.",
+  "labels": {
+   "In 2022, the unemployment rate in the United States was 3.6%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate-united_states-2022-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2022, the unemployment rate in the United States was 4.3%.",
+  "labels": {
+   "In 2022, the unemployment rate in the United States was 4.3%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate-united_states-2022-approx_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2022, the unemployment rate in the United States was about 3.7%.",
+  "labels": {
+   "In 2022, the unemployment rate in the United States was about 3.7%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate-united_states-2022-approx_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2022, the unemployment rate in the United States was about 4.7%.",
+  "labels": {
+   "In 2022, the unemployment rate in the United States was about 4.7%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate-united_states-2020-04-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In April 2020, the unemployment rate in the United States was 14.8%.",
+  "labels": {
+   "In April 2020, the unemployment rate in the United States was 14.8%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate-united_states-2020-04-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In April 2020, the unemployment rate in the United States was 17.8%.",
+  "labels": {
+   "In April 2020, the unemployment rate in the United States was 17.8%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate-united_states-2020-04-floor_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In April 2020, the unemployment rate in the United States was more than 13.3%.",
+  "labels": {
+   "In April 2020, the unemployment rate in the United States was more than 13.3%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate-united_states-2020-04-floor_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In April 2020, the unemployment rate in the United States was more than 17.0%.",
+  "labels": {
+   "In April 2020, the unemployment rate in the United States was more than 17.0%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate-united_states-2009-10-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In October 2009, the unemployment rate in the United States was 10.0%.",
+  "labels": {
+   "In October 2009, the unemployment rate in the United States was 10.0%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate-united_states-2009-10-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In October 2009, the unemployment rate in the United States was 12.0%.",
+  "labels": {
+   "In October 2009, the unemployment rate in the United States was 12.0%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate-united_states-2009-10-approx_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In October 2009, the unemployment rate in the United States was about 10.4%.",
+  "labels": {
+   "In October 2009, the unemployment rate in the United States was about 10.4%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate-united_states-2009-10-approx_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In October 2009, the unemployment rate in the United States was about 13.0%.",
+  "labels": {
+   "In October 2009, the unemployment rate in the United States was about 13.0%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate-united_states-2023-01-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In January 2023, the unemployment rate in the United States was 3.5%.",
+  "labels": {
+   "In January 2023, the unemployment rate in the United States was 3.5%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate-united_states-2023-01-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In January 2023, the unemployment rate in the United States was 4.2%.",
+  "labels": {
+   "In January 2023, the unemployment rate in the United States was 4.2%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate-united_states-2023-01-floor_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In January 2023, the unemployment rate in the United States was more than 3.1%.",
+  "labels": {
+   "In January 2023, the unemployment rate in the United States was more than 3.1%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate-united_states-2023-01-floor_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In January 2023, the unemployment rate in the United States was more than 4.0%.",
+  "labels": {
+   "In January 2023, the unemployment rate in the United States was more than 4.0%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-u-6_unemployment_rate-united_states-2019-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the U-6 unemployment rate in the United States was 7.2%.",
+  "labels": {
+   "In 2019, the U-6 unemployment rate in the United States was 7.2%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-u-6_unemployment_rate-united_states-2019-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the U-6 unemployment rate in the United States was 8.6%.",
+  "labels": {
+   "In 2019, the U-6 unemployment rate in the United States was 8.6%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-u-6_unemployment_rate-united_states-2019-approx_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the U-6 unemployment rate in the United States was about 7.5%.",
+  "labels": {
+   "In 2019, the U-6 unemployment rate in the United States was about 7.5%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-u-6_unemployment_rate-united_states-2019-approx_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the U-6 unemployment rate in the United States was about 9.4%.",
+  "labels": {
+   "In 2019, the U-6 unemployment rate in the United States was about 9.4%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-u-6_unemployment_rate-united_states-2020-04-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In April 2020, the U-6 unemployment rate in the United States was 22.9%.",
+  "labels": {
+   "In April 2020, the U-6 unemployment rate in the United States was 22.9%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-u-6_unemployment_rate-united_states-2020-04-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In April 2020, the U-6 unemployment rate in the United States was 27.5%.",
+  "labels": {
+   "In April 2020, the U-6 unemployment rate in the United States was 27.5%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-u-6_unemployment_rate-united_states-2020-04-floor_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In April 2020, the U-6 unemployment rate in the United States was more than 20.6%.",
+  "labels": {
+   "In April 2020, the U-6 unemployment rate in the United States was more than 20.6%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-u-6_unemployment_rate-united_states-2020-04-floor_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In April 2020, the U-6 unemployment rate in the United States was more than 26.3%.",
+  "labels": {
+   "In April 2020, the U-6 unemployment rate in the United States was more than 26.3%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-labor_force_participation_rate-united_states-2019-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the labor force participation rate in the United States was 63.1%.",
+  "labels": {
+   "In 2019, the labor force participation rate in the United States was 63.1%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-labor_force_participation_rate-united_states-2019-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the labor force participation rate in the United States was 75.7%.",
+  "labels": {
+   "In 2019, the labor force participation rate in the United States was 75.7%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-labor_force_participation_rate-united_states-2019-approx_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the labor force participation rate in the United States was about 65.6%.",
+  "labels": {
+   "In 2019, the labor force participation rate in the United States was about 65.6%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-labor_force_participation_rate-united_states-2019-approx_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the labor force participation rate in the United States was about 82.0%.",
+  "labels": {
+   "In 2019, the labor force participation rate in the United States was about 82.0%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-labor_force_participation_rate-united_states-2020-04-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In April 2020, the labor force participation rate in the United States was 60.1%.",
+  "labels": {
+   "In April 2020, the labor force participation rate in the United States was 60.1%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-labor_force_participation_rate-united_states-2020-04-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In April 2020, the labor force participation rate in the United States was 72.1%.",
+  "labels": {
+   "In April 2020, the labor force participation rate in the United States was 72.1%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-labor_force_participation_rate-united_states-2020-04-floor_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In April 2020, the labor force participation rate in the United States was more than 54.1%.",
+  "labels": {
+   "In April 2020, the labor force participation rate in the United States was more than 54.1%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-labor_force_participation_rate-united_states-2020-04-floor_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In April 2020, the labor force participation rate in the United States was more than 69.1%.",
+  "labels": {
+   "In April 2020, the labor force participation rate in the United States was more than 69.1%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-inflation_rate-united_states-2021-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2021, the inflation rate in the United States was 4.7%.",
+  "labels": {
+   "In 2021, the inflation rate in the United States was 4.7%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-inflation_rate-united_states-2021-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2021, the inflation rate in the United States was 5.6%.",
+  "labels": {
+   "In 2021, the inflation rate in the United States was 5.6%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-inflation_rate-united_states-2021-approx_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2021, the inflation rate in the United States was about 4.9%.",
+  "labels": {
+   "In 2021, the inflation rate in the United States was about 4.9%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-inflation_rate-united_states-2021-approx_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2021, the inflation rate in the United States was about 6.1%.",
+  "labels": {
+   "In 2021, the inflation rate in the United States was about 6.1%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-inflation_rate-united_states-2022-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2022, the inflation rate in the United States was 8.0%.",
+  "labels": {
+   "In 2022, the inflation rate in the United States was 8.0%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-inflation_rate-united_states-2022-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2022, the inflation rate in the United States was 9.6%.",
+  "labels": {
+   "In 2022, the inflation rate in the United States was 9.6%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-inflation_rate-united_states-2022-floor_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2022, the inflation rate in the United States was more than 7.2%.",
+  "labels": {
+   "In 2022, the inflation rate in the United States was more than 7.2%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-inflation_rate-united_states-2022-floor_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2022, the inflation rate in the United States was more than 9.2%.",
+  "labels": {
+   "In 2022, the inflation rate in the United States was more than 9.2%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-inflation_rate-united_states-2022-06-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In June 2022, the inflation rate in the United States was 9.1%.",
+  "labels": {
+   "In June 2022, the inflation rate in the United States was 9.1%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-inflation_rate-united_states-2022-06-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In June 2022, the inflation rate in the United States was 10.9%.",
+  "labels": {
+   "In June 2022, the inflation rate in the United States was 10.9%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-inflation_rate-united_states-2022-06-approx_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In June 2022, the inflation rate in the United States was about 9.5%.",
+  "labels": {
+   "In June 2022, the inflation rate in the United States was about 9.5%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-inflation_rate-united_states-2022-06-approx_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In June 2022, the inflation rate in the United States was about 11.8%.",
+  "labels": {
+   "In June 2022, the inflation rate in the United States was about 11.8%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-core_inflation_rate-united_states-2022-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2022, the core inflation rate in the United States was 6.2%.",
+  "labels": {
+   "In 2022, the core inflation rate in the United States was 6.2%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-core_inflation_rate-united_states-2022-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2022, the core inflation rate in the United States was 7.4%.",
+  "labels": {
+   "In 2022, the core inflation rate in the United States was 7.4%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-core_inflation_rate-united_states-2022-floor_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2022, the core inflation rate in the United States was more than 5.6%.",
+  "labels": {
+   "In 2022, the core inflation rate in the United States was more than 5.6%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-core_inflation_rate-united_states-2022-floor_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2022, the core inflation rate in the United States was more than 7.1%.",
+  "labels": {
+   "In 2022, the core inflation rate in the United States was more than 7.1%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-average_hourly_earnings-united_states-2023-01-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In January 2023, the average hourly earnings in the United States was $33.02.",
+  "labels": {
+   "In January 2023, the average hourly earnings in the United States was $33.02.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-average_hourly_earnings-united_states-2023-01-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In January 2023, the average hourly earnings in the United States was $39.62.",
+  "labels": {
+   "In January 2023, the average hourly earnings in the United States was $39.62.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-average_hourly_earnings-united_states-2023-01-approx_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In January 2023, the average hourly earnings in the United States was about $34.34.",
+  "labels": {
+   "In January 2023, the average hourly earnings in the United States was about $34.34.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-average_hourly_earnings-united_states-2023-01-approx_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In January 2023, the average hourly earnings in the United States was about $42.93.",
+  "labels": {
+   "In January 2023, the average hourly earnings in the United States was about $42.93.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-federal_minimum_wage-united_states-2015-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2015, the federal minimum wage in the United States was $7.25 an hour.",
+  "labels": {
+   "In 2015, the federal minimum wage in the United States was $7.25 an hour.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-federal_minimum_wage-united_states-2015-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2015, the federal minimum wage in the United States was $8.70 an hour.",
+  "labels": {
+   "In 2015, the federal minimum wage in the United States was $8.70 an hour.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-federal_minimum_wage-united_states-2015-floor_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2015, the federal minimum wage in the United States was more than $6.53 an hour.",
+  "labels": {
+   "In 2015, the federal minimum wage in the United States was more than $6.53 an hour.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-federal_minimum_wage-united_states-2015-floor_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2015, the federal minimum wage in the United States was more than $8.34 an hour.",
+  "labels": {
+   "In 2015, the federal minimum wage in the United States was more than $8.34 an hour.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate_for_college_graduates-united_states-2022-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2022, the unemployment rate for college graduates in the United States was 2.0%.",
+  "labels": {
+   "In 2022, the unemployment rate for college graduates in the United States was 2.0%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate_for_college_graduates-united_states-2022-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2022, the unemployment rate for college graduates in the United States was 2.4%.",
+  "labels": {
+   "In 2022, the unemployment rate for college graduates in the United States was 2.4%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate_for_college_graduates-united_states-2022-approx_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2022, the unemployment rate for college graduates in the United States was about 2.1%.",
+  "labels": {
+   "In 2022, the unemployment rate for college graduates in the United States was about 2.1%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate_for_college_graduates-united_states-2022-approx_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2022, the unemployment rate for college graduates in the United States was about 2.6%.",
+  "labels": {
+   "In 2022, the unemployment rate for college graduates in the United States was about 2.6%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-health_spending_per_capita-united_states-2021-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2021, the health spending per capita in the United States was $12,080.",
+  "labels": {
+   "In 2021, the health spending per capita in the United States was $12,080.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-health_spending_per_capita-united_states-2021-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2021, the health spending per capita in the United States was $14,500.",
+  "labels": {
+   "In 2021, the health spending per capita in the United States was $14,500.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-health_spending_per_capita-united_states-2021-approx_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2021, the health spending per capita in the United States was about $12,600.",
+  "labels": {
+   "In 2021, the health spending per capita in the United States was about $12,600.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-health_spending_per_capita-united_states-2021-approx_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2021, the health spending per capita in the United States was about $15,700.",
+  "labels": {
+   "In 2021, the health spending per capita in the United States was about $15,700.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-teen_birth_rate-united_states-2021-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2021, the teen birth rate in the United States was 13.7 births per 1,000 women aged 15 to 19.",
+  "labels": {
+   "In 2021, the teen birth rate in the United States was 13.7 births per 1,000 women aged 15 to 19.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-teen_birth_rate-united_states-2021-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2021, the teen birth rate in the United States was 16.5 births per 1,000 women aged 15 to 19.",
+  "labels": {
+   "In 2021, the teen birth rate in the United States was 16.5 births per 1,000 women aged 15 to 19.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-teen_birth_rate-united_states-2021-floor_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2021, the teen birth rate in the United States was more than 12.4 births per 1,000 women aged 15 to 19.",
+  "labels": {
+   "In 2021, the teen birth rate in the United States was more than 12.4 births per 1,000 women aged 15 to 19.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-teen_birth_rate-united_states-2021-floor_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2021, the teen birth rate in the United States was more than 15.8 births per 1,000 women aged 15 to 19.",
+  "labels": {
+   "In 2021, the teen birth rate in the United States was more than 15.8 births per 1,000 women aged 15 to 19.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-road_traffic_death_rate-united_states-2019-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the road traffic death rate in the United States was 12.7 deaths per 100,000 people.",
+  "labels": {
+   "In 2019, the road traffic death rate in the United States was 12.7 deaths per 100,000 people.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-road_traffic_death_rate-united_states-2019-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the road traffic death rate in the United States was 15.2 deaths per 100,000 people.",
+  "labels": {
+   "In 2019, the road traffic death rate in the United States was 15.2 deaths per 100,000 people.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-road_traffic_death_rate-united_states-2019-approx_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the road traffic death rate in the United States was about 13.2 deaths per 100,000 people.",
+  "labels": {
+   "In 2019, the road traffic death rate in the United States was about 13.2 deaths per 100,000 people.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-road_traffic_death_rate-united_states-2019-approx_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the road traffic death rate in the United States was about 16.5 deaths per 100,000 people.",
+  "labels": {
+   "In 2019, the road traffic death rate in the United States was about 16.5 deaths per 100,000 people.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-life_expectancy-united_states-2019-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the life expectancy in the United States was 78.8 years.",
+  "labels": {
+   "In 2019, the life expectancy in the United States was 78.8 years.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-life_expectancy-united_states-2019-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the life expectancy in the United States was 94.5 years.",
+  "labels": {
+   "In 2019, the life expectancy in the United States was 94.5 years.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-life_expectancy-united_states-2019-floor_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the life expectancy in the United States was more than 70.9 years.",
+  "labels": {
+   "In 2019, the life expectancy in the United States was more than 70.9 years.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-life_expectancy-united_states-2019-floor_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the life expectancy in the United States was more than 90.6 years.",
+  "labels": {
+   "In 2019, the life expectancy in the United States was more than 90.6 years.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-gdp_per_capita-united_states-2019-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the GDP per capita in the United States was $65,228.",
+  "labels": {
+   "In 2019, the GDP per capita in the United States was $65,228.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-gdp_per_capita-united_states-2019-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the GDP per capita in the United States was $78,300.",
+  "labels": {
+   "In 2019, the GDP per capita in the United States was $78,300.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-gdp_per_capita-united_states-2019-approx_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the GDP per capita in the United States was about $67,800.",
+  "labels": {
+   "In 2019, the GDP per capita in the United States was about $67,800.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-gdp_per_capita-united_states-2019-approx_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the GDP per capita in the United States was about $84,800.",
+  "labels": {
+   "In 2019, the GDP per capita in the United States was about $84,800.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-population-california-2020-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2020, the population in California was 39,538,223.",
+  "labels": {
+   "In 2020, the population in California was 39,538,223.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-population-california-2020-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2020, the population in California was 47,400,000.",
+  "labels": {
+   "In 2020, the population in California was 47,400,000.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-population-california-2020-floor_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2020, the population in California was more than 35,600,000.",
+  "labels": {
+   "In 2020, the population in California was more than 35,600,000.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-population-california-2020-floor_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2020, the population in California was more than 45,500,000.",
+  "labels": {
+   "In 2020, the population in California was more than 45,500,000.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-population-texas-2020-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2020, the population in Texas was 29,145,505.",
+  "labels": {
+   "In 2020, the population in Texas was 29,145,505.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-population-texas-2020-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2020, the population in Texas was 35,000,000.",
+  "labels": {
+   "In 2020, the population in Texas was 35,000,000.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-population-texas-2020-approx_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2020, the population in Texas was about 30,300,000.",
+  "labels": {
+   "In 2020, the population in Texas was about 30,300,000.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-population-texas-2020-approx_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2020, the population in Texas was about 37,900,000.",
+  "labels": {
+   "In 2020, the population in Texas was about 37,900,000.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-population-germany-2020-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2020, the population in Germany was 83,160,871.",
+  "labels": {
+   "In 2020, the population in Germany was 83,160,871.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-population-germany-2020-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2020, the population in Germany was 99,800,000.",
+  "labels": {
+   "In 2020, the population in Germany was 99,800,000.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-population-germany-2020-floor_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2020, the population in Germany was more than 74,800,000.",
+  "labels": {
+   "In 2020, the population in Germany was more than 74,800,000.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-population-germany-2020-floor_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2020, the population in Germany was more than 95,600,000.",
+  "labels": {
+   "In 2020, the population in Germany was more than 95,600,000.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-population-japan-2019-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the population in Japan was 126,633,000.",
+  "labels": {
+   "In 2019, the population in Japan was 126,633,000.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-population-japan-2019-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the population in Japan was 152,000,000.",
+  "labels": {
+   "In 2019, the population in Japan was 152,000,000.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-population-japan-2019-approx_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the population in Japan was about 132,000,000.",
+  "labels": {
+   "In 2019, the population in Japan was about 132,000,000.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-population-japan-2019-approx_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the population in Japan was about 165,000,000.",
+  "labels": {
+   "In 2019, the population in Japan was about 165,000,000.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate-california-2020-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2020, the unemployment rate in California was 10.1%.",
+  "labels": {
+   "In 2020, the unemployment rate in California was 10.1%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate-california-2020-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2020, the unemployment rate in California was 12.1%.",
+  "labels": {
+   "In 2020, the unemployment rate in California was 12.1%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate-california-2020-floor_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2020, the unemployment rate in California was more than 9.1%.",
+  "labels": {
+   "In 2020, the unemployment rate in California was more than 9.1%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate-california-2020-floor_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2020, the unemployment rate in California was more than 11.6%.",
+  "labels": {
+   "In 2020, the unemployment rate in California was more than 11.6%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-gdp_per_capita-germany-2020-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2020, the GDP per capita in Germany was $47,395.",
+  "labels": {
+   "In 2020, the GDP per capita in Germany was $47,395.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-gdp_per_capita-germany-2020-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2020, the GDP per capita in Germany was $56,900.",
+  "labels": {
+   "In 2020, the GDP per capita in Germany was $56,900.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-gdp_per_capita-germany-2020-floor_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2020, the GDP per capita in Germany was more than $42,700.",
+  "labels": {
+   "In 2020, the GDP per capita in Germany was more than $42,700.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-gdp_per_capita-germany-2020-floor_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2020, the GDP per capita in Germany was more than $54,500.",
+  "labels": {
+   "In 2020, the GDP per capita in Germany was more than $54,500.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-gdp_per_capita-japan-2019-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the GDP per capita in Japan was $41,425.",
+  "labels": {
+   "In 2019, the GDP per capita in Japan was $41,425.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-gdp_per_capita-japan-2019-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the GDP per capita in Japan was $49,700.",
+  "labels": {
+   "In 2019, the GDP per capita in Japan was $49,700.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-gdp_per_capita-japan-2019-approx_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the GDP per capita in Japan was about $43,100.",
+  "labels": {
+   "In 2019, the GDP per capita in Japan was about $43,100.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-gdp_per_capita-japan-2019-approx_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the GDP per capita in Japan was about $53,900.",
+  "labels": {
+   "In 2019, the GDP per capita in Japan was about $53,900.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-gdp_growth-india-2021-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2021, the GDP growth in India was 9.7%.",
+  "labels": {
+   "In 2021, the GDP growth in India was 9.7%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-gdp_growth-india-2021-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2021, the GDP growth in India was 11.6%.",
+  "labels": {
+   "In 2021, the GDP growth in India was 11.6%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-gdp_growth-india-2021-floor_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2021, the GDP growth in India was more than 8.7%.",
+  "labels": {
+   "In 2021, the GDP growth in India was more than 8.7%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-gdp_growth-india-2021-floor_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2021, the GDP growth in India was more than 11.1%.",
+  "labels": {
+   "In 2021, the GDP growth in India was more than 11.1%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-gdp_growth-germany-2021-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2021, the GDP growth in Germany was 3.9%.",
+  "labels": {
+   "In 2021, the GDP growth in Germany was 3.9%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-gdp_growth-germany-2021-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2021, the GDP growth in Germany was 4.7%.",
+  "labels": {
+   "In 2021, the GDP growth in Germany was 4.7%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-gdp_growth-germany-2021-approx_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2021, the GDP growth in Germany was about 4.1%.",
+  "labels": {
+   "In 2021, the GDP growth in Germany was about 4.1%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-gdp_growth-germany-2021-approx_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2021, the GDP growth in Germany was about 5.1%.",
+  "labels": {
+   "In 2021, the GDP growth in Germany was about 5.1%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-inflation_rate-germany-2022-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2022, the inflation rate in Germany was 6.9%.",
+  "labels": {
+   "In 2022, the inflation rate in Germany was 6.9%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-inflation_rate-germany-2022-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2022, the inflation rate in Germany was 8.2%.",
+  "labels": {
+   "In 2022, the inflation rate in Germany was 8.2%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-inflation_rate-germany-2022-floor_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2022, the inflation rate in Germany was more than 6.2%.",
+  "labels": {
+   "In 2022, the inflation rate in Germany was more than 6.2%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-inflation_rate-germany-2022-floor_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2022, the inflation rate in Germany was more than 7.9%.",
+  "labels": {
+   "In 2022, the inflation rate in Germany was more than 7.9%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-inflation_rate-brazil-2021-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2021, the inflation rate in Brazil was 8.3%.",
+  "labels": {
+   "In 2021, the inflation rate in Brazil was 8.3%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-inflation_rate-brazil-2021-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2021, the inflation rate in Brazil was 10.0%.",
+  "labels": {
+   "In 2021, the inflation rate in Brazil was 10.0%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-inflation_rate-brazil-2021-approx_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2021, the inflation rate in Brazil was about 8.6%.",
+  "labels": {
+   "In 2021, the inflation rate in Brazil was about 8.6%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-inflation_rate-brazil-2021-approx_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2021, the inflation rate in Brazil was about 10.8%.",
+  "labels": {
+   "In 2021, the inflation rate in Brazil was about 10.8%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate-germany-2019-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the unemployment rate in Germany was 3.2%.",
+  "labels": {
+   "In 2019, the unemployment rate in Germany was 3.2%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate-germany-2019-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the unemployment rate in Germany was 3.8%.",
+  "labels": {
+   "In 2019, the unemployment rate in Germany was 3.8%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate-germany-2019-floor_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the unemployment rate in Germany was more than 2.8%.",
+  "labels": {
+   "In 2019, the unemployment rate in Germany was more than 2.8%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate-germany-2019-floor_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the unemployment rate in Germany was more than 3.6%.",
+  "labels": {
+   "In 2019, the unemployment rate in Germany was more than 3.6%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate-spain-2019-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the unemployment rate in Spain was 14.1%.",
+  "labels": {
+   "In 2019, the unemployment rate in Spain was 14.1%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate-spain-2019-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the unemployment rate in Spain was 16.9%.",
+  "labels": {
+   "In 2019, the unemployment rate in Spain was 16.9%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate-spain-2019-approx_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the unemployment rate in Spain was about 14.7%.",
+  "labels": {
+   "In 2019, the unemployment rate in Spain was about 14.7%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-unemployment_rate-spain-2019-approx_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the unemployment rate in Spain was about 18.3%.",
+  "labels": {
+   "In 2019, the unemployment rate in Spain was about 18.3%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-life_expectancy-japan-2019-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the life expectancy in Japan was 84.4 years.",
+  "labels": {
+   "In 2019, the life expectancy in Japan was 84.4 years.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-life_expectancy-japan-2019-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the life expectancy in Japan was 101.2 years.",
+  "labels": {
+   "In 2019, the life expectancy in Japan was 101.2 years.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-life_expectancy-japan-2019-floor_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the life expectancy in Japan was more than 75.9 years.",
+  "labels": {
+   "In 2019, the life expectancy in Japan was more than 75.9 years.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-life_expectancy-japan-2019-floor_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the life expectancy in Japan was more than 97.0 years.",
+  "labels": {
+   "In 2019, the life expectancy in Japan was more than 97.0 years.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-life_expectancy-brazil-2019-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the life expectancy in Brazil was 75.8 years.",
+  "labels": {
+   "In 2019, the life expectancy in Brazil was 75.8 years.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-life_expectancy-brazil-2019-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the life expectancy in Brazil was 91.0 years.",
+  "labels": {
+   "In 2019, the life expectancy in Brazil was 91.0 years.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-life_expectancy-brazil-2019-approx_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the life expectancy in Brazil was about 78.8 years.",
+  "labels": {
+   "In 2019, the life expectancy in Brazil was about 78.8 years.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-life_expectancy-brazil-2019-approx_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the life expectancy in Brazil was about 98.6 years.",
+  "labels": {
+   "In 2019, the life expectancy in Brazil was about 98.6 years.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-fertility_rate-france-2019-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the fertility rate in France was 1.9 births per woman.",
+  "labels": {
+   "In 2019, the fertility rate in France was 1.9 births per woman.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-fertility_rate-france-2019-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the fertility rate in France was 2.2 births per woman.",
+  "labels": {
+   "In 2019, the fertility rate in France was 2.2 births per woman.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-fertility_rate-france-2019-floor_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the fertility rate in France was more than 1.7 births per woman.",
+  "labels": {
+   "In 2019, the fertility rate in France was more than 1.7 births per woman.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-fertility_rate-france-2019-floor_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the fertility rate in France was more than 2.1 births per woman.",
+  "labels": {
+   "In 2019, the fertility rate in France was more than 2.1 births per woman.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-fertility_rate-india-2019-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the fertility rate in India was 2.1 births per woman.",
+  "labels": {
+   "In 2019, the fertility rate in India was 2.1 births per woman.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-fertility_rate-india-2019-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the fertility rate in India was 2.5 births per woman.",
+  "labels": {
+   "In 2019, the fertility rate in India was 2.5 births per woman.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-fertility_rate-india-2019-approx_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the fertility rate in India was about 2.2 births per woman.",
+  "labels": {
+   "In 2019, the fertility rate in India was about 2.2 births per woman.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-fertility_rate-india-2019-approx_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the fertility rate in India was about 2.8 births per woman.",
+  "labels": {
+   "In 2019, the fertility rate in India was about 2.8 births per woman.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-infant_mortality_rate-india-2019-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the infant mortality rate in India was 29.8 deaths per 1,000 live births.",
+  "labels": {
+   "In 2019, the infant mortality rate in India was 29.8 deaths per 1,000 live births.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-infant_mortality_rate-india-2019-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the infant mortality rate in India was 35.8 deaths per 1,000 live births.",
+  "labels": {
+   "In 2019, the infant mortality rate in India was 35.8 deaths per 1,000 live births.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-infant_mortality_rate-india-2019-floor_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the infant mortality rate in India was more than 26.8 deaths per 1,000 live births.",
+  "labels": {
+   "In 2019, the infant mortality rate in India was more than 26.8 deaths per 1,000 live births.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-infant_mortality_rate-india-2019-floor_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the infant mortality rate in India was more than 34.3 deaths per 1,000 live births.",
+  "labels": {
+   "In 2019, the infant mortality rate in India was more than 34.3 deaths per 1,000 live births.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-access_to_electricity-nigeria-2019-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the access to electricity in Nigeria was 55.4% of the population.",
+  "labels": {
+   "In 2019, the access to electricity in Nigeria was 55.4% of the population.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-access_to_electricity-nigeria-2019-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the access to electricity in Nigeria was 66.5% of the population.",
+  "labels": {
+   "In 2019, the access to electricity in Nigeria was 66.5% of the population.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-access_to_electricity-nigeria-2019-approx_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the access to electricity in Nigeria was about 57.6% of the population.",
+  "labels": {
+   "In 2019, the access to electricity in Nigeria was about 57.6% of the population.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-access_to_electricity-nigeria-2019-approx_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the access to electricity in Nigeria was about 72.0% of the population.",
+  "labels": {
+   "In 2019, the access to electricity in Nigeria was about 72.0% of the population.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-access_to_electricity-india-2015-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2015, the access to electricity in India was 88.0% of the population.",
+  "labels": {
+   "In 2015, the access to electricity in India was 88.0% of the population.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-access_to_electricity-india-2015-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2015, the access to electricity in India was 105.6% of the population.",
+  "labels": {
+   "In 2015, the access to electricity in India was 105.6% of the population.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-access_to_electricity-india-2015-floor_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2015, the access to electricity in India was more than 79.2% of the population.",
+  "labels": {
+   "In 2015, the access to electricity in India was more than 79.2% of the population.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-access_to_electricity-india-2015-floor_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2015, the access to electricity in India was more than 101.2% of the population.",
+  "labels": {
+   "In 2015, the access to electricity in India was more than 101.2% of the population.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-renewable_energy_share-brazil-2019-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the renewable energy share in Brazil was 47.5%.",
+  "labels": {
+   "In 2019, the renewable energy share in Brazil was 47.5%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-renewable_energy_share-brazil-2019-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the renewable energy share in Brazil was 57.0%.",
+  "labels": {
+   "In 2019, the renewable energy share in Brazil was 57.0%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-renewable_energy_share-brazil-2019-approx_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the renewable energy share in Brazil was about 49.4%.",
+  "labels": {
+   "In 2019, the renewable energy share in Brazil was about 49.4%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-renewable_energy_share-brazil-2019-approx_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the renewable energy share in Brazil was about 61.8%.",
+  "labels": {
+   "In 2019, the renewable energy share in Brazil was about 61.8%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-renewable_energy_share-germany-2019-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the renewable energy share in Germany was 17.1%.",
+  "labels": {
+   "In 2019, the renewable energy share in Germany was 17.1%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-renewable_energy_share-germany-2019-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the renewable energy share in Germany was 20.5%.",
+  "labels": {
+   "In 2019, the renewable energy share in Germany was 20.5%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-renewable_energy_share-germany-2019-floor_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the renewable energy share in Germany was more than 15.4%.",
+  "labels": {
+   "In 2019, the renewable energy share in Germany was more than 15.4%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-renewable_energy_share-germany-2019-floor_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2019, the renewable energy share in Germany was more than 19.7%.",
+  "labels": {
+   "In 2019, the renewable energy share in Germany was more than 19.7%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-literacy_rate-india-2018-exact",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2018, the literacy rate in India was 73.7%.",
+  "labels": {
+   "In 2018, the literacy rate in India was 73.7%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-literacy_rate-india-2018-wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2018, the literacy rate in India was 88.4%.",
+  "labels": {
+   "In 2018, the literacy rate in India was 88.4%.": {
+    "C2": "met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-literacy_rate-india-2018-approx_true",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2018, the literacy rate in India was about 76.6%.",
+  "labels": {
+   "In 2018, the literacy rate in India was about 76.6%.": {
+    "C2": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c2cat-literacy_rate-india-2018-approx_wrong",
+  "source": "catalog (built)",
+  "question": "",
+  "text": "In 2018, the literacy rate in India was about 95.8%.",
+  "labels": {
+   "In 2018, the literacy rate in India was about 95.8%.": {
+    "C2": "met"
+   }
+  }
+ }
+]
