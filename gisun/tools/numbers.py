@@ -140,11 +140,29 @@ def _round_to(value: float, step: float) -> Decimal:
 APPROX_TOLERANCE = 0.10
 
 
+_RANGE_IN_TEXT = re.compile(r"\$?\d[\d.,]*\s*%?\s*(?:-|–|—|to)\s*\$?\d[\d.,]*\d\s*(?:%|percent)?|"
+                            r"\$?\d[\d.,]*\s*%?\s*(?:-|–|—|to)\s*\$?\d\s*(?:%|percent)?")
+
+
+def _range_around(value: str, sentence: str) -> str | None:
+    """'roughly 2.5% to 3% range' with value '2.5' -> '2.5% to 3%': one end of a range is not the claim."""
+    one = parse_value(value)
+    if not one or not sentence or parse_range(value):
+        return None
+    for m in _RANGE_IN_TEXT.finditer(sentence):
+        rng = parse_range(m.group(0))
+        if rng and rng["low"] < rng["high"] and one["value"] in (rng["low"], rng["high"]):
+            return m.group(0).strip()
+    return None
+
+
 def with_unit(value: str, unit: str = "", sentence: str = "") -> str:
     """The agent often gives the number without its sign ("9.1" for "9.1%"), which then reads as a bare
     number and never compares with a percent figure. Add the percent sign when the unit field or the
     sentence says the number is a percentage."""
     v = (value or "").strip()
+    if whole := _range_around(v, sentence):
+        return whole
     if not v or re.search(r"[A-Za-z$%]", v):
         return value
     percent = unit.strip().lower() in {"%", "percent", "percentage", "per cent"}
