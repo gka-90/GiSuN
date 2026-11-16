@@ -44,7 +44,7 @@ new assistant response  ──►  processResponse(): "GiSuN is checking the cla
                              (if /pipeline fails: the /verify rule highlights above, with a note)
 ```
 
-With a model on the HPC (docs/PIPELINE.md, "Use the HPC model from a laptop") an answer takes roughly 10-40 s; with no model reachable, the pipeline's rules decide every criterion (a few seconds) and the note says so.
+With a model on the HPC (docs/PIPELINE.md, "Use the HPC model from a laptop") an answer takes roughly 10-40 s; with no model reachable there are no agent decisions: the note under the answer says so and only the basic rule highlights stay.
 
 `/verify` drops loaded words that are negated, quoted or only mentioned ("not a crisis"), and the rule highlights skip bare years (they are context, not claims). Highlighting everything trains users to ignore highlights.
 
@@ -104,15 +104,15 @@ Done so far (details in git history and docs/PIPELINE.md):
 - [ ] Prebunk: classify the question with the model instead of keywords (TODO in `extension/prebunk.js`).
 - [ ] Re-run the 50 answers on the HPC with the C2 API keys and label the C2 decisions.
 - [ ] Rerun after the 11/4 changes: `gold_answers.json` (normal routing), `gold_public_1.json` with `FORCE=1`, `gold_c4_logic.json` (commands in docs/PIPELINE.md, "On the Hamilton CS HPC"). Then parts 2 and 3.
-- [ ] C2 test set from the catalog's own measures: QuanTemp has no claim the catalog can check (0 of 200), so it can't measure C2.
+- [x] C2 test set from the catalog's own measures (`datasets/gold_c2_catalog.json`, 180 sentences, built by `evaluation/datasets/c2_catalog_testset.py`; QuanTemp has no claim the catalog can check). `python -m evaluation.c2_report` prints the C2 results.
 - [ ] Settle three labels that contradict docs/labeling_rules.md (two C4 rows, one C6 fragment; listed in docs/PIPELINE.md, "Not done yet"), and add the agentless C5 cues ("is considered", "is regarded as", "allegedly") to the C5 rules.
 - [ ] Spot-check the LOGIC C4 labels: about 10 of the 50 "faulty generalization" items are slippery-slope arguments.
 - [ ] `/verify` still returns raw flags; only the pipeline uses `extract_claims()` (`gisun/preprocess.py`).
 
 ### Known limitations (documented, not bugs)
-- Agent self-checks are mechanical: they catch verdicts with no detector evidence, ungrounded or copied reasons, but they can't prove a reason is actually correct. The model can also refuse a correct rejection (e.g. insisting "according to the Bureau of Labor Statistics" isn't a source), in which case rules decide that claim.
+- Agent self-checks are mechanical: they catch verdicts with no detector evidence, ungrounded or copied reasons, but they can't prove a reason is actually correct. The model can also refuse a correct rejection (e.g. insisting "according to the Bureau of Labor Statistics" isn't a source), in which case that criterion comes out 'undetermined' for the claim.
 - Numbers: the highlight doesn't know about sources; the deep check's C1 looks for a source in the same and the two previous sentences, but not after the number ("14.8%. Source: BLS" on the next line isn't linked). Figures of speech that look like statistics ("gave half of the effort") are flagged too; a "not a claim" verdict was tried and removed because qwen2.5:3b used it to wave through real statistics. Plain small numbers ("3 cats"), temperatures and other units aren't detected. The extension's offline fallback in `background.js` still has only the old 3 patterns (the page now says when it's in use).
-- Agent highlights on a laptop: the full pipeline with a 1.5-3B model can take minutes per answer (the extension waits up to 4, and checks one answer at a time). Point the backend at the HPC model (docs/PIPELINE.md), or set `chrome.storage.sync.set({deepMode: "rules_only"})` for model-free, rules-decided highlights.
+- Agent highlights on a laptop: the full pipeline with a 1.5-3B model can take minutes per answer (the extension waits up to 4, and checks one answer at a time). Point the backend at the HPC model (docs/PIPELINE.md), or set `chrome.storage.sync.set({deepMode: "task_only"})` for fewer model calls per claim.
 - Word-list bias detection cannot catch phrasing outside the list and is English-only. Negation / quotation / mention is caught by simple cues (a negator in the 4 words before, an open quote, "so-called", "the term"), not by understanding the sentence.
 - ChatGPT changes its DOM often. If highlights stop appearing, the selectors at the top of `extension/content.js` (`RESPONSE_SELECTOR`, `MARKDOWN_SELECTOR`) are the first thing to check.
 
@@ -155,7 +155,7 @@ Covers numeric detection edge cases, sentence splitting, source detection (`gisu
 2. Turn on **Developer mode** (toggle in the top-right corner). The **Load unpacked** button only appears after this.
 3. Click **Load unpacked** and select the **`extension/`** folder (not the project root — `manifest.json` lives in `extension/`)
 4. Open [chatgpt.com](https://chatgpt.com) (refresh any tab that was already open). Answer the gate question first. Then ask something with numbers, e.g. *"Give me 3 statistics about US unemployment with years and percentages."* Highlights appear ~1.5s after the response finishes.
-5. **Agent highlights:** under each answer a note says "GiSuN is checking the claims in this answer…"; when the agents finish, the flagged claims are underlined (hover = reasons, click = full verdict). For real agent decisions a model must be running (step 3, or the HPC model, docs/PIPELINE.md); without one the rules decide. `chrome.storage.sync.set({deepMode: "rules_only"})` in the extension's service worker console skips the model entirely.
+5. **Agent highlights:** under each answer a note says "GiSuN is checking the claims in this answer…"; when the agents finish, the flagged claims are underlined (hover = reasons, click = full verdict). A model must be running for this (step 3, or the HPC model, docs/PIPELINE.md): every decision comes from the agents, and without a model only the basic rule highlights appear.
 6. **Modal mode:** `chrome.storage.sync.set({mode: "in_your_face"})` in the same console (back: `"citation"`).
 
 After editing anything in `extension/`, click the ↻ reload button on the GiSuN card and refresh the ChatGPT tab.
@@ -174,7 +174,7 @@ After editing anything in `extension/`, click the ↻ reload button on the GiSuN
   - Chrome may ask you to type `allow pasting` before it lets you paste into the console.
 - **Only a few bias words get flagged / "backend isn't running" notice** — the backend isn't reachable, so the extension is using its fallback. Open the extension's service worker console (link on the extension card) and look for `backend unreachable, using fallback flags`; start uvicorn (step 2).
 - **Only "basic rule highlights" / "agents couldn't check this answer"** — `/pipeline` failed: is the backend running (step 2)? The note under the answer gives the error.
-- **"Checking…" for a long time** — the agents are slow with a small laptop model, and answers are checked one at a time. Use the HPC model, or `deepMode: "rules_only"` to test without a model.
+- **"Checking…" for a long time** — the agents are slow with a small laptop model, and answers are checked one at a time. Use the HPC model, or `deepMode: "task_only"` for fewer model calls.
 - **Console warns that no response matches `RESPONSE_SELECTOR`** — ChatGPT changed its layout; update the selectors at the top of `content.js`.
 - **VS Code says `Import "fastapi" could not be resolved`** — select the `ai-guardrail` interpreter (Cmd+Shift+P → *Python: Select Interpreter*).
 
@@ -193,7 +193,7 @@ After editing anything in `extension/`, click the ↻ reload button on the GiSuN
 │   │   ├── claims.py            #   extract_claims(): flags -> scored, de-duplicated claims
 │   │   └── sentences.py         #   sentence splitting shared by the detectors
 │   ├── preprocess.py            # detectors -> claims with context and attribution
-│   ├── criteria.py              # C1-C6 criteria and their deterministic rules
+│   ├── criteria.py              # C1-C6 criteria: question, guidance and tools for the agents
 │   ├── agents/                  # plan, task, debug, judge, check, loop, toolbox
 │   ├── tools/                   # attribution, language (context cues), numbers (C2 tolerances), retrieval (statistics APIs)
 │   ├── scoring.py               # claim / response risk from criterion decisions
@@ -213,11 +213,12 @@ After editing anything in `extension/`, click the ↻ reload button on the GiSuN
 │   ├── run_ablation.py          #   RQ3: full / no_judge / no_debug / task_only
 │   ├── run_all.py               #   tests + gold-file checks + RQ1-RQ3 in one go
 │   ├── zero_tool.py             #   one-call, no-tools baseline
-│   └── datasets/                #   c2_us_testset (-> gold_c2_us.json)
+│   ├── c2_report.py             #   the C2 results (built test set + real answers) in one screen
+│   └── datasets/                #   c2_catalog_testset (-> gold_c2_catalog.json), c2_us_testset (-> gold_c2_us.json)
 ├── datasets/                    # Only what runs need: gold_example.json (tests, run_all),
 │                                #   collected/claude_2026-10-12.json (the 50 answers the HPC run checks),
 │                                #   gold_answers.json, gold_labels_combined.json, gold_public_{1,2,3}.json,
-│                                #   gold_combined.json, gold_c4_logic.json, gold_c2_us.json (HPC gold sets).
+│                                #   gold_combined.json, gold_c4_logic.json, gold_c2_us.json, gold_c2_catalog.json (HPC gold sets).
 │                                #   Everything else (labels, C4 and insertion sets, candidates) was moved out
 │                                #   of the repo on 11/3/2026; it is in git history before that date.
 ├── tests/                       # Unit tests, no model (python -m unittest discover tests)
@@ -226,7 +227,7 @@ After editing anything in `extension/`, click the ↻ reload button on the GiSuN
 ├── docs/
 │   ├── PIPELINE.md              # Multi-agent pipeline: design, criteria, run, evaluation
 │   ├── labeling_rules.md        # Strict per-criterion labeling rules
-│   └── annotation_guide.md      # Gold-set annotation workflow (merge, adjudication)
+│   └── C3_C4_USER_CALIBRATION.md  # Proposal: per-user calibration of C3 and C4
 │
 ├── logs/                        # Slurm job logs (folder must exist before sbatch)
 └── .env                         # API keys (git-ignored, create it yourself; see gisun/config.py)

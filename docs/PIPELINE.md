@@ -281,9 +281,8 @@ the full mode drops below 0.8. `--skip_eval` = tests and checks only.
 
 ## Gold set from real ChatGPT answers
 65 real ChatGPT answers are collected (`datasets/candidates_*.json`: 50 from WildChat-1M, 15
-from HC3) with blank labeling files in `datasets/annotation/`. Labeling rules, the merge and
-adjudication steps: **[annotation_guide.md](annotation_guide.md)** (the collect / annotate / agreement
-scripts it describes were removed; the labeled data stays in `datasets/`).
+from HC3) with blank labeling files in `datasets/annotation/`. The labeling rules are in **[labeling_rules.md](labeling_rules.md)** (the collect / annotate / agreement
+scripts and their guide were removed; the labeled data stays in `datasets/`).
 
 ## Unit tests (no model)
 `python -m unittest discover tests`: a scripted fake model checks the full flow,

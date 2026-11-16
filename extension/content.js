@@ -44,7 +44,7 @@ const BLOCK_TAGS = new Set([
 ]);
 
 let currentMode = "citation"; // "citation" | "in_your_face"
-let deepMode = "full"; // pipeline mode; "rules_only" needs no model (instant, rules decide everything)
+let deepMode = "full"; // pipeline mode: full | no_judge | no_debug | task_only (all need a model)
 let c34Mode = "strict"; // the user's C3/C4 mode from the quiz (calibration.js): "strict" | "general"
 const pendingTimers = new Map();
 const processedText = new WeakMap();
@@ -194,10 +194,10 @@ function setStatus(response, state, message) {
 }
 
 function summaryMessage(flagged, result) {
-  // agent_share 0 = every model call failed (no model running), so the rules decided everything.
+  // agent_share 0 = every model call failed (no model running), so nothing was decided.
   // agent_share null = the model was reached but its Plan agent ran no checks (it judged every
   // criterion not to apply); that used to be reported as "no model was reachable" too.
-  const how = !result.model || result.agent_share === 0 ? " (decided by the rules: no model was reachable)"
+  const how = !result.model || result.agent_share === 0 ? " (no model was reachable, so the claims could not be checked)"
     : result.agent_share === null ? " (the AI planner found nothing that needed checking)" : "";
   if (!flagged.length) return `GiSuN checked this answer: no claims flagged${how}.`;
   const high = flagged.filter((c) => c.score.risk === "high").length;
@@ -469,7 +469,7 @@ function setupClaimDetails() {
 function renderDeepResult(panel, claim, result) {
   const footer = makeEl("p", "gisun-deep-meta", result.model && result.agent_share
     ? `Checked by ${result.model} (${result.mode} mode).`
-    : `Checked by the rules only (${result.mode}).`);
+    : `The agents didn't finish this check (${result.mode} mode).`);
 
   const { risk, unverified } = claim.score;
   const heading = makeEl("p", `gisun-deep-risk gisun-deep-${risk}`,
@@ -549,7 +549,7 @@ function makeEl(tag, className, text) {
 
 //begin
 
-// Set from the service-worker console, e.g. chrome.storage.sync.set({deepMode: "rules_only"})
+// Set from the service-worker console, e.g. chrome.storage.sync.set({deepMode: "task_only"})
 chrome.storage.sync.get({ mode: "citation", deepMode: "full" }, (stored) => {
   currentMode = stored.mode;
   deepMode = stored.deepMode;
