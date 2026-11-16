@@ -8,7 +8,7 @@ sentence)? Structural checks are already done by check.py.
 import json
 
 from gisun import llm
-from gisun.criteria import CRITERIA
+from gisun.criteria import CRITERIA, guidance
 
 SYSTEM = """You review another agent's decision in a critical-reading checker. Be strict but fair.
 Approve if the evidence supports the decision and the strength fits. Ask for revision only for a concrete
@@ -21,7 +21,8 @@ Return ONLY JSON: {"verdict": "approve" | "revise", "problems": ["..."]}"""
 def judge(ctx, claim: dict, cid: str, decision: dict, tool_log: list[dict]) -> dict:
     crit = CRITERIA[cid]
     seen = [{"tool": t["tool"], "args": t["args"], "output": str(t["output"])[:400]} for t in tool_log][-6:]
-    user = (f"Criterion {cid}: {crit['question']}\nGuidance: {crit['guidance']}\n\n"
+    # the Judge reviews against the same rules the Task agent got (the looser C3/C4 rules in general mode)
+    user = (f"Criterion {cid}: {crit['question']}\nGuidance: {guidance(cid, getattr(ctx, 'c34_mode', 'strict'))}\n\n"
             f"Claim: {claim['sentence']}\nPrevious sentences: {claim['context_before']}\n\n"
             f"Decision under review:\n{json.dumps(decision, ensure_ascii=False, indent=1)}\n\n"
             f"Tool results the agent saw:\n{json.dumps(seen, ensure_ascii=False, indent=1)}")

@@ -236,3 +236,29 @@ mark.gisun-key-high { background: rgba(229, 57, 53, 0.18); }
   color: #c62828;
   font-weight: 600;
 }
+
+/* C3/C4 calibration quiz (calibration.js): reuses the gate's look, with the 3 answers side by side */
+.gisun-calibration { max-width: 560px; }
+.gisun-cal-item { margin: 10px 0; }
+.gisun-cal-item legend { font-weight: 500; }
+.gisun-cal-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.gisun-cal-choices label { margin: 0; }
+.gisun-cal-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.gisun-cal-skip {
+  padding: 8px 12px;
+  border: 1px solid #999;
+  border-radius: 8px;
+  background: transparent;
+  color: #111;
+  font: inherit;
+  cursor: pointer;
+}

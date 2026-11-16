@@ -13,23 +13,29 @@ Response level = the highest claim risk.
 C1 (no source for the number) and C5 (vague "studies show") usually describe the same
 missing source, so together they add at most ATTRIBUTION_CAP points (open problem #5):
 "Studies show 40% ..." is one attribution problem, not two.
+
+In the user's "general" C3/C4 mode (criteria.C34_MODES) C3 and C4 are shown as one "worth checking"
+problem, so together they add only the larger of their two scores.
 """
 
-from gisun.criteria import CRITERIA
+from gisun.criteria import C34_CRITERIA, CRITERIA
 
 ORDER = {"low": 0, "medium": 1, "high": 2}
 ATTRIBUTION_GROUP = {"C1", "C5"}
 ATTRIBUTION_CAP = 2
 
 
-def score_claim(decisions: dict[str, dict]) -> dict:
-    points, reasons, attribution = 0, [], 0
+def score_claim(decisions: dict[str, dict], c34_mode: str = "strict") -> dict:
+    points, reasons, attribution, wording = 0, [], 0, 0
     for cid, d in decisions.items():
         if d["decision"] == "met":
             p = CRITERIA[cid]["severity"].get(d["strength"], 1)
             if cid in ATTRIBUTION_GROUP:  # C1 and C5 share one budget of ATTRIBUTION_CAP points
                 p = min(p, ATTRIBUTION_CAP - attribution)
                 attribution += p
+            if c34_mode == "general" and cid in C34_CRITERIA:  # C3 + C4 count as one problem
+                p = max(p - wording, 0)
+                wording += p
             points += p
             reasons.append(f"{cid} {CRITERIA[cid]['name']} (+{p})")
     if decisions.get("C2", {}).get("decision") == "met" or points >= 3:

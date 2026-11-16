@@ -46,6 +46,8 @@ class RunContext:
     # record_id -> official figure a lookup returned in this run, so the Check agent can tell a
     # cited figure was really fetched (C2)
     official_records: dict = field(default_factory=dict)
+    # the user's C3/C4 mode from the extension quiz ("strict" or "general"; see criteria.C34_MODES)
+    c34_mode: str = "strict"
     _lock: threading.Lock = field(default_factory=threading.Lock, repr=False)
 
     def record_official(self, records: list[dict]):

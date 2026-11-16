@@ -44,7 +44,7 @@ from gisun.agents.debug import failure_entry, run_with_debug
 from gisun.agents.judge import judge
 from gisun.agents.plan import plan
 from gisun.agents.task import run_task
-from gisun.criteria import CRITERIA, PHASES
+from gisun.criteria import C34_MODES, CRITERIA, PHASES
 from gisun.preprocess import match_claim, preprocess
 from gisun.scoring import score_claim, score_response
 
@@ -140,10 +140,13 @@ def force_criteria(ctx, the_plan: dict, labels: dict[str, dict]) -> None:
 
 
 def run(text: str, question: str = "", mode: str = "full", keep_trace: bool = True,
-        force: dict[str, dict] | None = None) -> dict:
-    """force: gold labels {sentence: {criterion: decision}} whose criteria must all run (evaluation)."""
+        force: dict[str, dict] | None = None, c34_mode: str = "strict") -> dict:
+    """force: gold labels {sentence: {criterion: decision}} whose criteria must all run (evaluation).
+    c34_mode: the user's C3/C4 mode from the extension quiz (criteria.C34_MODES); evaluation uses strict."""
     if mode not in MODES:
         raise ValueError(f"mode must be one of {list(MODES)}")
+    if c34_mode not in C34_MODES:
+        raise ValueError(f"c34_mode must be one of {list(C34_MODES)}")
     m = dict(MODES[mode])
     if not llm.available():
         raise llm.LLMError("no model backend: set GISUN_BACKEND (ollama or openai_compat) and GISUN_MODEL")
@@ -151,6 +154,7 @@ def run(text: str, question: str = "", mode: str = "full", keep_trace: bool = Tr
     # The agents also look at sentences the detectors missed (open problem #1)
     open_criteria = config.OPEN_CRITERIA
     ctx = preprocess(text, question, all_sentences=open_criteria or bool(force))
+    ctx.c34_mode = c34_mode  # the Task and Judge agents read it to pick the C3/C4 rules
     the_plan = plan(ctx, use_model=m["plan"], open_criteria=open_criteria)
     routed = {k: list(v) for k, v in the_plan["tasks"].items()}
     if force:
@@ -186,10 +190,10 @@ def run(text: str, question: str = "", mode: str = "full", keep_trace: bool = Tr
         # detector_hit False = no rule flagged this sentence; only the agents (open criteria) judged it
         claims_out.append({"claim_id": claim["claim_id"], "sentence": claim["sentence"], "detector_hit": claim["detector_hit"],
                            "flags": [f["matched_value"] for f in claim["flags"]],
-                           "criteria": decisions, "score": score_claim(decisions)})
+                           "criteria": decisions, "score": score_claim(decisions, c34_mode)})
     by = [d["by"] for c in claims_out for d in c["criteria"].values()]
     return {
-        "mode": mode, "model": config.MODEL, "backend": config.BACKEND,
+        "mode": mode, "c34_mode": c34_mode, "model": config.MODEL, "backend": config.BACKEND,
         "judge_model": config.JUDGE_MODEL if m["judge"] else None, "open_criteria": open_criteria,
         "question": question, "text": text,
         "forced_criteria": bool(force),

@@ -31,12 +31,21 @@ const CRITERION_LABELS = {
   C5: "Vague source (\"experts say\")",
   C6: "Cause and effect without evidence",
 };
+// General C3/C4 mode (calibration.js: quiz skipped or answered differently from us): C3 and C4
+// are one "worth checking" flag, not two named problems
+const GENERAL_C34_LABEL = "Worth checking: this sentence may be slanted or too sweeping";
+// The name shown for a criterion: in general mode C3 and C4 share one "worth checking" name
+function criterionLabel(cid) {
+  if (c34Mode === "general" && (cid === "C3" || cid === "C4")) return GENERAL_C34_LABEL;
+  return CRITERION_LABELS[cid] ?? cid;
+}
 const BLOCK_TAGS = new Set([
   "P", "LI", "H1", "H2", "H3", "H4", "H5", "H6", "PRE", "BLOCKQUOTE", "TR", "TD", "TH", "DIV",
 ]);
 
 let currentMode = "citation"; // "citation" | "in_your_face"
 let deepMode = "full"; // pipeline mode; "rules_only" needs no model (instant, rules decide everything)
+let c34Mode = "strict"; // the user's C3/C4 mode from the quiz (calibration.js): "strict" | "general"
 const pendingTimers = new Map();
 const processedText = new WeakMap();
 const results = new WeakMap(); // response container -> pipeline result, for the click panel
@@ -118,7 +127,7 @@ function enqueue(task) {
 // background.js does the POST and the polling; resolves with { result } or { error }
 function requestPipeline(text, question) {
   return new Promise((resolve) => {
-    chrome.runtime.sendMessage({ type: "pipeline", text, question, mode: deepMode }, (res) => {
+    chrome.runtime.sendMessage({ type: "pipeline", text, question, mode: deepMode, c34Mode }, (res) => {
       resolve(chrome.runtime.lastError ? { error: chrome.runtime.lastError.message } : res ?? { error: "no reply" });
     });
   });
@@ -269,7 +278,7 @@ function keyWords(claim) {
       const quote = (e.quote ?? "").trim();
       if (e.source !== "response" || !quote) continue;
       const key = byQuote.get(quote.toLowerCase()) ?? { quote, reasons: [] };
-      key.reasons.push(`${CRITERION_LABELS[cid] ?? cid}: ${d.reasoning}`);
+      key.reasons.push(`${criterionLabel(cid)}: ${d.reasoning}`);
       byQuote.set(quote.toLowerCase(), key);
     }
   }
@@ -346,9 +355,10 @@ function ruleMark(flag) {
 function claimLabel(claim) {
   const problems = Object.entries(claim.criteria)
     .filter(([, d]) => d.decision === "met")
-    .map(([cid]) => CRITERION_LABELS[cid] ?? cid);
+    .map(([cid]) => criterionLabel(cid));
   const risk = claim.score.risk;
-  return `${risk[0].toUpperCase()}${risk.slice(1)} risk: ${problems.join("; ")}.`;
+  // new Set: in general mode C3 and C4 have the same name, so it is listed once
+  return `${risk[0].toUpperCase()}${risk.slice(1)} risk: ${[...new Set(problems)].join("; ")}.`;
 }
 
 // "risk" = loaded/biased phrasing, "citation" = number that needs a source
@@ -465,14 +475,15 @@ function renderDeepResult(panel, claim, result) {
   const heading = makeEl("p", `gisun-deep-risk gisun-deep-${risk}`,
     `${risk[0].toUpperCase()}${risk.slice(1)} risk${unverified ? ", unverified number" : ""}`);
   const entries = Object.entries(claim.criteria);
-  const labelsWhere = (decision) => entries.filter(([, d]) => d.decision === decision).map(([cid]) => CRITERION_LABELS[cid] ?? cid);
+  // new Set: in general mode C3 and C4 have the same name, so it is listed once
+  const labelsWhere = (decision) => [...new Set(entries.filter(([, d]) => d.decision === decision).map(([cid]) => criterionLabel(cid)))];
   const problems = entries.filter(([, d]) => d.decision === "met");
   const fine = labelsWhere("not_met");
   const unknown = labelsWhere("undetermined");
 
   const list = makeEl("ul", "gisun-deep-list");
   for (const [cid, d] of problems) {
-    const item = makeEl("li", "", `${CRITERION_LABELS[cid] ?? cid}: ${d.reasoning}`);
+    const item = makeEl("li", "", `${criterionLabel(cid)}: ${d.reasoning}`);
     for (const e of d.evidence ?? []) {
       const o = e.official;  // a C2 figure: the record fetched from the statistics API
       if (o) item.appendChild(makeEl("div", "gisun-deep-source",
@@ -546,6 +557,11 @@ chrome.storage.sync.get({ mode: "citation", deepMode: "full" }, (stored) => {
 chrome.storage.onChanged.addListener((changes) => {
   if (changes.mode) currentMode = changes.mode.newValue;
   if (changes.deepMode) deepMode = changes.deepMode.newValue;
+  if (changes.c34Mode) c34Mode = changes.c34Mode.newValue ?? "strict";
+});
+// The quiz result lives in chrome.storage.local (it stays on this computer), unlike the settings above
+chrome.storage.local.get({ c34Mode: "strict" }, (stored) => {
+  c34Mode = stored.c34Mode;
 });
 
 setupTooltip();

@@ -115,6 +115,7 @@ function passGate(overlay) {
   document.removeEventListener("click", blockSend, true);
   overlay.remove();
   enableInputs();
+  maybeShowCalibration(); // calibration.js: the C3/C4 quiz comes right after the access question
 }
 
 chrome.storage.local.get({ isPassed: false }, ({ isPassed }) => {

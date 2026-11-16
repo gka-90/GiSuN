@@ -57,6 +57,52 @@ SHARED_RULES = ("Rules for every criterion: judge only this criterion (a differe
                 "sentences covers this sentence. When in doubt, decide 'not_met'.")
 
 
+# ---- C3/C4 user modes (docs/C3_C4_USER_CALIBRATION.md) ----------------------------------------
+# A short quiz in the extension picks one mode for both C3 and C4:
+#   strict   the user agreed with our labels on 4 or 5 of the 5 sentences: our rules (the "guidance"
+#            in CRITERIA below), with C3 and C4 shown as separate problems
+#   general  the user skipped the quiz or matched us on 3 or fewer: our rules don't fit how they
+#            read, so the agents use the looser rules below and C3 and C4 are shown (and scored) as
+#            one "worth checking" problem
+# C1, C2, C5 and C6 always use our rules.
+C34_MODES = ("strict", "general")
+C34_CRITERIA = ("C3", "C4")
+
+# General mode drops "When in doubt, decide 'not_met'" and the strict exceptions for headings,
+# strong-but-accurate words and a hedge next to "never"; it keeps "judge only this criterion" and
+# reported viewpoints, so it still never flags what someone else said.
+GENERAL_SHARED_RULES = ("Rules: judge only this criterion (a different problem is 'not_met' here); reported "
+                      "viewpoints ('Critics argue ...', 'Supporters say ...') are someone else's words, not the "
+                      "answer's own, and are 'not_met' unless the answer itself endorses them. This is a 'worth "
+                      "checking' mode for a reader who wants more flags: if the wording could reasonably push a "
+                      "reader toward a judgment, decide 'met' with strength 'supporting'.")
+
+GENERAL_GUIDANCE = {
+    "C3": "'met' if the answer's own wording carries a tone or judgment a neutral word would not, even when the word "
+          "may be accurate: emotional or judgmental words ('reckless', 'notorious', 'pointless', 'devastated'), "
+          "praise or prestige words ('eminent', 'ground-breaking', 'renowned'), and loaded headings all count. "
+          "'not_met' only for: quoted or reported wording; negated terms ('not a crisis'); words that are only "
+          "mentioned as the topic ('the term \"illegal alien\" is controversial'); plainly neutral wording "
+          "('Concerns include cyberbullying, body image issues, sleep disruption'). Check each flagged term with "
+          "context_cues; you may also report loaded wording the word list missed, quoted exactly. " + GENERAL_SHARED_RULES,
+    "C4": "'met' if a reader could take the sentence as true of everyone or every case when it is not: 'always', "
+          "'never', 'everyone', 'all', a stereotype about a group ('People from big cities are rude'), a "
+          "conclusion about a whole group drawn from one or a few examples ('my class was hard, so all philosophy "
+          "classes are hard'), or a whole-group claim with no qualifier. A soft word next to an absolute still "
+          "counts if the claim stays sweeping ('often never recover'). 'not_met' only for: literally true absolutes "
+          "and physical laws; rules, laws and definitions; closed groups ('all 12 patients'); clearly hedged "
+          "claims ('usually', 'most', 'tends to', 'though not for everyone'). Use context_cues on the absolute "
+          "word. " + GENERAL_SHARED_RULES,
+}
+
+
+def guidance(cid: str, c34_mode: str = "strict") -> str:
+    """The guidance the Task and Judge agents get for this criterion in this C3/C4 mode."""
+    if c34_mode == "general" and cid in GENERAL_GUIDANCE:
+        return GENERAL_GUIDANCE[cid]
+    return CRITERIA[cid]["guidance"]
+
+
 # ---- C2: statistic_contradicted ----------------------------------------------------------
 
 def c2_outcome(value: str, hedge: str, records: list[dict], unit: str = "",

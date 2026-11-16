@@ -6,7 +6,7 @@ from gisun import config
 from gisun.agents.check import check_decision
 from gisun.agents.loop import Tool, run_tool_loop
 from gisun.agents.toolbox import build_tools
-from gisun.criteria import CRITERIA, DECISIONS, STRENGTHS
+from gisun.criteria import CRITERIA, DECISIONS, STRENGTHS, guidance
 from gisun.tools.numbers import HEDGES
 
 C2_FIELDS_SCHEMA = {"type": "object", "description": "C2 step 1: the number pinned down from the text",
@@ -36,7 +36,8 @@ def run_task(ctx, claim: dict, cid: str, feedback: list[str] | None = None, max_
                   lambda **_: None)
     flags = [{"text": f["matched_value"], "type": f["type"], **({"category": f["category"]} if "category" in f else {})}
              for f in claim["flags"]]
-    task = (f"Criterion {cid} ({crit['name']}): {crit['question']}\nGuidance: {crit['guidance']}\n\n"
+    # C3/C4 use the looser rules when the user's quiz put them in general mode (criteria.guidance)
+    task = (f"Criterion {cid} ({crit['name']}): {crit['question']}\nGuidance: {guidance(cid, getattr(ctx, 'c34_mode', 'strict'))}\n\n"
             f"Claim: {claim['sentence']}\nPrevious sentences: {claim['context_before']}\n"
             + (f"User's question: {ctx.question}\n" if cid == "C2" and ctx.question else "") +
             f"Detector flags: {json.dumps(flags, ensure_ascii=False)}")
