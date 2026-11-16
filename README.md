@@ -183,6 +183,7 @@ After editing anything in `extension/`, click the ↻ reload button on the GiSuN
 ```
 /
 ├── README.md
+├── LICENSE                      # MIT (code and our own data; third-party data keeps its own terms)
 ├── server.py                    # FastAPI backend (uvicorn server:app): /verify + /pipeline from gisun/api.py
 ├── requirements.txt
 │
@@ -242,4 +243,16 @@ Two-person team, Hamilton College CS Senior Seminar, Fall 2026.
 
 ## License
 
-Course project — not licensed for external use.
+The code, the word list (`data/bias_wordlist.json`), the series catalog (`data/stat_series.json`), the
+labeling rules and our own labels are released under the MIT License: see [LICENSE](LICENSE).
+
+**Third-party data is not covered by that license** and stays under its original terms. It is in the
+repository only to evaluate GiSuN:
+
+| Files | From |
+|---|---|
+| `datasets/external/logic/edu_all.csv`, `datasets/gold_c4_logic.json` | LOGIC: Jin et al., "Logical Fallacy Detection", Findings of EMNLP 2022, https://github.com/causalNLP/logical-fallacy |
+| the C2 rows of `datasets/gold_public_{1,2,3}.json` | QuanTemp: Venktesh et al., SIGIR 2024, https://doi.org/10.1145/3626772.3657874 |
+| the other rows of `datasets/gold_public_{1,2,3}.json` | other public datasets (sources to be listed here) |
+| `datasets/collected/claude_2026-10-12.json`, the answer texts in `datasets/gold_answers.json` | answers written by Claude and ChatGPT to our prompts |
+| `data/stat_cache.json` | responses from the BLS, U.S. Census Bureau, World Bank and Data Commons APIs |
