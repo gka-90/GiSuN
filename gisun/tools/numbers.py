@@ -140,6 +140,19 @@ def _round_to(value: float, step: float) -> Decimal:
 APPROX_TOLERANCE = 0.10
 
 
+def with_unit(value: str, unit: str = "", sentence: str = "") -> str:
+    """The agent often gives the number without its sign ("9.1" for "9.1%"), which then reads as a bare
+    number and never compares with a percent figure. Add the percent sign when the unit field or the
+    sentence says the number is a percentage."""
+    v = (value or "").strip()
+    if not v or re.search(r"[A-Za-z$%]", v):
+        return value
+    percent = unit.strip().lower() in {"%", "percent", "percentage", "per cent"}
+    if not percent and sentence:
+        percent = bool(re.search(re.escape(v) + r"\s*(?:%|per ?cent)", sentence, re.I))
+    return v + "%" if percent else value
+
+
 def compare_numbers(claim_value: str, official_value: str, hedge: str = "none") -> dict:
     """Does the official figure match the claim? (C2 tolerances)
         none      after rounding the official figure to the claim's precision, at most one unit

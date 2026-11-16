@@ -3,7 +3,7 @@
 from gisun.agents.loop import Tool
 from gisun.tools.attribution import find_attribution
 from gisun.tools.language import context_cues, wordlist_lookup
-from gisun.tools.numbers import HEDGES, compare_numbers
+from gisun.tools.numbers import HEDGES, compare_numbers, with_unit
 from gisun.tools.retrieval import lookup_statistic
 
 NO_ARGS = {"type": "object", "properties": {}}
@@ -27,7 +27,7 @@ def build_tools(names: list[str], claim: dict, ctx) -> list[Tool]:
         return found
 
     def t_compare_numbers(claim_value: str, official_value: str, hedge: str = "none"):
-        return compare_numbers(claim_value, official_value, hedge)
+        return compare_numbers(with_unit(claim_value, "", claim["sentence"]), official_value, hedge)
 
     catalog = {
         "find_attribution": Tool("find_attribution", "Does the claim sentence (where='sentence') or the previous "

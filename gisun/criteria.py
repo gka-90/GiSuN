@@ -30,7 +30,7 @@ is the C6 prefilter (headings, reported viewpoints). If an agent fails the resul
 import re
 
 from gisun.tools.language import heading_or_fragment, reported_viewpoint
-from gisun.tools.numbers import compare_numbers, numbers_in, parse_value
+from gisun.tools.numbers import compare_numbers, numbers_in, parse_value, with_unit
 
 DECISIONS = ("met", "not_met", "undetermined")
 STRENGTHS = ("strong", "moderate", "supporting")
@@ -59,9 +59,11 @@ SHARED_RULES = ("Rules for every criterion: judge only this criterion (a differe
 
 # ---- C2: statistic_contradicted ----------------------------------------------------------
 
-def c2_outcome(value: str, hedge: str, records: list[dict]) -> tuple[str, list[dict]]:
+def c2_outcome(value: str, hedge: str, records: list[dict], unit: str = "",
+               sentence: str = "") -> tuple[str, list[dict]]:
     """The C2 decision the official figures give, by compare_numbers' tolerance rules:
     all match -> not_met, none match -> met, sources disagree or nothing comparable -> undetermined."""
+    value = with_unit(value, unit, sentence)
     cmps = [{"record_id": r["record_id"], **compare_numbers(value, r["value_text"], hedge)} for r in records]
     matches = {c["match"] for c in cmps if c.get("comparable")}
     if matches == {True}:

@@ -83,7 +83,8 @@ def _check_c2(answer, decision, evidence, claim, ctx, tool_log) -> list[str]:
     for records in _lookups(tool_log):
         ids = [r["record_id"] for r in records]
         disagree = fields.get("value") and len({c.get("match") for c in c2_outcome(
-            str(fields["value"]), str(fields.get("hedge") or "none"), records)[1] if c.get("comparable")}) > 1
+            str(fields["value"]), str(fields.get("hedge") or "none"), records, str(fields.get("unit") or ""),
+            claim["sentence"])[1] if c.get("comparable")}) > 1
         if (cited & set(ids) or disagree) and set(ids) - cited:
             problems.append(f"C2: cite every official figure the lookup returned ({', '.join(ids)}), "
                             "so a reviewer sees when sources disagree.")
@@ -121,7 +122,7 @@ def _check_c2(answer, decision, evidence, claim, ctx, tool_log) -> list[str]:
             problems.append(f"C2: {r['record_id']} is for {r['period']}, not {period}: only the same period counts.")
         if place and r["place_code"] != place["code"]:
             problems.append(f"C2: {r['record_id']} is about {r['place']}, not {place['name']}.")
-    outcome, cmps = c2_outcome(value, hedge, records)
+    outcome, cmps = c2_outcome(value, hedge, records, str(fields.get("unit") or ""), claim["sentence"])
     if not problems and outcome != decision:
         detail = "; ".join(f"{c['record_id']}: {c.get('rule', c.get('reason'))}, match={c.get('match')}" for c in cmps)
         problems.append(f"C2: by the tolerance rules the official figures give {outcome!r}, not {decision!r} ({detail}).")
@@ -145,7 +146,7 @@ def c2_status(decision: dict, tool_log: list[dict]) -> str:
         records, note = last.get("records") or [], str(last.get("note") or "").lower()
         if records and fields.get("value"):
             matches = {c.get("match") for c in c2_outcome(str(fields["value"]), str(fields.get("hedge") or "none"),
-                                                          records)[1] if c.get("comparable")}
+                                                          records, str(fields.get("unit") or ""))[1] if c.get("comparable")}
             return "source_conflict" if matches == {True, False} else "not_comparable"
         if last.get("skipped"):
             return "lookup_error"
