@@ -38,7 +38,8 @@ def test_set() -> None:
         if os.path.exists(path):
             for c in json.load(open(path))["claims"]:
                 if "C2" in c["criteria"]:
-                    got, why = c["criteria"]["C2"]["decision"], c["criteria"]["C2"].get("c2_status")
+                    d = c["criteria"]["C2"]
+                    got, why = d["decision"], d.get("status") or d.get("c2_status")
         else:
             missing += 1
         table[(kind, want, got)] += 1
@@ -71,7 +72,7 @@ def real_answers() -> None:
     for a in json.load(open(path))["answers_detail"]:
         for c in a["claims"]:
             if "C2" in c.get("criteria", {}):
-                counts[(c["criteria"]["C2"], c.get("c2_status"))] += 1
+                counts[(c["criteria"]["C2"], (c.get("status") or {}).get("C2") or c.get("c2_status"))] += 1
     total = sum(counts.values())
     checked = sum(n for (d, s), n in counts.items() if s == "checked")
     print(path)

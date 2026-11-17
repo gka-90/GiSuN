@@ -211,6 +211,7 @@ education words, so "unemployment rate of college graduates" is never compared w
 | RQ3 | evaluation/run_ablation.py | full / no_judge / no_debug / task_only |
 | RQ4 | (todo) | C2 on a validation set: step 1 (measure / place / period / hedge) accuracy, then the decision |
 | baseline | evaluation/zero_tool.py | one call, no tools |
+| any run | evaluation/status_report.py | decisions per criterion and, for every 'undetermined', a reason code (C2: `c2_status`; others: decided / no_tool_call / no_evidence / weighed; plus agent_failed, prefiltered) |
 | C2 set | evaluation/datasets/c2_us_testset.py | QuanTemp claims (C2 rows of `gold_public_*.json`) the series catalog can look up -> `datasets/gold_c2_us.json` (no API call) |
 | C4 set | built by Gideon in GiSuN_public_datasets.xlsx (C4 tab) | LOGIC (Jin et al. 2022): 100 faulty generalizations (met) vs 100 other fallacies (not_met); false causality and slippery slope left out (closer to C6) -> `datasets/gold_c4_logic.json` |
 

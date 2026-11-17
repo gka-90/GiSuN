@@ -39,7 +39,7 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
 
 from gisun import config, llm
-from gisun.agents.check import c2_status, check_decision, normalize
+from gisun.agents.check import check_decision, decision_status, normalize
 from gisun.agents.debug import failure_entry, run_with_debug
 from gisun.agents.judge import judge
 from gisun.agents.plan import plan
@@ -60,16 +60,14 @@ def _gap(ctx, cid, why: str) -> dict:
     """The agent produced no usable decision: say so ("undetermined") instead of guessing."""
     out = normalize(cid, {"decision": "undetermined", "strength": "supporting", "reasoning": why,
                           "evidence": []}, ctx)
-    out.update(by="failed", note=why)
-    if cid == "C2":
-        out["c2_status"] = "agent_failed"
+    out.update(by="failed", note=why, status="agent_failed")
     return out
 
 
 def _prefiltered(ctx, cid, why: str) -> dict:
     out = normalize(cid, {"decision": "not_met", "strength": "supporting", "reasoning": why,
                           "evidence": []}, ctx)
-    out.update(by="prefilter", note=why)
+    out.update(by="prefilter", note=why, status="prefiltered")
     return out
 
 
@@ -114,8 +112,7 @@ def _run_one(ctx, claim: dict, cid: str, mode: dict) -> dict:
     if final_problems:
         return {**_gap(ctx, cid, f"final check failed: {final_problems}"), "seconds": round(time.time() - t0, 1),
                 "trace": trace}
-    if cid == "C2":
-        decision["c2_status"] = c2_status(decision, res.tool_log)
+    decision["status"] = decision_status(cid, decision, res.tool_log)
     return {**decision, "by": "agent", "debug": debug_log, "judge": judge_log, "steps": res.steps,
             "seconds": round(time.time() - t0, 1), "trace": trace}
 

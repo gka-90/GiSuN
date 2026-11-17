@@ -165,6 +165,23 @@ def c2_status(decision: dict, tool_log: list[dict]) -> str:
     return "not_looked_up"
 
 
+def decision_status(cid: str, decision: dict, tool_log: list[dict]) -> str:
+    """Why this criterion came out as it did, one code, deterministic (never the model's own words).
+    C2 has its own codes (c2_status); every other criterion gets:
+    decided        the agent reached 'met' or 'not_met'
+    no_tool_call   'undetermined' without calling the criterion's tools: the agent never looked
+    no_evidence    'undetermined' with no evidence quoted, though it did look
+    weighed        'undetermined' with evidence: the agent looked and still could not tell"""
+    if cid == "C2":
+        return c2_status(decision, tool_log)
+    if decision.get("decision") in ("met", "not_met"):
+        return "decided"
+    tools = set(CRITERIA[cid]["tools"])
+    if not any(t.get("tool") in tools for t in tool_log):
+        return "no_tool_call"
+    return "weighed" if decision.get("evidence") else "no_evidence"
+
+
 def normalize(cid: str, answer: dict, ctx=None) -> dict:
     official = ctx.official_records if ctx is not None else {}
 

@@ -215,6 +215,7 @@ After editing anything in `extension/`, click the ↻ reload button on the GiSuN
 │   ├── run_all.py               #   tests + gold-file checks + RQ1-RQ3 in one go
 │   ├── zero_tool.py             #   one-call, no-tools baseline
 │   ├── c2_report.py             #   the C2 results (built test set + real answers) in one screen
+│   ├── status_report.py        #   any run: decisions per criterion, and why the undecided ones are undecided
 │   └── datasets/                #   c2_catalog_testset (-> gold_c2_catalog.json), c2_us_testset (-> gold_c2_us.json)
 ├── datasets/                    # Only what runs need: gold_example.json (tests, run_all),
 │                                #   collected/claude_2026-10-12.json (the 50 answers the HPC run checks),
