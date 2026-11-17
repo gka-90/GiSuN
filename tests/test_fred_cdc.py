@@ -67,12 +67,15 @@ class Cdc(unittest.TestCase):
         self.assertNotIn("test-token", json.dumps(retrieval._cache()))
 
 
-class NewEntriesStayOff(unittest.TestCase):
-    def test_unverified_entries_do_not_answer_claims(self):
+class ThroughTheLookup(unittest.TestCase):
+    def test_fred_answers_a_rate_claim(self):
         fake_stats.install(self)
-        self.assertEqual(retrieval.lookup_statistic("federal funds rate", "United States", "2023")["records"], [])
-        ids = {e["id"] for e in retrieval.matching_series("obesity rate")}
-        self.assertNotIn("cdc_adult_obesity_brfss", ids)
+        found = retrieval.lookup_statistic("federal funds rate", "United States", "2023")
+        self.assertEqual([(r["record_id"], r["value_text"]) for r in found["records"]],
+                         [("fred:FEDFUNDS:USA:2023", "5.02 percent")])
+
+    def test_the_target_range_is_not_the_effective_rate(self):
+        self.assertEqual(retrieval.matching_series("federal funds target range"), [])
 
 
 if __name__ == "__main__":

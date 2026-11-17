@@ -2575,6 +2575,14 @@
     "status": "REQUEST_SUCCEEDED"
    }
   },
+  "cdc https://data.cdc.gov/resource/hn4x-zwk7.json?questionid=Q036&yearstart=2022&stratificationcategory1=Total&locationdesc=New+York&%24limit=10": {
+   "query_date": "2026-11-16",
+   "response": [
+    {
+     "data_value": "30.1"
+    }
+   ]
+  },
   "census https://api.census.gov/data/2020/dec/pl?get=NAME,P1_001N&for=state:06": {
    "query_date": "2026-11-16",
    "response": [
@@ -2793,6 +2801,39 @@
       "unit": "Percent"
      }
     }
+   }
+  },
+  "fred https://api.stlouisfed.org/fred/series/observations?series_id=DGS10&file_type=json&frequency=a&observation_start=2023-01-01&observation_end=2023-12-31": {
+   "query_date": "2026-11-16",
+   "response": {
+    "observations": [
+     {
+      "date": "2023-01-01",
+      "value": "3.96"
+     }
+    ]
+   }
+  },
+  "fred https://api.stlouisfed.org/fred/series/observations?series_id=FEDFUNDS&file_type=json&frequency=a&observation_start=2023-01-01&observation_end=2023-12-31": {
+   "query_date": "2026-11-16",
+   "response": {
+    "observations": [
+     {
+      "date": "2023-01-01",
+      "value": "5.02"
+     }
+    ]
+   }
+  },
+  "fred https://api.stlouisfed.org/fred/series/observations?series_id=MORTGAGE30US&file_type=json&frequency=a&observation_start=2023-01-01&observation_end=2023-12-31": {
+   "query_date": "2026-11-16",
+   "response": {
+    "observations": [
+     {
+      "date": "2023-01-01",
+      "value": "6.81"
+     }
+    ]
    }
   },
   "worldbank https://api.worldbank.org/v2/country/BRA/indicator/EG.FEC.RNEW.ZS?format=json&date=2019": {
@@ -4834,11 +4875,17 @@
   "bls": {
    "2026-11-16": 12
   },
+  "cdc": {
+   "2026-11-16": 1
+  },
   "census": {
    "2026-11-16": 3
   },
   "datacommons": {
    "2026-11-16": 1
+  },
+  "fred": {
+   "2026-11-16": 3
   },
   "worldbank": {
    "2026-11-16": 24
