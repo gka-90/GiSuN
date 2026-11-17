@@ -19,6 +19,48 @@ from collections import Counter
 
 ORDER = ["met", "not_met", "undetermined"]
 
+# ── customer-facing grouping ──────────────────────────────────────────────────
+# Three top-level outcomes visible to the user:
+#   ⚠️  needs_review  – number didn't match official data
+#   ✓  verified       – cross-checked, looks fine
+#   —  unverifiable   – couldn't make a call; sub-bucket explains why
+#
+# Three sub-buckets for unverifiable:
+#   not_covered   → add a data source to fix
+#   claim_vague   → claim is under-specified (no year / place / type mismatch)
+#   system_error  → lookup failure or conflicting official sources
+
+CUSTOMER_OUTCOME = {
+    "met":          "⚠️  needs_review",
+    "not_met":      "✓  verified",
+    "undetermined": "—  unverifiable",
+}
+
+CUSTOMER_BUCKET = {
+    "no_series":           "not_covered",
+    "no_series_for_place": "not_covered",
+    "no_record":           "not_covered",
+    "no_period":           "claim_vague",
+    "no_place":            "claim_vague",
+    "not_comparable":      "claim_vague",
+    "not_looked_up":       "claim_vague",
+    "no_measure":          "claim_vague",
+    "no_tool_call":        "claim_vague",
+    "weighed":             "claim_vague",
+    "prefiltered":         "claim_vague",
+    "lookup_error":        "system_error",
+    "agent_failed":        "system_error",
+    "source_conflict":     "system_error",
+    "no_evidence":         "not_covered",
+}
+
+BUCKET_LABEL = {
+    "not_covered": "not covered     (add a data source)",
+    "claim_vague": "claim vague     (year / place / type unclear)",
+    "system_error":"system error    (lookup failed or sources conflict)",
+}
+
+
 
 def newest_run() -> str | None:
     runs = glob.glob("evaluation/outputs/*/full") + glob.glob("evaluation/outputs/*_full_*.json")
@@ -59,7 +101,37 @@ def report(path: str) -> None:
     print(f"\n{'undetermined, by reason':34}count")
     for (cid, status), n in sorted(why.items(), key=lambda kv: (kv[0][0], -kv[1])):
         print(f"{cid} {status:<32}{n}")
+    customer_report(rows, why)
 
+
+
+
+def customer_report(rows, why) -> None:
+    """Customer-facing summary: three outcomes + three sub-buckets."""
+    from collections import Counter as _C
+    outcomes, buckets = _C(), _C()
+    for (cid, dec), n in rows.items():
+        outcomes[CUSTOMER_OUTCOME.get(dec, dec)] += n
+    for (cid, status), n in why.items():
+        raw = status or ""
+        # old-format runs have "by=None" instead of a real status code
+        if raw.startswith("by="):
+            raw = "not_looked_up"
+        buckets[CUSTOMER_BUCKET.get(raw, "system_error")] += n
+
+    total = sum(outcomes.values())
+    print("\n── customer view " + "─" * 42)
+    for label in CUSTOMER_OUTCOME.values():
+        pct = 100 * outcomes[label] / total if total else 0
+        print(f"  {label:<24} {outcomes[label]:>5}  ({pct:.0f}%)")
+    unv = outcomes["—  unverifiable"]
+    if unv:
+        print(f"\n  unverifiable breakdown ({unv} total):")
+        for key, label in BUCKET_LABEL.items():
+            n = buckets[key]
+            pct = 100 * n / unv if unv else 0
+            print(f"    {label:<42} {n:>4}  ({pct:.0f}%)")
+    print("─" * 60)
 
 if __name__ == "__main__":
     path = sys.argv[1] if len(sys.argv) > 1 else newest_run()
