@@ -246,3 +246,26 @@ class RulesStepOne(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class LatestPeriod(unittest.TestCase):
+    """The agent writes the guidance's words instead of a year: read them as the last full year."""
+
+    def test_phrases_become_the_last_full_year(self):
+        import datetime
+        day = datetime.date(2026, 11, 16)
+        for text in ["latest full year", "the latest full year", "most recent year", "current year",
+                     "this year", "latest", "now", "today"]:
+            with self.subTest(text):
+                self.assertEqual(normalize_period(text, today=day), "2025")
+
+    def test_a_real_period_still_wins(self):
+        import datetime
+        day = datetime.date(2026, 11, 16)
+        self.assertEqual(normalize_period("2015", today=day), "2015")
+        self.assertEqual(normalize_period("April 2020", today=day), "2020-04")
+
+    def test_nonsense_is_still_none(self):
+        for text in ["", "2017-2020", "every year", "the 1990s"]:
+            with self.subTest(text):
+                self.assertIsNone(normalize_period(text))

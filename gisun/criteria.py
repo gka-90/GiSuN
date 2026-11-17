@@ -293,6 +293,8 @@ CRITERIA = {
             "period='2020'). 'Federal' means 'United States'. Present tense with no time stated means the latest "
             "full year.\n"
             "   - A plain 'unemployment rate' means U-3, not U-6.\n"
+            "   - period must be a concrete year ('2024') or month ('2024-03'). Never write words such as "
+            "'latest full year', 'recent' or 'now': work the year out yourself.\n"
             "   - If measure, place or period still can't be determined, decide 'undetermined' and say "
             "'missing_context' in your reasoning.\n\n"
             "2. Call lookup_statistic(measure, place, period).\n"

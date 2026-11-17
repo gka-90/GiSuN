@@ -141,9 +141,18 @@ def places_in(text: str) -> list[dict]:
 
 # ---- periods ------------------------------------------------------------------------------
 
-def normalize_period(period: str) -> str | None:
-    """'2020' -> '2020'; 'April 2020' / 'Apr. 2020' / '2020-04' -> '2020-04'; anything else -> None."""
+# the agent sometimes copies the guidance's words into the period field instead of working out the year
+LATEST = re.compile(r"(?i)^(?:the )?(?:(?:latest|most recent|current|present|this)"
+                    r"(?:[ -](?:full|complete|calendar))?(?:[ -](?:year|period|data|figures?))?|now|today)$")
+
+
+def normalize_period(period: str, today=None) -> str | None:
+    """'2020' -> '2020'; 'April 2020' / 'Apr. 2020' / '2020-04' -> '2020-04';
+    'latest full year' / 'current year' -> the last full year; anything else -> None."""
+    import datetime
     p = (period or "").strip().lower()
+    if p and LATEST.fullmatch(p):
+        return str((today or datetime.date.today()).year - 1)
     if m := re.fullmatch(r"((?:19|20)\d{2})-(\d{1,2})", p):
         return f"{m.group(1)}-{int(m.group(2)):02d}" if 1 <= int(m.group(2)) <= 12 else None
     years = re.findall(r"\b(?:19|20)\d{2}\b", p)
