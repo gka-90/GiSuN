@@ -5,7 +5,7 @@ variables so the same code runs on a laptop (Ollama) and on the HPC (vLLM).
     GISUN_BACKEND   ollama (default) | openai_compat | none
     GISUN_MODEL     model name, e.g. qwen2.5:3b (Ollama) or Qwen/Qwen2.5-32B-Instruct (vLLM)
     GISUN_BASE_URL  for openai_compat: http://localhost:8001/v1 (an SSH tunnel to the HPC node)
-    GISUN_BLS_KEY, GISUN_CENSUS_KEY, GISUN_DATACOMMONS_KEY
+    GISUN_BLS_KEY, GISUN_CENSUS_KEY, GISUN_DATACOMMONS_KEY, GISUN_FRED_KEY, GISUN_CDC_TOKEN
                     free API keys for the C2 statistics lookup (gisun/tools/retrieval.py).
                     World Bank needs none; BLS works without one for monthly figures only.
     GISUN_STAT_CACHE    cache of API responses (data/stat_cache.json)
@@ -64,6 +64,8 @@ ONLY_CRITERIA = [c.strip().upper() for c in os.environ.get("GISUN_ONLY_CRITERIA"
 BLS_KEY = os.environ.get("GISUN_BLS_KEY", "")
 CENSUS_KEY = os.environ.get("GISUN_CENSUS_KEY", "")
 DATACOMMONS_KEY = os.environ.get("GISUN_DATACOMMONS_KEY", "")
+FRED_KEY = os.environ.get("GISUN_FRED_KEY", "")     # free: fredaccount.stlouisfed.org/apikeys
+CDC_TOKEN = os.environ.get("GISUN_CDC_TOKEN", "")   # optional app token for data.cdc.gov (higher rate limit)
 STAT_SERIES_PATH = os.path.join(ROOT, "data", "stat_series.json")
 STAT_CACHE_PATH = os.environ.get("GISUN_STAT_CACHE", os.path.join(ROOT, "data", "stat_cache.json"))
 STAT_OFFLINE = os.environ.get("GISUN_STAT_OFFLINE", "0") == "1"

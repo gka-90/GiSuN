@@ -33,24 +33,26 @@ BLS, Census, World Bank and Data Commons are already wired up. Adding a measure 
      is not the participation *rate*).
    - `unit` is `percent`, `usd` or `number`; it decides how the value is written and compared.
    - `scope`: `us`, `us_state`, `country`, `other`. `frequency`: `annual`, `monthly`.
-3. Verify it by hand, then set `"verified": true`:
+3. Verify it, then set `"verified": true` by hand:
 
 ```bash
-python -c "from gisun.tools.retrieval import lookup_statistic as l; print(l('labor force','United States','2022'))"
+python -m evaluation.try_series wb_labor_force
 ```
 
-   Check the number against the provider's own page. C2 skips unverified entries, so this step is
+   It fetches the entry's `test` place and period (verified or not) and prints `OK` when the value is
+   inside the range. Also check the number against the provider's own page. C2 skips unverified entries, so this step is
    not optional.
 4. `python -m pytest tests -q` (the catalog has schema tests), then commit.
 
 ## Level 2: a new provider (about 30 lines)
 
-Worth it when a provider covers a whole area we are missing. Two candidates:
+Worth it when a provider covers a whole area we are missing. FRED and CDC were added this way on
+11/16/2026 (`_fred`, `_cdc` in `gisun/tools/retrieval.py`); read them next to these steps.
 
-| Provider | Covers | Key |
-|---|---|---|
-| FRED (St. Louis Fed) | interest rates and most US economic series | free, instant |
-| CDC (data.cdc.gov, Socrata) | vaccine effectiveness, obesity, overdose deaths | none for light use |
+| Provider | Covers | Key | Shape |
+|---|---|---|---|
+| FRED (St. Louis Fed) | interest rates and most US economic series | `GISUN_FRED_KEY`, free | one series id per measure, like BLS: a new measure is one JSON entry |
+| CDC (data.cdc.gov, Socrata) | obesity and other survey data. No flu-vaccine-effectiveness dataset exists there (checked 11/16/2026) | `GISUN_CDC_TOKEN`, optional | every dataset has its own columns: the entry carries `dataset`, `filters`, `place_field`, `value_field` |
 
 Steps, using FRED as the example:
 

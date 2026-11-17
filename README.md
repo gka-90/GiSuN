@@ -256,4 +256,4 @@ repository only to evaluate GiSuN:
 | the C2 rows of `datasets/gold_public_{1,2,3}.json` | QuanTemp: Venktesh et al., SIGIR 2024, https://doi.org/10.1145/3626772.3657874 |
 | the other rows of `datasets/gold_public_{1,2,3}.json` | other public datasets (sources to be listed here) |
 | `datasets/collected/claude_2026-10-12.json`, the answer texts in `datasets/gold_answers.json` | answers written by Claude and ChatGPT to our prompts |
-| `data/stat_cache.json` | responses from the BLS, U.S. Census Bureau, World Bank and Data Commons APIs |
+| `data/stat_cache.json` | responses from the BLS, U.S. Census Bureau, FRED (Federal Reserve Bank of St. Louis), CDC (data.cdc.gov), World Bank and Data Commons APIs. This product uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St. Louis |

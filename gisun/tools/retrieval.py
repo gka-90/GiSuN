@@ -30,6 +30,8 @@ from functools import lru_cache
 from gisun import config
 
 PROVIDERS = {"static": "", "bls": "U.S. Bureau of Labor Statistics", "census": "U.S. Census Bureau",
+             "fred": "Federal Reserve Bank of St. Louis (FRED)",
+             "cdc": "Centers for Disease Control and Prevention (data.cdc.gov)",
              "worldbank": "World Bank (World Development Indicators)", "datacommons": "Data Commons"}
 # static entries (a fixed legal value, no API) first, then BLS / Census for the US, World Bank, Data Commons
 ORDER = list(PROVIDERS)
@@ -362,6 +364,41 @@ def _dc_resolve(place: str) -> str | None:
     return None
 
 
+def _fred(entry: dict, place: dict, period: str) -> tuple[list[dict], str]:
+    """One FRED series, as the month's figure or the year's average (FRED does the averaging:
+    a daily or weekly series such as mortgage rates comes back at the frequency asked for)."""
+    if not config.FRED_KEY:
+        raise LookupError("the FRED API needs GISUN_FRED_KEY (free)")
+    monthly = len(period) > 4
+    url = "https://api.stlouisfed.org/fred/series/observations?" + urllib.parse.urlencode({
+        "series_id": entry["series_id"], "file_type": "json", "frequency": "m" if monthly else "a",
+        "observation_start": f"{period}-01" if monthly else f"{period}-01-01",
+        "observation_end": f"{period}-28" if monthly else f"{period}-12-31"})
+    data, qdate = _get("fred", url, secret={"api_key": config.FRED_KEY}, valid=lambda r: "observations" in r,
+                       keep=lambda r: {"observations": [{"date": o["date"], "value": o["value"]}
+                                                        for o in r["observations"]]})
+    vals = [float(o["value"]) for o in data["observations"] if o["value"] not in (".", "", None)]
+    return [{"value": v} for v in vals[:1]], qdate
+
+
+def _cdc(entry: dict, place: dict, period: str) -> tuple[list[dict], str]:
+    """One row of a data.cdc.gov (Socrata) dataset. Every dataset has its own columns, so the entry
+    carries them: `filters` (column -> value, "{year}" filled in), `place_field` (the column holding
+    the place name; the national row is called `us_value`) and `value_field`. Filters that match rows
+    with different values are refused: a loose filter must never pick a figure at random."""
+    filters = {k: v.replace("{year}", period[:4]) for k, v in entry["filters"].items()}
+    filters[entry["place_field"]] = entry.get("us_value", "National") if place["kind"] == "us" \
+        else place["name"].removesuffix(" State")  # our "New York State" is CDC's "New York"
+    url = f"https://data.cdc.gov/resource/{entry['dataset']}.json?" + urllib.parse.urlencode({**filters, "$limit": 10})
+    rows, qdate = _get("cdc", url, headers={"X-App-Token": config.CDC_TOKEN} if config.CDC_TOKEN else None,
+                       valid=lambda r: isinstance(r, list),
+                       keep=lambda r: [{entry["value_field"]: x.get(entry["value_field"])} for x in r])
+    vals = {float(r[entry["value_field"]]) for r in rows if r.get(entry["value_field"]) not in (None, "")}
+    if len(vals) > 1:
+        raise LookupError(f"the filters match {len(vals)} different values in {entry['dataset']}")
+    return [{"value": v} for v in vals], qdate
+
+
 def _datacommons(entry: dict, place: dict, period: str) -> tuple[list[dict], str]:
     """Data Commons keeps several sources ("facets") per figure. Each one that has this exact
     date and observation period comes back, so two disagreeing sources are both seen."""
@@ -395,7 +432,8 @@ def _static(entry: dict, place: dict, period: str) -> tuple[list[dict], str]:
     return ([{"value": float(entry["value"])}] if start >= entry["valid_from"] else []), entry["checked"]
 
 
-FETCH = {"static": _static, "bls": _bls, "census": _census, "worldbank": _worldbank, "datacommons": _datacommons}
+FETCH = {"static": _static, "bls": _bls, "census": _census, "fred": _fred, "cdc": _cdc, "worldbank": _worldbank,
+         "datacommons": _datacommons}
 
 
 # ---- catalog and lookup -------------------------------------------------------------------

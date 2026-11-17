@@ -5,6 +5,7 @@ every time. install(test) points the cache at a temp file and answers requests f
 
 import os
 import tempfile
+import urllib.parse
 from unittest.mock import patch
 
 from gisun import config
@@ -22,6 +23,12 @@ BLS = {"LNS14000000": {(2020, "M04"): "14.8", (2020, "M01"): "3.5"},
 WB = {("FP.CPI.TOTL.ZG", "USA", "2022"): 8.00279982052121, ("SP.POP.TOTL", "DEU", "2020"): 83160871,
       ("NY.GDP.PCAP.CD", "DEU", "2020"): 46772.8253}
 CENSUS = {("2020", "dec/pl", "P1_001N", "us:1"): "331449281"}
+# FRED (series, frequency, observation_start) -> value ("." = FRED's missing value)
+FRED = {("FEDFUNDS", "a", "2023-01-01"): "5.02", ("FEDFUNDS", "m", "2023-07-01"): "5.12",
+        ("FEDFUNDS", "a", "2030-01-01"): "."}
+# CDC (dataset, year, place name) -> the data_value of each matching row
+CDC = {("hn4x-zwk7", "2022", "New York"): ["30.1"], ("hn4x-zwk7", "2022", "National"): ["33.6"],
+       ("hn4x-zwk7", "2021", "Ohio"): ["37.8", "36.0"]}
 
 
 def fake_request(url, payload=None, headers=None):
@@ -48,6 +55,14 @@ def fake_request(url, payload=None, headers=None):
         geo = query.split("for=")[1].split("&")[0]
         v = CENSUS.get((year, dataset, var, geo))
         return [["NAME", var, "us"]] + ([["United States", v, "1"]] if v else [])
+    if "api.stlouisfed.org" in url:
+        q = dict(urllib.parse.parse_qsl(url.split("?", 1)[1]))
+        v = FRED.get((q["series_id"], q["frequency"], q["observation_start"]))
+        return {"observations": [{"date": q["observation_start"], "value": v, "realtime_start": "x"}] if v else []}
+    if "data.cdc.gov" in url:
+        q = dict(urllib.parse.parse_qsl(url.split("?", 1)[1]))
+        return [{"data_value": v, "locationdesc": q["locationdesc"]}
+                for v in CDC.get((url.split("/resource/")[1].split(".")[0], q["yearstart"], q["locationdesc"]), [])]
     raise AssertionError(f"unexpected request {url}")
 
 
@@ -57,7 +72,8 @@ def install(test, bls_key="test-key", census_key="test-key"):
     mock = patch.object(retrieval, "_request", side_effect=fake_request).start()
     for p in [patch.object(config, "STAT_CACHE_PATH", os.path.join(tmp, "cache.json")),
               patch.object(config, "STAT_OFFLINE", False), patch.object(config, "BLS_KEY", bls_key),
-              patch.object(config, "CENSUS_KEY", census_key), patch.object(config, "DATACOMMONS_KEY", "")]:
+              patch.object(config, "CENSUS_KEY", census_key), patch.object(config, "DATACOMMONS_KEY", ""),
+              patch.object(config, "FRED_KEY", "test-key"), patch.object(config, "CDC_TOKEN", "test-token")]:
         p.start()
     retrieval.reset_cache()
     test.addCleanup(patch.stopall)
