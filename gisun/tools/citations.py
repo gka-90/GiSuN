@@ -20,6 +20,10 @@ is never a guess. What it can't tell: whether the number on the page means the s
              unreachable  no cited page could be read (login, paywall, timeout, scanned PDF)
              no_link      the claim has numbers but no link
 
+    scope    sentence     the links that end the claim's own sentence
+             answer       no link on the sentence, so the sources the answer lists were used
+                          (ChatGPT's "Sources:" list; its inline citation chips have no link in the page)
+
 The download is cached per URL for the life of the process.
 """
 
@@ -34,6 +38,7 @@ from html.parser import HTMLParser
 USER_AGENT = "Mozilla/5.0 (GiSuN citation check; Hamilton College research project)"
 TIMEOUT = 8          # seconds per page
 MAX_BYTES = 8_000_000
+MAX_ANSWER_LINKS = 6  # an answer's source list: open at most this many pages per claim
 
 # A cited site we already query directly: C2 checks that provider first
 PROVIDER_DOMAINS = {
@@ -86,10 +91,15 @@ def attach_citations(claims: list[dict], text: str, sentences: list[str], citati
         elif url not in by_sentence.setdefault(owner, []):
             by_sentence[owner].append(url)
     claimed = set()
+    answer_links = list(dict.fromkeys(str(c.get("url") or "") for c in citations or []
+                                      if str(c.get("url") or "").startswith(("http://", "https://"))))
     for claim in claims:
         urls = [u for s, us in by_sentence.items() if s == claim["sentence"] or s in claim["sentence"] for u in us]
         claim["citations"] = urls
-        claim["cited_providers"] = sorted({p for u in urls if (p := provider_for(u))})
+        # a sentence with no link of its own: the sources the answer lists (ChatGPT's "Sources:" list;
+        # its inline citation chips carry no link in the page until they are hovered)
+        claim["answer_links"] = [] if urls else answer_links[:MAX_ANSWER_LINKS]
+        claim["cited_providers"] = sorted({p for u in (urls or claim["answer_links"]) if (p := provider_for(u))})
         claimed.update(urls)
     unused += [u for us in by_sentence.values() for u in us if u not in claimed]
     return list(dict.fromkeys(unused))
@@ -189,9 +199,11 @@ def check_claim(claim: dict, fetch=fetch_text) -> dict | None:
     numbers = [(v, n) for v in values for n in claim_numbers(v)]
     if not numbers:
         return None
-    urls = claim.get("citations") or []
+    urls, scope = claim.get("citations") or [], "sentence"
+    if not urls and claim.get("answer_links"):
+        urls, scope = claim["answer_links"], "answer"
     if not urls:
-        return {"status": "no_link", "pages": []}
+        return {"status": "no_link", "scope": None, "pages": []}
     pages, found = [], set()
     for url in urls:
         page = fetch(url)
@@ -208,7 +220,8 @@ def check_claim(claim: dict, fetch=fetch_text) -> dict | None:
         status = "found"
     else:
         status = "not_found"
-    return {"status": status, "values": values, "missing": [v for v in values if v not in found], "pages": pages}
+    return {"status": status, "scope": scope, "values": values,
+            "missing": [v for v in values if v not in found], "pages": pages}
 
 
 # ---- what the user sees per number ---------------------------------------------------------
@@ -238,4 +251,4 @@ def number_check(claim_out: dict) -> dict | None:
     c2 = (claim_out["criteria"].get("C2") or {}).get("decision")
     official = {"not_met": "matches", "met": "conflicts", "undetermined": "unverifiable"}.get(c2, "not_checked")
     warn = source in ("not_found", "none") and official == "conflicts"
-    return {"source": source, "official": official, "warn": warn}
+    return {"source": source, "scope": cc.get("scope"), "official": official, "warn": warn}

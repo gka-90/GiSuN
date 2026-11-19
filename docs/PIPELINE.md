@@ -335,7 +335,8 @@ A number goes through three steps; each answers a different question.
    `POST /pipeline`); `attach_citations` ties each link to the sentence it ends, `check_claim`
    opens the page (HTML, or PDF with `pypdf`) and looks for each number rounded to the claim's
    precision: `found` / `not_found` / `unreachable` / `no_link`. It runs in parallel with the
-   agents and is cached per URL. It doesn't know whether the number on the page means the same
+   agents and is cached per URL. A sentence with no link of its own is checked against the
+   sources the answer lists (`scope: "answer"`; ChatGPT's inline chips carry no link in the page). It doesn't know whether the number on the page means the same
    thing; that is C2's job.
 3. **C2, does it match official data?** (agent + code) If the answer cites a provider we query
    (bls.gov, census.gov, stlouisfed.org, cdc.gov, worldbank.org, datacommons.org),

@@ -8,10 +8,11 @@
 // Old ChatGPT layout used data-message-author-role; the 2026 layout (chatgpt.com/uc/...) uses data-message-role.
 // The Oct 2026 layout dropped both: an answer is a <div class="DilRenderer-… DilResponseRoot-HfQrEh …">.
 // The part after the dash is a build hash that changes, so match on the stable "DilResponseRoot" prefix.
-const RESPONSE_SELECTOR = '[data-message-author-role="assistant"], [data-message-role="assistant"], [class*="DilResponseRoot"]';
+// Nov 2026 layout: one [data-response-body] per answer (the older attributes are kept for older layouts)
+const RESPONSE_SELECTOR = '[data-response-body], [data-message-author-role="assistant"], [data-message-role="assistant"], [class*="DilResponseRoot"]';
 // The user's messages, to send the question along with the answer
-const USER_SELECTOR = '[data-message-author-role="user"], [data-message-role="user"]';
-const MARKDOWN_SELECTOR = ".markdown, [data-assistant-markdown]";
+const USER_SELECTOR = '[data-message-author-role="user"], [data-message-role="user"], [data-markdown-text-style="user-message"], [data-content-search-unit-key$=":user"]';
+const MARKDOWN_SELECTOR = '[data-markdown-text-style="assistant-message"], .markdown, [data-assistant-markdown]';
 // ChatGPT's prompt box is a contenteditable div (#prompt-textarea); older layouts used a real <textarea>
 const PROMPT_INPUT_SELECTOR = '#prompt-textarea, form textarea, form [contenteditable="true"]';
 const SEND_BUTTON_SELECTOR = '[data-testid="send-button"], button[aria-label*="Send"]';
@@ -540,6 +541,12 @@ const SOURCE_TEXT = {
   named: "a source is named, but there is no link to open",
   none: "no source given",
 };
+// No link on the sentence itself: the numbers were looked for on the sources the answer lists
+const SOURCE_TEXT_LISTED = {
+  found: "✓ found on a source the answer lists",
+  not_found: "✗ not found on the sources the answer lists",
+  unreachable: "the sources the answer lists couldn't be opened",
+};
 const OFFICIAL_TEXT = {
   matches: "✓ matches the official figure",
   conflicts: "✗ conflicts with the official figure",
@@ -551,8 +558,11 @@ function numberCheckLines(claim) {
   const nc = claim.number_check;
   if (!nc) return null;
   const box = makeEl("div", `gisun-number-check${nc.warn ? " gisun-number-warn" : ""}`);
-  const source = makeEl("div", "", `Source: ${SOURCE_TEXT[nc.source] ?? nc.source}`);
-  for (const url of claim.citations ?? []) {
+  const listed = nc.scope === "answer";
+  const sourceText = listed && SOURCE_TEXT_LISTED[nc.source] ? SOURCE_TEXT_LISTED[nc.source] : SOURCE_TEXT[nc.source] ?? nc.source;
+  const source = makeEl("div", "", `Source: ${sourceText}`);
+  const pages = (claim.citation_check?.pages ?? []).map((p) => p.url);
+  for (const url of pages.length ? pages : claim.citations ?? []) {
     const link = makeEl("a", "gisun-cite-link", new URL(url).hostname);
     link.href = url;
     link.target = "_blank";

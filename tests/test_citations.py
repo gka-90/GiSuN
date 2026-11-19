@@ -79,7 +79,7 @@ class TestNumberCheck(unittest.TestCase):
 
     def test_lines(self):
         self.assertEqual(number_check(self.out("found", "not_met", "not_met")),
-                         {"source": "found", "official": "matches", "warn": False})
+                         {"source": "found", "scope": None, "official": "matches", "warn": False})
         self.assertEqual(number_check(self.out("no_link", "not_met", None))["source"], "named")
         self.assertEqual(number_check(self.out("no_link", "met", "undetermined"))["source"], "none")
         self.assertTrue(number_check(self.out("not_found", "not_met", "met"))["warn"])
@@ -115,3 +115,17 @@ class TestUtf16Offsets(unittest.TestCase):
         from gisun.api import _from_utf16
         # JavaScript counts the emoji as two units: '.' is at 4 there, at 3 in Python
         self.assertEqual(_from_utf16("a😀b. c", [{"url": "u", "offset": 4}])[0]["offset"], 3)
+
+
+class TestAnswerSourceList(unittest.TestCase):
+    def test_sentence_without_link_uses_the_answer_list(self):
+        listed = "BLS — State Employment and Unemployment, September 2026."
+        text = SENTS[0] + " " + SENTS[1] + " Sources: " + listed
+        c1 = claim(SENTS[0], ["4.3%"])
+        attach_citations([c1], text, SENTS[:2] + ["Sources:", listed],
+                         [{"url": "https://www.bls.gov/news.release/laus.nr0.htm", "offset": text.index("BLS")}])
+        self.assertEqual(c1["citations"], [])
+        self.assertEqual(c1["answer_links"], ["https://www.bls.gov/news.release/laus.nr0.htm"])
+        self.assertEqual(c1["cited_providers"], ["bls"])
+        r = check_claim(c1, lambda url: {"ok": True, "text": "New York 4.3 percent"})
+        self.assertEqual((r["status"], r["scope"]), ("found", "answer"))
