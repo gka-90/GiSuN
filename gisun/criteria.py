@@ -155,7 +155,10 @@ CRITERIA = {
                     "Reference facts count as statistics: physical properties, technical specifications, sports "
                     "results, weather measurements, historical counts and rankings ('Lead has a density of 11.34 "
                     "g/cm3' with no source is 'met'). Only figures a typical college student already knows ('water "
-                    "boils at 100 C') are common knowledge. A number inside a name ('Formula 1') is not a statistic.",
+                    "boils at 100 C') are common knowledge. A number inside a name ('Formula 1') is not a statistic. "
+                    "Also not_met: a date on its own, numbers inside a definition, rule or scoring system ('assigns "
+                    "one point for each of five factors'), an illustrative example, and arithmetic on a figure that is "
+                    "already sourced. Any other specific number with no specific source is met, however minor it seems.",
         "phase": 1, "depends_on": {},
         "tools": ["find_attribution", "context_window"],
         "severity": {"strong": 2, "moderate": 2, "supporting": 1},

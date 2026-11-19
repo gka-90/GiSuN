@@ -4,7 +4,10 @@ criterion decision. Runs inside the task loop (so the model can fix problems)
 and again on the final answer.
 """
 
-from gisun.criteria import CRITERIA, DECISIONS, STRENGTHS, c2_outcome
+import re
+
+from gisun.criteria import CRITERIA, DECISIONS, NOT_A_SOURCE, STRENGTHS, c2_outcome
+from gisun.tools.attribution import find_attribution
 from gisun.tools.numbers import hedge_of, parse_value
 from gisun.tools.retrieval import (implied_period, implied_places, mentions, normalize_period, period_in_text,
                                    resolve_place)
@@ -64,7 +67,28 @@ def check_decision(cid: str, answer: dict, claim: dict, ctx, tool_log: list[dict
                             "official figure use the record_id lookup_statistic returned.")
     if cid == "C2":
         problems += _check_c2(answer, decision, evidence, claim, ctx, tool_log)
+    if cid == "C1":
+        problems += _check_c1(decision, reasoning, claim)
     return problems
+
+
+def _check_c1(decision: str, reasoning: str, claim: dict) -> list[str]:
+    """A 'met' (no specific source) has to deal with a source find_attribution finds in the sentence or
+    the two before it: either decide not_met or name that source and say why it doesn't cover the number.
+    (Seen on gold_public_1: the tool found 'an assessment by the Mississippi Emergency Management Agency'
+    and the agent still said there was no source.)"""
+    if decision != "met":
+        return []
+    for s in [claim["sentence"], *claim["context_before"]]:
+        found = find_attribution(s)
+        src = found["source_text"] or ""
+        if not found["names_specific_source"] or NOT_A_SOURCE.match(src):
+            continue
+        words = [w for w in re.findall(r"[A-Za-z]{4,}", src) if w.lower() not in ("source", "according")]
+        if not any(w.lower() in reasoning.lower() for w in words):
+            return [f"C1: find_attribution finds a specific source here: {src!r}. Decide 'not_met', or name that "
+                    "source in your reasoning and say why it does not cover this number."]
+    return []
 
 
 def _lookups(tool_log: list[dict]) -> list[list[dict]]:

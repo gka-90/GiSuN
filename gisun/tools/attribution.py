@@ -15,6 +15,9 @@ SOURCE_PATTERNS = [re.compile(p) for p in (
     r"states?|stated|reveals?|revealed|announced|recorded|counted|concluded)\b",
     r"\(\s*" + SOURCE_NAME + r",?\s+(?:19|20)\d{2}\s*\)",
     r"(?i:sources?)\s*:\s*" + SOURCE_NAME,
+    # "ranked the 11th greatest singer of all time by Rolling Stone", "detailed by geographer Roger Brunet"
+    r"\b(?:ranked|rated|voted|named|listed|placed|classified|certified|detailed|compiled|documented)\b"
+    r"[^.;]{0,80}?\bby\s+(?:[a-z]+\s+){0,2}" + SOURCE_NAME,
     # Wikipedia-style citation lines: "(Source: 1 2 Thornton)", "(Source: ↑ Hughes et al. 2003)"
     r"(?i:sources?)\s*:\s*(?:[\d\s↑^*]+)?" + SOURCE_NAME,
     r"(?P<ref>\[\d+\]|https?://\S+)",
