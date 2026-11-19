@@ -11,6 +11,9 @@ class TestNamedSources(unittest.TestCase):
             "businesses in Jackson County sustained damage.",
             "A 2021 analysis from Pew found that 40% agree.",
             "Billboard revealed that ABC had proposed an investment of $6.25 million.",
+            "Lead has a density of 11.34 g/cm3 (Source: 1 2 Thornton).",
+            "In 1929-30 he scored 50 points (Source: ↑ Hughes et al. 2003).",
+            "The storm damaged 101,241 homes (Source: Hurricane Andrew).",
         ):
             with self.subTest(s=s):
                 self.assertTrue(find_attribution(s)["names_specific_source"])

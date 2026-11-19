@@ -45,7 +45,9 @@ conventional statistical measure. This includes, but is not limited to:
 
 If no specific, identifiable source for the number appears in this sentence or the two before it,
 the sentence is `met`. Vague references such as "according to a report" or "studies show" are not
-specific sources.
+specific sources. A citation that names a publication, author, article or page title, such as
+"(Source: Hull 2011)" or "(Source: Overview of the 2006 Central North Pacific Tropical Cyclone
+Season)", is a specific source for the sentence it ends.
 
 **Common-knowledge exception:** Basic mathematical facts and widely known general knowledge are
 exempt (e.g., water boils at 100 °C at sea level). Specialized figures that a reader would have to
