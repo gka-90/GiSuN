@@ -90,12 +90,19 @@ function outermostResponse(el) {
 
 // ChatGPT streams text in piece by piece, so wait until a response stops changing
 function scheduleCheck(response) {
+  if (!response) return;
+  // first seen while the page is still drawing the conversation: an old answer
+  if (location.pathname === openedUrl && Date.now() - openedAt < SETTLING_MS) seenAtOpen.add(response);
   clearTimeout(pendingTimers.get(response));
   pendingTimers.set(response, setTimeout(() => {
     pendingTimers.delete(response);
     // Only the newest answer is checked on its own; older answers in the conversation get a button,
     // so a new question never waits behind a queue of old answers (each takes ~40 s on the HPC model)
-    if (isLatestResponse(response) || manualChecks.has(response)) processResponse(response);
+    const latest = isLatestResponse(response);
+    console.debug("[GiSuN] answer settled", { latest, manual: manualChecks.has(response),
+      index: [...document.querySelectorAll(RESPONSE_SELECTOR)].map(outermostResponse).indexOf(response),
+      start: response.innerText.slice(0, 40) });
+    if (latest || manualChecks.has(response)) processResponse(response);
     else offerCheck(response);
   }, STREAM_DONE_MS));
 }
@@ -107,8 +114,11 @@ const checkButtons = new WeakMap(); // response -> its "Check this answer" butto
 // Anything that appears later is a new answer in this session and is checked on its own.
 let seenAtOpen = new WeakSet();
 let openedUrl = null;
+let openedAt = 0;
+const SETTLING_MS = 5000; // ChatGPT draws a conversation's answers a moment after the page opens
 function rememberOpenAnswers() {
   openedUrl = location.pathname;
+  openedAt = Date.now();
   seenAtOpen = new WeakSet(
     [...document.querySelectorAll(RESPONSE_SELECTOR)].map(outermostResponse).filter(Boolean));
 }
@@ -116,6 +126,7 @@ function rememberOpenAnswers() {
 function isLatestResponse(response) {
   // switching to another conversation: its old answers count as already there
   if (location.pathname !== openedUrl) rememberOpenAnswers();
+  if (!seenAtOpen.has(response) && Date.now() - openedAt < SETTLING_MS) seenAtOpen.add(response);
   if (!seenAtOpen.has(response)) return true;
   // otherwise only the last answer with text (ads and empty placeholders also match the selector)
   const all = [...document.querySelectorAll(RESPONSE_SELECTOR)].map(outermostResponse)
@@ -124,6 +135,8 @@ function isLatestResponse(response) {
 }
 
 function offerCheck(response) {
+  const container = response.querySelector(MARKDOWN_SELECTOR) ?? response;
+  if (resultsByText.has(buildTextMap(container).text)) return processResponse(response); // checked before: redraw
   if (processedText.has(response) || checkButtons.get(response)?.isConnected) return;
   const button = makeEl("button", "gisun-check-btn", "Check this answer with GiSuN");
   button.type = "button";
@@ -142,12 +155,26 @@ async function processResponse(response) {
   const container = response.querySelector(MARKDOWN_SELECTOR) ?? response;
   const { text, segments } = buildTextMap(container);
   // Our own highlighting also triggers the observer; the text is unchanged, so skip it
-  if (!text.trim() || processedText.get(response) === text) return;
+  if (!text.trim() || processedText.get(response) === text) {
+    console.debug("[GiSuN] skip", !text.trim() ? "empty" : "same text as last time", text.slice(0, 40));
+    return;
+  }
   processedText.set(response, text);
   container.dataset.gisunMode = currentMode;
 
+  // ChatGPT re-renders earlier answers when a new question is sent; an answer already checked on
+  // this page is redrawn from its result instead of going back into the queue
+  const done = resultsByText.get(text);
+  if (done) {
+    console.debug("[GiSuN] redraw an answer already checked");
+    results.set(container, done);
+    const flagged = render_claims(container, done);
+    setStatus(response, "done", summaryMessage(flagged, done));
+    return;
+  }
+  console.debug("[GiSuN] checking an answer", text.slice(0, 60));
   setStatus(response, "checking", "GiSuN is checking the claims in this answer…");
-  const citations = collectCitations(response, container, segments, text);
+  const citations = await collectCitations(response, container, segments, text);
   const res = await enqueue(() => requestPipeline(text, findQuestion(container), citations));
   if (buildTextMap(container).text !== text) return; // the answer changed meanwhile; a new check is scheduled
 
@@ -156,10 +183,13 @@ async function processResponse(response) {
     return;
   }
   results.set(container, res.result);
+  resultsByText.set(text, res.result);
   const flagged = render_claims(container, res.result);
   setStatus(response, "done", summaryMessage(flagged, res.result));
   handle_interaction_mode(currentMode, container, flagged.map(claimModalItem));
 }
+
+const resultsByText = new Map(); // answer text -> its result, for answers ChatGPT redraws
 
 function enqueue(task) {
   const run = pipelineQueue.then(task, task);
@@ -249,18 +279,21 @@ function summaryMessage(flagged, result) {
     `${high ? ` (${high} high risk)` : ""}${how}. Hover a highlight for the reasons, click it for details.${sources}`;
 }
 
-// What the citation check found across the whole answer: " 2 numbers found on the cited sources ✓"
+// What the citation check found across the whole answer, so a clean answer still says why:
+// " 2 numbers found on the cited sources ✓" / " 4 numbers name a source, but there was no link to open."
 function sourceSummary(result) {
-  const counts = { found: 0, not_found: 0, unreachable: 0 };
+  const counts = { found: 0, not_found: 0, unreachable: 0, named: 0, none: 0 };
   for (const c of result.claims || []) {
     const s = c.number_check?.source;
     if (s in counts) counts[s] += 1;
   }
-  const n = (k) => `${counts[k]} number${counts[k] > 1 ? "s" : ""}`;
+  const n = (k) => `${counts[k]} statement${counts[k] > 1 ? "s" : ""} with numbers`;
   const parts = [];
   if (counts.found) parts.push(`${n("found")} found on the cited sources ✓`);
   if (counts.not_found) parts.push(`${n("not_found")} not found on them ✗`);
   if (counts.unreachable) parts.push(`${n("unreachable")} on pages that couldn't be opened`);
+  if (counts.named) parts.push(`${n("named")} named a source, but there was no link to open`);
+  if (counts.none) parts.push(`${n("none")} with no source`);
   return parts.length ? ` ${parts.join("; ")}.` : "";
 }
 
@@ -292,7 +325,7 @@ function buildTextMap(root) {
 // The links in an answer (ChatGPT's citation chips) with their position in `text`, so the backend
 // can tie each link to the sentence it ends and open it for the citation check. A link outside the
 // answer text (for example a source list rendered separately) gets the end of the text as its position.
-function collectCitations(response, container, segments, text) {
+async function collectCitations(response, container, segments, text) {
   const out = [];
   const seen = new Set();
   for (const a of response.querySelectorAll('a[href^="http"]')) {
@@ -320,6 +353,7 @@ function collectCitations(response, container, segments, text) {
   }
   return out;
 }
+
 
 function closestBlock(node, root) {
   for (let el = node.parentElement; el && el !== root; el = el.parentElement) {
