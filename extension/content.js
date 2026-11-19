@@ -1,3 +1,4 @@
+console.info("[GiSuN] content script loaded: check-on-request mode");
 // Flow: observe_dom_for_new_response() -> processResponse()
 //   -> background.js (POST /pipeline, poll): the agents check every claim in the answer
 //   -> render_claims(): underline the risky claim sentences and mark the words the agents quoted
