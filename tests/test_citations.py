@@ -211,3 +211,13 @@ class TestChips(unittest.TestCase):
         self.assertEqual(c2["chips"], [])
         self.assertTrue(find_attribution("Source: Department… (a citation attached to this sentence)")["names_specific_source"])
         self.assertTrue(find_attribution("Source: St. Louis Fed (a citation attached to this sentence)")["names_specific_source"])
+
+
+class TestDatesAreNotChecked(unittest.TestCase):
+    def test_date_only_claim_has_nothing_to_check(self):
+        from gisun.tools.citations import check_claim, is_date
+        self.assertTrue(is_date("November 20, 2026"))
+        self.assertTrue(is_date("2026"))
+        self.assertFalse(is_date("4.3%"))
+        claim = {"stat_values": ["November 20, 2026"], "citations": [{"url": "https://www.bls.gov/x"}]}
+        self.assertIsNone(check_claim(claim, fetch=lambda u: self.fail("no page should be opened")))

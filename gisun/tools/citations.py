@@ -272,9 +272,20 @@ def appears(number: tuple[float, int], page: list[float]) -> bool:
 
 # ---- one claim -----------------------------------------------------------------------------
 
+MONTH_RE = re.compile(r"\b(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\b", re.I)
+YEAR_RE = re.compile(r"^\s*(19|20)\d{2}\s*$")
+
+
+def is_date(value: str) -> bool:
+    """A date on its own ('November 20, 2026', '2026') is not a number to look up on a page
+    (labeling rules, C1: a date on its own is not a statistic)."""
+    return bool(MONTH_RE.search(value or "") or YEAR_RE.match(value or ""))
+
+
 def check_claim(claim: dict, fetch=fetch_text) -> dict | None:
     """The citation check for one claim, or None when the claim has no number to check."""
-    values = list(dict.fromkeys(claim.get("checkable_values") or claim.get("stat_values") or []))
+    values = [v for v in dict.fromkeys(claim.get("checkable_values") or claim.get("stat_values") or [])
+              if not is_date(v)]
     numbers = [(v, n) for v in values for n in claim_numbers(v)]
     if not numbers:
         return None

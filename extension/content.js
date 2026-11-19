@@ -296,8 +296,8 @@ function sourceSummary(result) {
   }
   const n = (k) => `${counts[k]} statement${counts[k] > 1 ? "s" : ""} with numbers`;
   const parts = [];
-  if (counts.found) parts.push(`${n("found")} found on the cited sources ✓`);
-  if (counts.not_found) parts.push(`${n("not_found")} not found on them ✗`);
+  if (counts.found) parts.push(`${n("found")} found on the cited page ✓`);
+  if (counts.not_found) parts.push(`${n("not_found")} not found on the cited page ✗`);
   if (counts.unreachable) parts.push(`${n("unreachable")} on pages that couldn't be opened`);
   if (counts.named) parts.push(`${n("named")} named a source, but there was no link to open`);
   if (counts.none) parts.push(`${n("none")} with no source`);
