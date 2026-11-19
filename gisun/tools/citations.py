@@ -36,7 +36,7 @@ import urllib.request
 from html.parser import HTMLParser
 
 USER_AGENT = "Mozilla/5.0 (GiSuN citation check; Hamilton College research project)"
-TIMEOUT = 8          # seconds per page
+TIMEOUT = 5          # seconds per page
 MAX_BYTES = 8_000_000
 MAX_ANSWER_LINKS = 6  # an answer's source list: open at most this many pages per claim
 
@@ -47,6 +47,7 @@ PROVIDER_DOMAINS = {
 }
 
 _cache: dict[str, dict] = {}
+_inflight: dict[str, threading.Event] = {}  # a URL being downloaded: other claims wait for it
 _lock = threading.Lock()
 
 
@@ -139,10 +140,27 @@ def pdf_to_text(data: bytes) -> str:
 
 
 def fetch_text(url: str) -> dict:
-    """{"ok": True, "text": ...} or {"ok": False, "reason": ...}. Cached per URL."""
+    """{"ok": True, "text": ...} or {"ok": False, "reason": ...}. Cached per URL, and each URL is
+    downloaded once even when several claims ask for it at the same time (an answer's source list
+    is shared by every sentence without a link of its own)."""
     with _lock:
         if url in _cache:
             return _cache[url]
+        waiting = _inflight.get(url)
+        if waiting is None:
+            _inflight[url] = threading.Event()
+    if waiting is not None:
+        waiting.wait(TIMEOUT + 10)
+        with _lock:
+            return _cache.get(url, {"ok": False, "reason": "download still running"})
+    try:
+        return _download(url)
+    finally:
+        with _lock:
+            _inflight.pop(url).set()
+
+
+def _download(url: str) -> dict:
     try:
         req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
         with urllib.request.urlopen(req, timeout=TIMEOUT) as r:

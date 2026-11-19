@@ -267,3 +267,7 @@ mark.gisun-key-high { background: rgba(229, 57, 53, 0.18); }
 .gisun-number-check { margin: 6px 0; padding: 6px 8px; border-radius: 6px; background: #f3f6fb; font-size: 13px; line-height: 1.5; }
 .gisun-number-warn { background: #fdecea; }
 .gisun-cite-link { color: #1a5fb4; text-decoration: underline; margin-left: 2px; }
+
+/* Older answers in a conversation are checked on request */
+.gisun-check-btn { margin: 6px 0; padding: 4px 10px; border: 1px solid #c9d3e3; border-radius: 6px; background: #f6f8fc; color: #1a5fb4; font-size: 13px; cursor: pointer; }
+.gisun-check-btn:hover { background: #e8eef9; }

@@ -129,3 +129,23 @@ class TestAnswerSourceList(unittest.TestCase):
         self.assertEqual(c1["cited_providers"], ["bls"])
         r = check_claim(c1, lambda url: {"ok": True, "text": "New York 4.3 percent"})
         self.assertEqual((r["status"], r["scope"]), ("found", "answer"))
+
+
+class TestOneDownloadPerUrl(unittest.TestCase):
+    def test_parallel_requests_share_one_download(self):
+        import threading, time
+        from unittest import mock
+        from gisun.tools import citations as cit
+        calls = []
+        def slow(url):
+            calls.append(url); time.sleep(0.2)
+            out = {"ok": True, "text": "4.3"}
+            with cit._lock:
+                cit._cache[url] = out
+            return out
+        url = "https://example.gov/once"
+        cit._cache.pop(url, None)
+        with mock.patch.object(cit, "_download", side_effect=slow):
+            ts = [threading.Thread(target=cit.fetch_text, args=(url,)) for _ in range(6)]
+            [t.start() for t in ts]; [t.join() for t in ts]
+        self.assertEqual(len(calls), 1)

@@ -92,12 +92,37 @@ function scheduleCheck(response) {
   clearTimeout(pendingTimers.get(response));
   pendingTimers.set(response, setTimeout(() => {
     pendingTimers.delete(response);
-    processResponse(response);
+    // Only the newest answer is checked on its own; older answers in the conversation get a button,
+    // so a new question never waits behind a queue of old answers (each takes ~40 s on the HPC model)
+    if (isLatestResponse(response) || manualChecks.has(response)) processResponse(response);
+    else offerCheck(response);
   }, STREAM_DONE_MS));
+}
+
+const manualChecks = new WeakSet(); // older answers the user asked GiSuN to check
+const checkButtons = new WeakMap(); // response -> its "Check this answer" button
+
+function isLatestResponse(response) {
+  const all = [...document.querySelectorAll(RESPONSE_SELECTOR)].map(outermostResponse);
+  return all.at(-1) === response;
+}
+
+function offerCheck(response) {
+  if (processedText.has(response) || checkButtons.get(response)?.isConnected) return;
+  const button = makeEl("button", "gisun-check-btn", "Check this answer with GiSuN");
+  button.type = "button";
+  button.addEventListener("click", () => {
+    button.remove();
+    manualChecks.add(response);
+    processResponse(response);
+  });
+  checkButtons.set(response, button);
+  response.parentNode?.insertBefore(button, response.nextSibling);
 }
 
 // The agents decide what gets highlighted; until they finish, only a status note is shown
 async function processResponse(response) {
+  checkButtons.get(response)?.remove();
   const container = response.querySelector(MARKDOWN_SELECTOR) ?? response;
   const { text, segments } = buildTextMap(container);
   // Our own highlighting also triggers the observer; the text is unchanged, so skip it
