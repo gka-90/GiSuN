@@ -255,5 +255,7 @@ repository only to evaluate GiSuN:
 | `datasets/external/logic/edu_all.csv`, `datasets/gold_c4_logic.json` | LOGIC: Jin et al., "Logical Fallacy Detection", Findings of EMNLP 2022, https://github.com/causalNLP/logical-fallacy |
 | the C2 rows of `datasets/gold_public_{1,2,3}.json` | QuanTemp: Venktesh et al., SIGIR 2024, https://doi.org/10.1145/3626772.3657874 |
 | the other rows of `datasets/gold_public_{1,2,3}.json` | other public datasets (sources to be listed here) |
+
+The 67 C1 labels in `datasets/gold_public_1.json` were relabeled on 2026-11-18 by applying `docs/labeling_rules.md` (AI-assisted, reviewed by Suning); 11 of 67 changed. The original labels are kept in `datasets/relabel/c1_public1_original_gold.json`.
 | `datasets/collected/claude_2026-10-12.json`, the answer texts in `datasets/gold_answers.json` | answers written by Claude and ChatGPT to our prompts |
 | `data/stat_cache.json` | responses from the BLS, U.S. Census Bureau, FRED (Federal Reserve Bank of St. Louis), CDC (data.cdc.gov), World Bank and Data Commons APIs. This product uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St. Louis |
