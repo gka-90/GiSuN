@@ -234,8 +234,15 @@ function summaryMessage(flagged, result) {
 
 // Builds the plain text sent to the backend, plus a map from text offsets back to DOM text nodes.
 
+// ChatGPT's inline citation chips ("Department… +1"): a badge with the source's name and no link.
+// Their text is left out of the answer text (it would be glued onto the sentence) and sent as a
+// citation marker instead, see collectCitations().
+const CHIP_SELECTOR = '[data-d-component="badge"][data-pill]';
+
 function buildTextMap(root) {
-  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+    acceptNode: (n) => (n.parentElement?.closest(CHIP_SELECTOR) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT),
+  });
   const segments = [];
   let text = "";
   let lastBlock = null;
@@ -271,6 +278,13 @@ function collectCitations(response, container, segments, text) {
       seen.add(key);
       out.push({ url: a.href, offset });
     }
+  }
+  // Citation chips: no link, only the source's name; the position is where the chip sits in the text
+  for (const chip of container.querySelectorAll(CHIP_SELECTOR)) {
+    const label = chip.textContent.replace(/\s*\+\d+\s*$/, "").trim();
+    if (!label) continue;
+    const next = segments.find(({ node }) => chip.compareDocumentPosition(node) & Node.DOCUMENT_POSITION_FOLLOWING);
+    out.push({ chip: label, offset: next ? next.start : text.length });
   }
   return out;
 }
@@ -576,7 +590,7 @@ const OFFICIAL_TEXT = {
   matches: "✓ matches the official figure",
   conflicts: "✗ conflicts with the official figure",
   unverifiable: "couldn't be checked against official data",
-  not_checked: "not checked against official data",
+  not_checked: "not checked (C2 checks single official figures, not changes or comparisons)",
 };
 
 function numberCheckLines(claim) {
@@ -596,6 +610,11 @@ function numberCheckLines(claim) {
     source.appendChild(link);
   }
   box.appendChild(source);
+  const failed = (claim.citation_check?.pages ?? []).filter((p) => !p.read);
+  if (failed.length && nc.source !== "found") {
+    box.appendChild(makeEl("div", "gisun-deep-meta",
+      failed.map((p) => `${new URL(p.url).hostname}: ${p.why ?? p.reason}`).join("; ")));
+  }
   box.appendChild(makeEl("div", "", `Official data: ${OFFICIAL_TEXT[nc.official] ?? nc.official}`));
   if (nc.warn) box.appendChild(makeEl("div", "gisun-deep-meta", "Check this number yourself before relying on it."));
   return box;

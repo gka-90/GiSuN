@@ -73,10 +73,28 @@ def match_claim(claims: list[dict], key: str) -> dict | None:
     return next((c for c in claims if label_key(key) in label_key(c["sentence"])), None)
 
 
+LIST_ITEM_MAX_WORDS = 25   # "September 2025: 4.6%" -- short lines under a lead-in
+LIST_LOOKBACK = 12
+
+
+def _lead_in(sentences: list[str], i: int) -> str | None:
+    """A lead-in that names a source and introduces a list ("According to the New York State
+    Department of Labor:") covers every short item under it, however far down the list the claim is."""
+    for j in range(i - 1, max(-1, i - 1 - LIST_LOOKBACK), -1):
+        s = sentences[j].strip()
+        if s.endswith(":"):
+            return s if find_attribution(s)["names_specific_source"] else None
+        if len(s.split()) > LIST_ITEM_MAX_WORDS:
+            return None
+    return None
+
+
 def _context_before(sentences: list[str], sentence: str, n: int = 2) -> list[str]:
     for i, s in enumerate(sentences):
         if s == sentence or sentence in s:
-            return sentences[max(0, i - n):i]
+            before = sentences[max(0, i - n):i]
+            lead = _lead_in(sentences, i)
+            return [lead, *before] if lead and lead not in before else before
     return []
 
 

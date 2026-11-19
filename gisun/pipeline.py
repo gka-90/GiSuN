@@ -45,7 +45,8 @@ from gisun.agents.judge import judge
 from gisun.agents.plan import plan
 from gisun.agents.task import run_task
 from gisun.criteria import C34_MODES, CRITERIA, PHASES
-from gisun.tools.citations import attach_citations, check_claim, number_check
+from gisun.tools.attribution import find_attribution
+from gisun.tools.citations import attach_citations, check_claim, number_check, prime, single_answer_source
 from gisun.preprocess import match_claim, preprocess
 from gisun.scoring import score_claim, score_response
 
@@ -158,7 +159,22 @@ def run(text: str, question: str = "", mode: str = "full", keep_trace: bool = Tr
     ctx = preprocess(text, question, all_sentences=open_criteria or bool(force))
     ctx.c34_mode = c34_mode  # the Task and Judge agents read it to pick the C3/C4 rules
     # links -> the claim whose sentence they end; the rest (e.g. a source list at the end) is kept apart
+    prime(citations or [])  # page text the extension already read in the browser
     unused_links = attach_citations(ctx.claims, text, ctx.sentences, citations or [])
+    # a sentence with a citation chip is cited (C1): give the agent and the check a line that says so
+    for claim in ctx.claims:
+        for label in claim.get("chips", []):
+            line = f"Source: {label} (a citation attached to this sentence)"
+            claim["context_before"] = [line, *claim["context_before"]]
+            if not claim["attribution_nearby"]["names_specific_source"]:
+                claim["attribution_nearby"] = find_attribution(line)
+    # an answer with exactly one source cites it for every number (labeling rules, C1)
+    if only := single_answer_source(ctx.sentences, citations or []):
+        for claim in ctx.claims:
+            if claim["sentence"].strip() != only and only not in claim["context_before"]:
+                claim["context_before"] = [only, *claim["context_before"]]
+                if not claim["attribution_nearby"]["names_specific_source"]:
+                    claim["attribution_nearby"] = find_attribution(only)
     # the citation check needs no model, so it runs next to the agents
     cite_pool = ThreadPoolExecutor(max_workers=4)
     cite_jobs = {c["claim_id"]: cite_pool.submit(check_claim, c) for c in ctx.claims}

@@ -36,7 +36,10 @@ def find_attribution(sentence: str) -> dict:
             name = match.groupdict().get("name")
             if name:
                 words = re.sub(r"^the\s+", "", name, flags=re.IGNORECASE).split()
-                if not words or words[0].lower() in GENERIC_SOURCES:
+                # "New research shows" is vague, "the New York State Department of Labor" is not:
+                # "new" only counts as vague when it stands alone
+                proper_new = words[0].lower() == "new" and len(words) > 1 if words else False
+                if not words or (words[0].lower() in GENERIC_SOURCES and not proper_new):
                     continue
             return {"names_specific_source": True, "source_text": match.group(0)}
     return {"names_specific_source": False, "source_text": None}

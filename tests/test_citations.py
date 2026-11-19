@@ -149,3 +149,60 @@ class TestOneDownloadPerUrl(unittest.TestCase):
             ts = [threading.Thread(target=cit.fetch_text, args=(url,)) for _ in range(6)]
             [t.start() for t in ts]; [t.join() for t in ts]
         self.assertEqual(len(calls), 1)
+
+
+class TestBrowserText(unittest.TestCase):
+    def test_text_from_the_extension_is_used(self):
+        from gisun.tools import citations as cit
+        url = "https://www.bls.gov/eag/eag.ny.htm#prime-test"
+        cit.prime([{"url": url, "offset": 0, "text": "New York 4.3 percent"}])
+        self.assertEqual(cit.fetch_text(url)["via"], "browser")
+        c = claim(SENTS[0], ["4.3%"]); c["citations"] = [url]
+        self.assertEqual(check_claim(c)["status"], "found")
+
+    def test_readable_reasons(self):
+        from gisun.tools.citations import readable_reason
+        self.assertIn("refused", readable_reason("HTTPError: HTTP Error 403: Forbidden"))
+        self.assertIn("not found", readable_reason("HTTP 404"))
+        self.assertIn("in time", readable_reason("TimeoutError: timed out"))
+
+
+class TestListLeadIn(unittest.TestCase):
+    def test_lead_in_covers_the_whole_list(self):
+        from gisun.preprocess import _context_before
+        s = ["New York State's unemployment rate was 4.3% in September 2026.",
+             "According to the New York State Department of Labor:",
+             "September 2026: 4.3%", "August 2026: 4.3%", "September 2025: 4.6%",
+             "Number of unemployed residents: Approximately 431,800."]
+        self.assertIn(s[1], _context_before(s, s[5]))
+        self.assertNotIn(s[1], _context_before(s, s[0]))
+        # a lead-in with no source, or a long sentence in between, covers nothing
+        t = ["Additional figures:", "September 2026: 4.3%", "August 2026: 4.3%", "Rest of the state: 3.9%"]
+        self.assertEqual(_context_before(t, t[3]), t[1:3])
+
+
+class TestSingleAnswerSource(unittest.TestCase):
+    def test_one_source_line_or_one_link(self):
+        from gisun.tools.citations import single_answer_source
+        s = ["The rate was 4.3%.", "Source: New York State Department of Labor - September 2026 report."]
+        self.assertEqual(single_answer_source(s, []), s[1])
+        self.assertEqual(single_answer_source(["The rate was 4.3%."], [{"url": "https://www.bls.gov/x", "offset": 3}]),
+                         "Source: https://www.bls.gov/x")
+
+    def test_several_sources_cover_nothing(self):
+        from gisun.tools.citations import single_answer_source
+        s = ["The rate was 4.3%.", "Sources:", "BLS - Table 1.", "FRED - NYUR."]
+        links = [{"url": "https://www.bls.gov/a", "offset": 0}, {"url": "https://fred.stlouisfed.org/b", "offset": 1}]
+        self.assertIsNone(single_answer_source(s, links))
+        self.assertIsNone(single_answer_source(["The rate was 4.3%."], []))
+
+
+class TestChips(unittest.TestCase):
+    def test_chip_marks_the_sentence_before_it(self):
+        from gisun.tools.attribution import find_attribution
+        c1, c2 = claim(SENTS[0], ["4.3%"]), claim(SENTS[1], ["431,800"])
+        attach_citations([c1, c2], TEXT, SENTS, [{"chip": "Department…", "offset": len(SENTS[0]) + 1}])
+        self.assertEqual(c1["chips"], ["Department…"])
+        self.assertEqual(c2["chips"], [])
+        self.assertTrue(find_attribution("Source: Department… (a citation attached to this sentence)")["names_specific_source"])
+        self.assertTrue(find_attribution("Source: St. Louis Fed (a citation attached to this sentence)")["names_specific_source"])

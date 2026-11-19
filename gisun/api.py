@@ -74,7 +74,8 @@ def start(req: PipelineRequest) -> dict:
     if req.c34_mode not in C34_MODES:
         raise HTTPException(400, f"c34_mode must be one of {list(C34_MODES)}")
     # the C3/C4 mode changes the result, so it is part of the cache key
-    cites = json.dumps(req.citations, sort_keys=True)
+    cites = json.dumps([{"url": c.get("url"), "chip": c.get("chip"), "offset": c.get("offset")}
+                        for c in req.citations], sort_keys=True)
     key = hashlib.sha256(f"{req.mode}\0{req.c34_mode}\0{req.question}\0{req.text}\0{cites}".encode()).hexdigest()
     with _lock:
         if key in _cache and _jobs.get(_cache[key], {}).get("status") != "error":

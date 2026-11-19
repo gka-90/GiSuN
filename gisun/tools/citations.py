@@ -79,8 +79,18 @@ def attach_citations(claims: list[dict], text: str, sentences: list[str], citati
     spans = _sentence_spans(text, sentences)
     by_sentence: dict[str, list[str]] = {}
     unused = []
+    chips_by_sentence: dict[str, list[str]] = {}
     for c in citations or []:
         url, at = str(c.get("url") or ""), c.get("offset")
+        if c.get("chip") and isinstance(at, int):
+            # an inline citation chip: no link, but it marks the sentence just before it as cited
+            owner = None
+            for s_, (a, _b) in zip(sentences, spans):
+                if 0 <= a < at:
+                    owner = s_
+            if owner is not None:
+                chips_by_sentence.setdefault(owner, []).append(str(c["chip"]))
+            continue
         if not url.startswith(("http://", "https://")) or not isinstance(at, int):
             continue
         owner = None
@@ -97,6 +107,8 @@ def attach_citations(claims: list[dict], text: str, sentences: list[str], citati
     for claim in claims:
         urls = [u for s, us in by_sentence.items() if s == claim["sentence"] or s in claim["sentence"] for u in us]
         claim["citations"] = urls
+        claim["chips"] = [l for s_, ls in chips_by_sentence.items()
+                          if s_ == claim["sentence"] or s_ in claim["sentence"] for l in ls]
         # a sentence with no link of its own: the sources the answer lists (ChatGPT's "Sources:" list;
         # its inline citation chips carry no link in the page until they are hovered)
         claim["answer_links"] = [] if urls else answer_links[:MAX_ANSWER_LINKS]
@@ -106,7 +118,55 @@ def attach_citations(claims: list[dict], text: str, sentences: list[str], citati
     return list(dict.fromkeys(unused))
 
 
+# ---- one source for the whole answer ------------------------------------------------------
+
+SOURCE_LINE_RE = re.compile(r"^[\s*_]*source[\s*_]*:", re.IGNORECASE)   # "Source:" (singular), not "Sources:"
+
+
+def single_answer_source(sentences: list[str], citations: list[dict]) -> str | None:
+    """The answer's only source, when there is exactly one: a single "Source: X" line, or a single
+    link. Labeling rule (docs/labeling_rules.md, C1): an answer that cites one source cites it for
+    every number, so there is no doubt which source a number comes from. With several sources
+    each number needs its own. Returned as a line the C1 agent and check can read."""
+    from gisun.tools.attribution import find_attribution
+    urls = list(dict.fromkeys(str(c.get("url") or "") for c in citations or []
+                              if str(c.get("url") or "").startswith(("http://", "https://"))))
+    if len(urls) > 1:
+        return None
+    lines = [s for s in sentences if SOURCE_LINE_RE.match(s) and find_attribution(s)["names_specific_source"]]
+    if len(lines) == 1:
+        return lines[0].strip()
+    if not lines and len(urls) == 1:
+        return f"Source: {urls[0]}"
+    return None
+
+
 # ---- pages -> text -------------------------------------------------------------------------
+
+def prime(citations: list[dict]) -> None:
+    """Page text the extension already read in the user's browser (sites like bls.gov refuse a
+    script but serve a browser): stored as if it had been downloaded here."""
+    with _lock:
+        for c in citations or []:
+            url, text = c.get("url"), c.get("text")
+            if url and isinstance(text, str) and text.strip():
+                _cache[url] = {"ok": True, "text": text, "via": "browser"}
+
+
+def readable_reason(reason: str) -> str:
+    """'HTTPError: HTTP Error 403: Forbidden' -> 'the site refused access (403)'."""
+    r = reason or ""
+    for code, say in (("403", "the site refused access (403)"), ("404", "page not found (404): the link may be wrong"),
+                      ("401", "needs a login (401)"), ("410", "page removed (410)")):
+        if code in r:
+            return say
+    if "timed out" in r.lower() or "timeout" in r.lower():
+        return "the site didn't answer in time"
+    if "pypdf" in r:
+        return "PDF reader not installed"
+    if "no readable text" in r:
+        return "no readable text (scanned PDF or a page built by scripts)"
+    return "couldn't connect to the site"
 
 class _Text(HTMLParser):
     SKIP = {"script", "style", "noscript", "svg", "head"}
@@ -226,7 +286,7 @@ def check_claim(claim: dict, fetch=fetch_text) -> dict | None:
     for url in urls:
         page = fetch(url)
         if not page["ok"]:
-            pages.append({"url": url, "read": False, "reason": page["reason"]})
+            pages.append({"url": url, "read": False, "reason": page["reason"], "why": readable_reason(page["reason"])})
             continue
         on_page = numbers_on_page(page["text"])
         hits = [v for v, n in numbers if appears(n, on_page)]

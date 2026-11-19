@@ -15,6 +15,8 @@ class TestNamedSources(unittest.TestCase):
             "In 1929-30 he scored 50 points (Source: ↑ Hughes et al. 2003).",
             "The storm damaged 101,241 homes (Source: Hurricane Andrew).",
             "McCartney was ranked the 11th greatest singer of all time by Rolling Stone.",
+            "According to the New York State Department of Labor, the rate was 4.3%.",
+            "The New York Times reported that 40% of renters moved.",
             "Large chains detailed by geographer Roger Brunet: BUT (240 staff), Carrefour (150 staff).",
             "Michigan is classified as one of 115 Doctoral Universities by the Carnegie Classification.",
         ):
@@ -29,6 +31,7 @@ class TestNamedSources(unittest.TestCase):
             "Unemployment averaged 12% over the decade.",
             "The club was then docked 30 points for financial irregularities.",
             "He was ranked first in the league for most of the season.",
+            "New research shows 40% of students use AI.",
         ):
             with self.subTest(s=s):
                 self.assertFalse(find_attribution(s)["names_specific_source"])

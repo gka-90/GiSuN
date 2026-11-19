@@ -36,7 +36,50 @@ async function verify(text) {
 }
 
 // The pipeline runs in the background on the server; poll until it is done.
+// Cited pages are opened here, in the user's browser: sites such as bls.gov refuse a script on the
+// server (HTTP 403) but serve a browser. Only the visible text is sent on. A PDF or a page that
+// fails is left to the backend, which tries it itself and reports why it couldn't.
+const PAGE_TIMEOUT_MS = 6000;
+const PAGE_MAX_CHARS = 400000;
+const pageCache = new Map(); // url -> {text} | {error}
+
+async function readPage(url) {
+  if (pageCache.has(url)) return pageCache.get(url);
+  let out;
+  try {
+    const res = await fetch(url, { signal: AbortSignal.timeout(PAGE_TIMEOUT_MS), credentials: "omit" });
+    const kind = res.headers.get("content-type") ?? "";
+    if (!res.ok) out = { error: `HTTP ${res.status}` };
+    else if (kind.includes("pdf")) out = { error: "pdf" }; // the backend reads PDFs
+    else out = { text: htmlToText(await res.text()).slice(0, PAGE_MAX_CHARS) };
+  } catch (e) {
+    out = { error: e.name === "TimeoutError" ? "timed out" : e.message };
+  }
+  pageCache.set(url, out);
+  return out;
+}
+
+// No DOMParser in a service worker: drop scripts, styles and tags, decode the common entities
+function htmlToText(html) {
+  return html
+    .replace(/<(script|style|noscript|svg)[\s\S]*?<\/\1>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(+n))
+    .replace(/\s+/g, " ");
+}
+
+async function withPageText(citations) {
+  const urls = [...new Set((citations ?? []).map((c) => c.url))];
+  const pages = new Map(await Promise.all(urls.map(async (u) => [u, await readPage(u)])));
+  return (citations ?? []).map((c) => {
+    const p = pages.get(c.url);
+    return p?.text ? { ...c, text: p.text } : { ...c, browser_error: p?.error };
+  });
+}
+
 async function runPipeline({ text, question, mode, c34Mode, citations }) {
+  citations = await withPageText(citations);
   const start = await fetch(`${BACKEND_URL}/pipeline`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
