@@ -189,11 +189,16 @@ class TestSingleAnswerSource(unittest.TestCase):
         self.assertEqual(single_answer_source(["The rate was 4.3%."], [{"url": "https://www.bls.gov/x", "offset": 3}]),
                          "Source: https://www.bls.gov/x")
 
-    def test_several_sources_cover_nothing(self):
+    def test_several_sources_cover_every_number(self):
         from gisun.tools.citations import single_answer_source
         s = ["The rate was 4.3%.", "Sources:", "BLS - Table 1.", "FRED - NYUR."]
         links = [{"url": "https://www.bls.gov/a", "offset": 0}, {"url": "https://fred.stlouisfed.org/b", "offset": 1}]
-        self.assertIsNone(single_answer_source(s, links))
+        line = single_answer_source(s, links)
+        self.assertIn("bls.gov", line)
+        self.assertIn("fred.stlouisfed.org", line)
+        two = ["The rate was 4.3%.", "Source: New York State Department of Labor.", "Source: Bureau of Labor Statistics."]
+        self.assertEqual(single_answer_source(two, []),
+                         "Source: New York State Department of Labor; Bureau of Labor Statistics")
         self.assertIsNone(single_answer_source(["The rate was 4.3%."], []))
 
 

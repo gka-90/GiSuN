@@ -158,7 +158,9 @@ CRITERIA = {
                     "boils at 100 C') are common knowledge. A number inside a name ('Formula 1') is not a statistic. "
                     "Also not_met: a date on its own, numbers inside a definition, rule or scoring system ('assigns "
                     "one point for each of five factors'), an illustrative example, and arithmetic on a figure that is "
-                    "already sourced. Any other specific number with no specific source is met, however minor it seems.",
+                    "already sourced. Any other specific number with no specific source is met, however minor it seems. "
+                    "A source list for the whole answer (e.g. 'Sources:' at the end, one source or several) covers every number in it. "
+                    "Write the reasoning for a reader of the answer: one or two plain sentences saying where the number comes from or that no source is given; do not mention criteria or labels.",
         "phase": 1, "depends_on": {},
         "tools": ["find_attribution", "context_window"],
         "severity": {"strong": 2, "moderate": 2, "supporting": 1},

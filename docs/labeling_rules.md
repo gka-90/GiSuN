@@ -49,11 +49,11 @@ specific sources. A citation that names a publication, author, article or page t
 "(Source: Hull 2011)" or "(Source: Overview of the 2006 Central North Pacific Tropical Cyclone
 Season)", is a specific source for the sentence it ends.
 
-**One source for the whole answer.** When an answer cites exactly one source (a single
-"Source: X" line, usually at the end, or a single link), that source covers every number in the
-answer, even numbers before it: there is no doubt which source they come from. When an answer
-cites several sources, each number needs its own (in its sentence, the two before it, or a lead-in
-such as "According to X:" that introduces the list it is in).
+**A source list for the whole answer.** When an answer lists its sources for the whole answer
+(one or several "Source:" lines, a "Sources:" list of links, usually at the end), those sources
+cover every number in the answer, even numbers before the list. C1 only asks whether the answer
+says where its numbers come from; whether a number really appears in the listed sources is
+checked separately (the citation check: found / not found / couldn't open).
 
 **Common-knowledge exception:** Basic mathematical facts and widely known general knowledge are
 exempt (e.g., water boils at 100 °C at sea level). Specialized figures that a reader would have to

@@ -8,7 +8,7 @@
 #SBATCH --job-name=gisun-serve
 #SBATCH --gres=gpu:nvidia_rtx_pro_6000_blackwell_server_edition:1
 #SBATCH --mem=32G
-#SBATCH --time=01:00:00
+#SBATCH --time=04:00:00
 #SBATCH --output=logs/%x_%j.out
 
 MODEL=${MODEL:-Qwen/Qwen2.5-32B-Instruct-AWQ}

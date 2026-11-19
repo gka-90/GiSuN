@@ -171,6 +171,7 @@ def run(text: str, question: str = "", mode: str = "full", keep_trace: bool = Tr
     # an answer with exactly one source cites it for every number (labeling rules, C1)
     if only := single_answer_source(ctx.sentences, citations or []):
         for claim in ctx.claims:
+            claim["answer_sources"] = only
             if claim["sentence"].strip() != only and only not in claim["context_before"]:
                 claim["context_before"] = [only, *claim["context_before"]]
                 if not claim["attribution_nearby"]["names_specific_source"]:
@@ -205,6 +206,13 @@ def run(text: str, question: str = "", mode: str = "full", keep_trace: bool = Tr
     claims_out = []
     for claim in ctx.claims:
         decisions = results[claim["claim_id"]]
+        # labeling rule (C1): a source list for the whole answer covers every number. The model
+        # sometimes argues the list is "too general"; the rule is fixed, so code applies it.
+        c1 = decisions.get("C1")
+        if c1 and c1.get("decision") == "met" and claim.get("answer_sources"):
+            c1.update({"decision": "not_met", "by": "rule", "model_decision": "met",
+                       "reasoning": f"The answer lists its sources ({claim['answer_sources'][len('Source: '):]}); "
+                                    "that covers this number."})
         for cid, d in decisions.items():
             if not keep_trace:
                 d.pop("trace", None)

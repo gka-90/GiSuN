@@ -124,21 +124,22 @@ SOURCE_LINE_RE = re.compile(r"^[\s*_]*source[\s*_]*:", re.IGNORECASE)   # "Sourc
 
 
 def single_answer_source(sentences: list[str], citations: list[dict]) -> str | None:
-    """The answer's only source, when there is exactly one: a single "Source: X" line, or a single
-    link. Labeling rule (docs/labeling_rules.md, C1): an answer that cites one source cites it for
-    every number, so there is no doubt which source a number comes from. With several sources
-    each number needs its own. Returned as a line the C1 agent and check can read."""
+    """The sources the answer lists for itself, as one line the C1 agent and check can read.
+    Labeling rule (docs/labeling_rules.md, C1): a source list for the whole answer (one source or
+    several, as "Source:" lines or links) counts as a source for every number in it. Whether a
+    number really appears in those sources is the citation check's job, not C1's."""
     from gisun.tools.attribution import find_attribution
     urls = list(dict.fromkeys(str(c.get("url") or "") for c in citations or []
                               if str(c.get("url") or "").startswith(("http://", "https://"))))
-    if len(urls) > 1:
-        return None
-    lines = [s for s in sentences if SOURCE_LINE_RE.match(s) and find_attribution(s)["names_specific_source"]]
+    lines = [s.strip() for s in sentences if SOURCE_LINE_RE.match(s) and find_attribution(s)["names_specific_source"]]
     if len(lines) == 1:
-        return lines[0].strip()
-    if not lines and len(urls) == 1:
-        return f"Source: {urls[0]}"
-    return None
+        return lines[0]
+    names = [re.sub(r"^\s*sources?\s*[:\-]\s*", "", l, flags=re.I).strip(" .") for l in lines]
+    if not names:
+        names = urls[:MAX_ANSWER_LINKS]
+    if not names:
+        return None
+    return "Source: " + "; ".join(dict.fromkeys(names))
 
 
 # ---- pages -> text -------------------------------------------------------------------------

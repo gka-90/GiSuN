@@ -73,6 +73,7 @@ function observe_dom_for_new_response() {
     }
   });
   observer.observe(document.body, { childList: true, subtree: true, characterData: true });
+  rememberOpenAnswers();
   // Responses already on the page when the script loads never trigger a mutation
   document.querySelectorAll(RESPONSE_SELECTOR).forEach((r) => scheduleCheck(outermostResponse(r)));
 }
@@ -102,8 +103,23 @@ function scheduleCheck(response) {
 const manualChecks = new WeakSet(); // older answers the user asked GiSuN to check
 const checkButtons = new WeakMap(); // response -> its "Check this answer" button
 
+// Answers already on the page when it (or a conversation) was opened: those get a button.
+// Anything that appears later is a new answer in this session and is checked on its own.
+let seenAtOpen = new WeakSet();
+let openedUrl = null;
+function rememberOpenAnswers() {
+  openedUrl = location.pathname;
+  seenAtOpen = new WeakSet(
+    [...document.querySelectorAll(RESPONSE_SELECTOR)].map(outermostResponse).filter(Boolean));
+}
+
 function isLatestResponse(response) {
-  const all = [...document.querySelectorAll(RESPONSE_SELECTOR)].map(outermostResponse);
+  // switching to another conversation: its old answers count as already there
+  if (location.pathname !== openedUrl) rememberOpenAnswers();
+  if (!seenAtOpen.has(response)) return true;
+  // otherwise only the last answer with text (ads and empty placeholders also match the selector)
+  const all = [...document.querySelectorAll(RESPONSE_SELECTOR)].map(outermostResponse)
+    .filter((r) => r && r.textContent.trim());
   return all.at(-1) === response;
 }
 
@@ -226,10 +242,26 @@ function summaryMessage(flagged, result) {
   // criterion not to apply); that used to be reported as "no model was reachable" too.
   const how = !result.model || result.agent_share === 0 ? " (no model was reachable, so the claims could not be checked)"
     : result.agent_share === null ? " (the AI planner found nothing that needed checking)" : "";
-  if (!flagged.length) return `GiSuN checked this answer: no claims flagged${how}.`;
+  const sources = sourceSummary(result);
+  if (!flagged.length) return `GiSuN checked this answer: no claims flagged${how}.${sources}`;
   const high = flagged.filter((c) => c.score.risk === "high").length;
   return `GiSuN: ${flagged.length} claim${flagged.length > 1 ? "s" : ""} worth checking` +
-    `${high ? ` (${high} high risk)` : ""}${how}. Hover a highlight for the reasons, click it for details.`;
+    `${high ? ` (${high} high risk)` : ""}${how}. Hover a highlight for the reasons, click it for details.${sources}`;
+}
+
+// What the citation check found across the whole answer: " 2 numbers found on the cited sources ✓"
+function sourceSummary(result) {
+  const counts = { found: 0, not_found: 0, unreachable: 0 };
+  for (const c of result.claims || []) {
+    const s = c.number_check?.source;
+    if (s in counts) counts[s] += 1;
+  }
+  const n = (k) => `${counts[k]} number${counts[k] > 1 ? "s" : ""}`;
+  const parts = [];
+  if (counts.found) parts.push(`${n("found")} found on the cited sources ✓`);
+  if (counts.not_found) parts.push(`${n("not_found")} not found on them ✗`);
+  if (counts.unreachable) parts.push(`${n("unreachable")} on pages that couldn't be opened`);
+  return parts.length ? ` ${parts.join("; ")}.` : "";
 }
 
 // Builds the plain text sent to the backend, plus a map from text offsets back to DOM text nodes.
