@@ -30,7 +30,7 @@ _lock = threading.Lock()
 class PipelineRequest(BaseModel):
     text: str
     question: str = ""
-    mode: str = "full"
+    mode: str = "no_judge"
     c34_mode: str = "strict"  # the user's C3/C4 mode; older extension versions don't send it
     citations: list[dict] = []  # links in the answer: [{"url", "offset"}]; older versions send none
 

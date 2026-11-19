@@ -45,7 +45,7 @@ const BLOCK_TAGS = new Set([
 ]);
 
 let currentMode = "citation"; // "citation" | "in_your_face"
-let deepMode = "full"; // pipeline mode: full | no_judge | no_debug | task_only (all need a model)
+let deepMode = "no_judge"; // pipeline mode: full | no_judge | no_debug | task_only (all need a model)
 let c34Mode = "strict"; // the user's C3/C4 mode from the quiz (calibration.js): "strict" | "general"
 const pendingTimers = new Map();
 const processedText = new WeakMap();
@@ -732,7 +732,7 @@ function makeEl(tag, className, text) {
 //begin
 
 // Set from the service-worker console, e.g. chrome.storage.sync.set({deepMode: "task_only"})
-chrome.storage.sync.get({ mode: "citation", deepMode: "full" }, (stored) => {
+chrome.storage.sync.get({ mode: "citation", deepMode: "no_judge" }, (stored) => {
   currentMode = stored.mode;
   deepMode = stored.deepMode;
 });

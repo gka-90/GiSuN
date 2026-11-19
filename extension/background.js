@@ -84,7 +84,7 @@ async function runPipeline({ text, question, mode, c34Mode, citations }) {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     // c34_mode: the user's C3/C4 mode from the quiz (calibration.js); only the mode is sent, never the answers
-    body: JSON.stringify({ text, question: question ?? "", mode: mode ?? "full", c34_mode: c34Mode ?? "strict", citations: citations ?? [] }),
+    body: JSON.stringify({ text, question: question ?? "", mode: mode ?? "no_judge", c34_mode: c34Mode ?? "strict", citations: citations ?? [] }),
   });
   if (!start.ok) throw new Error(`backend returned HTTP ${start.status}`);
   const { job_id: jobId } = await start.json();
