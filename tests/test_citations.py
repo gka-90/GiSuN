@@ -1,0 +1,117 @@
+"""Citation check (gisun/tools/citations.py): links -> sentences, numbers on a page, the user-facing lines."""
+import unittest
+
+from gisun.tools.citations import (appears, attach_citations, check_claim, claim_numbers, html_to_text,
+                                   number_check, numbers_on_page, provider_for)
+
+TEXT = ("New York's unemployment rate was 4.3% in September 2026. "
+        "About 431,800 people were unemployed. Prices rose quickly.")
+SENTS = ["New York's unemployment rate was 4.3% in September 2026.",
+         "About 431,800 people were unemployed.", "Prices rose quickly."]
+
+
+def claim(sentence, values):
+    return {"sentence": sentence, "checkable_values": values, "stat_values": values}
+
+
+class TestLinks(unittest.TestCase):
+    def test_provider(self):
+        self.assertEqual(provider_for("https://www.bls.gov/eag/eag.ny.htm"), "bls")
+        self.assertEqual(provider_for("https://fred.stlouisfed.org/series/UNRATE"), "fred")
+        self.assertIsNone(provider_for("https://www.nytimes.com/x"))
+        self.assertIsNone(provider_for("https://notbls.gov.example.com/"))
+
+    def test_link_goes_to_the_sentence_it_ends(self):
+        c1, c2 = claim(SENTS[0], ["4.3%"]), claim(SENTS[1], ["431,800"])
+        cites = [{"url": "https://www.bls.gov/lau/", "offset": len(SENTS[0])}]
+        unused = attach_citations([c1, c2], TEXT, SENTS, cites)
+        self.assertEqual(c1["citations"], ["https://www.bls.gov/lau/"])
+        self.assertEqual(c1["cited_providers"], ["bls"])
+        self.assertEqual(c2["citations"], [])
+        self.assertEqual(unused, [])
+
+    def test_bad_links_are_ignored(self):
+        c1 = claim(SENTS[0], ["4.3%"])
+        attach_citations([c1], TEXT, SENTS, [{"url": "javascript:x", "offset": 3}, {"url": "https://a.org"}])
+        self.assertEqual(c1["citations"], [])
+
+
+class TestNumbers(unittest.TestCase):
+    def test_parse(self):
+        self.assertEqual(claim_numbers("4.3%"), [(4.3, 1)])
+        self.assertEqual(claim_numbers("431,800"), [(431800.0, 0)])
+        self.assertEqual(claim_numbers("$2.3M"), [(2.3, 1)])
+
+    def test_rounded_to_the_claims_precision(self):
+        page = numbers_on_page("Rate: 4.27 percent; 431800 unemployed; table 12")
+        self.assertTrue(appears((4.3, 1), page))
+        self.assertTrue(appears((431800.0, 0), page))
+        self.assertFalse(appears((4.4, 1), page))
+
+    def test_html(self):
+        self.assertIn("4.3", html_to_text("<html><script>var x=9.9</script><p>Rate&nbsp;4.3%</p></html>"))
+        self.assertNotIn("9.9", html_to_text("<script>var x=9.9</script><p>ok</p>"))
+
+
+class TestCheckClaim(unittest.TestCase):
+    def fake(self, pages):
+        return lambda url: pages[url]
+
+    def test_found_not_found_unreachable_no_link(self):
+        c = claim(SENTS[0], ["4.3%"])
+        self.assertEqual(check_claim(c)["status"], "no_link")
+        c["citations"] = ["https://a.gov"]
+        self.assertEqual(check_claim(c, self.fake({"https://a.gov": {"ok": True, "text": "rate 4.3"}}))["status"], "found")
+        r = check_claim(c, self.fake({"https://a.gov": {"ok": True, "text": "rate 5.1"}}))
+        self.assertEqual((r["status"], r["missing"]), ("not_found", ["4.3%"]))
+        self.assertEqual(check_claim(c, self.fake({"https://a.gov": {"ok": False, "reason": "403"}}))["status"], "unreachable")
+
+    def test_no_number_no_check(self):
+        self.assertIsNone(check_claim(claim(SENTS[2], [])))
+
+
+class TestNumberCheck(unittest.TestCase):
+    def out(self, status, c1, c2):
+        crit = {}
+        if c1: crit["C1"] = {"decision": c1}
+        if c2: crit["C2"] = {"decision": c2}
+        return {"citation_check": {"status": status}, "criteria": crit}
+
+    def test_lines(self):
+        self.assertEqual(number_check(self.out("found", "not_met", "not_met")),
+                         {"source": "found", "official": "matches", "warn": False})
+        self.assertEqual(number_check(self.out("no_link", "not_met", None))["source"], "named")
+        self.assertEqual(number_check(self.out("no_link", "met", "undetermined"))["source"], "none")
+        self.assertTrue(number_check(self.out("not_found", "not_met", "met"))["warn"])
+        self.assertIsNone(number_check({"citation_check": None, "criteria": {}}))
+
+
+if __name__ == "__main__":
+    unittest.main()
+
+
+class TestPreferCitedProvider(unittest.TestCase):
+    def test_only_the_cited_provider_is_used(self):
+        from unittest import mock
+        from gisun.tools import retrieval as r
+        series = [{"id": "a", "provider": "bls", "unit": "percent", "measure": "m", "variable": "X"},
+                  {"id": "b", "provider": "worldbank", "unit": "percent", "measure": "m", "variable": "Y"}]
+        where = {"name": "United States", "code": "USA"}
+        fetch = {"bls": lambda e, w, p: ([{"value": 3.7}], "2026-11-19"),
+                 "worldbank": lambda e, w, p: ([{"value": 3.9}], "2026-11-19")}
+        with mock.patch.object(r, "usable_series", return_value=(series, where, "2019", "")), \
+             mock.patch.dict(r.FETCH, fetch):
+            both = r.lookup_statistic("m", "US", "2019")
+            cited = r.lookup_statistic("m", "US", "2019", prefer=["bls"])
+            other = r.lookup_statistic("m", "US", "2019", prefer=["cdc"])
+        self.assertEqual(len(both["records"]), 2)
+        self.assertEqual([x["value"] for x in cited["records"]], [3.7])
+        self.assertIn("checked_against", cited)
+        self.assertEqual(len(other["records"]), 2)   # the cited provider doesn't have this series
+
+
+class TestUtf16Offsets(unittest.TestCase):
+    def test_emoji_before_the_link(self):
+        from gisun.api import _from_utf16
+        # JavaScript counts the emoji as two units: '.' is at 4 there, at 3 in Python
+        self.assertEqual(_from_utf16("a😀b. c", [{"url": "u", "offset": 4}])[0]["offset"], 3)

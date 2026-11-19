@@ -22,7 +22,7 @@ def build_tools(names: list[str], claim: dict, ctx) -> list[Tool]:
         return context_cues(claim["sentence"], term)
 
     def t_lookup_statistic(measure: str, place: str, period: str):
-        found = lookup_statistic(measure, place, period)
+        found = lookup_statistic(measure, place, period, prefer=claim.get("cited_providers"))
         ctx.record_official(found["records"])
         return found
 

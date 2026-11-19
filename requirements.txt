@@ -7,3 +7,6 @@ ollama>=0.6,<1
 
 # Gold-set collection from WildChat (evaluation/datasets/collect.py)
 pyarrow>=15
+
+# Citation check: read cited PDFs (gisun/tools/citations.py); without it a PDF counts as "couldn't open"
+pypdf>=4

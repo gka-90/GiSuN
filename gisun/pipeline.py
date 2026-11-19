@@ -45,6 +45,7 @@ from gisun.agents.judge import judge
 from gisun.agents.plan import plan
 from gisun.agents.task import run_task
 from gisun.criteria import C34_MODES, CRITERIA, PHASES
+from gisun.tools.citations import attach_citations, check_claim, number_check
 from gisun.preprocess import match_claim, preprocess
 from gisun.scoring import score_claim, score_response
 
@@ -137,9 +138,13 @@ def force_criteria(ctx, the_plan: dict, labels: dict[str, dict]) -> None:
 
 
 def run(text: str, question: str = "", mode: str = "full", keep_trace: bool = True,
-        force: dict[str, dict] | None = None, c34_mode: str = "strict") -> dict:
+        force: dict[str, dict] | None = None, c34_mode: str = "strict",
+        citations: list[dict] | None = None) -> dict:
     """force: gold labels {sentence: {criterion: decision}} whose criteria must all run (evaluation).
-    c34_mode: the user's C3/C4 mode from the extension quiz (criteria.C34_MODES); evaluation uses strict."""
+    c34_mode: the user's C3/C4 mode from the extension quiz (criteria.C34_MODES); evaluation uses strict.
+    citations: links found in the answer, [{"url": ..., "offset": character position in text}]
+    (the extension sends ChatGPT's citation chips). They feed the citation check and tell C2
+    which provider the answer cited (gisun/tools/citations.py)."""
     if mode not in MODES:
         raise ValueError(f"mode must be one of {list(MODES)}")
     if c34_mode not in C34_MODES:
@@ -152,6 +157,11 @@ def run(text: str, question: str = "", mode: str = "full", keep_trace: bool = Tr
     open_criteria = config.OPEN_CRITERIA
     ctx = preprocess(text, question, all_sentences=open_criteria or bool(force))
     ctx.c34_mode = c34_mode  # the Task and Judge agents read it to pick the C3/C4 rules
+    # links -> the claim whose sentence they end; the rest (e.g. a source list at the end) is kept apart
+    unused_links = attach_citations(ctx.claims, text, ctx.sentences, citations or [])
+    # the citation check needs no model, so it runs next to the agents
+    cite_pool = ThreadPoolExecutor(max_workers=4)
+    cite_jobs = {c["claim_id"]: cite_pool.submit(check_claim, c) for c in ctx.claims}
     the_plan = plan(ctx, use_model=m["plan"], open_criteria=open_criteria)
     routed = {k: list(v) for k, v in the_plan["tasks"].items()}
     if force:
@@ -185,9 +195,13 @@ def run(text: str, question: str = "", mode: str = "full", keep_trace: bool = Tr
             if force:
                 d["forced"] = cid not in routed.get(claim["claim_id"], [])
         # detector_hit False = no rule flagged this sentence; only the agents (open criteria) judged it
-        claims_out.append({"claim_id": claim["claim_id"], "sentence": claim["sentence"], "detector_hit": claim["detector_hit"],
-                           "flags": [f["matched_value"] for f in claim["flags"]],
-                           "criteria": decisions, "score": score_claim(decisions, c34_mode)})
+        out = {"claim_id": claim["claim_id"], "sentence": claim["sentence"], "detector_hit": claim["detector_hit"],
+               "flags": [f["matched_value"] for f in claim["flags"]],
+               "criteria": decisions, "score": score_claim(decisions, c34_mode),
+               "citations": claim.get("citations", []), "citation_check": cite_jobs[claim["claim_id"]].result()}
+        out["number_check"] = number_check(out)
+        claims_out.append(out)
+    cite_pool.shutdown(wait=False)
     by = [d["by"] for c in claims_out for d in c["criteria"].values()]
     return {
         "mode": mode, "c34_mode": c34_mode, "model": config.MODEL, "backend": config.BACKEND,
@@ -198,6 +212,7 @@ def run(text: str, question: str = "", mode: str = "full", keep_trace: bool = Tr
                  "tasks": {str(k): v for k, v in the_plan["tasks"].items()},
                  **({"routed": {str(k): v for k, v in routed.items()}} if force else {})},
         "claims": claims_out,
+        "unlinked_sources": unused_links,
         "response": score_response([c["score"] for c in claims_out]),
         "agent_share": round(by.count("agent") / len(by), 2) if by else None,
         "seconds": round(time.time() - t0, 1),

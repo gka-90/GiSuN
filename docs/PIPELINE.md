@@ -320,3 +320,28 @@ Full list with priorities: *GiSuN: open problems and proposed solutions* (Fall 2
 - The Plan agent ranks nothing yet: the C2 funnel uses extract_claims' rule score. (#3)
 - Loaded language: merge a larger lexicon (e.g. Recasens et al. 2013) into data/bias_wordlist.json. (#4)
 - Extension: let the user overrule a decision and recompute with scoring.py.
+
+
+## Checking a number
+
+A number goes through three steps; each answers a different question.
+
+1. **C1, is there a source?** (agent, text only) A link that ends the sentence, an organisation or
+   publication named in this or the two previous sentences, or nothing. Wikipedia-style citations
+   ("(Source: 1 2 Thornton)") count. `check.py` rejects a "no source" decision when
+   `find_attribution` finds a specific source and the reasoning ignores it.
+2. **Citation check, is the number on the cited page?** (`gisun/tools/citations.py`, code only) The
+   extension sends the answer's links with their positions (`citations: [{url, offset}]` in
+   `POST /pipeline`); `attach_citations` ties each link to the sentence it ends, `check_claim`
+   opens the page (HTML, or PDF with `pypdf`) and looks for each number rounded to the claim's
+   precision: `found` / `not_found` / `unreachable` / `no_link`. It runs in parallel with the
+   agents and is cached per URL. It doesn't know whether the number on the page means the same
+   thing; that is C2's job.
+3. **C2, does it match official data?** (agent + code) If the answer cites a provider we query
+   (bls.gov, census.gov, stlouisfed.org, cdc.gov, worldbank.org, datacommons.org),
+   `lookup_statistic(..., prefer=...)` checks that provider only, and the record says
+   `checked_against`. Otherwise all providers that have the series are used.
+
+Each claim with a number gets `citation_check` and `number_check` = `{source, official, warn}`;
+the extension shows them as two lines ("Source: …", "Official data: …"). `warn` is set when the
+number is missing from its cited page (or has no source) and conflicts with official data.

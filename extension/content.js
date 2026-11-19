@@ -98,14 +98,15 @@ function scheduleCheck(response) {
 // The agents decide what gets highlighted; until they finish, only a status note is shown
 async function processResponse(response) {
   const container = response.querySelector(MARKDOWN_SELECTOR) ?? response;
-  const { text } = buildTextMap(container);
+  const { text, segments } = buildTextMap(container);
   // Our own highlighting also triggers the observer; the text is unchanged, so skip it
   if (!text.trim() || processedText.get(response) === text) return;
   processedText.set(response, text);
   container.dataset.gisunMode = currentMode;
 
   setStatus(response, "checking", "GiSuN is checking the claims in this answer…");
-  const res = await enqueue(() => requestPipeline(text, findQuestion(container)));
+  const citations = collectCitations(response, container, segments, text);
+  const res = await enqueue(() => requestPipeline(text, findQuestion(container), citations));
   if (buildTextMap(container).text !== text) return; // the answer changed meanwhile; a new check is scheduled
 
   if (res.error) {
@@ -125,9 +126,9 @@ function enqueue(task) {
 }
 
 // background.js does the POST and the polling; resolves with { result } or { error }
-function requestPipeline(text, question) {
+function requestPipeline(text, question, citations) {
   return new Promise((resolve) => {
-    chrome.runtime.sendMessage({ type: "pipeline", text, question, mode: deepMode, c34Mode }, (res) => {
+    chrome.runtime.sendMessage({ type: "pipeline", text, question, mode: deepMode, c34Mode, citations }, (res) => {
       resolve(chrome.runtime.lastError ? { error: chrome.runtime.lastError.message } : res ?? { error: "no reply" });
     });
   });
@@ -221,6 +222,31 @@ function buildTextMap(root) {
     text += node.data;
   }
   return { text, segments };
+}
+
+// The links in an answer (ChatGPT's citation chips) with their position in `text`, so the backend
+// can tie each link to the sentence it ends and open it for the citation check. A link outside the
+// answer text (for example a source list rendered separately) gets the end of the text as its position.
+function collectCitations(response, container, segments, text) {
+  const out = [];
+  const seen = new Set();
+  for (const a of response.querySelectorAll('a[href^="http"]')) {
+    let offset = text.length;
+    if (container.contains(a)) {
+      // the first text at or after the link: inside it (the chip's label) or right after it
+      const seg = segments.find(({ node }) => {
+        const rel = a.compareDocumentPosition(node);
+        return (rel & Node.DOCUMENT_POSITION_CONTAINED_BY) || (rel & Node.DOCUMENT_POSITION_FOLLOWING);
+      });
+      offset = seg ? seg.start : text.length;
+    }
+    const key = `${a.href}@${offset}`;
+    if (!seen.has(key)) {
+      seen.add(key);
+      out.push({ url: a.href, offset });
+    }
+  }
+  return out;
 }
 
 function closestBlock(node, root) {
@@ -497,11 +523,47 @@ function renderDeepResult(panel, claim, result) {
   }
 
   const children = [makeEl("p", "gisun-deep-claim", claim.sentence), heading];
+  const numberLines = numberCheckLines(claim);
+  if (numberLines) children.push(numberLines);
   children.push(problems.length ? list : makeEl("p", "", "No problems found in this sentence."));
   if (fine.length) children.push(makeEl("p", "gisun-deep-meta", `Checked and fine: ${fine.join(", ")}.`));
   if (unknown.length) children.push(makeEl("p", "gisun-deep-meta", `Couldn't check: ${unknown.join(", ")}.`));
   children.push(footer);
   setPanel(panel, children);
+}
+
+// The two lines shown for a number: is it on the cited page, and does it match official data
+const SOURCE_TEXT = {
+  found: "✓ found on the cited page",
+  not_found: "✗ not found on the cited page",
+  unreachable: "the cited page couldn't be opened",
+  named: "a source is named, but there is no link to open",
+  none: "no source given",
+};
+const OFFICIAL_TEXT = {
+  matches: "✓ matches the official figure",
+  conflicts: "✗ conflicts with the official figure",
+  unverifiable: "couldn't be checked against official data",
+  not_checked: "not checked against official data",
+};
+
+function numberCheckLines(claim) {
+  const nc = claim.number_check;
+  if (!nc) return null;
+  const box = makeEl("div", `gisun-number-check${nc.warn ? " gisun-number-warn" : ""}`);
+  const source = makeEl("div", "", `Source: ${SOURCE_TEXT[nc.source] ?? nc.source}`);
+  for (const url of claim.citations ?? []) {
+    const link = makeEl("a", "gisun-cite-link", new URL(url).hostname);
+    link.href = url;
+    link.target = "_blank";
+    link.rel = "noopener";
+    source.appendChild(document.createTextNode(" "));
+    source.appendChild(link);
+  }
+  box.appendChild(source);
+  box.appendChild(makeEl("div", "", `Official data: ${OFFICIAL_TEXT[nc.official] ?? nc.official}`));
+  if (nc.warn) box.appendChild(makeEl("div", "gisun-deep-meta", "Check this number yourself before relying on it."));
+  return box;
 }
 
 // One panel at a time, placed under the clicked highlight and kept inside the window

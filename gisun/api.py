@@ -4,13 +4,14 @@ Async endpoints for the extension. Add to server.py:
     from gisun.api import router as pipeline_router
     app.include_router(pipeline_router)
 
-POST /pipeline        {"text", "question", "mode", "c34_mode"} -> {"job_id"}  (returns immediately)
+POST /pipeline        {"text", "question", "mode", "c34_mode", "citations"} -> {"job_id"}  (returns immediately)
                       c34_mode: "strict" | "general", from the extension's C3/C4 quiz
 GET  /pipeline/{id}   -> {"status": "running" | "done" | "error", "result": ...}
 Results are cached by (text, question, mode, c34_mode), so re-opening a response is instant.
 """
 
 import hashlib
+import json
 import threading
 import uuid
 
@@ -31,6 +32,7 @@ class PipelineRequest(BaseModel):
     question: str = ""
     mode: str = "full"
     c34_mode: str = "strict"  # the user's C3/C4 mode; older extension versions don't send it
+    citations: list[dict] = []  # links in the answer: [{"url", "offset"}]; older versions send none
 
 
 def _to_utf16(text: str, flags: list[dict]) -> list[dict]:
@@ -40,9 +42,25 @@ def _to_utf16(text: str, flags: list[dict]) -> list[dict]:
     return [{**f, "start_index": at[f["start_index"]], "end_index": at[f["end_index"]]} for f in flags]
 
 
+def _from_utf16(text: str, citations: list[dict]) -> list[dict]:
+    """The extension gives link positions in UTF-16 code units (JavaScript); Python indexes code points."""
+    to_cp, units = {}, 0
+    for i, ch in enumerate(text):
+        to_cp[units] = i
+        units += 2 if ord(ch) > 0xFFFF else 1
+    to_cp[units] = len(text)
+    out = []
+    for c in citations:
+        at = c.get("offset")
+        if isinstance(at, int):
+            near = max((u for u in to_cp if u <= at), default=0)
+            out.append({**c, "offset": to_cp[near]})
+    return out
+
+
 def _work(job_id: str, req: PipelineRequest):
     try:
-        result = run(req.text, req.question, mode=req.mode, keep_trace=True, c34_mode=req.c34_mode)
+        result = run(req.text, req.question, mode=req.mode, keep_trace=True, c34_mode=req.c34_mode, citations=_from_utf16(req.text, req.citations))
         result["flags"] = _to_utf16(req.text, result["flags"])
         _jobs[job_id] = {"status": "done", "result": result}
     except Exception as e:
@@ -56,7 +74,8 @@ def start(req: PipelineRequest) -> dict:
     if req.c34_mode not in C34_MODES:
         raise HTTPException(400, f"c34_mode must be one of {list(C34_MODES)}")
     # the C3/C4 mode changes the result, so it is part of the cache key
-    key = hashlib.sha256(f"{req.mode}\0{req.c34_mode}\0{req.question}\0{req.text}".encode()).hexdigest()
+    cites = json.dumps(req.citations, sort_keys=True)
+    key = hashlib.sha256(f"{req.mode}\0{req.c34_mode}\0{req.question}\0{req.text}\0{cites}".encode()).hexdigest()
     with _lock:
         if key in _cache and _jobs.get(_cache[key], {}).get("status") != "error":
             return {"job_id": _cache[key], "cached": True}

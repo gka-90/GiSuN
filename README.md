@@ -1,120 +1,116 @@
 # GiSuN
 
-A Chrome extension that helps users engage more critically with AI chatbot output by detecting and highlighting unverified statistics and biased phrasing, and priming critical reading with a prebunking banner and a one-time gate question.
+A Chrome extension that helps people read chatbot answers critically. When ChatGPT finishes an answer, GiSuN checks each claim for six common problems, opens the sources the answer cites to see whether its numbers are really there, compares numbers with official statistics, and highlights what is worth a second look.
 
-Built as a semester-long CS senior seminar project at Hamilton College.
+Built by Gideon Kobea and Suning Hong for the CS Senior Seminar at Hamilton College, Fall 2026.
 
-## What it does
+## What it checks
 
-- **Detects** numeric/statistical claims and biased or contested phrasing in chatbot responses (currently targeting ChatGPT)
-- **Highlights claims chosen by the agents**: when an answer finishes, the multi-agent pipeline checks every claim against C1-C6 (see [docs/PIPELINE.md](docs/PIPELINE.md)); the claims it flags are underlined in their risk colour, and the exact words the agents pointed to ("job-killing", "12%") are filled in. Claims with no problem stay unmarked. Hover for the reasons, click for the full verdict. Highlights are warnings ("worth checking"), not verdicts; only the C2 source check can say a source gives a different figure
-- **Falls back to rule highlights** (numbers and listed words, instant) when the agents can't run, and says so under the answer
-- **Interacts** with the user via one of two modes: a quiet hover tooltip (citation mode) or a blocking modal (in-your-face mode)
-- **Prebunks**: when a question is about medicine, history or politics, a banner above the answer warns about that topic's common pitfalls before the user reads it
-- **Gates** first use: ChatGPT's input stays disabled until the user answers one critical-reading question correctly
+Every sentence is checked against six criteria (C1–C6). "Met" always means the problem is there.
+
+| | Question | Example |
+|---|---|---|
+| **C1** | Does it say where the number came from? | "averaged 12%" with no source |
+| **C2** | Is the number actually right? | BLS says 8.1%, not 12% |
+| **C3** | Does the wording take a side? | "job-killing" |
+| **C4** | Does it claim "always" or "everyone" without support? | "everyone agrees" |
+| **C5** | Does it hide behind "experts say"? | "studies show", "is widely considered" |
+| **C6** | Does it claim cause and effect without evidence? | "the lockdowns caused it" |
+
+C3 and C4 adapt to the reader: a 5-question quiz when the extension is set up picks strict rules (C3 and C4 shown separately) or general rules (one "worth checking" flag).
+
+### Checking a number: three steps
+
+The question a reader actually has about a number is "is it really in the source it cites, and is it right?" GiSuN answers it in three steps:
+
+```
+  number in the answer
+        │
+  1. C1  Is there a source?            text only (agent): a cited link, a named organisation,
+        │                                a source list at the end, or nothing / something vague
+        │
+  2. Citation check  Is the number      code only, no model: the extension sends the answer's links
+        │  on the cited page?              (ChatGPT's citation chips); the backend opens each page
+        │                                  (HTML or PDF) and looks for the number, rounded to the
+        │                                  claim's precision -> found / not found / couldn't open
+        │
+  3. C2  Does it match official data?   agent pins down measure, place and period; code compares
+                                           with BLS, Census, FRED, CDC, World Bank or Data Commons.
+                                           If the answer cites one of those sites, C2 checks that
+                                           source first.
+```
+
+The user sees two lines per number:
+
+- **Source:** found on the cited page / not found on the cited page / couldn't open it / named but no link / no source
+- **Official data:** matches / conflicts / couldn't be checked
+
+The strongest warning is a number that cites a source, isn't on that page, and conflicts with official data.
+
+The three steps answer different questions. The citation check says whether the answer **quotes its source faithfully**; C2 says whether the number is **actually right**, and still works when there is no link, when the cited page is a blog or an old article, and when the wording needs tolerance rules ("about 4%", "more than 3 million"). Neither step lets a model decide whether two numbers match: that is always code.
 
 ## How it works
 
 ```
-ChatGPT page                     Extension                           Backend (localhost:8000)
-─────────────                    ─────────                           ────────────────────────
-new assistant response  ──►  content.js                              server.py
-                             observe_dom_for_new_response()          POST /verify
-                             (waits 1.5s for streaming to finish)      ├─ detect_numeric_claims()
-                                  │                                    └─ detect_bias_framing()
-                                  ▼                                          │
-                             background.js  ── POST {text} ──────────────────┘
-                                  │         ◄─ {flags: [...]} ───────────────
-                                  ▼
-                             render_highlights()   → <mark> around each flag
-                             handle_interaction_mode() → tooltip or modal
+ChatGPT answer ──► extension (content.js)
+                     │  text + question + links with their positions
+                     ▼
+                   backend (server.py, localhost:8000)
+                     POST /pipeline ──► gisun/pipeline.py
+                        preprocess      detectors, sentences, sources named in the text, links -> sentences
+                        Plan agent      which criteria for which sentence
+                        Task agents     C1–C6 with tools; Check rejects decisions the evidence doesn't back;
+                                        Debug retries failures; Judge reviews
+                        citation check  open the cited pages, look for the numbers (no model)
+                        scoring         claim risk + the two lines per number
+                     ◄── poll GET /pipeline/{id}
+                     ▼
+                   highlights: risky claims underlined; hover = reasons; click = full verdict,
+                   source lines and official figures
 ```
 
-That diagram is the **fallback**. Normally the agents decide the highlights:
+The model is Qwen2.5-32B-Instruct-AWQ served with vLLM on the Hamilton CS HPC (or a small Qwen2.5 through Ollama on a laptop). Everything is self-hosted: no cloud model API. An answer takes roughly 10–40 seconds on the HPC model, about 7–12 seconds per claim.
 
-```
-new assistant response  ──►  processResponse(): "GiSuN is checking the claims in this answer…"
-                                  │  POST /pipeline {text, question}  ──►  gisun/ pipeline (agents, C1-C6)
-                                  │  ◄── poll GET /pipeline/{id} until done (one answer at a time)
-                                  ▼
-                             render_claims()  → underline medium/high-risk claim sentences,
-                                                fill in the words the agents quoted as evidence
-                             status note: "GiSuN: 3 claims worth checking (1 high risk)"
-                             hover = reasons, click = panel with the full verdict and source quotes
-                             (if /pipeline fails: the /verify rule highlights above, with a note)
-```
+When the agents can't run, `/verify` gives instant rule-only highlights (numbers and a 269-term word list) and the page says so. Design, criteria, tools and run commands are in **[docs/PIPELINE.md](docs/PIPELINE.md)**; labeling rules are in **[docs/labeling_rules.md](docs/labeling_rules.md)**.
 
-With a model on the HPC (docs/PIPELINE.md, "Use the HPC model from a laptop") an answer takes roughly 10-40 s; with no model reachable there are no agent decisions: the note under the answer says so and only the basic rule highlights stay.
+## Results so far
 
-`/verify` drops loaded words that are negated, quoted or only mentioned ("not a crisis"), and the rule highlights skip bare years (they are context, not claims). Highlighting everything trains users to ignore highlights.
+All runs: Qwen2.5-32B-Instruct-AWQ on the Hamilton HPC.
 
-If the backend isn't running, `background.js` falls back to a small built-in set of regexes and bias terms so the extension still highlights something, and the page shows a notice saying so. The fallback word list is much smaller than `bias_wordlist.json`.
+**C2 on a test set built from official figures** (`datasets/gold_c2_catalog.json`, 180 sentences: each official figure written exact, 20% off, "about" and "more than" variants): precision 1.00, recall 0.97, **F1 0.98**. No number was ever judged in the wrong direction; the 8 misses were "couldn't decide".
 
-### Agent layer → [docs/PIPELINE.md](docs/PIPELINE.md)
+**C2 on real answers:** of 68 numeric claims in 50 Claude answers, 2 could be checked against an official figure; 65% of the rest are measures outside the catalog (vaccine effectiveness, polls, crime, home prices). This is why the citation check was added.
 
-`/verify` stays model-free so highlights appear instantly. The model-based analysis is the **multi-agent pipeline** in `gisun/` (Plan / Task / Debug / Judge / Check agents, per-criterion decisions, deterministic scoring), served as `POST /pipeline` + `GET /pipeline/{id}`, which the extension calls for every answer. See **[docs/PIPELINE.md](docs/PIPELINE.md)** for the design, criteria, run commands, the Hamilton HPC setup and evaluation.
+**C1 on public sentences** (`gold_public_1.json`, 67 rows): F1 **0.65 → 0.75–0.81** after counting Wikipedia-style "(Source: …)" citations as sources, treating encyclopedia-style numbers as statistics, and rejecting a "no source" decision when the source detector finds one. The C1 labels of this set were relabeled by our rules (AI-assisted, reviewed by Suning; 11 of 67 changed); against the original labels the latest run scores 0.75, against ours 0.81.
 
-### Flag format
-
-Every detector returns flags in the same shape, and `/verify` returns them sorted by position:
-
-```json
-{
-  "sentence": "Unemployment hit 8.5% in 2020.",
-  "matched_value": "8.5%",
-  "start_index": 17,
-  "end_index": 21,
-  "type": "percentage"
-}
-```
-
-- `type`: `percentage` | `percentage_points` | `dollar_amount` | `currency_amount` | `count` | `ratio` | `quantity` ("most Americans", "nearly half", "tens of thousands") | `score` (polls, ratings, sports: "rated 4.7 stars", "a 10-2 record") | `statistic` (research: "p < 0.05", "n = 1,200") | `ranking` ("top 10", "the second-largest") | `year` | `bias_framing`
-- What counts as a statistic follows *Statistic Formats for Claim Detection* (Oct 5, 2026): its examples are tests in `tests/test_numeric_edge_cases.py` (131 of its 140 positive examples are caught; the rest, like a bare "about 500" or "twenty-five", are left out on purpose, and none of its look-alikes are flagged)
-- `category`: only present on `bias_framing` flags (the word-list category)
-- `start_index` / `end_index`: offsets into the response text, in **UTF-16 code units** so they match JavaScript string indexing (Python code-point offsets would drift after any emoji). `server.py` does this conversion.
-
-## Tech stack
-
-- Chrome Extension (Manifest V3), vanilla JavaScript
-- `MutationObserver` for detecting new chatbot responses
-- FastAPI + uvicorn for the local `/verify` backend
-- Regex for numeric/statistic detection
-- A curated JSON word list for bias/framing detection
-- **Ollama running Qwen2.5 locally** (per course requirement — no cloud API, no account/API key needed) for the pipeline on a laptop
-- **vLLM on the Hamilton CS HPC** (Qwen2.5-32B-Instruct-AWQ on an RTX PRO 6000) for evaluation runs; still self-hosted, no cloud API
-- CSS for highlight and modal/tooltip styling
+**C3, C5, C6 on public sentences:** precise but conservative (precision 0.80–1.00, recall 0.21–0.32). Most misses come from the model applying a narrower definition than our rules, e.g. not counting "is generally considered" as vague attribution.
 
 ## Project status
 
-Done so far (details in git history and docs/PIPELINE.md):
-- Tier 1 detectors: numbers and statistics (131/140 examples of *Statistic Formats for Claim Detection*), bias word list (269 terms), sentence splitting, source detection.
-- Chrome extension: agent-decided highlights, citation / in-your-face modes, prebunking banner, gate question.
-- Multi-agent pipeline (Plan / Task / Check / Debug / Judge) on C1-C6 with deterministic scoring, served by `/pipeline`; runs on the Hamilton HPC (Qwen2.5-32B-Instruct-AWQ, vLLM).
-- C2 checks numbers against official statistics (BLS, Census, World Bank, Data Commons), cached, with hedge-aware tolerances. API keys go in `.env` (git-ignored).
-- Evaluation: 184 agent decisions on 50 Claude answers labeled by both of us (disagreements settled 10/27); public test sets for C1, C2, C3, C5, C6; our own insertion set including C4.
-- First full gold runs (11/3/2026, Qwen2.5-32B, full mode): on our 184 labeled rows precision 0.59 (C6 worst: 28 of 34 flags wrong); on public part 1 precision 0.71 but recall 0.17, because the Plan agent dropped 261 of 367 gold pairs. Details in docs/PIPELINE.md, "First full gold runs".
-- Fixes after that run (11/4/2026): the C3-C6 guidance now follows docs/labeling_rules.md word for word; a C6 pre-filter decides headings, fragments and reported viewpoints ("Critics argue...") without the agent; the Plan agent can no longer drop C1 for a sentence with a number or C5 for "is believed / is regarded as / allegedly / studies show"; `GISUN_FORCE_CRITERIA=1` makes every labeled criterion run, and the evaluation reports routed vs forced numbers and how many gold pairs the Plan agent dropped per criterion; new test sets `datasets/gold_c4_logic.json` (LOGIC, 100 faulty generalizations vs 100 other fallacies, built by Gideon; false causality and slippery slope left out) and `datasets/gold_c2_us.json` (QuanTemp claims the series catalog can look up: none).
-- Two Truths and a Lie was built as a separate agent and removed on 11/3/2026 (it was never connected to the extension); see git history before that date.
+Done:
+- Detectors: numbers and statistics (131/140 examples of *Statistic Formats for Claim Detection*), 269-term bias word list, sentence splitting, source detection (including "(Source: …)" citations and "an assessment by X").
+- Multi-agent pipeline (Plan / Task / Check / Debug / Judge) on C1–C6 with deterministic scoring, served by `/pipeline`.
+- C2 against six official sources (BLS, Census, FRED, CDC, World Bank, Data Commons; 43 series), cached, with hedge-aware tolerances and a reason code for every undecided result.
+- Citation check: links in the answer are tied to their sentences, the cited pages are opened, and the numbers are looked up by code (`gisun/tools/citations.py`).
+- Extension: agent-decided highlights, details panel with the two source lines, citation / in-your-face modes, C3/C4 calibration quiz, prebunking banner, gate question.
+- Evaluation: our 50 Claude answers labeled by both of us; public test sets for C1, C2, C3, C5, C6; LOGIC set for C4; the 180-sentence C2 set.
 
-### TODO
-- [ ] Speed: an answer takes roughly 10-40 s on the HPC model (one model conversation per claim and criterion). Ideas: one call per sentence for C3-C6, `task_only` in the extension, more parallel requests, showing claims as they finish.
-- [ ] Suggestions for unsourced numbers (where to look), instead of only "no source".
-- [ ] Popup/options page to switch between citation and in-your-face mode and pick the deep-check mode (right now both live only in `chrome.storage.sync`: `mode`, default `citation`; `deepMode`, default `full`).
-- [ ] Replace the placeholder gate question (`GATE_QUESTION` / `GATE_OPTIONS` / `GATE_CORRECT_INDEX` / `GATE_WRONG_MESSAGE` at the top of `extension/gate.js`).
-- [ ] Prebunk: classify the question with the model instead of keywords (TODO in `extension/prebunk.js`).
-- [ ] Re-run the 50 answers on the HPC with the C2 API keys and label the C2 decisions.
-- [ ] Rerun after the 11/4 changes: `gold_answers.json` (normal routing), `gold_public_1.json` with `FORCE=1`, `gold_c4_logic.json` (commands in docs/PIPELINE.md, "On the Hamilton CS HPC"). Then parts 2 and 3.
-- [x] C2 test set from the catalog's own measures (`datasets/gold_c2_catalog.json`, 180 sentences, built by `evaluation/datasets/c2_catalog_testset.py`; QuanTemp has no claim the catalog can check). `python -m evaluation.c2_report` prints the C2 results.
-- [ ] Settle three labels that contradict docs/labeling_rules.md (two C4 rows, one C6 fragment; listed in docs/PIPELINE.md, "Not done yet"), and add the agentless C5 cues ("is considered", "is regarded as", "allegedly") to the C5 rules.
-- [ ] Spot-check the LOGIC C4 labels: about 10 of the 50 "faulty generalization" items are slippery-slope arguments.
-- [ ] `/verify` still returns raw flags; only the pipeline uses `extract_claims()` (`gisun/preprocess.py`).
+### TODO (v1.0)
+- [ ] Test the citation check on the live ChatGPT page: confirm the citation chips are `<a href>` links inside the answer (`collectCitations()` in `extension/content.js`).
+- [ ] C2: record a span of years ("during his eight years in office") as undecided instead of forcing a single-year comparison, and act on the Judge's objections.
+- [ ] C2: map measure names the agent writes differently ("car accident deaths" → motor vehicle traffic deaths); add state unemployment from BLS directly; add FRED and CDC series to the 180-sentence test set.
+- [ ] C1: reject "no source" when a citation ends the same sentence, without the current escape hatch; reword the guidance so "reference facts" isn't read as "no source needed".
+- [ ] C5: make the agent address "is considered / allegedly" phrases the detector already finds (same kind of check as C1).
+- [ ] Rerun `gold_answers.json` and public parts 2 and 3 with the current code (held-out check of the C1 changes).
+- [ ] List the sources of the non-C2 rows of `gold_public_{1,2,3}.json`.
+- [ ] Speed: one call per sentence for C3–C6, more parallel requests, show claims as they finish.
+- [ ] Replace the placeholder gate question (top of `extension/gate.js`); options page for the modes.
 
-### Known limitations (documented, not bugs)
-- Agent self-checks are mechanical: they catch verdicts with no detector evidence, ungrounded or copied reasons, but they can't prove a reason is actually correct. The model can also refuse a correct rejection (e.g. insisting "according to the Bureau of Labor Statistics" isn't a source), in which case that criterion comes out 'undetermined' for the claim.
-- Numbers: the highlight doesn't know about sources; the deep check's C1 looks for a source in the same and the two previous sentences, but not after the number ("14.8%. Source: BLS" on the next line isn't linked). Figures of speech that look like statistics ("gave half of the effort") are flagged too; a "not a claim" verdict was tried and removed because qwen2.5:3b used it to wave through real statistics. Plain small numbers ("3 cats"), temperatures and other units aren't detected. The extension's offline fallback in `background.js` still has only the old 3 patterns (the page now says when it's in use).
-- Agent highlights on a laptop: the full pipeline with a 1.5-3B model can take minutes per answer (the extension waits up to 4, and checks one answer at a time). Point the backend at the HPC model (docs/PIPELINE.md), or set `chrome.storage.sync.set({deepMode: "task_only"})` for fewer model calls per claim.
-- Word-list bias detection cannot catch phrasing outside the list and is English-only. Negation / quotation / mention is caught by simple cues (a negator in the 4 words before, an open quote, "so-called", "the term"), not by understanding the sentence.
-- ChatGPT changes its DOM often. If highlights stop appearing, the selectors at the top of `extension/content.js` (`RESPONSE_SELECTOR`, `MARKDOWN_SELECTOR`) are the first thing to check.
+### Known limitations
+- The citation check finds a number on the cited page; it can't tell whether that number means the same thing. Pages behind a login or paywall, scanned PDFs and pages built by JavaScript can't be read ("couldn't open it").
+- C2 covers official recurring statistics only (43 series). One-off studies, polls and viral claims are outside it by design.
+- For C1 and C3–C6 the model makes the final call; the checks can reject decisions without evidence, but a model can still argue its way to the wrong answer. Only C2's comparison is decided by code.
+- ChatGPT changes its page layout often. If highlights or links stop working, check the selectors at the top of `extension/content.js`.
 
 ## Setup
 
@@ -148,7 +144,7 @@ ollama pull qwen2.5:3b     # 16GB RAM machines
 ```bash
 python -m unittest discover tests
 ```
-Covers numeric detection edge cases, sentence splitting, source detection (`gisun/tools/attribution.py`), C2 lookups and comparisons, the pipeline flow with a scripted fake model (`tests/test_pipeline.py`), the C6 pre-filter and guidance (`tests/test_c6.py`), guidance vs the labeling rules (`tests/test_labeling_rules.py`), forced criteria (`tests/test_forced.py`), the Plan agent's keep rule (`tests/test_plan_keep.py`) and the two test-set scripts (offline). Run it after touching any regex. `python -m pytest -q` runs the same tests.
+Covers numeric detection edge cases, sentence splitting, source detection (`gisun/tools/attribution.py`), C2 lookups and comparisons, the pipeline flow with a scripted fake model (`tests/test_pipeline.py`), the C6 pre-filter and guidance (`tests/test_c6.py`), the citation check (`tests/test_citations.py`), guidance vs the labeling rules (`tests/test_labeling_rules.py`), forced criteria (`tests/test_forced.py`), the Plan agent's keep rule (`tests/test_plan_keep.py`) and the two test-set scripts (offline). Run it after touching any regex. `python -m pytest -q` runs the same tests.
 
 ### 4. Chrome extension
 1. Go to `chrome://extensions`
@@ -196,7 +192,7 @@ After editing anything in `extension/`, click the ↻ reload button on the GiSuN
 │   ├── preprocess.py            # detectors -> claims with context and attribution
 │   ├── criteria.py              # C1-C6 criteria: question, guidance and tools for the agents
 │   ├── agents/                  # plan, task, debug, judge, check, loop, toolbox
-│   ├── tools/                   # attribution, language (context cues), numbers (C2 tolerances), retrieval (statistics APIs)
+│   ├── tools/                   # attribution, citations (open cited pages), language, numbers (C2 tolerances), retrieval (statistics APIs)
 │   ├── scoring.py               # claim / response risk from criterion decisions
 │   ├── pipeline.py              # entry point (python -m gisun.pipeline), modes, phases
 │   ├── api.py                   # POST /pipeline, GET /pipeline/{id} (background jobs + cache)
@@ -206,7 +202,7 @@ After editing anything in `extension/`, click the ↻ reload button on the GiSuN
 │
 ├── data/                        # Data the code reads at run time
 │   ├── bias_wordlist.json       #   curated word list (269 terms, 6 categories)
-│   ├── stat_series.json         #   which official series (BLS, Census, World Bank, Data Commons) answers which C2 measure
+│   ├── stat_series.json         #   which official series (BLS, Census, FRED, CDC, World Bank, Data Commons) answers which C2 measure
 │   └── stat_cache.json          #   cached API responses with their query dates
 │
 ├── evaluation/                  # Measuring GiSuN
@@ -220,7 +216,8 @@ After editing anything in `extension/`, click the ↻ reload button on the GiSuN
 ├── datasets/                    # Only what runs need: gold_example.json (tests, run_all),
 │                                #   collected/claude_2026-10-12.json (the 50 answers the HPC run checks),
 │                                #   gold_answers.json, gold_labels_combined.json, gold_public_{1,2,3}.json,
-│                                #   gold_combined.json, gold_c4_logic.json, gold_c2_us.json, gold_c2_catalog.json (HPC gold sets).
+│                                #   gold_combined.json, gold_c4_logic.json, gold_c2_us.json, gold_c2_catalog.json (HPC gold sets),
+│                                #   gold_public_1_c1_ours.json and relabel/ (C1 rows relabeled by our rules).
 │                                #   Everything else (labels, C4 and insertion sets, candidates) was moved out
 │                                #   of the repo on 11/3/2026; it is in git history before that date.
 ├── tests/                       # Unit tests, no model (python -m unittest discover tests)
@@ -238,9 +235,6 @@ Run results go to evaluation/outputs/ (git-ignored). Raw downloads (HC3, WildCha
 (git-ignored).
 ```
 
-## Team
-
-Two-person team, Hamilton College CS Senior Seminar, Fall 2026.
 
 ## License
 
@@ -255,7 +249,7 @@ repository only to evaluate GiSuN:
 | `datasets/external/logic/edu_all.csv`, `datasets/gold_c4_logic.json` | LOGIC: Jin et al., "Logical Fallacy Detection", Findings of EMNLP 2022, https://github.com/causalNLP/logical-fallacy |
 | the C2 rows of `datasets/gold_public_{1,2,3}.json` | QuanTemp: Venktesh et al., SIGIR 2024, https://doi.org/10.1145/3626772.3657874 |
 | the other rows of `datasets/gold_public_{1,2,3}.json` | other public datasets (sources to be listed here) |
-
-The 67 C1 labels in `datasets/gold_public_1.json` were relabeled on 2026-11-18 by applying `docs/labeling_rules.md` (AI-assisted, reviewed by Suning); 11 of 67 changed. The original labels are kept in `datasets/relabel/c1_public1_original_gold.json`.
 | `datasets/collected/claude_2026-10-12.json`, the answer texts in `datasets/gold_answers.json` | answers written by Claude and ChatGPT to our prompts |
 | `data/stat_cache.json` | responses from the BLS, U.S. Census Bureau, FRED (Federal Reserve Bank of St. Louis), CDC (data.cdc.gov), World Bank and Data Commons APIs. This product uses the FRED® API but is not endorsed or certified by the Federal Reserve Bank of St. Louis |
+
+The 67 C1 labels in `datasets/gold_public_1.json` were relabeled on 2026-11-18 by applying `docs/labeling_rules.md` (AI-assisted, reviewed by Suning); 11 of 67 changed. The original labels are kept in `datasets/relabel/c1_public1_original_gold.json`.

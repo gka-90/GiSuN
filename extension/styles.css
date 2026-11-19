@@ -262,3 +262,8 @@ mark.gisun-key-high { background: rgba(229, 57, 53, 0.18); }
   font: inherit;
   cursor: pointer;
 }
+
+/* Citation check + official data, two lines per number in the details panel */
+.gisun-number-check { margin: 6px 0; padding: 6px 8px; border-radius: 6px; background: #f3f6fb; font-size: 13px; line-height: 1.5; }
+.gisun-number-warn { background: #fdecea; }
+.gisun-cite-link { color: #1a5fb4; text-decoration: underline; margin-left: 2px; }

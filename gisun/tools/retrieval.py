@@ -491,11 +491,16 @@ def usable_series(measure: str, place: str, period: str) -> tuple[list[dict], di
     return usable, where, p, ""
 
 
-def lookup_statistic(measure: str, place: str, period: str) -> dict:
-    """Official figures for exactly this measure, place and period (one per source)."""
+def lookup_statistic(measure: str, place: str, period: str, prefer: list[str] | None = None) -> dict:
+    """Official figures for exactly this measure, place and period (one per source).
+    prefer: providers the answer itself cited (a link to bls.gov -> ["bls"]). When one of them has
+    this series, only its figures are returned, so the claim is checked against the source it cites."""
     usable, where, p, note = usable_series(measure, place, period)
     if not usable:
         return {"records": [], "note": note}
+    cited = [e for e in usable if e["provider"] in (prefer or [])]
+    if cited:
+        usable = cited
     records, skipped = [], []
     for e in sorted(usable, key=lambda e: ORDER.index(e["provider"])):
         try:
@@ -514,6 +519,8 @@ def lookup_statistic(measure: str, place: str, period: str) -> dict:
                 "value_text": format_value(f["value"], e["unit"]), "query_date": qdate,
                 **({"note": n} if (n := " ".join(x for x in (e.get("note"), f.get("note")) if x)) else {})})
     out = {"measure": measure, "place": where["name"], "period": p, "records": records}
+    if cited:
+        out["checked_against"] = "the source the answer cites (" + ", ".join(sorted({PROVIDERS[e['provider']] for e in cited})) + ")"
     if skipped:
         out["skipped"] = skipped
     if not records:

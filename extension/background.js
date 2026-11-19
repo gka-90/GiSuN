@@ -36,12 +36,12 @@ async function verify(text) {
 }
 
 // The pipeline runs in the background on the server; poll until it is done.
-async function runPipeline({ text, question, mode, c34Mode }) {
+async function runPipeline({ text, question, mode, c34Mode, citations }) {
   const start = await fetch(`${BACKEND_URL}/pipeline`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     // c34_mode: the user's C3/C4 mode from the quiz (calibration.js); only the mode is sent, never the answers
-    body: JSON.stringify({ text, question: question ?? "", mode: mode ?? "full", c34_mode: c34Mode ?? "strict" }),
+    body: JSON.stringify({ text, question: question ?? "", mode: mode ?? "full", c34_mode: c34Mode ?? "strict", citations: citations ?? [] }),
   });
   if (!start.ok) throw new Error(`backend returned HTTP ${start.status}`);
   const { job_id: jobId } = await start.json();
