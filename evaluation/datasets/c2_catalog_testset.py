@@ -62,6 +62,11 @@ SPECS = [
     ("access to electricity", "India", "2015", " of the population"),
     ("renewable energy share", "Brazil", "2019", ""), ("renewable energy share", "Germany", "2019", ""),
     ("literacy rate", "India", "2018", ""),
+    ("federal funds rate", US, "2023", ""),
+    ("30-year mortgage rate", US, "2023", ""),
+    ("10-year Treasury yield", US, "2023", ""),
+    ("adult obesity rate", US, "2021", ""),
+    ("motor vehicle deaths", US, "2021", ""),
 ]
 VARIANTS = {"exact": (1.0, "", "not_met"), "wrong": (1.2, "", "met"),
             "approx_true": (1.04, "about ", "not_met"), "approx_wrong": (1.3, "about ", "met"),

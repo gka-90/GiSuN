@@ -8,8 +8,11 @@ SOURCE_NAME = r"(?P<name>(?i:the\s+)?(?:(?:19|20)\d{2}\s+)?[A-Z][\w&.'-]*(?:\s+(
 SOURCE_PATTERNS = [re.compile(p) for p in (
     r"\b(?i:according to|reported by|published (?:by|in)|data from|figures from|estimates from|"
     r"survey by|study by)\s+" + SOURCE_NAME,
+    # "an assessment by the Mississippi Emergency Management Agency", "a 2021 analysis from Pew"
+    r"\b(?i:assessments?|analys[ie]s|reports?|reviews?|estimates?|surveys?|stud(?:y|ies)|polls?|audits?|"
+    r"evaluations?|investigations?|counts?|data|figures)\s+(?i:by|from)\s+" + SOURCE_NAME,
     SOURCE_NAME + r"\s+(?:reports?|reported|found|finds|estimates?|estimated|shows?|showed|says|said|"
-    r"states?|stated)\b",
+    r"states?|stated|reveals?|revealed|announced|recorded|counted|concluded)\b",
     r"\(\s*" + SOURCE_NAME + r",?\s+(?:19|20)\d{2}\s*\)",
     r"(?i:sources?)\s*:\s*" + SOURCE_NAME,
     r"(?P<ref>\[\d+\]|https?://\S+)",
