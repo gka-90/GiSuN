@@ -49,6 +49,14 @@ let deepMode = "no_judge"; // pipeline mode: full | no_judge | no_debug | task_o
 let c34Mode = "strict"; // the user's C3/C4 mode from the quiz (calibration.js): "strict" | "general"
 const pendingTimers = new Map();
 const processedText = new WeakMap();
+
+// The answer text to check. One ChatGPT message can hold several answer blocks (a follow-up such as
+// "California vs Texas" is drawn into the same message as a second block), so use the newest one.
+function answerBlock(response) {
+  const blocks = [...response.querySelectorAll(MARKDOWN_SELECTOR)]
+    .filter((b) => !b.parentElement?.closest(MARKDOWN_SELECTOR)); // outer blocks only
+  return blocks.at(-1) ?? response;
+}
 const results = new WeakMap(); // response container -> pipeline result, for the click panel
 const statusNotes = new WeakMap(); // response -> its "GiSuN is checking..." note
 let offlineNoticeShown = false;
@@ -73,7 +81,6 @@ function observe_dom_for_new_response() {
     }
   });
   observer.observe(document.body, { childList: true, subtree: true, characterData: true });
-  rememberOpenAnswers();
   // Responses already on the page when the script loads never trigger a mutation
   document.querySelectorAll(RESPONSE_SELECTOR).forEach((r) => scheduleCheck(outermostResponse(r)));
 }
@@ -91,68 +98,67 @@ function outermostResponse(el) {
 // ChatGPT streams text in piece by piece, so wait until a response stops changing
 function scheduleCheck(response) {
   if (!response) return;
-  // first seen while the page is still drawing the conversation: an old answer
-  if (location.pathname === openedUrl && Date.now() - openedAt < SETTLING_MS) seenAtOpen.add(response);
   clearTimeout(pendingTimers.get(response));
   pendingTimers.set(response, setTimeout(() => {
     pendingTimers.delete(response);
-    // Only the newest answer is checked on its own; older answers in the conversation get a button,
-    // so a new question never waits behind a queue of old answers (each takes ~40 s on the HPC model)
-    const latest = isLatestResponse(response);
-    console.debug("[GiSuN] answer settled", { latest, manual: manualChecks.has(response),
-      index: [...document.querySelectorAll(RESPONSE_SELECTOR)].map(outermostResponse).indexOf(response),
-      start: response.innerText.slice(0, 40) });
-    if (latest || manualChecks.has(response)) processResponse(response);
-    else offerCheck(response);
+    settle(response);
   }, STREAM_DONE_MS));
 }
 
-const manualChecks = new WeakSet(); // older answers the user asked GiSuN to check
+// GiSuN checks an answer only when the user asks: a button under every answer (or Option+Shift+G
+// for the last one). Guessing which answer is "new" broke on ChatGPT's layouts (follow-ups drawn
+// into an earlier message, ads, card answers), and checking on request never queues up old answers.
+function settle(response) {
+  const text = buildTextMap(answerBlock(response)).text;
+  if (!text.trim()) return;
+  if (resultsByText.has(text) || manualChecks.has(response)) {
+    console.debug("[GiSuN] redraw / asked", text.slice(0, 40));
+    processResponse(response); // checked before (redrawn by ChatGPT) or asked for: show it
+  } else if (processedText.get(response) !== text) {
+    offerCheck(response);
+  }
+}
+
+const manualChecks = new WeakSet(); // answers the user asked GiSuN to check
 const checkButtons = new WeakMap(); // response -> its "Check this answer" button
 
-// Answers already on the page when it (or a conversation) was opened: those get a button.
-// Anything that appears later is a new answer in this session and is checked on its own.
-let seenAtOpen = new WeakSet();
-let openedUrl = null;
-let openedAt = 0;
-const SETTLING_MS = 5000; // ChatGPT draws a conversation's answers a moment after the page opens
-function rememberOpenAnswers() {
-  openedUrl = location.pathname;
-  openedAt = Date.now();
-  seenAtOpen = new WeakSet(
-    [...document.querySelectorAll(RESPONSE_SELECTOR)].map(outermostResponse).filter(Boolean));
-}
-
-function isLatestResponse(response) {
-  // switching to another conversation: its old answers count as already there
-  if (location.pathname !== openedUrl) rememberOpenAnswers();
-  if (!seenAtOpen.has(response) && Date.now() - openedAt < SETTLING_MS) seenAtOpen.add(response);
-  if (!seenAtOpen.has(response)) return true;
-  // otherwise only the last answer with text (ads and empty placeholders also match the selector)
-  const all = [...document.querySelectorAll(RESPONSE_SELECTOR)].map(outermostResponse)
-    .filter((r) => r && r.textContent.trim());
-  return all.at(-1) === response;
-}
-
 function offerCheck(response) {
-  const container = response.querySelector(MARKDOWN_SELECTOR) ?? response;
-  if (resultsByText.has(buildTextMap(container).text)) return processResponse(response); // checked before: redraw
-  if (processedText.has(response) || checkButtons.get(response)?.isConnected) return;
+  if (checkButtons.get(response)?.isConnected) return;
   const button = makeEl("button", "gisun-check-btn", "Check this answer with GiSuN");
   button.type = "button";
-  button.addEventListener("click", () => {
-    button.remove();
-    manualChecks.add(response);
-    processResponse(response);
-  });
+  button.addEventListener("click", () => checkNow(response));
   checkButtons.set(response, button);
   response.parentNode?.insertBefore(button, response.nextSibling);
 }
 
+function checkNow(response) {
+  checkButtons.get(response)?.remove();
+  checkButtons.delete(response);
+  manualChecks.add(response);
+  processResponse(response);
+}
+
+function allResponses() {
+  return [...new Set([...document.querySelectorAll(RESPONSE_SELECTOR)].map(outermostResponse))]
+    .filter((r) => r && r.textContent.trim());
+}
+
+// A safety net: answers whose changes the observer missed still get their button
+setInterval(() => allResponses().forEach((r) => pendingTimers.has(r) || settle(r)), 3000);
+
+// Option+Shift+G: check the last answer on the page
+document.addEventListener("keydown", (e) => {
+  if (e.altKey && e.shiftKey && e.code === "KeyG") {
+    const last = allResponses().at(-1);
+    if (last) checkNow(last);
+  }
+});
+
 // The agents decide what gets highlighted; until they finish, only a status note is shown
 async function processResponse(response) {
+  manualChecks.delete(response); // one request checks the answer as it is now; new text asks again
   checkButtons.get(response)?.remove();
-  const container = response.querySelector(MARKDOWN_SELECTOR) ?? response;
+  const container = answerBlock(response);
   const { text, segments } = buildTextMap(container);
   // Our own highlighting also triggers the observer; the text is unchanged, so skip it
   if (!text.trim() || processedText.get(response) === text) {
