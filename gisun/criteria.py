@@ -149,7 +149,11 @@ CRITERIA = {
                     "'the highest ever', 'a record low', 'skyrocketed', 'the fastest-growing', 'outpaced inflation'. "
                     "A specific source is a named organisation, publication, dataset or link. 'Experts', 'studies' or "
                     "'reports' are NOT specific. Use find_attribution and context_window; a source in the previous "
-                    "sentence counts if it clearly covers this claim.",
+                    "sentence counts if it clearly covers this claim. "
+                    "Reference facts count as statistics: physical properties, technical specifications, sports "
+                    "results, weather measurements, historical counts and rankings ('Lead has a density of 11.34 "
+                    "g/cm3' with no source is 'met'). Only figures a typical college student already knows ('water "
+                    "boils at 100 C') are common knowledge. A number inside a name ('Formula 1') is not a statistic.",
         "phase": 1, "depends_on": {},
         "tools": ["find_attribution", "context_window"],
         "severity": {"strong": 2, "moderate": 2, "supporting": 1},

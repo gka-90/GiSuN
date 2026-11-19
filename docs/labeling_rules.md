@@ -34,9 +34,35 @@ the two before it.
 ("Assume 30 mpg…"), arithmetic on a figure that is already sourced, and vague amounts with no
 number ("many", "free").
 
+**Reference facts count.** A specific number counts as a statistic even when it is not a
+conventional statistical measure. This includes, but is not limited to:
+
+- Physical properties and scientific measurements (e.g., density, temperature, speed)
+- Technical specifications and engineering parameters (e.g., pressure, capacity, voltage)
+- Sports statistics and performance records (e.g., goals scored, records, rankings)
+- Weather and geographical measurements (e.g., storm distances, rainfall, wind speeds)
+- Historical quantities and numerical rankings
+
+If no specific, identifiable source for the number appears in this sentence or the two before it,
+the sentence is `met`. Vague references such as "according to a report" or "studies show" are not
+specific sources.
+
+**Common-knowledge exception:** Basic mathematical facts and widely known general knowledge are
+exempt (e.g., water boils at 100 °C at sea level). Specialized figures that a reader would have to
+look up are not exempt.
+
+**Name and identifier exception:** Numbers that are only part of a proper name, title, product name
+or identifier are not statistics (e.g., "Formula 1", "the 49ers", "Boeing 747").
+
 | Example | Label | Why |
 |---|---|---|
 | "Households had built up about $2 trillion in excess savings." (row 2) | `met` | specific figure, no source |
+| "Lead has a density of 11.34 g/cm3." (made-up example) | `met` | physical property, no source |
+| "The boiler pressure was set at 280 psi." (made-up example) | `met` | technical specification, no source |
+| "He scored 47 goals by the mid-season break." (made-up example) | `met` | sports result, no source |
+| "The storm became a hurricane about 430 miles south of the coast." (made-up example) | `met` | weather measurement, no source |
+| "Water boils at 100 °C at sea level." (made-up example) | `not_met` | common knowledge |
+| "Rolling Stone ranked him the 11th greatest singer." (made-up example) | `not_met` | ranking with a named source |
 | "That's a gap of about 16–18%." (row 131, right after "according to Census Bureau data") | `not_met` | arithmetic on a sourced figure |
 | "In 2019, scientists released the first-ever image of a black hole's shadow." (row 109) | `not_met` | a dated event, not a statistic |
 
