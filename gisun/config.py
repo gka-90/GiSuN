@@ -75,4 +75,6 @@ WORDLIST_PATH = os.path.join(ROOT, "data", "bias_wordlist.json")
 TASK_MAX_STEPS = int(os.environ.get("GISUN_TASK_STEPS", "8"))
 DEBUG_MAX_RETRIES = 2
 JUDGE_MAX_REVISIONS = 1
-MAX_PARALLEL_TASKS = int(os.environ.get("GISUN_PARALLEL", "4"))
+# Tasks (claim x criterion) run at the same time. vLLM batches many requests at once, so the HPC
+# model gets 16; Ollama on a laptop answers about one at a time, so 4 is enough there.
+MAX_PARALLEL_TASKS = int(os.environ.get("GISUN_PARALLEL", "16" if BACKEND == "openai_compat" else "4"))

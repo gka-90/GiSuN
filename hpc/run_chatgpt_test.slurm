@@ -56,7 +56,7 @@ else
     serve "$MODEL" $PORT 0.90
 fi
 
-export GISUN_BACKEND=openai_compat GISUN_BASE_URL=http://localhost:$PORT/v1 GISUN_MODEL="$MODEL" GISUN_PARALLEL=8
+export GISUN_BACKEND=openai_compat GISUN_BASE_URL=http://localhost:$PORT/v1 GISUN_MODEL="$MODEL" GISUN_PARALLEL=16
 for MODE in ${MODES:-full}; do
     python .claude/skills/gisun-chatgpt-test/scripts/analyze.py $DATA --mode "$MODE"
 done

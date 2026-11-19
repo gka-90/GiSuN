@@ -48,7 +48,7 @@ else
     serve "$MODEL" $PORT 0.90
 fi
 
-export GISUN_BACKEND=openai_compat GISUN_BASE_URL=http://localhost:$PORT/v1 GISUN_MODEL="$MODEL" GISUN_PARALLEL=8
+export GISUN_BACKEND=openai_compat GISUN_BASE_URL=http://localhost:$PORT/v1 GISUN_MODEL="$MODEL" GISUN_PARALLEL=16
 export GISUN_FORCE_CRITERIA=${FORCE:-0}   # 1 = run every criterion the gold labels ask about (routed vs forced numbers)
 python -m evaluation.run_ablation --gold "$GOLD" ${MODES:+--modes $MODES}   # MODES="full task_only" for a subset
 [ "${ZERO:-1}" = "1" ] && python -m evaluation.zero_tool --dataset "$GOLD"   # ZERO=0 to skip the no-tools baseline

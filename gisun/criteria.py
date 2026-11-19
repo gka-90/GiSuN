@@ -321,8 +321,10 @@ CRITERIA = {
             "or none is comparable.\n\n"
             "4. Submit claim_fields and one evidence item per record (quote = value_text, source = record_id)."
         ),
-        "phase": 2,
-        "depends_on": {"C1": ["met", "not_met", "undetermined"]},
+        # C2 used to wait for C1 (phase 2), but it accepted any C1 outcome, so the wait only cost time:
+        # all six criteria now run in parallel
+        "phase": 1,
+        "depends_on": {},
         "tools": ["lookup_statistic", "compare_numbers"],
         "severity": {"strong": 3, "moderate": 3, "supporting": 2},
         "applies": lambda c: any(parse_value(v) is not None for v in c["checkable_values"]),

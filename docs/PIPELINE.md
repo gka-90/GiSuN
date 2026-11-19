@@ -16,7 +16,7 @@ Plan agent         which criteria for which claim, in phases               agent
                    C2 funnel: only the GISUN_C2_MAX_CLAIMS most check-worthy claims
       |
       v
-Phase 1 (parallel): C1 C3 C4 C5 C6       Phase 2: C2 (after C1)
+All six criteria run in parallel (one phase; up to GISUN_PARALLEL tasks at once: 16 on vLLM, 4 on Ollama)
    each task:  Task -> Debug (retry) -> Judge (review, 1 revision) -> Check (validate)
       |
       v
