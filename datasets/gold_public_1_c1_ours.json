@@ -1,0 +1,739 @@
+[
+ {
+  "id": "pub-C1-185",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "The 2011 census reported that the religion in India with the largest number of followers was Hinduism (79.80% of the population), followed by Islam (14.23%); the remaining were Christianity (2.30%), Sikhism (1.72%), Buddhism (0.70%), Jainism (0.36%) and others (0.9%).",
+  "labels": {
+   "The 2011 census reported that the religion in India with": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-188",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "Triangulum Australe contains several cepheid variables, all of which are too faint to be seen with the naked eye: R Trianguli Australis ranges from apparent magnitude 6.4 to 6.9 over a period of 3.389 days, S Trianguli Australis varies from magnitude 6.1 to 6.8 over 6.323 days, and U Trianguli Australis' brightness changes from 7.5 to 8.3 over 2.568 days (Source: ↑ Klepešta & Rükl 1974).",
+  "labels": {
+   "Triangulum Australe contains several cepheid variables, all": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-191",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "These sixteen nations are distinct and equal legal entities – the United Kingdom, Australia, Canada, New Zealand, Antigua and Barbuda, The Bahamas, Barbados, Belize, Grenada, Jamaica, Papua New Guinea, Saint Kitts and Nevis, Saint Lucia, Saint Vincent and the Grenadines, Solomon Islands and Tuvalu.",
+  "labels": {
+   "These sixteen nations are distinct and equal legal entities": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-194",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "Lead's close-packed face-centered cubic structure and high atomic weight result in a density of 11.34 g/cm3, which is greater than that of common metals such as iron (7.87 g/cm3), copper (8.93 g/cm3), and zinc (7.14 g/cm3) (Source: 1 2 Thornton).",
+  "labels": {
+   "Lead's close-packed face-centered cubic structure and high": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-197",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "Weather conditions during summer months are warm, with high temperatures during July averaging 22 °C (72 °F), and daily low temperatures averaging 7 °C (45 °F), leading to a large diurnal range owing to the relative dryness of the air.",
+  "labels": {
+   "Weather conditions during summer months are warm, with high": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-200",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "On runs between Kings Cross and Potters Bar with the LNER's dynamometer car, No. A890 was recorded at a top speed of 83 miles per hour (134 km/h) and A803 at 79 miles per hour (127 km/h), with no problems in riding (Source: 1 2 3 Holcroft (1965)).",
+  "labels": {
+   "On runs between Kings Cross and Potters Bar with the LNER's": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-203",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "Waddesdon Road was the first station out from the Quainton Road junction station, in open countryside immediately north of Akeman Street (the A41 road after 1919), about 1.1 miles (1.8 km) southeast of Quainton Road, 1 mile (1.6 km) northwest of the town of Waddesdon, and 1,300 yards (1,200 m) from Waddesdon Manor.",
+  "labels": {
+   "Waddesdon Road was the first station out from the Quainton": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-206",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "Despite the presence of retailers such as Tesco, Sainsbury's and Marks & Spencer in the town, a new Asda superstore in Broadheath, and redevelopment schemes costing over £100 million, Altrincham's 15.5 per cent level of employment in retail is below the national average of 16.9 per cent (Source: 1 2 Bamford (1991)).",
+  "labels": {
+   "Despite the presence of retailers such as Tesco,": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-209",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "In the early 1990s and again in 2000, the Federal Emergency Management Agency honored Tulsa as leading the nation in flood plain management.Triple-digit temperatures (≥38 °C) are observed on average 11 days per year, sometimes exceeding 100 °F (38 °C) from July to early September, usually accompanied by high humidity brought in by southerly winds; The highest recorded temperature recorded was 115 °F (46 °C) on August 10, 1936.",
+  "labels": {
+   "In the early 1990s and again in 2000, the Federal Emergency": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-212",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "The club then had a total of 30 points docked from its 2008–09 record by the Football Association and the Football League for financial irregularities dating back several years (Source: Luton Town 2006–2007).",
+  "labels": {
+   "The club then had a total of 30 points docked from its": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-215",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "The most successful head coach in school history was George Howard \"Jerry\" Phipps, who led the Knights to a record of 133–27, four Maryland Scholastic Association (MSA) championships, and a streak of forty straight games without a loss spanning two seasons between 1960–1968.",
+  "labels": {
+   "The most successful head coach in school history was George": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-218",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "However, due to continued high demand, capacity has been increased multiple times, to 38,500 for the 2012 season and to 39,115 for 2015 season (Source: Qwest seating increased for hot-selling Sounders).",
+  "labels": {
+   "However, due to continued high demand, capacity has been": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-221",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "(In comparison, Zhang's 2002 film Hero would earn ¥270 million three years later.) Nevertheless, Not One Less was the highest-grossing domestic film of 1999, and Laikwan Pang has called it a \"box office success\".",
+  "labels": {
+   "(In comparison, Zhang's 2002 film Hero would earn ¥270": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-224",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "Likewise, in a recent (2010) web-based questionnaire study designed to investigate user perceptions of the benefits and harms of hallucinogenic drug use, 60% of the 503 psilocybin users reported that their use of psilocybin had a long-term positive impact on their sense of well-being (Source: Harm potential of magic mushroom use: a review).",
+  "labels": {
+   "Likewise, in a recent (2010) web-based questionnaire study": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-227",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "The active tertiary sector includes some large retail chains such as those detailed by geographer Roger Brunet: BUT (240 staff), Carrefour (150 staff), E.Leclerc (150 staff), Leroy Merlin (130 staff), and Galeries Lafayette (120 employees).",
+  "labels": {
+   "The active tertiary sector includes some large retail": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-230",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "In 1999, the annual \"Top 2000\" poll commenced to find the best songs ever made, and \"Bohemian Rhapsody\" has been ranked number one in all but four years (2005, 2010, 2014 and 2015 when it was number two) (Source: ↑ Top 2000 Lijst radio2.nl. Retrieved 18 January 2015).",
+  "labels": {
+   "In 1999, the annual \"Top 2000\" poll commenced to find the": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-233",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "El Hatillo's population is significantly lower than that of its sister municipalities; viewing 2003 crime data relative to 2001 census data, El Hatillo had an annual rate of 7.7 crimes for every one thousand citizens, while the average of the five Caracas municipalities was 19.4 for every one thousand citizens.",
+  "labels": {
+   "El Hatillo's population is significantly lower than that of": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-236",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "Moreover, transporting the division without an escort would have violated the long-standing policy of assigning at least one capital ship to protect troop convoys in this region, and would not have been accepted by the Australian government (Source: 1 2 3 Roskill (1956)).",
+  "labels": {
+   "Moreover, transporting the division without an escort would": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-239",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "The panel issued over 500 recommendations, including limiting the growth of the Banff townsite, capping the town's population at 10,000, placing quotas for popular hiking trails, and curtailing development in the park.",
+  "labels": {
+   "The panel issued over 500 recommendations, including": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-242",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "In 2011, the department's traffic surveys showed that on average, 185,700 vehicles used the freeway daily east of I-75 and 38,100 vehicles did so each day in part of the Mixing Bowl, the highest and lowest counts along the highway, respectively (Source: Traffic Monitoring Information System).",
+  "labels": {
+   "In 2011, the department's traffic surveys showed that on": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-245",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "They secured their top division status a year later to become founder members of the new Premier League, but were relegated after two seasons despite reaching that year's FA Cup semi-finals.",
+  "labels": {
+   "They secured their top division status a year later to": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-248",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "The 1843 Musidora was bought directly from Etty by City of London merchant George Knott for 70 guineas (about £6,300 in today's terms ) who sold it on two years later for 225 guineas (about £20,000 today ) (Source: The Annual RPI and Average Earnings for Britain).",
+  "labels": {
+   "The 1843 Musidora was bought directly from Etty by City of": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-251",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "Excursion trains from as far away as Buffalo, New York, and Pittsburgh would come just to cross the Kinzua Bridge, which held the height record until the Garabit viaduct, 401 feet (122 m) tall, was completed in France in 1884.",
+  "labels": {
+   "Excursion trains from as far away as Buffalo, New York, and": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-254",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "The 1961–62 season was Craig's last at first-class level; he accumulated 629 runs at 37.00, with seven fifties but he was unable to convert any of these into a century (Source: Australian First-Class Season 1960/61: Batting – Most Runs).",
+  "labels": {
+   "The 1961–62 season was Craig's last at first-class level;": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-257",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "TEFRA was the \"largest peacetime tax increase in American history.\" Gross domestic product (GDP) growth recovered strongly after the early 1980s recession ended in 1982, and grew during his eight years in office at an annual rate of 7.9% per year, with a high of 12.2% growth in 1981.",
+  "labels": {
+   "TEFRA was the \"largest peacetime tax increase in American": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-260",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "The boiler pressure was set at 280 psi (1,900 kPa) and each was fitted with four thermic siphons within the firebox, both to increase the rate of evaporation and improve water circulation (Source: 1 2 Robertson (2007).",
+  "labels": {
+   "The boiler pressure was set at 280 psi (1,900 kPa) and each": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-263",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "While his rival Chamberlain had a record-breaking season of 50.4 points per game and a 100-point game, the Celtics became the first team to win 60 games in a season, and Russell was voted as the NBA's Most Valuable Player.",
+  "labels": {
+   "While his rival Chamberlain had a record-breaking season of": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-266",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "Over the full distance of the lap Brasier's Baras was the quickest; his lap time of 52 minutes and 25.4 seconds (52:25.4) moved him up to third position on the road and into the lead overall (Source: The first Grand Prix).",
+  "labels": {
+   "Over the full distance of the lap Brasier's Baras was the": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-269",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "Upon release it won several awards from gaming publications, including multiple \"Game of the Year\" titles, and became the first Nintendo title to win the British Academy Games Award for Best Game.",
+  "labels": {
+   "Upon release it won several awards from gaming": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-272",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "Over 20 percent of its sales were from outside of the US, despite the lack of any marketing or non-English description and despite the game being banned from sale in Germany due to its inclusion of Nazi symbols (Source: 1 2 3 4 5 6 7 Masters of Doom).",
+  "labels": {
+   "Over 20 percent of its sales were from outside of the US,": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-275",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "Among other evidence, witnesses recalled that the Franks displayed typhus symptoms by 7 February, and Dutch health authorities reported that most untreated typhus victims died within 12 days of their first symptoms.",
+  "labels": {
+   "Among other evidence, witnesses recalled that the Franks": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-278",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "The portion south of Otay Valley Road cost $15 million (equivalent to $53.3 million in 2016 ), and the portion between Telegraph Canyon Road and Sweetwater Road cost $12 million (equivalent to $42.6 million in 2016 ) (Source: What Was the U.S. GDP Then?).",
+  "labels": {
+   "The portion south of Otay Valley Road cost $15 million": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-281",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "In an article published in 2008, the researchers estimate that, under the current regime, a job in a new aluminum smelter or an expansion project costs the province between C$255,357 and C$729,653 a year, when taking into consideration the money that could be made by selling the excess electricity on the New York market.",
+  "labels": {
+   "In an article published in 2008, the researchers estimate": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-284",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "In this census, the ethnic proportions in these territories combined were 37 per cent Hungarian, 19 per cent Volksdeutsche, 18 per cent Croats and 16 per cent Serbs, and the population of Prekmurje was 102,867 (Source: 1 2 Ungváry 2011).",
+  "labels": {
+   "In this census, the ethnic proportions in these territories": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-287",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "Rock Steady was certified double platinum by the Recording Industry Association of America (RIAA) on October 11, 2002, and by July 2012, it had sold 2,842,000 copies in the United States.",
+  "labels": {
+   "Rock Steady was certified double platinum by the Recording": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-290",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "Formal decommissioning of the site, including a $4 million cleanup (equivalent to $4.7 million in 2016 dollars), began in April 2006, amid student protests over the contractor hired for the work (Source: Step into the UW's former nuclear reactor).",
+  "labels": {
+   "Formal decommissioning of the site, including a $4 million": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-293",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "Considered one of the foremost research universities in the United States, Michigan is classified as one of 115 Doctoral Universities with Very High Research by the Carnegie Classification of Institutions of Higher Education.",
+  "labels": {
+   "Considered one of the foremost research universities in the": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-296",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "The game also includes five competitive multiplayer modes, which all can be customized, for between two and 16 players; up to four players may play split-screen on one Xbox, and further players can join using a \"System Link\" feature that allows up to four Xbox consoles to be connected together into a local area network (Source: Frequently Asked Questions about Halo: Gameplay).",
+  "labels": {
+   "The game also includes five competitive multiplayer modes,": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-299",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "(This was substantially larger than the V-2, which measured 14 metres (46 ft) long and 3.55 metres (11.6 ft) wide.) Two witnesses interviewed by the Sanders team reported \"an intention of firing a projectile 18 metres long\".",
+  "labels": {
+   "(This was substantially larger than the V-2, which measured": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-302",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "It is estimated that throughout Florida, the storm damaged 101,241 homes and destroyed approximately 63,000 others – the vast majority in Dade County – with about 175,000 people rendered homeless (Source: Hurricane Andrew).",
+  "labels": {
+   "It is estimated that throughout Florida, the storm damaged": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-305",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "This rate of energy release is equivalent to 70 times the world energy consumption of humans and 200 times the worldwide electrical generating capacity, or to exploding a 10-megaton nuclear bomb every 20 minutes.",
+  "labels": {
+   "This rate of energy release is equivalent to 70 times the": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-308",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "Amidst the best offensive season of his career, McDonald scored a hat trick against Pittsburgh to give him 47 goals at the mid-season break for the 1983 All-Star Game, a total that tied his career high (Source: Holidaying Flames leave it to Lanny).",
+  "labels": {
+   "Amidst the best offensive season of his career, McDonald": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-311",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "Often renowned as one of the greatest singers in pop music, McCartney was ranked the 11th greatest singer of all time by Rolling Stone, voted the 8th greatest singer ever by NME readers and number 10 by Music Radar readers in the list of \"the 30 greatest lead singers of all time\".",
+  "labels": {
+   "Often renowned as one of the greatest singers in pop music,": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-314",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "The Canadian National Vimy Memorial and Beaumont-Hamel Newfoundland Memorial sites comprise close to 80 percent of conserved First World War battlefields in existence and between them receive over one million visitors each year (Source: Canadian Battlefield Memorials Restoration Project).",
+  "labels": {
+   "The Canadian National Vimy Memorial and Beaumont-Hamel": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-317",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "The system consists of five grades and it assigns one point for the presence or absence of each of five factors: age greater than 50; Hunt and Hess grade 4 or 5; Fisher scale 3 or 4; aneurysm size greater than 10 mm; and posterior circulation aneurysm 25 mm or more.",
+  "labels": {
+   "The system consists of five grades and it assigns one point": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-320",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "Despite all the transformations in the industry, by 1961 the average production cost of an American feature film was still only $2 million—after adjusting for inflation, less than 10 percent more than it had been in 1950 (Source: 1 2 3 4 Finler (2003)).",
+  "labels": {
+   "Despite all the transformations in the industry, by 1961": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-323",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "In front of nearly 80,000 spectators, Selwood amassed 22 disposals, five marks, five clearances, six inside 50s, five tackles, and five score assists, helping Geelong to a club finals record 106 point victory.",
+  "labels": {
+   "In front of nearly 80,000 spectators, Selwood amassed 22": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-326",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "By 1913 the Welsh collieries were extracting 56.8 million long tons of coal (63.6 million short tons) a year, up from 8.5 million long tons (9.5 million short tons) in 1854; collieries in the region mined a fifth of all coal produced in the UK, and employed a fifth of its miners in the mid-nineteenth century (Source: 1 2 Duckham & Duckham 1973).",
+  "labels": {
+   "By 1913 the Welsh collieries were extracting 56.8 million": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-329",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "The park is open year-round and between 60 and 85 nights each year have ideal conditions, when the apparent magnitudes of the faintest stars visible can range from 7.1 to 7.5.",
+  "labels": {
+   "The park is open year-round and between 60 and 85 nights": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-332",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "Liverpool also has the highest average league finishing position (3.3) for the 50-year period to 2015 and second-highest average league finishing position for the period 1900–1999 after Arsenal, with an average league placing of 8.7 (Source: Liverpool lead Manchester United).",
+  "labels": {
+   "Liverpool also has the highest average league finishing": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-335",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "This made Marco the smallest tropical cyclone ever recorded, surpassing the previous record set on December 24, 1974 by Cyclone Tracy, whose tropical storm-force winds extended 30 miles (48 km).",
+  "labels": {
+   "This made Marco the smallest tropical cyclone ever": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-338",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "According to a 2013 survey conducted by the International Association of Public Transport, in terms of a public transport system, Kolkata ranks among the top of the six Indian cities surveyed (Source: Kolkata tops Indian cities in public transport: Study).",
+  "labels": {
+   "According to a 2013 survey conducted by the International": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-341",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "A tropical wave exited western Africa on October 22 and continued westward into the Pacific on November 2, spawning a tropical depression on November 8 about 440 mi (710 km) south of Manzanillo, Colima.",
+  "labels": {
+   "A tropical wave exited western Africa on October 22 and": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-344",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "As a mark of esteem, the Prince Regent made a special grant to allow the heraldic supporters that would have been incorporated into his coat of arms if he had lived, to be incorporated into the arms of Brock's father's descendants, and on monuments raised in Brock's memory (Source: No. 16696).",
+  "labels": {
+   "As a mark of esteem, the Prince Regent made a special grant": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-347",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "Trescothick's apparent inability to make major scores was again apparent in the 2001–02 One Day International series in Zimbabwe, where he only passed 50 on one occasion despite scoring consistently.",
+  "labels": {
+   "Trescothick's apparent inability to make major scores was": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-350",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "A crew of 12 people stayed in a hurricane-proof bunker on Johnston Atoll during the hurricane's passage; the crew estimated winds reached over 100 mph (160 km/h), which damaged trees on the island but did not impact the island's bird population (Source: Overview of the 2006 Central North Pacific Tropical Cyclone Season).",
+  "labels": {
+   "A crew of 12 people stayed in a hurricane-proof bunker on": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-353",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "By late on July 12, the storm developed banding features, and early on July 13 Carlotta attained hurricane status about 430 mi (700 km) south of the southern tip of the Baja California peninsula.",
+  "labels": {
+   "By late on July 12, the storm developed banding features,": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-356",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "Ashton-under-Lyne's 18,347 households included 33.2% one-person, 33.0% married couples living together, 8.9% were co-habiting couples, and 12.4% single parents with their children; these figures were similar to those of Tameside, however both Tameside and Ashton have higher rates of single parents than England (9.5%) (Source: KS20 Household composition: Census 2001).",
+  "labels": {
+   "Ashton-under-Lyne's 18,347 households included 33.2%": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-359",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "Mont-Blanc's forward 90 mm gun, its barrel melted away, landed approximately 5.6 kilometres (3.5 mi) north of the explosion site near Albro Lake in Dartmouth, and the shank of her anchor, weighing half a ton, landed 3.2 kilometres (2.0 mi) south at Armdale.",
+  "labels": {
+   "Mont-Blanc's forward 90 mm gun, its barrel melted away,": {
+    "C1": "met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-362",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "A post-storm assessment by the Mississippi Emergency Management Agency revealed over 900 businesses in Jackson County sustained damage, contributing to a total of nearly 1,500 in the state's three coastal counties (Source: Food Short In Mississippi Counties).",
+  "labels": {
+   "A post-storm assessment by the Mississippi Emergency": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-365",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "It caused enormous disruption to Chinese society: the census of 754 recorded 52.9 million people, but ten years later, the census counted just 16.9 million, the remainder having been displaced or killed.",
+  "labels": {
+   "It caused enormous disruption to Chinese society: the": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-368",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "In 1929-30 Morenz finished seventh in the league for scoring with 50 points, including scoring 40 goals for the first time; this included a game against the New York Americans on March 18, 1930, in which he scored five goals (Source: ↑ Hughes et al. 2003).",
+  "labels": {
+   "In 1929-30 Morenz finished seventh in the league for": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-371",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "On May 7, 1949, Billboard revealed that ABC had proposed an investment of $6.25 million, of which it would spend $2.5 million to convert 20 acres (80,937 m2) of land in Hollywood into what would become The Prospect Studios, and construct a transmitter on Mount Wilson, in anticipation of the launch of KECA-TV, which was scheduled to begin operations on August 1 (but would not actually sign on until September 16).",
+  "labels": {
+   "On May 7, 1949, Billboard revealed that ABC had proposed an": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-374",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "Boston's subway system, the Massachusetts Bay Transportation Authority (MBTA—known as the \"T\") operates the oldest underground rapid transit system in the Americas, and is the fourth-busiest rapid transit system in the country, with 65.5 miles (105 km) of track on four lines (Source: 1 2 Hull 2011).",
+  "labels": {
+   "Boston's subway system, the Massachusetts Bay": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-377",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "His job approval rating of 22% in the Gallup Poll of February 1952 was lower than Richard Nixon's 24% in August 1974, the month Nixon resigned, but matched by Nixon's all-time low in January 1974.",
+  "labels": {
+   "His job approval rating of 22% in the Gallup Poll of": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-380",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "Over the course of twelve months and with a budget of $1 million, Resident Evil 2 was ported to the console by a team lead by nine full-time and one part-time personnel from Angel Studios (Source: Postmortem: Angel Studios' Resident Evil 2 (N64 Version)).",
+  "labels": {
+   "Over the course of twelve months and with a budget of $1": {
+    "C1": "not_met"
+   }
+  }
+ },
+ {
+  "id": "pub-C1-383",
+  "source": "Public dataset (C1 relabeled by our rules)",
+  "question": "",
+  "text": "In 2009, Clash placed Fantasy Black Channel at number 40 in its list of the 50 Greatest Albums, 2004–2009, while FACT included it at number 99 in its editorial staff list of the 100 Best: Albums of the Decade.",
+  "labels": {
+   "In 2009, Clash placed Fantasy Black Channel at number 40 in": {
+    "C1": "not_met"
+   }
+  }
+ }
+]
