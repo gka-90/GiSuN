@@ -138,6 +138,24 @@ def force_criteria(ctx, the_plan: dict, labels: dict[str, dict]) -> None:
         tasks.sort(key=lambda c: (CRITERIA[c]["phase"], c))
 
 
+def keep_only_labeled(ctx, the_plan: dict, labels: dict[str, dict]) -> None:
+    """GISUN_ONLY_LABELED: drop every planned check except the labeled (sentence, criterion) pairs
+    and their dependencies (C2 needs C1). The whole answer stays in ctx, so the agents still see
+    the real neighbouring sentences; only the work is limited to what will be scored."""
+    allowed: dict[int, set[str]] = {}
+    for key, crits in labels.items():
+        claim = match_claim(ctx.claims, key)
+        if claim is None:
+            continue  # same as force_criteria: the sentence never became a claim
+        keep = allowed.setdefault(claim["claim_id"], set())
+        for cid in crits:
+            if cid in CRITERIA:
+                keep.update([cid, *CRITERIA[cid]["depends_on"]])
+    for claim_id, cid_list in the_plan["tasks"].items():
+        cid_list[:] = [c for c in cid_list if c in allowed.get(claim_id, set())]
+    the_plan["notes"].append({"by": "only_labeled", "reason": "GISUN_ONLY_LABELED: only labeled pairs checked"})
+
+
 def run(text: str, question: str = "", mode: str = "full", keep_trace: bool = True,
         force: dict[str, dict] | None = None, c34_mode: str = "strict",
         citations: list[dict] | None = None) -> dict:
@@ -183,6 +201,8 @@ def run(text: str, question: str = "", mode: str = "full", keep_trace: bool = Tr
     routed = {k: list(v) for k, v in the_plan["tasks"].items()}
     if force:
         force_criteria(ctx, the_plan, force)
+        if config.ONLY_LABELED:
+            keep_only_labeled(ctx, the_plan, force)
     if config.ONLY_CRITERIA:
         keep = {d for c in config.ONLY_CRITERIA if c in CRITERIA for d in [c, *CRITERIA[c]["depends_on"]]}
         for cid_list in the_plan["tasks"].values():

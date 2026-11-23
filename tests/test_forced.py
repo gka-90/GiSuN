@@ -101,5 +101,40 @@ class Forced(unittest.TestCase):
                                                       "C6": {"plan_dropped": 1}})
 
 
+class OnlyLabeled(unittest.TestCase):
+    """GISUN_ONLY_LABELED=1: a hand-picked test set checks only its labeled (sentence, criterion) pairs,
+    while the whole answer is still read for context."""
+
+    def setUp(self):
+        fake_stats.install(self)
+        llm.set_backend(DroppingPlan())
+
+    def tearDown(self):
+        llm.set_backend(None)
+
+    def checked(self, r):
+        # every (sentence start, criterion) pair that was actually decided
+        return {(c["sentence"][:10], cid) for c in r["claims"] for cid in c["criteria"]}
+
+    def test_only_the_labeled_pairs_are_checked(self):
+        labels = {"The new tax caused": {"C6": "met"}}  # nothing labeled on the Shea sentence
+        with patch.object(config, "ONLY_LABELED", True):
+            r = run(TEXT, mode="full", force=labels)
+        self.assertEqual(self.checked(r), {("The new ta", "C6")})
+        self.assertEqual(len(r["claims"]), 2)  # the unlabeled sentence is still part of the answer (context)
+
+    def test_dependencies_are_kept(self):
+        with patch.object(config, "ONLY_LABELED", True):
+            r = run("Prices rose 9% in 2022 across the country.", mode="full",
+                    force={"Prices rose 9%": {"C2": "undetermined"}})
+        # Suning's d44cb46 runs all six in parallel: C2 no longer depends on C1, so only C2 is checked
+        self.assertEqual(set(r["claims"][0]["criteria"]), {"C2"})
+
+    def test_off_by_default_nothing_changes(self):
+        labels = {"The new tax caused": {"C6": "met"}}
+        r = run(TEXT, mode="full", force=labels)  # ONLY_LABELED is False unless the env var is set
+        self.assertGreater(len(self.checked(r)), 1)  # routed criteria still run as before
+
+
 if __name__ == "__main__":
     unittest.main()

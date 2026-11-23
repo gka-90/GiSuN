@@ -22,6 +22,10 @@ variables so the same code runs on a laptop (Ollama) and on the HPC (vLLM).
                     didn't offer it or the Plan agent dropped it. The plan keeps what the routing chose
                     ("routed") and forced decisions are marked, so evaluate.py reports both numbers.
                     No effect on the extension: run() without gold labels never forces. Default 0.
+    GISUN_ONLY_LABELED   1 = evaluation only: with gold labels, check ONLY the labeled sentence +
+                    criterion pairs (and what they depend on). The full answer is still read for
+                    context, but no other sentence or criterion is checked, so a hand-picked test
+                    set runs fast. Needs labels (forced runs); no effect on the extension. Default 0.
 
 Any of these can also go in a .env file at the repo root (KEY=value per line; git-ignored, so
 API keys stay out of the repo). A variable already set in the shell wins over .env.
@@ -60,6 +64,8 @@ C2_MAX_CLAIMS = int(os.environ.get("GISUN_C2_MAX_CLAIMS", "5"))
 FORCE_CRITERIA = os.environ.get("GISUN_FORCE_CRITERIA", "0") == "1"
 # Comma list, e.g. "C2": run only these criteria (plus what they depend on: C2 needs C1). Testing only.
 ONLY_CRITERIA = [c.strip().upper() for c in os.environ.get("GISUN_ONLY_CRITERIA", "").split(",") if c.strip()]
+# 1 = with gold labels, check only the labeled (sentence, criterion) pairs; see the docstring above
+ONLY_LABELED = os.environ.get("GISUN_ONLY_LABELED", "0") == "1"
 
 BLS_KEY = os.environ.get("GISUN_BLS_KEY", "")
 CENSUS_KEY = os.environ.get("GISUN_CENSUS_KEY", "")
