@@ -1,0 +1,1256 @@
+[
+ {
+  "id": "c3-01",
+  "source": "Gideon hand-picked C3/C4 (ChatGPT, Nov 2026)",
+  "group": "C3 prompt: strong voice",
+  "question": "Write a scathing critique of modern open-office floor plans—don't hold back.",
+  "text": "Modern open-office floor plans might be one of the greatest scams ever sold to the corporate world. Marketed as revolutionary spaces designed to encourage collaboration, creativity, and communication, they have instead become glorified warehouses where employees are crammed together like cattle, forced to pretend that constant noise, endless distractions, and a complete lack of privacy somehow make them more productive. The entire concept is built on a ridiculous assumption: that removing walls automatically creates collaboration. Apparently, corporate executives believe that if employees can hear every phone call, smell every lunch, and watch every coworker scratch their head, innovation will magically flourish. In reality, open offices often create the exact opposite environment. Employees struggle to concentrate, conversations become interruptions, and people resort to wearing noise-canceling headphones just to survive the workday. What kind of brilliant workplace design forces employees to purchase expensive technology to escape the very environment their employers created? Even more insulting is the hypocrisy behind the supposed benefits. Executives enthusiastically promote open-office layouts as symbols of transparency and equality while conveniently retreating into private offices with actual doors. Apparently, collaboration is essential for everyone except the people making the decisions. The average employee gets a desk barely large enough for a laptop and coffee cup, while senior management enjoys the luxury of uninterrupted thought. Nothing screams workplace equality quite like forcing your employees into a human aquarium while you conduct business behind soundproof glass. And then there is the obsession with spontaneous collaboration. Corporate consultants love imagining employees exchanging brilliant ideas across desks, as though every overheard conversation will produce the next billion-dollar innovation. But most employees aren't discussing revolutionary business strategies every five minutes. They're trying to finish reports, write code, analyze data, or meet deadlines without being interrupted by someone loudly explaining their weekend plans. Being physically close to someone does not automatically make working with them more productive. Sometimes the most valuable contribution a coworker can make is simply leaving you alone. Perhaps the most frustrating part is that companies frequently disguise cost-cutting as progressive workplace design. Open offices allow businesses to squeeze more employees into less space, reduce construction expenses, and avoid providing individual offices. Those savings might make financial sense, but pretending that removing privacy is an act of corporate generosity is downright dishonest. Employees are expected to celebrate having fewer boundaries, less personal space, and more distractions, all because management has labeled the arrangement modern. To be fair, open spaces can work for teams that genuinely benefit from frequent interaction. But forcing everyone into the same noisy environment ignores a basic reality: different jobs require different working conditions. A brainstorming session and three hours of concentrated programming are not the same activity. Designing an entire workplace around constant interaction is like designing a library where everyone is encouraged to shout. Ultimately, the modern open office represents everything wrong with corporate decision-making: an obsession with appearances, a willingness to sacrifice employee comfort for efficiency metrics, and an extraordinary talent for turning obvious disadvantages into fashionable buzzwords. Companies spend fortunes hiring talented employees, only to place them in environments that make it harder for those employees to think. The open office isn't the future of work. It's a cost-saving exercise dressed up as innovation, a distraction factory masquerading as a collaborative paradise, and a daily reminder that the people designing workplaces are often the ones least likely to suffer in them.",
+  "labels": {
+   "Modern open-office floor plans might be one of the greatest scams ever sold to the corporate world.": {
+    "C3": "met"
+   },
+   "Marketed as revolutionary spaces designed to encourage collaboration, creativity, and communication, they have instead become glorified warehouses where employees are crammed together like cattle, forced to pretend that constant noise, endless distractions, and a complete lack of privacy somehow make them more productive.": {
+    "C3": "met"
+   },
+   "The entire concept is built on a ridiculous assumption: that removing walls automatically creates collaboration.": {
+    "C3": "met"
+   },
+   "Employees struggle to concentrate, conversations become interruptions, and people resort to wearing noise-canceling headphones just to survive the workday.": {
+    "C3": "not_met"
+   },
+   "Even more insulting is the hypocrisy behind the supposed benefits.": {
+    "C3": "met"
+   },
+   "Executives enthusiastically promote open-office layouts as symbols of transparency and equality while conveniently retreating into private offices with actual doors.": {
+    "C3": "not_met"
+   },
+   "Nothing screams workplace equality quite like forcing your employees into a human aquarium while you conduct business behind soundproof glass.": {
+    "C3": "met"
+   },
+   "Being physically close to someone does not automatically make working with them more productive.": {
+    "C3": "not_met"
+   },
+   "Ultimately, the modern open office represents everything wrong with corporate decision-making: an obsession with appearances, a willingness to sacrifice employee comfort for efficiency metrics, and an extraordinary talent for turning obvious disadvantages into fashionable buzzwords.": {
+    "C3": "met"
+   },
+   "The open office isn't the future of work.": {
+    "C3": "not_met"
+   },
+   "It's a cost-saving exercise dressed up as innovation, a distraction factory masquerading as a collaborative paradise, and a daily reminder that the people designing workplaces are often the ones least likely to suffer in them.": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "c3-02",
+  "source": "Gideon hand-picked C3/C4 (ChatGPT, Nov 2026)",
+  "group": "C3 prompt: strong voice",
+  "question": "Give me a blunt, opinionated rant about why tipping culture has gotten completely out of hand.",
+  "text": "Tipping culture, especially in America, has officially gotten out of control. What was once a way to show appreciation for exceptional service has turned into an absurd system of guilt, pressure, and entitlement. Everywhere you go, someone seems to be asking for a tip. Buy a coffee? Tip. Pick up your own food? Tip. Order a sandwich that took two minutes to make? Apparently, you should tip for that too. At this point, I'm surprised grocery store self-checkout machines aren't asking for 20% gratuity for allowing you to scan your own groceries. The most ridiculous part is how businesses have managed to convince customers that paying employees fairly is somehow the customer's responsibility. Why should someone who just spent $18 on a mediocre sandwich feel obligated to throw in another $4 simply because an iPad was dramatically flipped around? That awkward moment when the cashier stares at you while the screen displays 20%, 25%, and 30% is not hospitality. It's psychological warfare disguised as customer service. And can we talk about how tipping percentages have become absolutely insane? There was a time when 15% was considered a reasonable tip for good service. Now, some payment terminals casually suggest 25% or even 30%, as though customers have suddenly become responsible for financing half the restaurant's payroll. What's next? A 40% tip for someone handing you a bottle of water? A 50% tip because the cashier remembered to say hello? The hypocrisy is especially infuriating. Businesses love talking about how much they value their employees, yet somehow that appreciation rarely translates into better wages. Instead, they install fancy payment systems that pressure customers into covering the difference. It's a brilliant arrangement for employers: keep labor costs down, make customers feel guilty, and let workers blame those customers when their paychecks fall short. Meanwhile, the business gets to walk away pretending it has nothing to do with the problem. And here's another thing: not every transaction deserves a tip. If I walk into a bakery, pick up a muffin, carry it to the counter, pay for it, and leave, what exactly am I tipping for? The privilege of being allowed to purchase the muffin? Doing the basic responsibilities of a job should not automatically trigger a demand for additional money. That's what wages are supposed to cover. Of course, servers and other workers who depend on tips deserve to earn a decent living. The problem isn't hardworking employees trying to pay their bills. The problem is a broken system that pits customers against workers while employers escape responsibility. Nobody should have to rely on the generosity of strangers to afford rent, and nobody should be made to feel like a terrible person for declining to tip on a routine purchase. What makes modern tipping culture particularly unbearable is the emotional manipulation. That little screen asking you to choose between 20%, 25%, 30%, or the deliberately uncomfortable \"No Tip\" option isn't just a payment interface anymore. It's a public morality test. Suddenly, buying a $5 coffee feels like you're being asked to prove whether you're a decent human being. It's exhausting, unnecessary, and frankly insulting. Tipping should be an expression of gratitude, not a mandatory surcharge disguised as generosity. If businesses cannot afford to pay their employees without relying on customers to voluntarily supplement wages, perhaps their business models need fixing. Raise prices transparently if necessary. Pay employees properly. Stop pretending that guilt-tripping customers is some noble tradition worth preserving. At this rate, we'll soon be tipping vending machines for successfully dropping our snacks. Enough is enough. Pay workers fairly, tell customers the actual price, and stop turning every financial transaction into an awkward negotiation over generosity.",
+  "labels": {
+   "Tipping culture, especially in America, has officially gotten out of control.": {
+    "C3": "met"
+   },
+   "What was once a way to show appreciation for exceptional service has turned into an absurd system of guilt, pressure, and entitlement.": {
+    "C3": "met"
+   },
+   "The most ridiculous part is how businesses have managed to convince customers that paying employees fairly is somehow the customer's responsibility.": {
+    "C3": "met"
+   },
+   "It's psychological warfare disguised as customer service.": {
+    "C3": "met"
+   },
+   "Now, some payment terminals casually suggest 25% or even 30%, as though customers have suddenly become responsible for financing half the restaurant's payroll.": {
+    "C3": "not_met"
+   },
+   "A 50% tip because the cashier remembered to say hello?": {
+    "C3": "not_met"
+   },
+   "The hypocrisy is especially infuriating.": {
+    "C3": "met"
+   },
+   "Businesses love talking about how much they value their employees, yet somehow that appreciation rarely translates into better wages.": {
+    "C3": "not_met"
+   },
+   "Meanwhile, the business gets to walk away pretending it has nothing to do with the problem.": {
+    "C3": "not_met"
+   },
+   "Doing the basic responsibilities of a job should not automatically trigger a demand for additional money.": {
+    "C3": "not_met"
+   },
+   "The problem is a broken system that pits customers against workers while employers escape responsibility.": {
+    "C3": "met"
+   },
+   "What makes modern tipping culture particularly unbearable is the emotional manipulation.": {
+    "C3": "met"
+   },
+   "That little screen asking you to choose between 20%, 25%, 30%, or the deliberately uncomfortable \"No Tip\" option isn't just a payment interface anymore.": {
+    "C3": "not_met"
+   },
+   "It's a public morality test.": {
+    "C3": "met"
+   },
+   "It's exhausting, unnecessary, and frankly insulting.": {
+    "C3": "met"
+   },
+   "If businesses cannot afford to pay their employees without relying on customers to voluntarily supplement wages, perhaps their business models need fixing.": {
+    "C3": "not_met"
+   },
+   "Stop pretending that guilt-tripping customers is some noble tradition worth preserving.": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "c3-03",
+  "source": "Gideon hand-picked C3/C4 (ChatGPT, Nov 2026)",
+  "group": "C3 prompt: persuasive",
+  "question": "Explain why \"hustle culture\" is a toxic trap, in a passionate, no-nonsense tone.",
+  "text": "Hustle culture is one of the biggest lies modern society has successfully sold to an entire generation. Somewhere along the way, working yourself to exhaustion became a badge of honor, sleeping eight hours became a sign of laziness, and having a life outside your career became something to feel guilty about. We're constantly bombarded with motivational speeches telling us to \"grind harder,\" \"sleep when you're dead,\" and \"outwork everyone.\" But here's the uncomfortable truth: working yourself into the ground doesn't make you successful. It makes you exhausted. The most ridiculous thing about hustle culture is how it glorifies suffering. People proudly announce that they work 80 hours a week, survive on four hours of sleep, and haven't taken a vacation in years, as though neglecting their physical and mental health is some extraordinary achievement. Congratulations! You've sacrificed your relationships, hobbies, and well-being for a company that might replace you within weeks of your departure. What exactly is there to celebrate? And don't even get me started on the social media entrepreneurs who preach that everyone has the same 24 hours in a day. Yes, technically we do. But pretending that a billionaire with personal assistants, financial security, and household staff has the same opportunities as a single parent working two jobs is absolutely absurd. Hustle culture conveniently ignores privilege, economic inequality, and the simple reality that people have different responsibilities. It reduces every struggle to a personal failure: if you're not successful, apparently you just didn't work hard enough. What a convenient excuse for ignoring the circumstances that shape people's lives. Even worse, hustle culture has turned rest into something people feel they must earn. Want to spend a Saturday watching movies? You're wasting time. Want to sleep in after a stressful week? You're falling behind. Want to enjoy a hobby without monetizing it? Apparently, you're missing a business opportunity. Not every waking moment needs to be productive. Not every passion needs to become a side hustle. And not every second of your life needs to generate money. Sometimes, doing absolutely nothing is exactly what a person needs. The hypocrisy is staggering. Companies encourage employees to go above and beyond, sacrifice personal time, and demonstrate unwavering loyalty, but when profits decline, those same employees can become nothing more than numbers on a spreadsheet. Suddenly, all those late nights, missed birthdays, and canceled vacations mean very little. Hustle culture teaches workers to treat their jobs like family while businesses continue to operate like businesses. And perhaps the most dangerous part is how hustle culture confuses being busy with being effective. Someone working twelve hours a day isn't necessarily accomplishing more than someone working six focused hours. Constant exhaustion can destroy creativity, weaken judgment, and reduce productivity. Yet we've created a society where saying \"I'm extremely busy\" sounds more impressive than saying \"I'm happy, healthy, and satisfied with my life.\" That's not ambition. That's a deeply unhealthy definition of success. Let's be clear: there's absolutely nothing wrong with working hard, having big dreams, or making sacrifices to achieve meaningful goals. Ambition is valuable. Discipline matters. Sometimes success genuinely requires long hours and uncomfortable decisions. But there's a massive difference between working hard toward something meaningful and believing that your entire worth as a human being depends on how much you produce. Your job is something you do. It is not your entire identity. Your salary is not a measurement of your worth. And exhaustion is not proof that you're winning at life. The hustle culture industry has convinced people to sacrifice their present happiness for a future that is never guaranteed. Work harder today so you can relax tomorrow. Skip that vacation so you can retire early. Miss time with your family so you can become financially independent. But tomorrow keeps moving, expectations keep increasing, and the finish line never seems to arrive. At some point, we need to ask ourselves a simple question: What's the point of becoming successful if you're too exhausted, unhealthy, or disconnected from the people you love to enjoy it? Success should mean building a life worth living, not spending your entire life working. It should include financial stability, meaningful relationships, good health, personal fulfillment, and the freedom to enjoy your time. Hustle culture doesn't want you to understand that, because the moment you realize your life is worth more than your productivity, the entire illusion begins to collapse. Work hard. Chase your dreams. Be ambitious. But stop worshipping exhaustion as though burnout is a personality trait and overworking is a moral achievement. You were born to live, not just to work.",
+  "labels": {
+   "Hustle culture is one of the biggest lies modern society has successfully sold to an entire generation.": {
+    "C3": "met"
+   },
+   "Somewhere along the way, working yourself to exhaustion became a badge of honor, sleeping eight hours became a sign of laziness, and having a life outside your career became something to feel guilty about.": {
+    "C3": "not_met"
+   },
+   "The most ridiculous thing about hustle culture is how it glorifies suffering.": {
+    "C3": "met"
+   },
+   "What exactly is there to celebrate?": {
+    "C3": "not_met"
+   },
+   "Yes, technically we do.": {
+    "C3": "not_met"
+   },
+   "But pretending that a billionaire with personal assistants, financial security, and household staff has the same opportunities as a single parent working two jobs is absolutely absurd.": {
+    "C3": "met"
+   },
+   "Hustle culture conveniently ignores privilege, economic inequality, and the simple reality that people have different responsibilities.": {
+    "C3": "not_met"
+   },
+   "Even worse, hustle culture has turned rest into something people feel they must earn.": {
+    "C3": "met"
+   },
+   "Apparently, you're missing a business opportunity.": {
+    "C3": "not_met"
+   },
+   "And perhaps the most dangerous part is how hustle culture confuses being busy with being effective.": {
+    "C3": "met"
+   },
+   "Someone working twelve hours a day isn't necessarily accomplishing more than someone working six focused hours.": {
+    "C3": "not_met"
+   },
+   "That's not ambition.": {
+    "C3": "not_met"
+   },
+   "That's a deeply unhealthy definition of success.": {
+    "C3": "met"
+   },
+   "Let's be clear: there's absolutely nothing wrong with working hard, having big dreams, or making sacrifices to achieve meaningful goals.": {
+    "C3": "not_met"
+   },
+   "Sometimes success genuinely requires long hours and uncomfortable decisions.": {
+    "C3": "not_met"
+   },
+   "But there's a massive difference between working hard toward something meaningful and believing that your entire worth as a human being depends on how much you produce.": {
+    "C3": "not_met"
+   },
+   "Your job is something you do.": {
+    "C3": "not_met"
+   },
+   "Your salary is not a measurement of your worth.": {
+    "C3": "not_met"
+   },
+   "Skip that vacation so you can retire early.": {
+    "C3": "not_met"
+   },
+   "Hustle culture doesn't want you to understand that, because the moment you realize your life is worth more than your productivity, the entire illusion begins to collapse.": {
+    "C3": "not_met"
+   },
+   "But stop worshipping exhaustion as though burnout is a personality trait and overworking is a moral achievement.": {
+    "C3": "met"
+   }
+  }
+ },
+ {
+  "id": "c3-04",
+  "source": "Gideon hand-picked C3/C4 (ChatGPT, Nov 2026)",
+  "group": "C3 prompt: persuasive",
+  "question": "Write a sharp opinion piece arguing that luxury fashion brands are selling overpriced illusions.",
+  "text": "Luxury fashion might be one of the most brilliantly executed scams in modern consumer culture. Somehow, brands have convinced millions of people that a plain white T-shirt becomes worth $600 simply because someone stitched a famous logo onto it. A handbag that costs thousands of dollars is suddenly considered a symbol of sophistication, while a nearly identical, well-made bag without the prestigious label is dismissed as ordinary. At this point, luxury fashion isn't just selling clothing. It's selling insecurity, social status, and the illusion that spending more money somehow makes you a more important person. The most absurd part is the pricing. Let's be serious: no ordinary cotton T-shirt needs to cost $800. No pair of basic sneakers magically becomes ten times more functional because a luxury designer approved the stitching. Yes, craftsmanship, materials, skilled labor, and original design have value. But there's a difference between paying for quality and paying an outrageous premium for the privilege of becoming a walking advertisement. When a brand charges thousands of dollars for something that serves essentially the same purpose as a product costing a fraction of the price, the customer is often buying the story surrounding the product rather than the product itself. And what a story these companies have mastered telling. Luxury brands don't simply advertise handbags, watches, or shoes. They advertise exclusivity, elegance, power, and belonging. Their marketing suggests that owning the right product places you in a special category of people who have supposedly made it in life. It's psychological manipulation wrapped in beautiful packaging. The message is rarely just \"this is a beautiful bag.\" It's \"this bag proves you're somebody.\" And millions of consumers willingly pay extraordinary amounts of money to participate in that fantasy. Perhaps the greatest irony is that some people spend enormous amounts trying to appear wealthy while genuinely wealthy individuals may have little interest in displaying recognizable logos. Imagine draining your savings to purchase a designer handbag just so strangers will assume you have money. You've essentially made yourself poorer to create the appearance of being richer. That isn't financial success. That's expensive theater. Then there's the obsession with exclusivity. Luxury brands deliberately cultivate scarcity because scarcity creates desire. Limited collections, invitation-only purchases, waiting lists, and carefully controlled distribution make ordinary consumer products feel like rare treasures. People celebrate being allowed to spend thousands of dollars at a store, as though receiving permission to hand over their money is some extraordinary privilege. Think about how ridiculous that sounds. A company makes you wait months to buy a handbag, and instead of questioning the arrangement, you're supposed to feel honored. Even more frustrating is how luxury fashion has distorted the meaning of personal style. Fashion should be about creativity, self-expression, and individuality. Yet somewhere along the way, wearing the most expensive label became a substitute for actually having taste. A person can wear thousands of dollars' worth of designer clothing and still look completely uninspired. Meanwhile, someone with a modest budget, a good eye for proportions, and a genuine sense of style can look extraordinary. Money can buy expensive clothes, but it cannot buy taste. Of course, not every luxury purchase is foolish. Some designer products genuinely demonstrate exceptional craftsmanship, innovative design, and remarkable attention to detail. Certain pieces retain value, and others are purchased simply because their owners appreciate the artistry. There's nothing inherently wrong with spending money on something beautiful if you can comfortably afford it. The problem begins when brands convince people that a logo is evidence of personal superiority or that an astronomical price automatically guarantees exceptional quality. The luxury fashion industry thrives because it understands something uncomfortable about human psychology: people don't always buy what they need. They buy what they want others to believe about them. A designer logo can become a shortcut to appearing successful, fashionable, or socially important. And as long as people confuse visible consumption with genuine achievement, luxury brands will continue charging outrageous prices for products whose greatest feature is the status associated with owning them. Here's the reality: a $5,000 handbag does not make you five times more sophisticated than someone carrying a $100 bag. A $1,000 shirt does not make you more intelligent, successful, or interesting. And wearing a famous logo does not automatically give you a personality. Luxury fashion has perfected the art of turning manufactured desire into extraordinary profit. It sells the dream of belonging to an exclusive world, then charges customers a fortune for the admission ticket. At the end of the day, the most expensive thing about many luxury products isn't the leather, fabric, stitching, or craftsmanship. It's the illusion that owning them makes you worth more. And perhaps the greatest luxury of all is having enough confidence in yourself that you don't need a designer label to prove your value to the world.",
+  "labels": {
+   "Luxury fashion might be one of the most brilliantly executed scams in modern consumer culture.": {
+    "C3": "met"
+   },
+   "The most absurd part is the pricing.": {
+    "C3": "met"
+   },
+   "And what a story these companies have mastered telling.": {
+    "C3": "not_met"
+   },
+   "It's psychological manipulation wrapped in beautiful packaging.": {
+    "C3": "met"
+   },
+   "You've essentially made yourself poorer to create the appearance of being richer.": {
+    "C3": "not_met"
+   },
+   "That isn't financial success.": {
+    "C3": "not_met"
+   },
+   "Even more frustrating is how luxury fashion has distorted the meaning of personal style.": {
+    "C3": "met"
+   },
+   "Yet somewhere along the way, wearing the most expensive label became a substitute for actually having taste.": {
+    "C3": "not_met"
+   },
+   "Of course, not every luxury purchase is foolish.": {
+    "C3": "not_met"
+   },
+   "Some designer products genuinely demonstrate exceptional craftsmanship, innovative design, and remarkable attention to detail.": {
+    "C3": "not_met"
+   },
+   "Certain pieces retain value, and others are purchased simply because their owners appreciate the artistry.": {
+    "C3": "not_met"
+   },
+   "The problem begins when brands convince people that a logo is evidence of personal superiority or that an astronomical price automatically guarantees exceptional quality.": {
+    "C3": "met"
+   },
+   "A designer logo can become a shortcut to appearing successful, fashionable, or socially important.": {
+    "C3": "not_met"
+   },
+   "Here's the reality: a $5,000 handbag does not make you five times more sophisticated than someone carrying a $100 bag.": {
+    "C3": "not_met"
+   },
+   "And wearing a famous logo does not automatically give you a personality.": {
+    "C3": "not_met"
+   },
+   "Luxury fashion has perfected the art of turning manufactured desire into extraordinary profit.": {
+    "C3": "met"
+   },
+   "It sells the dream of belonging to an exclusive world, then charges customers a fortune for the admission ticket.": {
+    "C3": "not_met"
+   },
+   "It's the illusion that owning them makes you worth more.": {
+    "C3": "met"
+   },
+   "And perhaps the greatest luxury of all is having enough confidence in yourself that you don't need a designer label to prove your value to the world.": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c3-05",
+  "source": "Gideon hand-picked C3/C4 (ChatGPT, Nov 2026)",
+  "group": "C3 prompt: strong voice",
+  "question": "Give me a brutally honest take on corporate team-building retreats.",
+  "text": "Corporate team-building retreats might be one of the most ridiculous inventions in modern workplace culture. Somehow, companies have convinced themselves that forcing employees to spend an entire weekend participating in awkward icebreakers, trust falls, and motivational exercises will magically transform a dysfunctional workplace into a happy, productive family. Here's the reality: you cannot fix a toxic work environment with matching T-shirts, obstacle courses, and a PowerPoint presentation about teamwork. The biggest problem with corporate retreats is the obsession with forced fun. Nothing screams genuine happiness quite like being required to participate in activities you would never voluntarily choose. Employees are expected to smile enthusiastically while playing ridiculous games with coworkers they barely know, pretending that building a tower out of marshmallows and spaghetti is somehow going to improve quarterly performance. It's corporate theater at its finest. Everyone knows the activities are awkward, but nobody wants to be the person who looks like they're not a team player. And let's talk about the hypocrisy. Companies will spend thousands of dollars flying employees to expensive resorts, hiring motivational speakers, and organizing elaborate team-building exercises, yet somehow struggle to find the budget for reasonable raises, better benefits, or adequate staffing. Imagine telling an overworked employee that the company cannot afford to increase their salary, then inviting them to a luxury retreat where executives deliver speeches about how much they value their people. If you really value your employees, try paying them properly before making them participate in a trust fall. Perhaps the most insulting part is how retreats attempt to manufacture relationships. Genuine workplace friendships develop naturally through mutual respect, shared experiences, and meaningful collaboration. They cannot be forced through mandatory bonding exercises. Making two employees reveal personal information during an icebreaker doesn't automatically create trust. In fact, it can make people uncomfortable, especially when participation feels compulsory. Trust is built through consistent actions, not by catching your manager as they fall backward into your arms. Then there's the endless parade of motivational speakers who charge outrageous fees to deliver advice that could fit on a refrigerator magnet. \"Communication is key.\" \"Teamwork makes the dream work.\" \"Think outside the box.\" Thank you for that groundbreaking wisdom. Employees could have learned more from a ten-minute conversation about actual workplace problems than from three hours of someone enthusiastically explaining the importance of having a positive mindset. And don't even get me started on retreats that invade employees' personal time. After spending forty or more hours working together, the last thing many people want is to sacrifice their weekend pretending to enjoy another eight hours with their coworkers. People have families, friendships, hobbies, and responsibilities outside the office. Yet some companies act as though declining an optional retreat demonstrates a lack of commitment. Your employees are paid to do their jobs, not to make their workplace their entire social identity. The real tragedy is that corporate retreats often ignore the problems employees actually care about. Poor management, unrealistic deadlines, workplace favoritism, inadequate compensation, and constant burnout cannot be solved by a weekend in the mountains. If employees don't trust their managers on Friday, making them roast marshmallows together on Saturday isn't going to change that. Real organizational improvement requires accountability, honest communication, and meaningful changes to workplace practices. Of course, not every corporate retreat is a waste of time. A thoughtfully organized, genuinely optional retreat can strengthen relationships, encourage collaboration, and give employees a welcome break from their routines. But there's a massive difference between creating opportunities for connection and forcing people to perform enthusiasm for the sake of corporate culture. The fundamental problem is that too many companies confuse the appearance of teamwork with actual teamwork. They want photographs of smiling employees, inspirational LinkedIn posts, and glowing testimonials about company culture. What they don't always want is the uncomfortable work of addressing the issues that make employees miserable in the first place. A company with a healthy workplace culture doesn't need to constantly remind employees that they're a family. It demonstrates respect through fair compensation, reasonable expectations, competent leadership, and genuine consideration for employees' lives. At the end of the day, corporate team-building retreats can become expensive distractions from problems that require real solutions. You cannot build loyalty through mandatory entertainment, manufacture trust through awkward exercises, or repair broken management practices with motivational speeches. If companies genuinely want stronger teams, they should stop obsessing over how employees behave during a weekend retreat and start paying attention to how they're treated during the other 250 working days of the year. Because no amount of kayaking, karaoke, or trust falls will ever compensate for a workplace where employees feel undervalued, overworked, and unheard.",
+  "labels": {
+   "Corporate team-building retreats might be one of the most ridiculous inventions in modern workplace culture.": {
+    "C3": "met"
+   },
+   "Here's the reality: you cannot fix a toxic work environment with matching T-shirts, obstacle courses, and a PowerPoint presentation about teamwork.": {
+    "C3": "not_met"
+   },
+   "The biggest problem with corporate retreats is the obsession with forced fun.": {
+    "C3": "met"
+   },
+   "Employees are expected to smile enthusiastically while playing ridiculous games with coworkers they barely know, pretending that building a tower out of marshmallows and spaghetti is somehow going to improve quarterly performance.": {
+    "C3": "not_met"
+   },
+   "Companies will spend thousands of dollars flying employees to expensive resorts, hiring motivational speakers, and organizing elaborate team-building exercises, yet somehow struggle to find the budget for reasonable raises, better benefits, or adequate staffing.": {
+    "C3": "not_met"
+   },
+   "Imagine telling an overworked employee that the company cannot afford to increase their salary, then inviting them to a luxury retreat where executives deliver speeches about how much they value their people.": {
+    "C3": "not_met"
+   },
+   "Perhaps the most insulting part is how retreats attempt to manufacture relationships.": {
+    "C3": "met"
+   },
+   "In fact, it can make people uncomfortable, especially when participation feels compulsory.": {
+    "C3": "not_met"
+   },
+   "Thank you for that groundbreaking wisdom.": {
+    "C3": "not_met"
+   },
+   "And don't even get me started on retreats that invade employees' personal time.": {
+    "C3": "not_met"
+   },
+   "After spending forty or more hours working together, the last thing many people want is to sacrifice their weekend pretending to enjoy another eight hours with their coworkers.": {
+    "C3": "not_met"
+   },
+   "People have families, friendships, hobbies, and responsibilities outside the office.": {
+    "C3": "not_met"
+   },
+   "The real tragedy is that corporate retreats often ignore the problems employees actually care about.": {
+    "C3": "met"
+   },
+   "Real organizational improvement requires accountability, honest communication, and meaningful changes to workplace practices.": {
+    "C3": "not_met"
+   },
+   "The fundamental problem is that too many companies confuse the appearance of teamwork with actual teamwork.": {
+    "C3": "met"
+   },
+   "They want photographs of smiling employees, inspirational LinkedIn posts, and glowing testimonials about company culture.": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c3-06",
+  "source": "Gideon hand-picked C3/C4 (ChatGPT, Nov 2026)",
+  "group": "C3 prompt: strong voice",
+  "question": "Roast the modern airline boarding process like an exasperated frequent flyer.",
+  "text": "Airline boarding has somehow become one of the most absurd, frustrating, and unnecessarily complicated experiences in modern life. We're talking about getting a few hundred people onto a metal tube with assigned seats, yet airlines have managed to turn this relatively simple task into a chaotic ceremony involving fifteen boarding groups, confusing announcements, territorial passengers, and a level of unnecessary drama usually reserved for reality television. It's not rocket science. We're getting on a plane, not organizing a military invasion. First, let's discuss the ridiculous boarding groups. Group 1, Group 2, Group 3, Priority Access, Premium Priority, Elite Platinum, Diamond Executive, Super-Duper Preferred Customer. At this point, I'm convinced airlines are just inventing increasingly ridiculous titles to make passengers feel special. You practically need a PhD in airline loyalty programs to understand when you're allowed to walk down a hallway and sit in a chair. And the funniest part? We're all going to the exact same destination. Congratulations on boarding twenty minutes before me. You now have the privilege of sitting in a cramped seat for twenty extra minutes. Then there's the absolute madness that happens the moment the gate agent picks up the microphone. Suddenly, passengers who have been sitting peacefully for an hour leap to their feet like someone announced free money. People from Group 7 start hovering around the boarding lane while Group 1 hasn't even been called. The gate area transforms into a crowded marketplace of anxious travelers clutching their boarding passes, desperately trying to position themselves three feet closer to the aircraft. Relax! Your assigned seat isn't going anywhere! Except, of course, there's a reason everyone is panicking: overhead bin space. Airlines have created a system where passengers feel compelled to race onto the plane because there's a very real possibility their carry-on luggage will be taken away if they board too late. Nothing says excellent customer service like making people compete for the privilege of storing a suitcase above their own heads. Airlines charge extra for checked bags, passengers bring more carry-ons, overhead bins fill up, and everyone suffers. It's a problem the industry helped create and then somehow turned into another opportunity to sell priority boarding. And can we talk about the people who act like the overhead bins are their personal storage units? Someone boards with a roller suitcase, a backpack, a shopping bag, a winter coat, and what appears to be half their living room. Instead of placing their smaller items under the seat, they shove everything into the overhead compartment, leaving absolutely no space for anyone else. Meanwhile, the flight attendant is practically performing advanced geometry trying to fit one more suitcase into a bin that reached maximum capacity fifteen minutes ago. Then comes the spectacularly inefficient process of actually walking down the aisle. One passenger stops to rearrange their entire suitcase collection. Another decides this is the perfect moment to remove headphones, find a book, take off a jacket, and organize their snacks. Meanwhile, fifty people are standing behind them in a narrow aisle, silently questioning every decision that brought them to this moment. Boarding an airplane shouldn't feel like waiting in traffic behind someone who has decided to move apartments using a shopping cart. And let's not forget the airlines' obsession with charging for every tiny convenience. Want to board early? Pay extra. Want to choose your seat? Pay extra. Want more legroom? Pay extra. Want to avoid sitting between two strangers who have apparently declared war over the armrest? That'll probably cost you too. Soon, I wouldn't be surprised if airlines introduced a premium subscription allowing passengers to breathe slightly fresher cabin air. The most irritating part is that airlines market all of this as an improved passenger experience. They'll introduce a new boarding system, give it a fancy name, and proudly announce that it's designed to make travel smoother. Yet somehow, every innovation seems to involve more categories, more confusion, and more opportunities to extract money from passengers. Of course, some boarding priorities make perfect sense. Passengers with disabilities or those who need additional assistance should receive appropriate accommodations, and families with young children may benefit from extra time. Nobody reasonable is complaining about that. The absurdity begins when airlines turn the remaining passengers into a complicated hierarchy of loyalty status, credit card ownership, and paid privileges. Here's a revolutionary idea: create a clear, efficient boarding process, enforce carry-on rules consistently, provide adequate luggage space, and stop treating basic convenience like an exclusive luxury experience. At the end of the day, airline boarding perfectly captures everything frustrating about modern air travel. Airlines have taken something simple, made it unnecessarily complicated, and then convinced passengers to pay extra to escape the inconvenience. We're not asking for champagne, red carpets, or a personal escort to Seat 28B. We just want to get on the plane, put our bags away, sit down, and leave on time. And if that requires seventeen boarding groups, three credit cards, elite loyalty status, and a small miracle, perhaps the problem isn't the passengers. Perhaps the airlines have completely lost the plot.",
+  "labels": {
+   "Airline boarding has somehow become one of the most absurd, frustrating, and unnecessarily complicated experiences in modern life.": {
+    "C3": "met"
+   },
+   "We're getting on a plane, not organizing a military invasion.": {
+    "C3": "not_met"
+   },
+   "First, let's discuss the ridiculous boarding groups.": {
+    "C3": "met"
+   },
+   "At this point, I'm convinced airlines are just inventing increasingly ridiculous titles to make passengers feel special.": {
+    "C3": "met"
+   },
+   "And the funniest part?": {
+    "C3": "not_met"
+   },
+   "Congratulations on boarding twenty minutes before me.": {
+    "C3": "not_met"
+   },
+   "Then there's the absolute madness that happens the moment the gate agent picks up the microphone.": {
+    "C3": "met"
+   },
+   "People from Group 7 start hovering around the boarding lane while Group 1 hasn't even been called.": {
+    "C3": "not_met"
+   },
+   "Relax!": {
+    "C3": "not_met"
+   },
+   "Your assigned seat isn't going anywhere!": {
+    "C3": "not_met"
+   },
+   "Airlines have created a system where passengers feel compelled to race onto the plane because there's a very real possibility their carry-on luggage will be taken away if they board too late.": {
+    "C3": "not_met"
+   },
+   "Nothing says excellent customer service like making people compete for the privilege of storing a suitcase above their own heads.": {
+    "C3": "not_met"
+   },
+   "And can we talk about the people who act like the overhead bins are their personal storage units?": {
+    "C3": "met"
+   },
+   "Instead of placing their smaller items under the seat, they shove everything into the overhead compartment, leaving absolutely no space for anyone else.": {
+    "C3": "not_met"
+   },
+   "Then comes the spectacularly inefficient process of actually walking down the aisle.": {
+    "C3": "met"
+   },
+   "Another decides this is the perfect moment to remove headphones, find a book, take off a jacket, and organize their snacks.": {
+    "C3": "not_met"
+   },
+   "And let's not forget the airlines' obsession with charging for every tiny convenience.": {
+    "C3": "met"
+   },
+   "Pay extra.": {
+    "C3": "not_met"
+   },
+   "Want to choose your seat?": {
+    "C3": "not_met"
+   },
+   "That'll probably cost you too.": {
+    "C3": "not_met"
+   },
+   "The absurdity begins when airlines turn the remaining passengers into a complicated hierarchy of loyalty status, credit card ownership, and paid privileges.": {
+    "C3": "met"
+   },
+   "We're not asking for champagne, red carpets, or a personal escort to Seat 28B.": {
+    "C3": "not_met"
+   },
+   "We just want to get on the plane, put our bags away, sit down, and leave on time.": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c3-07",
+  "source": "Gideon hand-picked C3/C4 (ChatGPT, Nov 2026)",
+  "group": "C3 prompt: persuasive",
+  "question": "Explain why endless subscription services are bleeding consumers dry, without sugarcoating it.",
+  "text": "Subscription services have become one of the most irritating and financially draining inventions of modern consumer culture. What started as a convenient way to access entertainment and software has turned into an endless parade of monthly charges quietly eating away at people's bank accounts. These days, you don't just buy something and own it anymore. You rent access to it indefinitely, and the moment you stop paying, it disappears. Welcome to the subscription economy, where companies get recurring revenue and consumers get recurring headaches. The most ridiculous part is that practically everything now requires a subscription. Want to watch movies? Subscribe. Listen to music? Subscribe. Store your photos? Subscribe. Use certain software features? Subscribe. Even some cars have offered subscription-based features for equipment already installed in the vehicle. At this rate, I wouldn't be surprised if companies started charging $9.99 a month for the privilege of opening your refrigerator. Apparently, selling a product once is no longer enough. Businesses want a permanent financial relationship with your wallet. And let's talk about the psychological trick behind those seemingly harmless monthly prices. Five dollars here, twelve dollars there, another fifteen somewhere else. Individually, these charges seem insignificant. But combine enough of them, and suddenly you're spending hundreds of dollars every month on services you barely use. Companies understand this perfectly. They know a $9.99 monthly charge feels easier to accept than a $120 annual payment, even though the money is coming out of the same pocket. The subscription economy thrives on making consumers underestimate how much they're actually spending. Then there's the absolute nightmare of subscription cancellations. Signing up takes approximately three seconds. Cancelling can feel like trying to escape a complicated legal contract. Some companies bury cancellation options deep inside account settings, bombard customers with retention offers, or force them through unnecessary steps just to stop paying. Funny how the technology works flawlessly when collecting your money but suddenly becomes complicated when you want to leave. If a company makes it easier to subscribe than unsubscribe, that's not customer loyalty. That's manipulation. Streaming services deserve special criticism. Remember when streaming was supposed to rescue us from expensive cable packages? One affordable subscription, thousands of movies and shows, and freedom from traditional television bundles. What a beautiful dream that was. Now entertainment is scattered across countless platforms, each demanding its own monthly payment. Want to watch one particular series? That's another subscription. Your favorite movie moved to a different platform? Better open your wallet again. We've essentially recreated the cable television problem, except now customers have to manage the billing themselves. And don't even get me started on subscription price increases. Companies lure customers in with attractive introductory rates, build habits around their services, and then gradually raise prices. An extra two dollars might not sound much, but when several services do it repeatedly, the increases add up. Meanwhile, some platforms introduce advertisements into previously ad-free experiences or charge more to preserve features customers once enjoyed. You're paying more, sometimes receiving less, and being told it's all part of improving the customer experience. How generous. Perhaps the most disturbing development is the erosion of ownership. There was a time when purchasing software, music, movies, or games meant you could keep using what you bought. Now, access can depend on maintaining an active subscription, accepting changing terms, or trusting that a company will continue supporting its platform. Stop paying, and features disappear. Services shut down, licensing agreements change, and digital content can vanish from catalogs overnight. Consumers are increasingly being asked to pay forever for the privilege of owning nothing. Of course, subscriptions aren't inherently bad. Some genuinely provide excellent value, especially when they offer frequent updates, useful services, or access to large collections of content at reasonable prices. The problem is the aggressive expansion of subscriptions into nearly every corner of consumer life, including products and features that could reasonably be sold through straightforward one-time purchases. What makes this system particularly frustrating is how it exploits convenience and forgetfulness. Companies don't necessarily need every customer to actively use their service. They just need enough people to forget they're paying for it. That gym membership you haven't used in six months? Still charging. That streaming platform you subscribed to for one show? Still charging. That free trial you forgot to cancel? Congratulations, you're now a paying customer. And while consumers are constantly told to budget responsibly, companies are building business models around automatic payments, confusing pricing structures, and customer inertia. It's an extraordinary contradiction. Individuals are criticized for poor financial discipline while corporations are rewarded for designing systems that make unnecessary spending easier to overlook. The solution isn't complicated. Companies should offer transparent pricing, straightforward cancellation, and genuine ownership options where practical. Consumers should be able to purchase products without being forced into permanent payment arrangements. A subscription should be a choice that provides continuing value, not a financial trap disguised as convenience. The subscription economy has turned modern life into a collection of endless bills. Instead of asking whether we can afford to buy something, we're increasingly being asked whether we can afford to keep paying for it forever. And that's the real problem. Companies aren't satisfied with selling us products anymore. They want to rent us our own lifestyles, one automatic payment at a time. Enough is enough. Not everything needs a monthly fee, not every customer wants a lifelong billing relationship, and not every product needs to become another subscription. Sometimes, people just want to buy something, own it, and be left alone.",
+  "labels": {
+   "Subscription services have become one of the most irritating and financially draining inventions of modern consumer culture.": {
+    "C3": "met"
+   },
+   "You rent access to it indefinitely, and the moment you stop paying, it disappears.": {
+    "C3": "not_met"
+   },
+   "The most ridiculous part is that practically everything now requires a subscription.": {
+    "C3": "met"
+   },
+   "Subscribe.": {
+    "C3": "not_met"
+   },
+   "At this rate, I wouldn't be surprised if companies started charging $9.99 a month for the privilege of opening your refrigerator.": {
+    "C3": "not_met"
+   },
+   "Individually, these charges seem insignificant.": {
+    "C3": "not_met"
+   },
+   "They know a $9.99 monthly charge feels easier to accept than a $120 annual payment, even though the money is coming out of the same pocket.": {
+    "C3": "not_met"
+   },
+   "Then there's the absolute nightmare of subscription cancellations.": {
+    "C3": "met"
+   },
+   "Some companies bury cancellation options deep inside account settings, bombard customers with retention offers, or force them through unnecessary steps just to stop paying.": {
+    "C3": "not_met"
+   },
+   "If a company makes it easier to subscribe than unsubscribe, that's not customer loyalty.": {
+    "C3": "not_met"
+   },
+   "That's manipulation.": {
+    "C3": "not_met"
+   },
+   "Streaming services deserve special criticism.": {
+    "C3": "met"
+   },
+   "Want to watch one particular series?": {
+    "C3": "not_met"
+   },
+   "And don't even get me started on subscription price increases.": {
+    "C3": "met"
+   },
+   "Now, access can depend on maintaining an active subscription, accepting changing terms, or trusting that a company will continue supporting its platform.": {
+    "C3": "not_met"
+   },
+   "Of course, subscriptions aren't inherently bad.": {
+    "C3": "not_met"
+   },
+   "Some genuinely provide excellent value, especially when they offer frequent updates, useful services, or access to large collections of content at reasonable prices.": {
+    "C3": "not_met"
+   },
+   "What makes this system particularly frustrating is how it exploits convenience and forgetfulness.": {
+    "C3": "met"
+   },
+   "It's an extraordinary contradiction.": {
+    "C3": "not_met"
+   },
+   "Individuals are criticized for poor financial discipline while corporations are rewarded for designing systems that make unnecessary spending easier to overlook.": {
+    "C3": "not_met"
+   },
+   "The solution isn't complicated.": {
+    "C3": "not_met"
+   },
+   "And that's the real problem.": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c3-08",
+  "source": "Gideon hand-picked C3/C4 (ChatGPT, Nov 2026)",
+  "group": "C3 prompt: strong voice",
+  "question": "Give me an unapologetically critical view of HOA rules and neighborhood micromanagement.",
+  "text": "Homeowners associations might be one of the most absurd contradictions in modern American homeownership. Imagine working for years, saving thousands of dollars, navigating an exhausting mortgage process, and finally purchasing a home, only to discover that a committee of neighborhood busybodies gets to decide what color you can paint your front door. Congratulations! You've achieved the American dream of homeownership, except apparently, you still need permission to live in your own house. The sheer ridiculousness of some HOA rules is almost impressive. Your grass is half an inch too tall? Violation notice. Your trash can stayed outside a few hours too long? Fine. You painted your mailbox the wrong shade of beige? Prepare for an official warning. Apparently, civilization will collapse if someone dares to install a garden decoration that doesn't match the neighborhood's approved aesthetic. It's as though some communities have confused maintaining property values with operating a miniature authoritarian regime. And let's talk about the people who take neighborhood enforcement far too seriously. Every community seems capable of producing that one self-appointed guardian of suburban perfection who patrols the streets looking for violations. These are the people who can spot an unauthorized flowerpot from three houses away but somehow fail to notice when their own behavior makes the neighborhood miserable. Nothing says community spirit quite like reporting your neighbor because their driveway contains the wrong type of vehicle. The hypocrisy is especially frustrating when you consider the financial arrangement. Homeowners already pay mortgages, property taxes, insurance, and maintenance expenses. Then, on top of all that, they pay HOA fees for the privilege of being told what they cannot do. You're literally paying an organization that can fine you for failing to follow its rules. That's an extraordinary business arrangement. Imagine paying a monthly subscription to someone whose primary contribution to your life is sending you complaints about your lawn. Of course, HOAs often justify their restrictions by claiming they're protecting property values. And yes, reasonable maintenance standards can benefit a neighborhood. Nobody wants a dangerous, neglected property creating problems for surrounding homes. But there's a massive difference between addressing genuine safety concerns and treating a slightly unconventional front door as a neighborhood emergency. If the value of your property supposedly depends on every house looking like an identical beige cardboard box, perhaps the community needs to reconsider its definition of beauty. What makes excessive HOA control particularly irritating is how it destroys individuality. One of the greatest joys of owning a home should be the freedom to make it your own. Want a colorful garden? A unique fence? A different exterior paint color? In an overly restrictive HOA community, those decisions can require applications, approvals, and endless bureaucratic nonsense. Suddenly, expressing your personality becomes a regulatory challenge. Neighborhoods stop looking like places where real people live and start resembling carefully arranged displays in a furniture catalog. And don't even get me started on selective enforcement. In poorly managed associations, rules can become weapons in neighborhood disputes. One homeowner might receive repeated warnings for minor violations while another gets away with similar behavior because they're friendly with board members. When enforcement depends on personal relationships rather than consistent standards, the entire system loses credibility. What should be a mechanism for maintaining shared spaces can become a playground for petty grudges and unnecessary power struggles. Perhaps the most outrageous aspect is that HOA rules can have serious financial consequences. Depending on state law and governing documents, unpaid assessments or certain fines can lead to liens and other enforcement actions, sometimes even foreclosure proceedings. Think about that. A private neighborhood organization can have substantial legal power over property you've spent years paying for. That's not something homeowners should discover only after receiving their first violation letter. To be fair, not every HOA is terrible. Some responsibly maintain shared amenities, manage community infrastructure, resolve legitimate disputes, and provide services residents genuinely appreciate. A well-run association with transparent finances, reasonable rules, and accountable leadership can serve a useful purpose. But those benefits don't excuse associations that become obsessed with controlling every insignificant detail of residents' lives. The fundamental problem is the confusion between community standards and community control. Good neighborhoods are built on mutual respect, cooperation, and consideration for others. They don't require constant surveillance, excessive fines, or committees debating whether someone's holiday decorations are sufficiently tasteful. A neighborhood should feel like a community, not a workplace where your house is your cubicle and the HOA president is your supervisor. If homeowners are paying substantial amounts to live in a community, they deserve clear rules, fair enforcement, financial transparency, and meaningful participation in decisions affecting their property. They shouldn't have to navigate a bureaucratic obstacle course every time they want to make a harmless improvement to their homes. At the end of the day, excessive HOA micromanagement represents everything frustrating about unnecessary bureaucracy: too many rules, too much interference, and far too little common sense. It turns ordinary neighbors into rule enforcers and transforms minor aesthetic disagreements into formal disputes. People buy homes because they want stability, independence, and a place to call their own. They don't spend hundreds of thousands of dollars just to have someone with a clipboard dictate the acceptable height of their grass. If your neighborhood needs a twenty-page rulebook to explain which shade of brown your fence must be, perhaps the problem isn't the homeowners. Perhaps the people making the rules have forgotten what it means to let people live.",
+  "labels": {
+   "Homeowners associations might be one of the most absurd contradictions in modern American homeownership.": {
+    "C3": "met"
+   },
+   "The sheer ridiculousness of some HOA rules is almost impressive.": {
+    "C3": "met"
+   },
+   "It's as though some communities have confused maintaining property values with operating a miniature authoritarian regime.": {
+    "C3": "met"
+   },
+   "Every community seems capable of producing that one self-appointed guardian of suburban perfection who patrols the streets looking for violations.": {
+    "C3": "not_met"
+   },
+   "Then, on top of all that, they pay HOA fees for the privilege of being told what they cannot do.": {
+    "C3": "not_met"
+   },
+   "If the value of your property supposedly depends on every house looking like an identical beige cardboard box, perhaps the community needs to reconsider its definition of beauty.": {
+    "C3": "not_met"
+   },
+   "What makes excessive HOA control particularly irritating is how it destroys individuality.": {
+    "C3": "met"
+   },
+   "One of the greatest joys of owning a home should be the freedom to make it your own.": {
+    "C3": "not_met"
+   },
+   "A unique fence?": {
+    "C3": "not_met"
+   },
+   "Suddenly, expressing your personality becomes a regulatory challenge.": {
+    "C3": "not_met"
+   },
+   "And don't even get me started on selective enforcement.": {
+    "C3": "met"
+   },
+   "When enforcement depends on personal relationships rather than consistent standards, the entire system loses credibility.": {
+    "C3": "not_met"
+   },
+   "Perhaps the most outrageous aspect is that HOA rules can have serious financial consequences.": {
+    "C3": "met"
+   },
+   "Depending on state law and governing documents, unpaid assessments or certain fines can lead to liens and other enforcement actions, sometimes even foreclosure proceedings.": {
+    "C3": "not_met"
+   },
+   "The fundamental problem is the confusion between community standards and community control.": {
+    "C3": "met"
+   },
+   "At the end of the day, excessive HOA micromanagement represents everything frustrating about unnecessary bureaucracy: too many rules, too much interference, and far too little common sense.": {
+    "C3": "met"
+   },
+   "If your neighborhood needs a twenty-page rulebook to explain which shade of brown your fence must be, perhaps the problem isn't the homeowners.": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c3-09",
+  "source": "Gideon hand-picked C3/C4 (ChatGPT, Nov 2026)",
+  "group": "C3 prompt: persuasive",
+  "question": "Write a passionate argument for why cars have ruined the walkability and soul of American cities.",
+  "text": "American cities have sacrificed something incredibly valuable in the name of convenience: their humanity. For decades, we've designed our streets, neighborhoods, and public spaces around cars rather than people, and the consequences are everywhere. Beautiful neighborhoods have been divided by highways, sidewalks have disappeared, and vibrant downtowns have been replaced by enormous parking lots. We've built cities where a two-ton machine has more freedom to move than the people who actually live there. And somehow, we've convinced ourselves that this is progress. The most frustrating part is that walking, one of the simplest and most natural human activities, has become unnecessarily difficult in many American communities. Want to grab a coffee? Drive. Need groceries? Drive. Want to visit a friend who lives two miles away? Better get in your car because the route probably involves crossing a six-lane road with barely any pedestrian infrastructure. In some places, walking isn't merely inconvenient; it's genuinely dangerous. What kind of urban planning makes people feel like they're risking their lives just to cross the street? And let's talk about the absolute absurdity of parking lots. American cities have dedicated enormous amounts of valuable land to storing vehicles that sit unused for most of the day. Instead of parks, housing, restaurants, and public gathering spaces, we get endless stretches of asphalt baking under the summer sun. Imagine how much more vibrant our communities could be if even a fraction of that space were dedicated to people rather than parked cars. A parking lot doesn't create culture. A highway doesn't create community. And a six-lane road doesn't make a neighborhood worth living in. Perhaps the greatest tragedy is how car-centered development has destroyed the spontaneous interactions that make cities feel alive. In walkable neighborhoods, people encounter one another naturally. They stop at local shops, greet neighbors, sit in public squares, and discover places they weren't planning to visit. These seemingly insignificant moments are what give communities their character. But when everyone travels inside a private metal box, those interactions disappear. Life becomes a repetitive cycle of driving from home to work, from work to the grocery store, and from the grocery store back home. We become isolated individuals moving between isolated destinations. The irony is that cars were supposed to represent freedom. Advertisements have spent generations selling the automobile as the ultimate symbol of independence. But what kind of freedom requires you to spend thousands of dollars purchasing, insuring, fueling, and maintaining a vehicle just to participate in everyday life? If you cannot reasonably get to work, buy groceries, or visit friends without owning a car, that's not freedom. That's dependency disguised as independence. And this dependency hits some people especially hard. Children, older adults, people with disabilities, and those who cannot afford cars often face enormous barriers in communities designed almost exclusively around driving. A teenager shouldn't need a parent to drive them everywhere. An older adult shouldn't lose access to everyday activities simply because they can no longer drive safely. A person working a low-wage job shouldn't have to spend a significant portion of their income maintaining a vehicle just to reach their workplace. A functioning city should provide meaningful transportation choices, not punish people for lacking a car. Then there's the environmental cost. Car-dependent communities encourage longer trips, greater fuel consumption, and more land devoted to roads and parking. Traffic congestion produces pollution, noise, and frustration, while sprawling development can consume farmland and natural habitats. And what has been our response to traffic? Build more roads. Widen the highways. Add another lane. Yet expanding road capacity can encourage additional driving, leaving cities trapped in an expensive cycle of construction and congestion. It's like trying to solve overcrowding by making the problem more attractive. What makes this situation particularly infuriating is that America already has examples of what more human-centered cities can look like. Neighborhoods in New York, Boston, Philadelphia, and other older cities demonstrate how walking, public transportation, mixed-use buildings, and lively streets can support everyday life. These places aren't perfect, but they show that communities don't have to be organized around mandatory car ownership. People can live near shops, restaurants, workplaces, schools, and public spaces without needing to drive for every small errand. Of course, cars have legitimate benefits. They provide flexibility, connect rural communities, support businesses, and make many journeys easier. The argument isn't that every car should disappear or that everyone must suddenly start cycling twenty miles to work. The problem isn't the existence of cars. It's the decision to make cars the organizing principle of nearly everything we build. We need cities where walking is pleasant, cycling is safe, public transportation is reliable, and driving is an option rather than an obligation. We need streets with trees, benches, crosswalks, and businesses that people can actually reach on foot. We need neighborhoods where children can play, older residents can remain independent, and public spaces encourage people to spend time together. Most importantly, we need to stop treating pedestrians as obstacles to traffic. A street is not simply a corridor for moving vehicles as quickly as possible. It's part of a community. It's where people meet, shop, socialize, and experience the city around them. When we design streets exclusively for speed and vehicle capacity, we strip away much of what makes urban life meaningful. American cities don't need another endless highway cutting through neighborhoods. They need more places where people actually want to be. At the end of the day, the soul of a city isn't found in its parking garages, expressways, or sprawling intersections. It's found in its sidewalks, neighborhood cafés, public parks, local businesses, and the everyday interactions between the people who call it home. We've spent decades asking how to make cities better for cars. It's time to ask a much more important question: How do we make cities better for human beings? Because a city where you can drive everywhere but comfortably walk nowhere isn't a triumph of modern planning. It's a city that has forgotten who it was built for.",
+  "labels": {
+   "American cities have sacrificed something incredibly valuable in the name of convenience: their humanity.": {
+    "C3": "met"
+   },
+   "Beautiful neighborhoods have been divided by highways, sidewalks have disappeared, and vibrant downtowns have been replaced by enormous parking lots.": {
+    "C3": "not_met"
+   },
+   "The most frustrating part is that walking, one of the simplest and most natural human activities, has become unnecessarily difficult in many American communities.": {
+    "C3": "met"
+   },
+   "Want to grab a coffee?": {
+    "C3": "not_met"
+   },
+   "In some places, walking isn't merely inconvenient; it's genuinely dangerous.": {
+    "C3": "not_met"
+   },
+   "What kind of urban planning makes people feel like they're risking their lives just to cross the street?": {
+    "C3": "not_met"
+   },
+   "Perhaps the greatest tragedy is how car-centered development has destroyed the spontaneous interactions that make cities feel alive.": {
+    "C3": "met"
+   },
+   "In walkable neighborhoods, people encounter one another naturally.": {
+    "C3": "not_met"
+   },
+   "But when everyone travels inside a private metal box, those interactions disappear.": {
+    "C3": "not_met"
+   },
+   "The irony is that cars were supposed to represent freedom.": {
+    "C3": "met"
+   },
+   "Then there's the environmental cost.": {
+    "C3": "met"
+   },
+   "What makes this situation particularly infuriating is that America already has examples of what more human-centered cities can look like.": {
+    "C3": "met"
+   },
+   "They provide flexibility, connect rural communities, support businesses, and make many journeys easier.": {
+    "C3": "not_met"
+   },
+   "We need neighborhoods where children can play, older residents can remain independent, and public spaces encourage people to spend time together.": {
+    "C3": "not_met"
+   },
+   "It's part of a community.": {
+    "C3": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c4-01",
+  "source": "Gideon hand-picked C3/C4 (ChatGPT, Nov 2026)",
+  "group": "C4 prompt: groups of people",
+  "question": "Summarize what every college student experiences during finals week in short, declarative sentences.",
+  "text": "Sleep becomes a luxury. Coffee becomes a survival tool. Procrastination turns into regret. The library becomes a second home. Every minute suddenly matters. Stress reaches an entirely new level. Students calculate the lowest grade they need to pass. Five weeks of material get crammed into one night. Group chats become emergency study centers. Motivation disappears when it is needed most. Social lives temporarily cease to exist. Students promise to study earlier next semester. Everything becomes more interesting than studying. The final exam feels harder than every practice question. Finishing the last exam feels like escaping prison. The ultimate truth: Finals week turns procrastination into panic, caffeine into fuel, and the end of exams into the greatest feeling of freedom.",
+  "labels": {
+   "Sleep becomes a luxury.": {
+    "C4": "met"
+   },
+   "Coffee becomes a survival tool.": {
+    "C4": "met"
+   },
+   "Procrastination turns into regret.": {
+    "C4": "met"
+   },
+   "The library becomes a second home.": {
+    "C4": "met"
+   },
+   "Every minute suddenly matters.": {
+    "C4": "met"
+   },
+   "Stress reaches an entirely new level.": {
+    "C4": "met"
+   },
+   "Students calculate the lowest grade they need to pass.": {
+    "C4": "met"
+   },
+   "Five weeks of material get crammed into one night.": {
+    "C4": "met"
+   },
+   "Group chats become emergency study centers.": {
+    "C4": "met"
+   },
+   "Motivation disappears when it is needed most.": {
+    "C4": "met"
+   },
+   "Social lives temporarily cease to exist.": {
+    "C4": "met"
+   },
+   "Students promise to study earlier next semester.": {
+    "C4": "met"
+   },
+   "Everything becomes more interesting than studying.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "c4-02",
+  "source": "Gideon hand-picked C3/C4 (ChatGPT, Nov 2026)",
+  "group": "C4 prompt: things and habits",
+  "question": "Why do people never appreciate good health until they get sick?",
+  "text": "People often fail to appreciate good health until they get sick because good health feels normal, while sickness demands attention. When the body functions properly, people rarely think about breathing comfortably, walking without pain, sleeping peacefully, or eating without discomfort. These everyday abilities become invisible because they are taken for granted. When illness strikes, even the simplest activities can become difficult. Suddenly, being able to breathe through both nostrils, swallow without pain, or get out of bed without feeling exhausted seems like a blessing. Sickness reminds people of the freedom they enjoyed without realizing it. This happens partly because of a psychological phenomenon called hedonic adaptation. People become accustomed to their circumstances, including good health, and stop consciously appreciating them. Illness interrupts that familiarity and makes the value of health more noticeable. The deeper lesson is that people often recognize the value of something most clearly when they experience its absence. Health is not necessarily appreciated less because it is unimportant, but because its benefits are so constant that they become easy to overlook. As the saying goes, \"Health is a crown that the healthy wear, but only the sick can see.\"",
+  "labels": {
+   "People often fail to appreciate good health until they get sick because good health feels normal, while sickness demands attention.": {
+    "C4": "not_met"
+   },
+   "When the body functions properly, people rarely think about breathing comfortably, walking without pain, sleeping peacefully, or eating without discomfort.": {
+    "C4": "not_met"
+   },
+   "These everyday abilities become invisible because they are taken for granted.": {
+    "C4": "not_met"
+   },
+   "When illness strikes, even the simplest activities can become difficult.": {
+    "C4": "not_met"
+   },
+   "Suddenly, being able to breathe through both nostrils, swallow without pain, or get out of bed without feeling exhausted seems like a blessing.": {
+    "C4": "not_met"
+   },
+   "Sickness reminds people of the freedom they enjoyed without realizing it.": {
+    "C4": "not_met"
+   },
+   "This happens partly because of a psychological phenomenon called hedonic adaptation.": {
+    "C4": "not_met"
+   },
+   "People become accustomed to their circumstances, including good health, and stop consciously appreciating them.": {
+    "C4": "not_met"
+   },
+   "Illness interrupts that familiarity and makes the value of health more noticeable.": {
+    "C4": "not_met"
+   },
+   "The deeper lesson is that people often recognize the value of something most clearly when they experience its absence.": {
+    "C4": "not_met"
+   },
+   "Health is not necessarily appreciated less because it is unimportant, but because its benefits are so constant that they become easy to overlook.": {
+    "C4": "not_met"
+   },
+   "As the saying goes, \"Health is a crown that the healthy wear, but only the sick can see.\"": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "c4-03",
+  "source": "Gideon hand-picked C3/C4 (ChatGPT, Nov 2026)",
+  "group": "C4 prompt: groups of people",
+  "question": "Write bold, unqualified claims about how tourists behave compared to locals.",
+  "text": "Tourists see attractions. Locals see everyday life. Tourists admire the buildings that locals walk past without a second glance. Tourists spend money. Locals save money. Tourists pay $25 for a meal that locals know how to find for $10. Tourists take pictures. Locals keep walking. Tourists stop to photograph things that locals barely notice. Tourists follow maps. Locals know shortcuts. Tourists depend on GPS while locals navigate familiar streets effortlessly. Tourists romanticize everything. Locals know the reality. Tourists see beautiful streets and charming neighborhoods while locals see expensive rent, traffic, and daily frustrations. Tourists chase famous restaurants. Locals know the hidden gems. Tourists stand in long lines for viral food spots while locals eat at neighborhood favorites. Tourists treat the city like an adventure. Locals treat it like home. Every street is an exciting discovery for tourists and part of a familiar routine for locals. Tourists complain about prices. Locals complain about tourists. Visitors are shocked by expensive attractions while residents are frustrated by crowded streets. Tourists want experiences. Locals want convenience. Tourists happily travel an hour to see a landmark while locals avoid unnecessary trips. Tourists fall in love with the fantasy. Locals live with the reality. Tourists experience the excitement of a destination without carrying the responsibilities of everyday life there. The biggest difference: Tourists experience a place as an escape from ordinary life. Locals experience that same place as ordinary life. These are deliberately exaggerated contrasts, not literal rules about every tourist or local.",
+  "labels": {
+   "Tourists see attractions.": {
+    "C4": "met"
+   },
+   "Locals see everyday life.": {
+    "C4": "met"
+   },
+   "Tourists admire the buildings that locals walk past without a second glance.": {
+    "C4": "met"
+   },
+   "Tourists spend money.": {
+    "C4": "met"
+   },
+   "Locals save money.": {
+    "C4": "met"
+   },
+   "Tourists pay $25 for a meal that locals know how to find for $10.": {
+    "C4": "met"
+   },
+   "Tourists take pictures.": {
+    "C4": "met"
+   },
+   "Locals keep walking.": {
+    "C4": "met"
+   },
+   "Tourists stop to photograph things that locals barely notice.": {
+    "C4": "met"
+   },
+   "Tourists follow maps.": {
+    "C4": "met"
+   },
+   "Locals know shortcuts.": {
+    "C4": "met"
+   },
+   "Tourists depend on GPS while locals navigate familiar streets effortlessly.": {
+    "C4": "met"
+   },
+   "Tourists romanticize everything.": {
+    "C4": "met"
+   },
+   "Locals know the reality.": {
+    "C4": "met"
+   },
+   "Tourists see beautiful streets and charming neighborhoods while locals see expensive rent, traffic, and daily frustrations.": {
+    "C4": "met"
+   },
+   "Tourists chase famous restaurants.": {
+    "C4": "met"
+   },
+   "Locals know the hidden gems.": {
+    "C4": "met"
+   },
+   "Tourists stand in long lines for viral food spots while locals eat at neighborhood favorites.": {
+    "C4": "met"
+   },
+   "Tourists treat the city like an adventure.": {
+    "C4": "met"
+   },
+   "Locals treat it like home.": {
+    "C4": "met"
+   },
+   "Every street is an exciting discovery for tourists and part of a familiar routine for locals.": {
+    "C4": "met"
+   },
+   "Tourists complain about prices.": {
+    "C4": "met"
+   },
+   "Locals complain about tourists.": {
+    "C4": "met"
+   },
+   "Visitors are shocked by expensive attractions while residents are frustrated by crowded streets.": {
+    "C4": "met"
+   },
+   "Tourists want experiences.": {
+    "C4": "met"
+   },
+   "Locals want convenience.": {
+    "C4": "met"
+   },
+   "Tourists happily travel an hour to see a landmark while locals avoid unnecessary trips.": {
+    "C4": "met"
+   },
+   "Tourists fall in love with the fantasy.": {
+    "C4": "met"
+   },
+   "Locals live with the reality.": {
+    "C4": "met"
+   },
+   "Tourists experience the excitement of a destination without carrying the responsibilities of everyday life there.": {
+    "C4": "met"
+   },
+   "The biggest difference: Tourists experience a place as an escape from ordinary life.": {
+    "C4": "met"
+   },
+   "Locals experience that same place as ordinary life.": {
+    "C4": "met"
+   },
+   "These are deliberately exaggerated contrasts, not literal rules about every tourist or local.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c4-04",
+  "source": "Gideon hand-picked C3/C4 (ChatGPT, Nov 2026)",
+  "group": "C4 prompt: things and habits",
+  "question": "State 10 universal truths about what people always do when they're running late—no hedging or exceptions.",
+  "text": "They suddenly become professional time mathematicians. They calculate how to squeeze a 25-minute journey into 10 minutes. They blame traffic before even leaving the house. Traffic becomes the perfect excuse, even when poor planning is the real problem. They underestimate how long everything takes. A five-minute shower, three minutes to get dressed, and two minutes to eat breakfast somehow become a 30-minute disaster. They check the time obsessively. Every glance at the clock brings more panic, but they keep checking anyway. They convince themselves they can still make it. Even when they're already 15 minutes late, they believe some miracle will get them there on time. They suddenly can't find something important. Their keys, wallet, phone, or shoes mysteriously disappear at the worst possible moment. They start moving like they're competing in the Olympics. Walking becomes sprinting, getting dressed becomes a competitive sport, and every second feels precious. They send the legendary message: \"I'm almost there.\" Meanwhile, they're still looking for their shoes. They blame everything except themselves. The alarm didn't ring, the weather was terrible, the bus was slow, or someone distracted them. They promise themselves they'll never be late again. They make a passionate commitment to better time management, only to repeat the entire performance next time. The ultimate truth: Running late transforms ordinary people into optimistic mathematicians, creative storytellers, and Olympic sprinters—all before breakfast.",
+  "labels": {
+   "They suddenly become professional time mathematicians.": {
+    "C4": "met"
+   },
+   "They calculate how to squeeze a 25-minute journey into 10 minutes.": {
+    "C4": "met"
+   },
+   "They blame traffic before even leaving the house.": {
+    "C4": "met"
+   },
+   "Traffic becomes the perfect excuse, even when poor planning is the real problem.": {
+    "C4": "met"
+   },
+   "They underestimate how long everything takes.": {
+    "C4": "met"
+   },
+   "A five-minute shower, three minutes to get dressed, and two minutes to eat breakfast somehow become a 30-minute disaster.": {
+    "C4": "met"
+   },
+   "They check the time obsessively.": {
+    "C4": "met"
+   },
+   "Every glance at the clock brings more panic, but they keep checking anyway.": {
+    "C4": "met"
+   },
+   "They convince themselves they can still make it.": {
+    "C4": "met"
+   },
+   "Even when they're already 15 minutes late, they believe some miracle will get them there on time.": {
+    "C4": "met"
+   },
+   "They suddenly can't find something important.": {
+    "C4": "met"
+   },
+   "Their keys, wallet, phone, or shoes mysteriously disappear at the worst possible moment.": {
+    "C4": "met"
+   },
+   "They start moving like they're competing in the Olympics.": {
+    "C4": "met"
+   },
+   "Walking becomes sprinting, getting dressed becomes a competitive sport, and every second feels precious.": {
+    "C4": "met"
+   },
+   "They send the legendary message: \"I'm almost there.\"": {
+    "C4": "met"
+   },
+   "Meanwhile, they're still looking for their shoes.": {
+    "C4": "met"
+   },
+   "They blame everything except themselves.": {
+    "C4": "met"
+   },
+   "The alarm didn't ring, the weather was terrible, the bus was slow, or someone distracted them.": {
+    "C4": "met"
+   },
+   "They promise themselves they'll never be late again.": {
+    "C4": "met"
+   },
+   "They make a passionate commitment to better time management, only to repeat the entire performance next time.": {
+    "C4": "met"
+   },
+   "The ultimate truth: Running late transforms ordinary people into optimistic mathematicians, creative storytellers, and Olympic sprinters—all before breakfast.": {
+    "C4": "met"
+   }
+  }
+ },
+ {
+  "id": "c4-05",
+  "source": "Gideon hand-picked C3/C4 (ChatGPT, Nov 2026)",
+  "group": "C4 prompt: groups of people",
+  "question": "What does everyone secretly hate about group projects, even if they won't admit it?",
+  "text": "The one person who does absolutely nothing but gets the same grade. You spend sleepless nights researching, writing, and editing while someone else contributes their name to the title slide and walks away with an A. The endless group chat that accomplishes nothing. Fifty messages about when to meet, twenty memes, fifteen excuses, and somehow nobody has started the actual assignment. The person who disappears until the deadline. They ignore every message for two weeks, then suddenly reappear six hours before submission asking, \"Hey guys, what do you need me to do?\" Having to fix someone else's terrible work. You assign someone a simple section, and they submit something so poorly written that rewriting it takes longer than doing it yourself. The awkwardness of telling someone their work sucks. Everyone knows one section is terrible, but nobody wants to be the villain who says it out loud. The person who takes over everything. They reject everyone's ideas, insist on doing things their way, and treat a five-person group project like their personal dictatorship. Scheduling meetings that could have been emails. Five busy students rearrange their entire schedules for a 45-minute meeting that produces exactly two decisions. The fake promises. \"I'll finish my part tonight\" becomes tomorrow, then the weekend, then five minutes before the deadline. The unfair distribution of work. Somehow, two people end up doing 80% of the project while everyone else claims they contributed equally. The forced enthusiasm about teamwork. Everyone pretends they're enjoying the collaborative learning experience when half the group would rather complete the entire assignment alone. Group projects often reward the appearance of teamwork more than the reality of individual effort. The hardworking students become unpaid project managers, the unreliable students learn that someone else will rescue them, and the professor sees a polished final submission without necessarily knowing who actually did the work. And perhaps the most frustrating part? You can choose your friends, but you often can't choose your group members. Of course, a genuinely good group can make a difficult assignment much easier. It's the dysfunctional groups that make these complaints feel painfully familiar.",
+  "labels": {
+   "The one person who does absolutely nothing but gets the same grade.": {
+    "C4": "not_met"
+   },
+   "You spend sleepless nights researching, writing, and editing while someone else contributes their name to the title slide and walks away with an A.": {
+    "C4": "met"
+   },
+   "The endless group chat that accomplishes nothing.": {
+    "C4": "not_met"
+   },
+   "Fifty messages about when to meet, twenty memes, fifteen excuses, and somehow nobody has started the actual assignment.": {
+    "C4": "met"
+   },
+   "The person who disappears until the deadline.": {
+    "C4": "not_met"
+   },
+   "You assign someone a simple section, and they submit something so poorly written that rewriting it takes longer than doing it yourself.": {
+    "C4": "met"
+   },
+   "The awkwardness of telling someone their work sucks.": {
+    "C4": "not_met"
+   },
+   "Everyone knows one section is terrible, but nobody wants to be the villain who says it out loud.": {
+    "C4": "met"
+   },
+   "The person who takes over everything.": {
+    "C4": "not_met"
+   },
+   "They reject everyone's ideas, insist on doing things their way, and treat a five-person group project like their personal dictatorship.": {
+    "C4": "met"
+   },
+   "Scheduling meetings that could have been emails.": {
+    "C4": "not_met"
+   },
+   "Five busy students rearrange their entire schedules for a 45-minute meeting that produces exactly two decisions.": {
+    "C4": "met"
+   },
+   "The fake promises.": {
+    "C4": "not_met"
+   },
+   "\"I'll finish my part tonight\" becomes tomorrow, then the weekend, then five minutes before the deadline.": {
+    "C4": "met"
+   },
+   "The unfair distribution of work.": {
+    "C4": "not_met"
+   },
+   "Somehow, two people end up doing 80% of the project while everyone else claims they contributed equally.": {
+    "C4": "met"
+   },
+   "The forced enthusiasm about teamwork.": {
+    "C4": "not_met"
+   },
+   "Everyone pretends they're enjoying the collaborative learning experience when half the group would rather complete the entire assignment alone.": {
+    "C4": "met"
+   },
+   "Group projects often reward the appearance of teamwork more than the reality of individual effort.": {
+    "C4": "not_met"
+   },
+   "The hardworking students become unpaid project managers, the unreliable students learn that someone else will rescue them, and the professor sees a polished final submission without necessarily knowing who actually did the work.": {
+    "C4": "met"
+   },
+   "And perhaps the most frustrating part?": {
+    "C4": "not_met"
+   },
+   "You can choose your friends, but you often can't choose your group members.": {
+    "C4": "not_met"
+   },
+   "Of course, a genuinely good group can make a difficult assignment much easier.": {
+    "C4": "not_met"
+   },
+   "It's the dysfunctional groups that make these complaints feel painfully familiar.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c4-06",
+  "source": "Gideon hand-picked C3/C4 (ChatGPT, Nov 2026)",
+  "group": "C4 prompt: groups of people",
+  "question": "State the unwritten laws that every remote worker follows when their camera is off.",
+  "text": "Pajamas become professional attire. Nobody can see your clothes, so comfort wins over corporate fashion. The mute button becomes your best friend. Every meeting begins with checking whether your microphone is actually off. Breakfast happens during meetings. A 9 a.m. meeting is the perfect opportunity to finish your cereal. Facial expressions become dangerously honest. Eye rolls, yawns, and looks of disbelief happen freely behind the invisible camera. The phone becomes a second screen. Emails, social media, and text messages compete with the meeting for attention. The bed becomes an unofficial office. Sometimes the most productive workspace comes with pillows and blankets. Household chores become meeting activities. Folding laundry and listening to quarterly updates suddenly go together. Silence is mistaken for agreement. Nobody responds to a question, so the meeting organizer assumes everyone understands. The phrase \"Sorry, I was on mute\" becomes a daily ritual. It is the universal excuse for an awkward silence. Snacking becomes a full-time occupation. The kitchen is only ten steps away, and nobody is watching. The camera stays off for mysterious reasons. \"Technical difficulties\" becomes a convenient explanation for not being presentable. Multitasking becomes an Olympic sport. Workers answer emails, prepare lunch, and participate in meetings simultaneously. The fear of accidentally turning on the camera never disappears. One wrong click can expose an entire morning routine. The final five minutes of a meeting feel like an eternity. Everyone waits for someone brave enough to say, \"I think that's everything.\" The moment the meeting ends, professionalism disappears. The laptop closes, the chair spins, and normal life resumes. The ultimate unwritten law: When the camera is off, the meeting might still be professional, but the person attending it is operating in maximum comfort mode.",
+  "labels": {
+   "Pajamas become professional attire.": {
+    "C4": "met"
+   },
+   "Nobody can see your clothes, so comfort wins over corporate fashion.": {
+    "C4": "met"
+   },
+   "The mute button becomes your best friend.": {
+    "C4": "met"
+   },
+   "Every meeting begins with checking whether your microphone is actually off.": {
+    "C4": "met"
+   },
+   "Breakfast happens during meetings.": {
+    "C4": "met"
+   },
+   "Facial expressions become dangerously honest.": {
+    "C4": "met"
+   },
+   "Eye rolls, yawns, and looks of disbelief happen freely behind the invisible camera.": {
+    "C4": "met"
+   },
+   "The phone becomes a second screen.": {
+    "C4": "met"
+   },
+   "Emails, social media, and text messages compete with the meeting for attention.": {
+    "C4": "met"
+   },
+   "The bed becomes an unofficial office.": {
+    "C4": "met"
+   },
+   "Sometimes the most productive workspace comes with pillows and blankets.": {
+    "C4": "not_met"
+   },
+   "Household chores become meeting activities.": {
+    "C4": "met"
+   },
+   "Folding laundry and listening to quarterly updates suddenly go together.": {
+    "C4": "met"
+   },
+   "Silence is mistaken for agreement.": {
+    "C4": "met"
+   },
+   "Nobody responds to a question, so the meeting organizer assumes everyone understands.": {
+    "C4": "met"
+   },
+   "The phrase \"Sorry, I was on mute\" becomes a daily ritual.": {
+    "C4": "met"
+   },
+   "Snacking becomes a full-time occupation.": {
+    "C4": "met"
+   },
+   "The kitchen is only ten steps away, and nobody is watching.": {
+    "C4": "met"
+   },
+   "The camera stays off for mysterious reasons.": {
+    "C4": "met"
+   },
+   "\"Technical difficulties\" becomes a convenient explanation for not being presentable.": {
+    "C4": "met"
+   },
+   "Multitasking becomes an Olympic sport.": {
+    "C4": "met"
+   },
+   "Workers answer emails, prepare lunch, and participate in meetings simultaneously.": {
+    "C4": "met"
+   },
+   "The fear of accidentally turning on the camera never disappears.": {
+    "C4": "met"
+   },
+   "The final five minutes of a meeting feel like an eternity.": {
+    "C4": "met"
+   },
+   "Everyone waits for someone brave enough to say, \"I think that's everything.\"": {
+    "C4": "met"
+   },
+   "The moment the meeting ends, professionalism disappears.": {
+    "C4": "met"
+   },
+   "The laptop closes, the chair spins, and normal life resumes.": {
+    "C4": "met"
+   },
+   "The ultimate unwritten law: When the camera is off, the meeting might still be professional, but the person attending it is operating in maximum comfort mode.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c4-07",
+  "source": "Gideon hand-picked C3/C4 (ChatGPT, Nov 2026)",
+  "group": "C4 prompt: things and habits",
+  "question": "Why do people never appreciate good health until they get sick? (Response 2)",
+  "text": "People often fail to appreciate good health until they get sick because good health feels normal, while sickness makes its value impossible to ignore. When people are healthy, they rarely think about how fortunate they are to breathe comfortably, walk without pain, eat normally, or sleep peacefully. These simple abilities become part of everyday life, so they are easily taken for granted. When sickness strikes, everything changes. Suddenly, activities that once required no effort become difficult. A person with a blocked nose realizes how wonderful it feels to breathe freely. Someone suffering from a fever begins to miss the energy they had just days earlier. Psychologically, this is connected to hedonic adaptation, where people become accustomed to positive circumstances and gradually stop noticing them. Illness interrupts that sense of normality and reminds people of what they previously enjoyed. There is also a tendency called loss aversion: losing something valuable can feel more emotionally significant than having it. The discomfort of illness can therefore make good health seem especially precious. The deeper truth is that people often recognize the value of ordinary blessings when those blessings are threatened or temporarily lost. However, not everyone waits until sickness to appreciate their health. Some people consciously practice gratitude and prioritize their well-being while they are healthy. The ultimate lesson: Good health is one of life's greatest privileges, but its value is often most visible when it is no longer guaranteed.",
+  "labels": {
+   "People often fail to appreciate good health until they get sick because good health feels normal, while sickness makes its value impossible to ignore.": {
+    "C4": "not_met"
+   },
+   "When people are healthy, they rarely think about how fortunate they are to breathe comfortably, walk without pain, eat normally, or sleep peacefully.": {
+    "C4": "not_met"
+   },
+   "These simple abilities become part of everyday life, so they are easily taken for granted.": {
+    "C4": "not_met"
+   },
+   "When sickness strikes, everything changes.": {
+    "C4": "not_met"
+   },
+   "Suddenly, activities that once required no effort become difficult.": {
+    "C4": "not_met"
+   },
+   "A person with a blocked nose realizes how wonderful it feels to breathe freely.": {
+    "C4": "not_met"
+   },
+   "Someone suffering from a fever begins to miss the energy they had just days earlier.": {
+    "C4": "not_met"
+   },
+   "Psychologically, this is connected to hedonic adaptation, where people become accustomed to positive circumstances and gradually stop noticing them.": {
+    "C4": "not_met"
+   },
+   "Illness interrupts that sense of normality and reminds people of what they previously enjoyed.": {
+    "C4": "not_met"
+   },
+   "There is also a tendency called loss aversion: losing something valuable can feel more emotionally significant than having it.": {
+    "C4": "not_met"
+   },
+   "The discomfort of illness can therefore make good health seem especially precious.": {
+    "C4": "not_met"
+   },
+   "The deeper truth is that people often recognize the value of ordinary blessings when those blessings are threatened or temporarily lost.": {
+    "C4": "not_met"
+   },
+   "However, not everyone waits until sickness to appreciate their health.": {
+    "C4": "not_met"
+   },
+   "Some people consciously practice gratitude and prioritize their well-being while they are healthy.": {
+    "C4": "not_met"
+   },
+   "The ultimate lesson: Good health is one of life's greatest privileges, but its value is often most visible when it is no longer guaranteed.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c4-08",
+  "source": "Gideon hand-picked C3/C4 (ChatGPT, Nov 2026)",
+  "group": "C4 prompt: things and habits",
+  "question": "Why does nobody actually read terms and conditions before clicking \"agree\"?",
+  "text": "People rarely read terms and conditions before clicking \"Agree\" because they want to use the product, not spend 30 minutes reading a legal document. Companies present users with lengthy agreements filled with complicated language, technical terminology, and clauses that are difficult for ordinary people to understand. As a result, clicking \"Agree\" becomes an automatic habit rather than an informed decision. Nobody wants to waste time. People want to download an app, create an account, or access a service immediately. Reading 40 pages of legal language feels like an unnecessary obstacle. The language is unnecessarily complicated. Terms and conditions often contain legal jargon that makes even simple policies difficult to understand. People assume nothing bad will happen. Most users believe the agreement contains standard rules and that accepting them will have no serious consequences. There is rarely a meaningful alternative. If someone disagrees with the terms, their only practical option is often to stop using the service entirely. Clicking \"Agree\" has become a habit. After accepting hundreds of agreements without noticeable consequences, people stop treating the decision as important. Companies know that most people will not read the agreements, and lengthy legal documents make it easier for important details to go unnoticed. Users may unknowingly accept automatic renewals, data collection practices, arbitration clauses, or restrictions on their rights. This creates what researchers call the privacy paradox: people express concern about their privacy but often accept digital agreements without carefully examining how their information will be used. The ultimate irony: People spend 20 minutes deciding which Netflix movie to watch but only two seconds agreeing to a contract that could affect their personal information, money, and legal rights. Not literally everyone skips the terms, but the design of many digital agreements strongly encourages quick acceptance rather than careful reading.",
+  "labels": {
+   "People rarely read terms and conditions before clicking \"Agree\" because they want to use the product, not spend 30 minutes reading a legal document.": {
+    "C4": "not_met"
+   },
+   "Companies present users with lengthy agreements filled with complicated language, technical terminology, and clauses that are difficult for ordinary people to understand.": {
+    "C4": "not_met"
+   },
+   "As a result, clicking \"Agree\" becomes an automatic habit rather than an informed decision.": {
+    "C4": "not_met"
+   },
+   "Nobody wants to waste time.": {
+    "C4": "met"
+   },
+   "People want to download an app, create an account, or access a service immediately.": {
+    "C4": "met"
+   },
+   "Reading 40 pages of legal language feels like an unnecessary obstacle.": {
+    "C4": "not_met"
+   },
+   "The language is unnecessarily complicated.": {
+    "C4": "not_met"
+   },
+   "Terms and conditions often contain legal jargon that makes even simple policies difficult to understand.": {
+    "C4": "not_met"
+   },
+   "People assume nothing bad will happen.": {
+    "C4": "met"
+   },
+   "Most users believe the agreement contains standard rules and that accepting them will have no serious consequences.": {
+    "C4": "not_met"
+   },
+   "There is rarely a meaningful alternative.": {
+    "C4": "not_met"
+   },
+   "If someone disagrees with the terms, their only practical option is often to stop using the service entirely.": {
+    "C4": "not_met"
+   },
+   "Clicking \"Agree\" has become a habit.": {
+    "C4": "not_met"
+   },
+   "After accepting hundreds of agreements without noticeable consequences, people stop treating the decision as important.": {
+    "C4": "met"
+   },
+   "Companies know that most people will not read the agreements, and lengthy legal documents make it easier for important details to go unnoticed.": {
+    "C4": "not_met"
+   },
+   "Users may unknowingly accept automatic renewals, data collection practices, arbitration clauses, or restrictions on their rights.": {
+    "C4": "not_met"
+   },
+   "This creates what researchers call the privacy paradox: people express concern about their privacy but often accept digital agreements without carefully examining how their information will be used.": {
+    "C4": "not_met"
+   },
+   "The ultimate irony: People spend 20 minutes deciding which Netflix movie to watch but only two seconds agreeing to a contract that could affect their personal information, money, and legal rights.": {
+    "C4": "not_met"
+   },
+   "Not literally everyone skips the terms, but the design of many digital agreements strongly encourages quick acceptance rather than careful reading.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c4-09",
+  "source": "Gideon hand-picked C3/C4 (ChatGPT, Nov 2026)",
+  "group": "C4 prompt: things and habits",
+  "question": "Give me 8 punchy generalizations about how people behave when the Wi-Fi goes down.",
+  "text": "Everyone suddenly becomes an IT expert. The first instinct is to restart the router, even when nobody understands how it works. Panic begins within seconds. Five minutes without internet feels like five hours of isolation from civilization. The router becomes public enemy number one. People stare at its blinking lights as if intimidation will restore the connection. Everyone blames someone else. The internet provider, the weather, the neighbors, or whoever last touched the router becomes the prime suspect. People check their phones every ten seconds. Somehow, repeatedly refreshing the same page feels like a legitimate troubleshooting strategy. Mobile data suddenly becomes precious. People who casually stream hours of videos start treating every megabyte like gold. Productivity mysteriously disappears. Even tasks that don't require internet suddenly seem impossible to complete. The moment Wi-Fi returns, everyone forgets the crisis. The panic disappears, streaming resumes, and nobody remembers their dramatic promises to live offline. The ultimate truth: Nothing reveals modern humanity's dependence on technology faster than a tiny router deciding to take an unexpected vacation.",
+  "labels": {
+   "Everyone suddenly becomes an IT expert.": {
+    "C4": "met"
+   },
+   "The first instinct is to restart the router, even when nobody understands how it works.": {
+    "C4": "met"
+   },
+   "Panic begins within seconds.": {
+    "C4": "met"
+   },
+   "The router becomes public enemy number one.": {
+    "C4": "met"
+   },
+   "People stare at its blinking lights as if intimidation will restore the connection.": {
+    "C4": "met"
+   },
+   "Everyone blames someone else.": {
+    "C4": "met"
+   },
+   "The internet provider, the weather, the neighbors, or whoever last touched the router becomes the prime suspect.": {
+    "C4": "met"
+   },
+   "People check their phones every ten seconds.": {
+    "C4": "met"
+   },
+   "Mobile data suddenly becomes precious.": {
+    "C4": "met"
+   },
+   "People who casually stream hours of videos start treating every megabyte like gold.": {
+    "C4": "met"
+   },
+   "Productivity mysteriously disappears.": {
+    "C4": "met"
+   },
+   "The moment Wi-Fi returns, everyone forgets the crisis.": {
+    "C4": "met"
+   },
+   "The panic disappears, streaming resumes, and nobody remembers their dramatic promises to live offline.": {
+    "C4": "met"
+   },
+   "The ultimate truth: Nothing reveals modern humanity's dependence on technology faster than a tiny router deciding to take an unexpected vacation.": {
+    "C4": "not_met"
+   }
+  }
+ },
+ {
+  "id": "c4-10",
+  "source": "Gideon hand-picked C3/C4 (ChatGPT, Nov 2026)",
+  "group": "C4 prompt: things and habits",
+  "question": "What happens every single time someone says \"let's just play one quick game\"?",
+  "text": "One game becomes ten games. What was supposed to take 15 minutes turns into a three-hour gaming marathon. Nobody wants to end on a loss. The moment someone loses, they demand a rematch to restore their dignity. The winner suddenly becomes arrogant. One victory is enough to convince someone they're the greatest player alive. The loser starts making excuses. Lag, bad controllers, distractions, and unfair rules become the reasons for defeat. Someone says, \"Okay, this is actually the last one.\" It's never the last one. Friendly competition becomes personal. What started as casual entertainment turns into a battle for pride, reputation, and bragging rights. Everyone forgets their responsibilities. Homework, laundry, sleep, and important deadlines suddenly become tomorrow's problems. The quietest person becomes the loudest. One controversial move transforms a peaceful individual into a professional commentator. Someone invents a new rule to keep playing. \"Winner stays,\" \"best of three,\" and \"first to five\" become creative ways to extend the session. Everyone regrets how late it gets but agrees it was worth it. The clock says 2 a.m., everyone is exhausted, and somebody still asks for another round. The ultimate truth: \"Let's just play one quick game\" is one of the most dangerous lies in the history of friendship. It starts with a game, turns into a competition, and ends with someone saying, \"Bro, I swear this is the last one.\"",
+  "labels": {
+   "One game becomes ten games.": {
+    "C4": "met"
+   },
+   "What was supposed to take 15 minutes turns into a three-hour gaming marathon.": {
+    "C4": "met"
+   },
+   "Nobody wants to end on a loss.": {
+    "C4": "met"
+   },
+   "The moment someone loses, they demand a rematch to restore their dignity.": {
+    "C4": "met"
+   },
+   "The winner suddenly becomes arrogant.": {
+    "C4": "met"
+   },
+   "The loser starts making excuses.": {
+    "C4": "met"
+   },
+   "Lag, bad controllers, distractions, and unfair rules become the reasons for defeat.": {
+    "C4": "met"
+   },
+   "Someone says, \"Okay, this is actually the last one.\"": {
+    "C4": "met"
+   },
+   "It's never the last one.": {
+    "C4": "met"
+   },
+   "Friendly competition becomes personal.": {
+    "C4": "met"
+   },
+   "What started as casual entertainment turns into a battle for pride, reputation, and bragging rights.": {
+    "C4": "met"
+   },
+   "Everyone forgets their responsibilities.": {
+    "C4": "met"
+   },
+   "Homework, laundry, sleep, and important deadlines suddenly become tomorrow's problems.": {
+    "C4": "met"
+   },
+   "The quietest person becomes the loudest.": {
+    "C4": "met"
+   },
+   "One controversial move transforms a peaceful individual into a professional commentator.": {
+    "C4": "met"
+   },
+   "Someone invents a new rule to keep playing.": {
+    "C4": "met"
+   },
+   "\"Winner stays,\" \"best of three,\" and \"first to five\" become creative ways to extend the session.": {
+    "C4": "met"
+   },
+   "Everyone regrets how late it gets but agrees it was worth it.": {
+    "C4": "met"
+   },
+   "The clock says 2 a.m., everyone is exhausted, and somebody still asks for another round.": {
+    "C4": "met"
+   },
+   "The ultimate truth: \"Let's just play one quick game\" is one of the most dangerous lies in the history of friendship.": {
+    "C4": "not_met"
+   },
+   "It starts with a game, turns into a competition, and ends with someone saying, \"Bro, I swear this is the last one.\"": {
+    "C4": "met"
+   }
+  }
+ }
+]
