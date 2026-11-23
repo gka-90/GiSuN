@@ -14,6 +14,7 @@ import json
 
 from gisun import config, llm
 from gisun.criteria import CRITERIA, applicable
+from gisun.detectors.claims import SHORT_CRITERIA
 from gisun.tools.attribution import agentless_attribution
 from gisun.tools.numbers import numbers_in
 
@@ -59,6 +60,13 @@ def _funnel_c2(ctx, plan: dict[int, list[str]], notes: list) -> dict[int, list[s
     return plan
 
 
+def _short_claims(ctx, plan: dict[int, list[str]]) -> dict[int, list[str]]:
+    """Nov 20: a short claim (3-4 words, see claims.SHORT_MIN_WORDS) is checked for SHORT_CRITERIA
+    (C3, C4) only, whatever the rules or the Plan agent chose. Gold labels can still force others."""
+    short = {c["claim_id"] for c in ctx.claims if c.get("short")}
+    return {cid: [k for k in crits if cid not in short or k in SHORT_CRITERIA] for cid, crits in plan.items()}
+
+
 def _with_dependencies(plan: dict[int, list[str]]) -> dict[int, list[str]]:
     out = {}
     for cid, crits in plan.items():
@@ -72,7 +80,7 @@ def plan(ctx, use_model: bool, open_criteria: bool = False) -> dict:
     base = rule_plan(ctx, open_criteria)
     if not use_model or not ctx.claims:
         notes = []
-        return {"tasks": _with_dependencies(_funnel_c2(ctx, base, notes)), "by": "rules", "notes": notes}
+        return {"tasks": _with_dependencies(_funnel_c2(ctx, _short_claims(ctx, base), notes)), "by": "rules", "notes": notes}
 
     table = "\n".join(f"{k}: {v['name']} -- {v['question']}" for k, v in CRITERIA.items())
     claims = [{"claim_id": c["claim_id"], "sentence": c["sentence"], "candidates": base[c["claim_id"]],
@@ -101,7 +109,7 @@ def plan(ctx, use_model: bool, open_criteria: bool = False) -> dict:
                                                       and n.get("criterion") == crit)]
                     notes.append({"claim_id": c["claim_id"], "criterion": crit, "by": "keep_rule",
                                   "reason": f"kept: {why}"})
-        return {"tasks": _with_dependencies(_funnel_c2(ctx, chosen, notes)), "by": "agent", "notes": notes}
+        return {"tasks": _with_dependencies(_funnel_c2(ctx, _short_claims(ctx, chosen), notes)), "by": "agent", "notes": notes}
     except (llm.LLMError, ValueError, TypeError) as e:
         notes = [f"plan agent failed: {e}"]
-        return {"tasks": _with_dependencies(_funnel_c2(ctx, base, notes)), "by": "rules", "notes": notes}
+        return {"tasks": _with_dependencies(_funnel_c2(ctx, _short_claims(ctx, base), notes)), "by": "rules", "notes": notes}

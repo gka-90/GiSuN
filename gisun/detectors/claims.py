@@ -15,6 +15,13 @@ import re
 from difflib import SequenceMatcher
 
 MIN_WORDS = 5
+# Nov 20: short sentences ("Tourists spend money.", "Everyone blames someone else.") can still be
+# overgeneralizations or loaded wording. With all sentences on, a full sentence of SHORT_MIN_WORDS to
+# MIN_WORDS-1 words ending in "." or "!" becomes a claim marked "short": True, and the Plan agent
+# checks it for SHORT_CRITERIA only (C1/C2/C5/C6 need more words to apply). 1-2 word lines ("Tip.",
+# "Subscribe.") and questions are still skipped.
+SHORT_MIN_WORDS = 3
+SHORT_CRITERIA = ("C3", "C4")
 SIMILARITY_THRESHOLD = 0.85
 
 FILLER_OPENERS = (
@@ -51,11 +58,23 @@ HEDGE = re.compile(
     r"\b(?:[Ii] think|[Ii] believe|[Ii]n my opinion|may|might|could|possibly|perhaps)\b")
 
 
-def _is_candidate(sentence: str) -> bool:
+def _word_count(sentence: str) -> int:
+    """Words in a sentence. Only pieces with a letter or number count, so a list bullet ("- People
+    adapt.", "• Pay extra.") is not a word (Nov 23: "- People adapt." was counted as 3 words)."""
+    return len([w for w in sentence.split() if any(ch.isalnum() for ch in w)])
+
+
+def _is_short(sentence: str) -> bool:
+    """A full short sentence (3-4 words, ends in "." or "!"): checked for C3/C4 only, see SHORT_MIN_WORDS."""
+    return SHORT_MIN_WORDS <= _word_count(sentence) < MIN_WORDS and sentence.rstrip("*\"'”) ").endswith((".", "!"))
+
+
+def _is_candidate(sentence: str, allow_short: bool = False) -> bool:
     lowered = sentence.lower()
     if sentence.endswith(("?", ":")):
         return False
-    if len(sentence.split()) < MIN_WORDS:
+    # short sentences only count when allowed (all-sentences mode) and they look like full sentences
+    if _word_count(sentence) < MIN_WORDS and not (allow_short and _is_short(sentence)):
         return False
     if lowered.startswith(FILLER_OPENERS):
         return False
@@ -122,7 +141,8 @@ def extract_claims(numeric_flags: list[dict], bias_flags: list[dict],
 
     claims = []
     for sentence, flags in by_sentence.items():
-        if not _is_candidate(sentence):
+        # short sentences are allowed only when all sentences are checked (the agents mode)
+        if not _is_candidate(sentence, allow_short=sentences is not None):
             continue
 
         signals, score = [], 0
@@ -149,6 +169,7 @@ def extract_claims(numeric_flags: list[dict], bias_flags: list[dict],
                 "signals": signals,
                 "flags": flags,
                 "detector_hit": bool(flags),
+                "short": _word_count(sentence) < MIN_WORDS,  # True = check SHORT_CRITERIA only
                 "duplicates": [],
             })
 
