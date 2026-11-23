@@ -13,7 +13,12 @@ EXAMPLES = {
     "C3": ["Mark Oaten is a disgraced Liberal Democrat politician", "Opponents argued that race-conscious admissions",
            "Concerns include cyberbullying, body image issues, sleep disruption", "devastated", "illegal alien"],
     "C4": ["Everyone concentrates better after a good breakfast", "Only a member of Congress can formally introduce a bill",
-           "More time doesn't always mean better results", "Republicans have especially low trust", "all 12 patients"],
+           "More time doesn't always mean better results", "Republicans have especially low trust", "all 12 patients",
+           # added Nov 20: a bare group claim counts as a claim about the whole group
+           "Tourists spend money",
+           # added Nov 23: trends, pushback and things-as-subject are not_met (people-only rule)
+           "People are marrying later", "Millennials aren't simply worse with money",
+           "The bed becomes an unofficial office"],
     "C5": ["Studies show it lowers the risk of hospitalization and death",
            "Critics argue these costs fall hardest on working-class people", "The CDC recommends an annual flu vaccine",
            # added Nov 10 with the new C5 rules (made-up sentences, not from the gold set)

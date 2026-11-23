@@ -109,15 +109,38 @@ Error types: `FP-NEUTRAL`, `FP-ATTRIBUTED`.
 
 ## C4: Overgeneralization
 
-**`met` only if** the sentence makes an unqualified universal claim about people, groups or
-outcomes ("always", "never", "everyone", or a claim about a whole group) that has obvious exceptions.
+**`met` only if** the sentence makes an unqualified universal claim about people or groups of
+people ("always", "never", "everyone", or a claim about a whole group) that has obvious exceptions.
+A group of people named with no qualifier and stated as fact is a claim about the whole group, even
+without "all", **when it says what the members are like or do** (habits, traits, preferences,
+motives): "Tourists spend money", "Locals know shortcuts" and "Students cram the night before" are
+`met`, because a reader takes them as true of every tourist, local or student. The same goes for
+"everyone", "nobody" and "people" used for everyone ("People blame traffic"). A list of similar claims
+does not excuse each other: the previous sentences only cover this one if they give a source or data
+for it, or hedge it. (Added Nov 20, 2026, after the hand-labeled C3/C4 test.)
+
+**C4 is only about people.** A sentence whose subject is a thing, activity or situation ("The bed
+becomes an unofficial office", "Reading legal language feels like an obstacle") is `not_met`, unless it
+also makes such a claim about people. (Added Nov 23, 2026; 50 labels in the hand-labeled set changed to
+`not_met`, originals in `datasets/relabel/gold_c3c4_handpicked_original.json`.)
+
+**Test question:** *is the sentence saying every member of this group **is like this** or **does
+this**, when obvious exceptions exist?*
 
 **`not_met`:** literally true absolutes, rules and laws, definitions, closed groups ("all 12
-patients"), hedged sentences ("doesn't always"), and comparisons backed by the previous sentence.
+patients"), hedged sentences ("doesn't always"), comparisons backed by the previous sentence,
+**population trends or statistics** ("People are marrying later"), which describe averages,
+**historical descriptions** ("People relied on breadlines"), and **pushback**: a sentence that denies
+or corrects a generalization ("Millennials aren't simply worse with money"). (Added Nov 23, 2026.)
 
 | Example | Label | Why |
 |---|---|---|
 | "Everyone concentrates better after a good breakfast." | `met` | universal claim with obvious exceptions |
+| "Tourists spend money." (hand-labeled C4 set) | `met` | a whole group, no qualifier, stated as fact |
+| "Many Gen Z workers prefer flexible hours." (made-up example) | `not_met` | hedged ("many") |
+| "People are marrying and having children later." (184-row set answers) | `not_met` | a population trend, not a trait |
+| "Millennials aren't simply worse with money." (184-row set answers) | `not_met` | pushback against a generalization |
+| "The bed becomes an unofficial office." (hand-labeled C4 set, relabeled Nov 23) | `not_met` | a thing, not people |
 | "Only a member of Congress can formally introduce a bill." (row 22) | `not_met` | a rule |
 | "More time doesn't always mean better results." (row 54) | `not_met` | a hedge, not a generalization |
 | "Republicans have especially low trust." (row 21, right after the Gallup figure) | `not_met` | backed by the previous sentence |

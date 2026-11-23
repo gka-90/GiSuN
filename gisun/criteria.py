@@ -193,10 +193,28 @@ CRITERIA = {
     "C4": {
         "name": "overgeneralization",
         "question": "Does the claim make an absolute or sweeping statement (always, never, everyone ...) that the evidence can't support?",
-        "guidance": "'met' only if the sentence makes an unqualified universal claim about people, groups or "
-                    "outcomes ('always', 'never', 'everyone', or a claim about a whole group) that has obvious "
+        "guidance": "'met' only if the sentence makes an unqualified universal claim about people or groups of "
+                    "people ('always', 'never', 'everyone', or a claim about a whole group) that has obvious "
                     "exceptions ('Everyone concentrates better after a good breakfast'): a tendency turned into "
-                    "a rule. 'not_met' for: literally true absolutes ('water always boils at a lower temperature at "
+                    "a rule. "
+                    # Nov 20 hand-labeled test: the agent only reacted to 'all/always/everyone' and passed
+                    # bare group claims as 'a general tendency' (C4 recall 0.16), so say it explicitly.
+                    # Nov 23 (Gideon's decision, tweaks 1-3 in the "C4 Group Rule" doc): the group rule covers
+                    # only what members are like or do, C4 is only about people, and pushback is not_met.
+                    "A group of people named with no qualifier and stated as fact is a claim about the whole "
+                    "group, even without 'all', when it says what the members are like or do (habits, traits, "
+                    "preferences, motives): 'Tourists spend money', 'Locals know shortcuts', 'Students cram the "
+                    "night before' are 'met', because a reader takes them as true of every tourist, local or "
+                    "student. The same goes for 'everyone', 'nobody' and 'people' used for everyone ('People "
+                    "blame traffic'). C4 is only about people: a sentence whose subject is a thing, activity or "
+                    "situation ('The bed becomes an unofficial office', 'Reading legal language feels like an "
+                    "obstacle') is 'not_met', unless it also makes such a claim about people. The group rule does "
+                    "not cover population trends or statistics ('People are marrying later', 'Women are "
+                    "overrepresented in lower-paying fields'), which describe averages, or historical descriptions "
+                    "of what happened ('People relied on breadlines'). A sentence that denies or corrects a "
+                    "generalization ('Millennials aren't simply worse with money') is 'not_met'. A list of similar "
+                    "claims does not excuse each other: the previous sentences only "
+                    "cover this one if they give a source or data for it, or hedge it. 'not_met' for: literally true absolutes ('water always boils at a lower temperature at "
                     "altitude' is a physical law); rules and laws ('Only a member of Congress can formally "
                     "introduce a bill'); definitions; closed groups ('all 12 patients'); hedged sentences ('More "
                     "time doesn't always mean better results' is a hedge, not a generalization; so are often, "
