@@ -116,20 +116,47 @@ function settle(response) {
     console.debug("[GiSuN] redraw / asked", text.slice(0, 40));
     processResponse(response); // checked before (redrawn by ChatGPT) or asked for: show it
   } else if (processedText.get(response) !== text) {
-    offerCheck(response);
+    offerCheck(response, text);
   }
 }
 
 const manualChecks = new WeakSet(); // answers the user asked GiSuN to check
 const checkButtons = new WeakMap(); // response -> its "Check this answer" button
+const buttonsByText = new Map(); // answer text -> its button, so one answer gets one button
 
-function offerCheck(response) {
+// One button per answer. ChatGPT sometimes swaps in a new element for an answer it already drew
+// (and the old button stays behind), and a layout can have two matching elements for one answer;
+// keyed on the element alone, each of those got a button of its own. So reuse a button that already
+// sits right after the answer, or that was made for the same answer text.
+function offerCheck(response, text) {
   if (checkButtons.get(response)?.isConnected) return;
+  const next = response.nextElementSibling;
+  const existing = next?.classList.contains("gisun-check-btn") ? next : buttonsByText.get(text);
+  if (existing?.isConnected) {
+    checkButtons.set(response, existing);
+    return;
+  }
   const button = makeEl("button", "gisun-check-btn", "Check this answer with GiSuN");
   button.type = "button";
-  button.addEventListener("click", () => checkNow(response));
+  // Look the answer up when clicked: ChatGPT may have redrawn it since the button was added
+  button.addEventListener("click", () => {
+    button.remove();
+    checkNow(answerBefore(button) ?? response);
+  });
   checkButtons.set(response, button);
+  if (text) buttonsByText.set(text, button);
   response.parentNode?.insertBefore(button, response.nextSibling);
+}
+
+// The answer a button belongs to: the element right before it, if that is an answer
+function answerBefore(button) {
+  const prev = button.previousElementSibling;
+  return prev?.matches(RESPONSE_SELECTOR) ? outermostResponse(prev) : null;
+}
+
+// A button with no answer right before it was left behind when ChatGPT redrew the answer
+function removeStrayButtons() {
+  document.querySelectorAll(".gisun-check-btn").forEach((b) => answerBefore(b) || b.remove());
 }
 
 function checkNow(response) {
@@ -145,7 +172,11 @@ function allResponses() {
 }
 
 // A safety net: answers whose changes the observer missed still get their button
-setInterval(() => allResponses().forEach((r) => pendingTimers.has(r) || settle(r)), 3000);
+// (and stray buttons from redrawn answers are cleared first)
+setInterval(() => {
+  removeStrayButtons();
+  allResponses().forEach((r) => pendingTimers.has(r) || settle(r));
+}, 3000);
 
 // Option+Shift+G: check the last answer on the page
 document.addEventListener("keydown", (e) => {
